@@ -9,12 +9,12 @@ export default {
         'cyan-electric': '#00FFFF',
       },
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
-        mono: ['"Roboto Mono"', 'monospace'],
-        body: ['"Space Grotesk"', 'sans-serif'],
+        sans: ['Sora', 'Inter', 'sans-serif'], // Títulos em bloco sólido
+        mono: ['"Roboto Mono"', 'monospace'], // Elementos técnicos
+        body: ['"Space Grotesk"', 'sans-serif'], // Corpo e precisão (ink traps)
       },
       backgroundImage: {
-        'grid-pattern': "url(\"data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h40v40H0V0zm39 39V1H1v38h38z' fill='%23ffffff' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E\")",
+        'blueprint': "url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M60 0H0V60H60V0ZM59 59H1V1H59V59Z' fill='%23ffffff' fill-opacity='0.02'/%3E%3Cpath d='M30 0V60M0 30H60' stroke='%23ffffff' stroke-opacity='0.01' stroke-width='0.5'/%3E%3C/svg%3E\")",
       }
     },
   },

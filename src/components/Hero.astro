@@ -1,36 +1,81 @@
----
-// Sem JS no lado do cliente para esta seção. 100% renderizada no servidor para LCP máximo.
----
-<header class="relative min-h-screen flex flex-col justify-center items-center px-6 lg:px-12 text-center overflow-hidden">
+<header class="relative min-h-screen flex flex-col justify-center items-center px-6 pt-20 overflow-hidden">
   
-  <!-- Glow Ambiente (Hardware Accelerated) -->
-  <!-- Utiliza translateZ(0) implicitamente via Tailwind (transform) para forçar GPU -->
-  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-azure-tech/15 rounded-full blur-[120px] -z-10 pointer-events-none transform-gpu"></div>
+  <!-- Glow Ambiente -->
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-azure-tech/10 rounded-full blur-[160px] -z-10 pointer-events-none transform-gpu"></div>
 
   <!-- Status Badge -->
-  <div class="inline-flex items-center gap-2 px-3 py-1.5 mb-12 border border-cyan-electric/30 bg-cyan-electric/5 backdrop-blur-md rounded-sm">
-    <span class="w-2 h-2 rounded-full bg-cyan-electric animate-pulse"></span>
-    <span class="text-cyan-electric font-mono text-[0.70rem] tracking-[0.2em] uppercase">
+  <div class="inline-flex items-center gap-3 px-4 py-2 mb-8 border border-white/10 bg-white/5 backdrop-blur-md rounded-sm">
+    <div class="flex gap-1">
+      <span class="w-1.5 h-1.5 bg-cyan-electric"></span>
+      <span class="w-1.5 h-1.5 bg-cyan-electric/40"></span>
+      <span class="w-1.5 h-1.5 bg-cyan-electric/20"></span>
+    </div>
+    <span class="text-white font-mono text-[10px] tracking-[0.3em] uppercase font-bold">
       [ STATUS_SISTEMA: OTIMIZANDO_OPERAÇÃO ]
     </span>
   </div>
 
   <!-- Headline -->
-  <h1 class="font-sans text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white max-w-5xl leading-[1.1] mb-8">
-    Sistemas projetados para estancar vazamentos de <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-electric to-azure-tech">lucro e tempo.</span>
+  <h1 class="font-sans text-5xl md:text-7xl lg:text-8xl font-extrabold tracking-tighter text-white max-w-5xl leading-[0.9] text-center mb-6">
+    Sistemas projetados para estancar vazamentos de <span class="text-cyan-electric">lucro e tempo.</span>
   </h1>
 
-  <!-- Subtitle -->
-  <p class="font-body text-lg md:text-xl text-slate-400 max-w-2xl mb-14 leading-relaxed font-light">
-    Engenharia de interfaces e automações em Python. Transição de processos fragmentados para ecossistemas digitais de alta performance e precisão cirúrgica.
+  <!-- Slogan -->
+  <p class="font-body text-xl md:text-2xl text-slate-300 tracking-tight mb-12 text-center">
+    Build. Learn. Evolve.
   </p>
 
+  <!-- Simulador de Eficiência (Interactive Container) -->
+  <div class="relative w-full max-w-4xl aspect-[21/9] md:aspect-[3/1] bg-white/[0.02] border border-white/5 rounded-sm overflow-hidden group mb-12">
+    <!-- Grid Blueprint Interno -->
+    <div class="absolute inset-0 bg-blueprint bg-[length:30px_30px] opacity-20 pointer-events-none"></div>
+    
+    <!-- Lado Antes (Caos) -->
+    <div class="absolute inset-0 flex items-center justify-center p-8 transition-opacity duration-500 group-hover:opacity-0">
+      <div class="text-center">
+        <span class="font-mono text-[10px] tracking-[0.2em] text-slate-500 block mb-4">[ ESTADO_ANTERIOR: CAOS_OPERACIONAL ]</span>
+        <div class="flex flex-wrap justify-center gap-2 max-w-md opacity-40">
+          {Array.from({ length: 12 }).map((_, i) => (
+            <div class="h-2 w-16 bg-slate-700 rounded-full animate-pulse" style={`animation-delay: ${i * 100}ms`}></div>
+          ))}
+        </div>
+        <p class="mt-6 font-body text-slate-400 text-sm italic">Processos manuais, interfaces fragmentadas, perda de dados.</p>
+      </div>
+    </div>
+
+    <!-- Lado Depois (Ordem) -->
+    <div class="absolute inset-0 flex items-center justify-center p-8 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+      <div class="text-center w-full max-w-md">
+        <span class="font-mono text-[10px] tracking-[0.2em] text-cyan-electric block mb-4">[ ESTADO_OTIMIZADO: ENGENHARIA_DADOS ]</span>
+        <div class="h-24 w-full flex items-end justify-between gap-1 mb-6">
+          {Array.from({ length: 24 }).map((_, i) => (
+            <div class="bg-cyan-electric/40 w-full hover:bg-cyan-electric transition-colors duration-300" style={`height: ${Math.random() * 100}%`}></div>
+          ))}
+        </div>
+        <div class="flex justify-between items-center px-4 py-2 border border-cyan-electric/20 bg-cyan-electric/5 rounded-sm">
+          <span class="font-mono text-[10px] text-cyan-electric">TIME_SAVED:</span>
+          <span class="font-sans font-bold text-2xl text-white">400H/Y</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slider Handle Visual -->
+    <div class="absolute inset-y-0 left-1/2 w-px bg-white/10 group-hover:bg-cyan-electric/50 transition-colors pointer-events-none">
+       <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 border border-white/20 bg-midnight-navy rotate-45 flex items-center justify-center group-hover:border-cyan-electric transition-colors">
+          <div class="w-1 h-1 bg-white group-hover:bg-cyan-electric"></div>
+       </div>
+    </div>
+  </div>
+
   <!-- CTA Action -->
-  <a href="#auditoria" class="group relative inline-flex items-center justify-center gap-3 px-8 py-4 bg-white/5 border border-white/10 backdrop-blur-xl rounded-sm text-white font-medium tracking-wide transition-all duration-300 hover:bg-white/10 hover:border-cyan-electric/50 hover:shadow-[0_0_25px_rgba(0,255,255,0.15)]">
-    <span class="font-mono text-sm tracking-wider">[ INICIAR DIAGNÓSTICO ]</span>
-    <svg class="w-5 h-5 text-cyan-electric transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-    </svg>
-  </a>
+  <div class="flex flex-col md:flex-row gap-4 items-center">
+    <a href="#auditoria" class="group relative inline-flex items-center justify-center gap-3 px-10 py-5 bg-white/5 border border-white/10 backdrop-blur-xl rounded-sm text-white font-medium tracking-wide transition-all duration-300 hover:bg-white/10 hover:border-cyan-electric/50 hover:shadow-[0_0_30px_rgba(0,255,255,0.2)]">
+      <span class="font-mono text-xs tracking-[0.2em] uppercase font-bold">[ SOLICITAR AUDITORIA TÉCNICA ]</span>
+      <svg class="w-4 h-4 text-cyan-electric transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+      </svg>
+    </a>
+  </div>
   
 </header>
+

@@ -1,0 +1,34 @@
+---
+const navItems = [
+  { label: '[ BLOG ]', href: '/blog' },
+  { label: '[ PROJETOS: UX ]', href: '/ux' },
+  { label: '[ PROJETOS: AUTOMATIONS ]', href: '/automations' },
+  { label: '[ CONTATO ]', href: '/contato' },
+];
+---
+<nav class="fixed top-0 left-0 w-full z-50 px-6 py-4 flex justify-between items-center bg-midnight-navy/80 backdrop-blur-xl border-b border-white/5">
+  <div class="flex items-center gap-2">
+    <div class="w-2 h-2 bg-cyan-electric"></div>
+    <span class="font-mono text-xs tracking-widest text-white uppercase font-bold">NATHAN_BORGES // ARCH.TIME</span>
+  </div>
+  
+  <ul class="hidden md:flex items-center gap-4">
+    {navItems.map(item => (
+      <li>
+        <a 
+          href={item.href} 
+          class="px-4 py-2 text-[10px] font-mono tracking-[0.2em] text-slate-400 hover:text-cyan-electric hover:bg-white/5 border border-transparent hover:border-white/10 transition-all duration-300 rounded-sm"
+        >
+          {item.label}
+        </a>
+      </li>
+    ))}
+  </ul>
+
+  <button class="md:hidden text-white p-2">
+    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="2" y="5" width="16" height="1" fill="currentColor"/>
+      <rect x="2" y="14" width="16" height="1" fill="currentColor"/>
+    </svg>
+  </button>
+</nav>

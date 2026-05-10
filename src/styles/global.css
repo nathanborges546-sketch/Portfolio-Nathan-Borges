@@ -5,15 +5,23 @@
 @font-face {
   font-family: 'Space Grotesk';
   src: url('/fonts/SpaceGrotesk-Regular.woff2') format('woff2');
-  font-weight: 400;
+  font-weight: 300 400;
   font-style: normal;
-  font-display: swap; /* Previne invisibilidade da fonte (CLS mitigation) */
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Sora';
+  src: url('/fonts/Sora-ExtraBold.woff2') format('woff2');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
   font-family: 'Inter';
-  src: url('/fonts/Inter-Bold.woff2') format('woff2');
-  font-weight: 700;
+  src: url('/fonts/Inter-Regular.woff2') format('woff2');
+  font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
