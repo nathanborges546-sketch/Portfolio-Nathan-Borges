@@ -1,34 +1,71 @@
 ---
-const navItems = [
-  { label: '[ BLOG ]', href: '/blog' },
-  { label: '[ PROJETOS: UX ]', href: '/ux' },
-  { label: '[ PROJETOS: AUTOMATIONS ]', href: '/automations' },
-  { label: '[ CONTATO ]', href: '/contato' },
-];
+// Navbar Editorial com Gaveta de Projetos
 ---
-<nav class="fixed top-0 left-0 w-full z-50 px-6 py-4 flex justify-between items-center bg-midnight-navy/80 backdrop-blur-xl border-b border-white/5">
-  <div class="flex items-center gap-2">
-    <div class="w-2 h-2 bg-cyan-electric"></div>
-    <span class="font-mono text-xs tracking-widest text-white uppercase font-bold">NATHAN_BORGES // ARCH.TIME</span>
-  </div>
+<nav class="fixed top-0 left-0 w-full z-50 px-10 py-8 flex justify-between items-center bg-transparent mix-blend-difference">
+  <a href="/" class="text-white font-sans text-xl font-bold tracking-tight">Nathan Borges</a>
   
-  <ul class="hidden md:flex items-center gap-4">
-    {navItems.map(item => (
-      <li>
-        <a 
-          href={item.href} 
-          class="px-4 py-2 text-[10px] font-mono tracking-[0.2em] text-slate-400 hover:text-cyan-electric hover:bg-white/5 border border-transparent hover:border-white/10 transition-all duration-300 rounded-sm"
-        >
-          {item.label}
-        </a>
+  <div class="flex items-center gap-12">
+    <ul class="hidden md:flex items-center gap-10">
+      <li><a href="/" class="text-white/70 hover:text-white transition-colors text-sm">Home</a></li>
+      <li class="relative group">
+        <button id="project-trigger" class="text-white/70 hover:text-white transition-colors text-sm flex items-center gap-2">
+          Projetos
+          <svg width="10" height="6" viewBox="0 0 10 6" fill="none" class="opacity-50 group-hover:rotate-180 transition-transform">
+            <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
       </li>
-    ))}
-  </ul>
-
-  <button class="md:hidden text-white p-2">
-    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect x="2" y="5" width="16" height="1" fill="currentColor"/>
-      <rect x="2" y="14" width="16" height="1" fill="currentColor"/>
-    </svg>
-  </button>
+      <li><a href="/blog" class="text-white/70 hover:text-white transition-colors text-sm">Blog</a></li>
+      <li><a href="/contato" class="text-white/70 hover:text-white transition-colors text-sm">Contato</a></li>
+    </ul>
+  </div>
 </nav>
+
+<!-- Gaveta de Projetos (Overlay) -->
+<div id="project-drawer" class="fixed inset-0 z-[60] bg-midnight-navy translate-y-[-100%] transition-transform duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] pointer-events-none overflow-hidden">
+  <div class="h-full flex flex-col justify-center px-10 md:px-20 lg:px-40">
+    <div class="flex justify-between items-start mb-20">
+      <h2 class="text-white/20 font-sans text-lg uppercase tracking-widest">Selecione o Eixo</h2>
+      <button id="close-drawer" class="text-white hover:text-azure-tech transition-colors p-4">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M18 6L6 18M6 6l12 12" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-20">
+      <a href="/ux" class="group">
+        <span class="text-white/30 font-mono text-xs block mb-4">01</span>
+        <h3 class="text-white text-5xl md:text-7xl font-sans font-bold mb-6 group-hover:text-azure-tech transition-colors">UX Design</h3>
+        <p class="text-white/50 max-w-sm text-lg leading-relaxed">Interfaces minimalistas desenhadas para eliminar o esforço cognitivo e maximizar a fluidez operacional.</p>
+      </a>
+
+      <a href="/automations" class="group">
+        <span class="text-white/30 font-mono text-xs block mb-4">02</span>
+        <h3 class="text-white text-5xl md:text-7xl font-sans font-bold mb-6 group-hover:text-cyan-electric transition-colors font-thin italic">Automação</h3>
+        <p class="text-white/50 max-w-sm text-lg leading-relaxed">Scripts em Python que transformam processos manuais em fluxos de dados contínuos, recuperando horas vitais.</p>
+      </a>
+    </div>
+  </div>
+</div>
+
+<script>
+  const trigger = document.getElementById('project-trigger');
+  const drawer = document.getElementById('project-drawer');
+  const close = document.getElementById('close-drawer');
+
+  const toggleDrawer = (open: boolean) => {
+    if (open) {
+      drawer?.classList.remove('translate-y-[-100%]');
+      drawer?.classList.add('translate-y-0', 'pointer-events-auto');
+      document.body.style.overflow = 'hidden';
+    } else {
+      drawer?.classList.add('translate-y-[-100%]');
+      drawer?.classList.remove('translate-y-0', 'pointer-events-auto');
+      document.body.style.overflow = '';
+    }
+  };
+
+  trigger?.addEventListener('click', () => toggleDrawer(true));
+  close?.addEventListener('click', () => toggleDrawer(false));
+</script>

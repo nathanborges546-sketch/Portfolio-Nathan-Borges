@@ -18,23 +18,25 @@ const { title } = Astro.props;
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		
-		<!-- Pré-carregamento das fontes para garantir LCP < 1.5s e evitar CLS -->
+		<!-- Pré-carregamento das fontes variáveis para performance editorial -->
+		<link rel="preload" href="/fonts/Sora-Variable.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+		<link rel="preload" href="/fonts/Inter-Variable.woff2" as="font" type="font/woff2" crossorigin="anonymous">
 		<link rel="preload" href="/fonts/SpaceGrotesk-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-		<link rel="preload" href="/fonts/Sora-ExtraBold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-		<link rel="preload" href="/fonts/Inter-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-		<link rel="preload" href="/fonts/RobotoMono-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
 		
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 		
-		<!-- Habilitando View Transitions API -->
+		<!-- View Transitions para navegação cinematográfica -->
 		<ViewTransitions />
 	</head>
-	<body class="bg-midnight-navy text-white min-h-screen relative font-body selection:bg-cyan-electric selection:text-midnight-navy">
+	<body class="bg-midnight-navy text-white min-h-screen relative font-sans selection:bg-azure-tech selection:text-white antialiased">
 		<Navbar />
-		<!-- Malha de grid blueprint -->
-		<div class="fixed inset-0 z-[-1] bg-blueprint bg-[length:60px_60px] opacity-40"></div>
 		
-		<slot />
+		<main>
+			<slot />
+		</main>
+
+		<!-- Efeito de iluminação sutil de fundo -->
+		<div class="fixed inset-0 z-[-1] bg-soft-glow pointer-events-none"></div>
 	</body>
 </html>
