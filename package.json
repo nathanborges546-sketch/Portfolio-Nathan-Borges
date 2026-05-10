@@ -1,0 +1,20 @@
+{
+  "name": "portifolio",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Portfólio Nathan Borges",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/tailwind": "latest",
+    "@rive-app/canvas": "latest",
+    "astro": "latest",
+    "gsap": "latest",
+    "tailwindcss": "latest"
+  }
+}
