@@ -1,0 +1,36 @@
+---
+// Sem JS no lado do cliente para esta seção. 100% renderizada no servidor para LCP máximo.
+---
+<header class="relative min-h-screen flex flex-col justify-center items-center px-6 lg:px-12 text-center overflow-hidden">
+  
+  <!-- Glow Ambiente (Hardware Accelerated) -->
+  <!-- Utiliza translateZ(0) implicitamente via Tailwind (transform) para forçar GPU -->
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-azure-tech/15 rounded-full blur-[120px] -z-10 pointer-events-none transform-gpu"></div>
+
+  <!-- Status Badge -->
+  <div class="inline-flex items-center gap-2 px-3 py-1.5 mb-12 border border-cyan-electric/30 bg-cyan-electric/5 backdrop-blur-md rounded-sm">
+    <span class="w-2 h-2 rounded-full bg-cyan-electric animate-pulse"></span>
+    <span class="text-cyan-electric font-mono text-[0.70rem] tracking-[0.2em] uppercase">
+      [ STATUS_SISTEMA: OTIMIZANDO_OPERAÇÃO ]
+    </span>
+  </div>
+
+  <!-- Headline -->
+  <h1 class="font-sans text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white max-w-5xl leading-[1.1] mb-8">
+    Sistemas projetados para estancar vazamentos de <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-electric to-azure-tech">lucro e tempo.</span>
+  </h1>
+
+  <!-- Subtitle -->
+  <p class="font-body text-lg md:text-xl text-slate-400 max-w-2xl mb-14 leading-relaxed font-light">
+    Engenharia de interfaces e automações em Python. Transição de processos fragmentados para ecossistemas digitais de alta performance e precisão cirúrgica.
+  </p>
+
+  <!-- CTA Action -->
+  <a href="#auditoria" class="group relative inline-flex items-center justify-center gap-3 px-8 py-4 bg-white/5 border border-white/10 backdrop-blur-xl rounded-sm text-white font-medium tracking-wide transition-all duration-300 hover:bg-white/10 hover:border-cyan-electric/50 hover:shadow-[0_0_25px_rgba(0,255,255,0.15)]">
+    <span class="font-mono text-sm tracking-wider">[ INICIAR DIAGNÓSTICO ]</span>
+    <svg class="w-5 h-5 text-cyan-electric transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+    </svg>
+  </a>
+  
+</header>
