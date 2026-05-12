@@ -1,10 +1,22 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero.astro';
+import ProjectSwitcher from '../components/ProjectSwitcher.astro';
+import Process from '../components/Process.astro';
 ---
 
-<Layout title="Arquitetura do Tempo | Nathan Borges">
+<Layout title="Arquitetura de Sistemas | Nathan Borges">
 	<main>
 		<Hero />
+		<ProjectSwitcher />
+		<Process />
 	</main>
+
+	<footer class="py-12 px-10 border-t border-white/5 bg-[#07090d] text-center flex flex-col items-center gap-4">
+		<div class="flex items-center gap-2 px-3 py-1 bg-[#161b22] border border-white/5 rounded-full inline-flex">
+			<span class="w-2 h-2 rounded-full bg-green-500"></span>
+			<span class="text-green-500/80 font-sans text-xs tracking-wide">System Status: Optimal</span>
+		</div>
+		<p class="text-off-white/40 text-sm">© {new Date().getFullYear()} Nathan Borges. All rights reserved.</p>
+	</footer>
 </Layout>

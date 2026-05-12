@@ -1,0 +1,166 @@
+---
+// Componente de Tabs (Switcher) + Bento Grid
+const automationsCases = [
+  {
+    title: "Sistema de Prospecção de Alta Performance",
+    desc: "Redução de 10h para 1h 05min na montagem de pipelines comerciais.",
+    tags: ["Python", "Outscraper", "Meta API"],
+    span: "md:col-span-2 md:row-span-2",
+  },
+  {
+    title: "Integração B2B de Cardápio",
+    desc: "Sincronização em tempo real de dados para operação em Himarë.",
+    tags: ["Node.js", "Webhooks"],
+    span: "md:col-span-1 md:row-span-1",
+  },
+  {
+    title: "Data Cleansing Automático",
+    desc: "Script de purificação de leads B2B.",
+    tags: ["Pandas", "Regex"],
+    span: "md:col-span-1 md:row-span-1",
+  }
+];
+
+const uxCases = [
+  {
+    title: "Dashboard de Gestão de Dados IA",
+    desc: "Simplificação de 500+ data points diários para tomadores de decisão corporativos.",
+    tags: ["Figma", "Design System", "User Flows"],
+    span: "md:col-span-2 md:row-span-2",
+  },
+  {
+    title: "Redesign de Checkout B2B",
+    desc: "Fluxo focado em redução de carga cognitiva e erro humano.",
+    tags: ["Heurísticas", "Prototipagem"],
+    span: "md:col-span-1 md:row-span-1",
+  },
+  {
+    title: "Prototipagem de Ferramenta Interna",
+    desc: "Interface para sistema de CRM customizado.",
+    tags: ["Wireframing"],
+    span: "md:col-span-1 md:row-span-1",
+  }
+];
+---
+
+<section id="projetos" class="py-32 px-10 md:px-20 lg:px-40 bg-deep-blue">
+  <div class="max-w-7xl mx-auto">
+    
+    <!-- Header e Tabs -->
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
+      <div>
+        <h2 class="text-3xl md:text-5xl font-sans font-bold text-off-white tracking-tight mb-4">O Ecossistema</h2>
+        <p class="text-off-white/50 text-lg">Selecione o eixo de atuação para explorar os *cases*.</p>
+      </div>
+
+      <div class="inline-flex p-1 bg-card-dark border border-white/5 rounded-full">
+        <button id="tab-auto" class="tab-btn active px-8 py-3 rounded-full text-sm font-sans font-medium transition-all text-deep-blue bg-off-white">
+          Automações & IA
+        </button>
+        <button id="tab-ux" class="tab-btn px-8 py-3 rounded-full text-sm font-sans font-medium transition-all text-off-white/50 hover:text-off-white">
+          UX Design
+        </button>
+      </div>
+    </div>
+
+    <!-- Bento Grid Container -->
+    <div class="relative min-h-[600px]">
+      
+      <!-- Grid Automações -->
+      <div id="grid-auto" class="absolute inset-0 grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 gap-6 transition-all duration-500 opacity-100 pointer-events-auto">
+        {automationsCases.map(c => (
+          <div class={`group relative bg-card-dark rounded-3xl p-8 border border-white/5 hover:border-cyan-accent/30 hover:bg-[#1a202a] transition-all duration-300 overflow-hidden flex flex-col justify-end ${c.span}`}>
+            <div class="absolute top-0 right-0 p-8 opacity-0 group-hover:opacity-100 transition-opacity">
+               <svg class="w-6 h-6 text-cyan-accent rotate-45 group-hover:rotate-0 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+            <div>
+              <div class="flex flex-wrap gap-2 mb-6">
+                {c.tags.map(tag => (
+                  <span class="px-3 py-1 bg-deep-blue border border-white/10 rounded-full text-xs font-mono text-cyan-accent/80">{tag}</span>
+                ))}
+              </div>
+              <h3 class="text-2xl md:text-3xl font-sans font-bold text-off-white mb-3 group-hover:text-cyan-accent transition-colors">{c.title}</h3>
+              <p class="text-off-white/60 text-sm md:text-base leading-relaxed">{c.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- Grid UX -->
+      <div id="grid-ux" class="absolute inset-0 grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 gap-6 transition-all duration-500 opacity-0 pointer-events-none translate-y-4">
+        {uxCases.map(c => (
+          <div class={`group relative bg-card-dark rounded-3xl p-8 border border-white/5 hover:border-white/20 hover:bg-[#1a202a] transition-all duration-300 overflow-hidden flex flex-col justify-end ${c.span}`}>
+            <div class="absolute top-0 right-0 p-8 opacity-0 group-hover:opacity-100 transition-opacity">
+               <svg class="w-6 h-6 text-off-white rotate-45 group-hover:rotate-0 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+            <div>
+              <div class="flex flex-wrap gap-2 mb-6">
+                {c.tags.map(tag => (
+                  <span class="px-3 py-1 bg-deep-blue border border-white/10 rounded-full text-xs font-mono text-off-white/80">{tag}</span>
+                ))}
+              </div>
+              <h3 class="text-2xl md:text-3xl font-sans font-bold text-off-white mb-3">{c.title}</h3>
+              <p class="text-off-white/60 text-sm md:text-base leading-relaxed">{c.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<script>
+  // Script da Astro Island para alternar os grids
+  const tabAuto = document.getElementById('tab-auto');
+  const tabUx = document.getElementById('tab-ux');
+  const gridAuto = document.getElementById('grid-auto');
+  const gridUx = document.getElementById('grid-ux');
+
+  const switchTab = (activeTab: 'auto' | 'ux') => {
+    if (activeTab === 'auto') {
+      // Estilo dos botões
+      tabAuto?.classList.replace('text-off-white/50', 'text-deep-blue');
+      tabAuto?.classList.replace('hover:text-off-white', 'bg-off-white');
+      tabAuto?.classList.add('bg-off-white');
+
+      tabUx?.classList.replace('text-deep-blue', 'text-off-white/50');
+      tabUx?.classList.replace('bg-off-white', 'hover:text-off-white');
+      tabUx?.classList.remove('bg-off-white');
+
+      // Mostrar Auto
+      gridAuto?.classList.replace('opacity-0', 'opacity-100');
+      gridAuto?.classList.replace('pointer-events-none', 'pointer-events-auto');
+      gridAuto?.classList.remove('translate-y-4');
+      
+      // Esconder UX
+      gridUx?.classList.replace('opacity-100', 'opacity-0');
+      gridUx?.classList.replace('pointer-events-auto', 'pointer-events-none');
+      gridUx?.classList.add('translate-y-4');
+
+    } else {
+      // Estilo dos botões
+      tabUx?.classList.replace('text-off-white/50', 'text-deep-blue');
+      tabUx?.classList.replace('hover:text-off-white', 'bg-off-white');
+      tabUx?.classList.add('bg-off-white');
+
+      tabAuto?.classList.replace('text-deep-blue', 'text-off-white/50');
+      tabAuto?.classList.replace('bg-off-white', 'hover:text-off-white');
+      tabAuto?.classList.remove('bg-off-white');
+
+      // Mostrar UX
+      gridUx?.classList.replace('opacity-0', 'opacity-100');
+      gridUx?.classList.replace('pointer-events-none', 'pointer-events-auto');
+      gridUx?.classList.remove('translate-y-4');
+      
+      // Esconder Auto
+      gridAuto?.classList.replace('opacity-100', 'opacity-0');
+      gridAuto?.classList.replace('pointer-events-auto', 'pointer-events-none');
+      gridAuto?.classList.add('translate-y-4');
+    }
+  };
+
+  tabAuto?.addEventListener('click', () => switchTab('auto'));
+  tabUx?.addEventListener('click', () => switchTab('ux'));
+</script>

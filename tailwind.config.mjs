@@ -9,12 +9,14 @@ export default {
         'cyan-electric': '#00FFFF',
       },
       fontFamily: {
-        sans: ['Sora', 'Inter', 'sans-serif'], // Editorial: Pesos variados (Thin a Extra Bold)
+        sans: ['Inter', 'sans-serif'], // Apple-like
         mono: ['"Roboto Mono"', 'monospace'], 
-        body: ['"Space Grotesk"', 'sans-serif'], // Apenas detalhes sutis
       },
-      backgroundImage: {
-        'soft-glow': "radial-gradient(circle at center, rgba(0, 123, 255, 0.05) 0%, transparent 70%)",
+      colors: {
+        'deep-blue': '#0b0e14', // Fundo principal
+        'card-dark': '#161b22', // Fundo dos cards Bento
+        'off-white': '#f0f6fc', // Texto principal
+        'cyan-accent': '#00FFFF', // Detalhes sutis
       }
     },
   },

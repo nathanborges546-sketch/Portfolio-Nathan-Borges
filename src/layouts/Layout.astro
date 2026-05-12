@@ -19,9 +19,7 @@ const { title } = Astro.props;
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		
 		<!-- Pré-carregamento das fontes variáveis para performance editorial -->
-		<link rel="preload" href="/fonts/Sora-Variable.woff2" as="font" type="font/woff2" crossorigin="anonymous">
 		<link rel="preload" href="/fonts/Inter-Variable.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-		<link rel="preload" href="/fonts/SpaceGrotesk-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
 		
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
@@ -29,14 +27,11 @@ const { title } = Astro.props;
 		<!-- View Transitions para navegação cinematográfica -->
 		<ViewTransitions />
 	</head>
-	<body class="bg-midnight-navy text-white min-h-screen relative font-sans selection:bg-azure-tech selection:text-white antialiased">
+	<body class="bg-deep-blue text-off-white min-h-screen relative font-sans selection:bg-cyan-accent selection:text-deep-blue antialiased">
 		<Navbar />
 		
 		<main>
 			<slot />
 		</main>
-
-		<!-- Efeito de iluminação sutil de fundo -->
-		<div class="fixed inset-0 z-[-1] bg-soft-glow pointer-events-none"></div>
 	</body>
 </html>

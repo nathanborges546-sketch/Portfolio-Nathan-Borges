@@ -3,22 +3,6 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: 'Space Grotesk';
-  src: url('/fonts/SpaceGrotesk-Regular.woff2') format('woff2');
-  font-weight: 300 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Sora';
-  src: url('/fonts/Sora-Variable.woff2') format('woff2');
-  font-weight: 100 800;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
   font-family: 'Inter';
   src: url('/fonts/Inter-Variable.woff2') format('woff2');
   font-weight: 100 900;
@@ -26,21 +10,21 @@
   font-display: swap;
 }
 
-/* Scrollbar Minimalista - Inspirado em Weyrich */
+/* Scrollbar Minimalista Apple-like */
 ::-webkit-scrollbar {
-  width: 4px;
+  width: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #0A1128; 
+  background: #0b0e14; 
 }
  
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.05); 
-  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.1); 
+  border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.1); 
+  background: rgba(255, 255, 255, 0.2); 
 }
 

@@ -1,32 +1,37 @@
 ---
-// Navbar Editorial com Gaveta de Projetos
+// Navbar Minimalista com Gaveta de Projetos e Status Badge
 ---
-<nav class="fixed top-0 left-0 w-full z-50 px-10 py-8 flex justify-between items-center bg-transparent mix-blend-difference">
-  <a href="/" class="text-white font-sans text-xl font-bold tracking-tight">Nathan Borges</a>
+<nav class="fixed top-0 left-0 w-full z-50 px-10 py-6 flex justify-between items-center bg-deep-blue/80 backdrop-blur-xl border-b border-white/5">
+  <div class="flex items-center gap-6">
+    <a href="/" class="text-off-white font-sans text-lg font-semibold tracking-tight hover:text-cyan-accent transition-colors">Nathan Borges</a>
+    <div class="hidden lg:flex items-center gap-2 px-3 py-1 bg-[#161b22] border border-white/5 rounded-full">
+      <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+      <span class="text-green-500/80 font-sans text-xs tracking-wide">System Status: Ready for Integrations</span>
+    </div>
+  </div>
   
   <div class="flex items-center gap-12">
     <ul class="hidden md:flex items-center gap-10">
-      <li><a href="/" class="text-white/70 hover:text-white transition-colors text-sm">Home</a></li>
+      <li><a href="/blog" class="text-off-white/70 hover:text-off-white transition-colors text-sm font-medium">Blog</a></li>
       <li class="relative group">
-        <button id="project-trigger" class="text-white/70 hover:text-white transition-colors text-sm flex items-center gap-2">
+        <button id="project-trigger" class="text-off-white/70 hover:text-off-white transition-colors text-sm font-medium flex items-center gap-2">
           Projetos
           <svg width="10" height="6" viewBox="0 0 10 6" fill="none" class="opacity-50 group-hover:rotate-180 transition-transform">
             <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </button>
       </li>
-      <li><a href="/blog" class="text-white/70 hover:text-white transition-colors text-sm">Blog</a></li>
-      <li><a href="/contato" class="text-white/70 hover:text-white transition-colors text-sm">Contato</a></li>
+      <li><a href="/contato" class="text-off-white/70 hover:text-off-white transition-colors text-sm font-medium">Contato</a></li>
     </ul>
   </div>
 </nav>
 
 <!-- Gaveta de Projetos (Overlay) -->
-<div id="project-drawer" class="fixed inset-0 z-[60] bg-midnight-navy translate-y-[-100%] transition-transform duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] pointer-events-none overflow-hidden">
+<div id="project-drawer" class="fixed inset-0 z-[60] bg-deep-blue translate-y-[-100%] transition-transform duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] pointer-events-none overflow-hidden">
   <div class="h-full flex flex-col justify-center px-10 md:px-20 lg:px-40">
     <div class="flex justify-between items-start mb-20">
-      <h2 class="text-white/20 font-sans text-lg uppercase tracking-widest">Selecione o Eixo</h2>
-      <button id="close-drawer" class="text-white hover:text-azure-tech transition-colors p-4">
+      <h2 class="text-off-white/40 font-sans text-sm tracking-widest uppercase">Selecione o Eixo de Projeto</h2>
+      <button id="close-drawer" class="text-off-white hover:text-cyan-accent transition-colors p-4">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
           <path d="M18 6L6 18M6 6l12 12" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
@@ -34,16 +39,16 @@
     </div>
 
     <div class="grid md:grid-cols-2 gap-20">
-      <a href="/ux" class="group">
-        <span class="text-white/30 font-mono text-xs block mb-4">01</span>
-        <h3 class="text-white text-5xl md:text-7xl font-sans font-bold mb-6 group-hover:text-azure-tech transition-colors">UX Design</h3>
-        <p class="text-white/50 max-w-sm text-lg leading-relaxed">Interfaces minimalistas desenhadas para eliminar o esforço cognitivo e maximizar a fluidez operacional.</p>
+      <a href="/ux" class="group flex flex-col items-start p-8 rounded-[24px] bg-card-dark border border-white/5 hover:border-white/10 transition-colors">
+        <span class="text-off-white/30 font-mono text-xs block mb-4">01</span>
+        <h3 class="text-off-white text-3xl md:text-5xl font-sans font-bold mb-4 group-hover:text-cyan-accent transition-colors">UX Design</h3>
+        <p class="text-off-white/50 text-base leading-relaxed">Interfaces minimalistas desenhadas para eliminar o esforço cognitivo e maximizar a fluidez operacional.</p>
       </a>
 
-      <a href="/automations" class="group">
-        <span class="text-white/30 font-mono text-xs block mb-4">02</span>
-        <h3 class="text-white text-5xl md:text-7xl font-sans font-bold mb-6 group-hover:text-cyan-electric transition-colors font-thin italic">Automação</h3>
-        <p class="text-white/50 max-w-sm text-lg leading-relaxed">Scripts em Python que transformam processos manuais em fluxos de dados contínuos, recuperando horas vitais.</p>
+      <a href="/automations" class="group flex flex-col items-start p-8 rounded-[24px] bg-card-dark border border-white/5 hover:border-white/10 transition-colors">
+        <span class="text-off-white/30 font-mono text-xs block mb-4">02</span>
+        <h3 class="text-off-white text-3xl md:text-5xl font-sans font-bold mb-4 group-hover:text-cyan-accent transition-colors">Automação & IA</h3>
+        <p class="text-off-white/50 text-base leading-relaxed">Scripts em Python que transformam processos manuais em fluxos de dados contínuos, recuperando horas vitais.</p>
       </a>
     </div>
   </div>
