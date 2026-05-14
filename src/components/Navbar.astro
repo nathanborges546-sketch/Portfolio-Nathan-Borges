@@ -55,22 +55,24 @@
 </div>
 
 <script>
-  const trigger = document.getElementById('project-trigger');
-  const drawer = document.getElementById('project-drawer');
-  const close = document.getElementById('close-drawer');
+  document.addEventListener('astro:page-load', () => {
+    const trigger = document.getElementById('project-trigger');
+    const drawer = document.getElementById('project-drawer');
+    const close = document.getElementById('close-drawer');
 
-  const toggleDrawer = (open: boolean) => {
-    if (open) {
-      drawer?.classList.remove('translate-y-[-100%]');
-      drawer?.classList.add('translate-y-0', 'pointer-events-auto');
-      document.body.style.overflow = 'hidden';
-    } else {
-      drawer?.classList.add('translate-y-[-100%]');
-      drawer?.classList.remove('translate-y-0', 'pointer-events-auto');
-      document.body.style.overflow = '';
-    }
-  };
+    const toggleDrawer = (open) => {
+      if (open) {
+        drawer?.classList.remove('translate-y-[-100%]');
+        drawer?.classList.add('translate-y-0', 'pointer-events-auto');
+        document.body.style.overflow = 'hidden';
+      } else {
+        drawer?.classList.add('translate-y-[-100%]');
+        drawer?.classList.remove('translate-y-0', 'pointer-events-auto');
+        document.body.style.overflow = '';
+      }
+    };
 
-  trigger?.addEventListener('click', () => toggleDrawer(true));
-  close?.addEventListener('click', () => toggleDrawer(false));
+    trigger?.addEventListener('click', () => toggleDrawer(true));
+    close?.addEventListener('click', () => toggleDrawer(false));
+  });
 </script>

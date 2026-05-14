@@ -112,55 +112,57 @@ const uxCases = [
 </section>
 
 <script>
-  // Script da Astro Island para alternar os grids
-  const tabAuto = document.getElementById('tab-auto');
-  const tabUx = document.getElementById('tab-ux');
-  const gridAuto = document.getElementById('grid-auto');
-  const gridUx = document.getElementById('grid-ux');
+  document.addEventListener('astro:page-load', () => {
+    // Script da Astro Island para alternar os grids
+    const tabAuto = document.getElementById('tab-auto');
+    const tabUx = document.getElementById('tab-ux');
+    const gridAuto = document.getElementById('grid-auto');
+    const gridUx = document.getElementById('grid-ux');
 
-  const switchTab = (activeTab: 'auto' | 'ux') => {
-    if (activeTab === 'auto') {
-      // Estilo dos botões
-      tabAuto?.classList.replace('text-off-white/50', 'text-deep-blue');
-      tabAuto?.classList.replace('hover:text-off-white', 'bg-off-white');
-      tabAuto?.classList.add('bg-off-white');
+    const switchTab = (activeTab) => {
+      if (activeTab === 'auto') {
+        // Estilo dos botões
+        tabAuto?.classList.replace('text-off-white/50', 'text-deep-blue');
+        tabAuto?.classList.replace('hover:text-off-white', 'bg-off-white');
+        tabAuto?.classList.add('bg-off-white');
 
-      tabUx?.classList.replace('text-deep-blue', 'text-off-white/50');
-      tabUx?.classList.replace('bg-off-white', 'hover:text-off-white');
-      tabUx?.classList.remove('bg-off-white');
+        tabUx?.classList.replace('text-deep-blue', 'text-off-white/50');
+        tabUx?.classList.replace('bg-off-white', 'hover:text-off-white');
+        tabUx?.classList.remove('bg-off-white');
 
-      // Mostrar Auto
-      gridAuto?.classList.replace('opacity-0', 'opacity-100');
-      gridAuto?.classList.replace('pointer-events-none', 'pointer-events-auto');
-      gridAuto?.classList.remove('translate-y-4');
-      
-      // Esconder UX
-      gridUx?.classList.replace('opacity-100', 'opacity-0');
-      gridUx?.classList.replace('pointer-events-auto', 'pointer-events-none');
-      gridUx?.classList.add('translate-y-4');
+        // Mostrar Auto
+        gridAuto?.classList.replace('opacity-0', 'opacity-100');
+        gridAuto?.classList.replace('pointer-events-none', 'pointer-events-auto');
+        gridAuto?.classList.remove('translate-y-4');
+        
+        // Esconder UX
+        gridUx?.classList.replace('opacity-100', 'opacity-0');
+        gridUx?.classList.replace('pointer-events-auto', 'pointer-events-none');
+        gridUx?.classList.add('translate-y-4');
 
-    } else {
-      // Estilo dos botões
-      tabUx?.classList.replace('text-off-white/50', 'text-deep-blue');
-      tabUx?.classList.replace('hover:text-off-white', 'bg-off-white');
-      tabUx?.classList.add('bg-off-white');
+      } else {
+        // Estilo dos botões
+        tabUx?.classList.replace('text-off-white/50', 'text-deep-blue');
+        tabUx?.classList.replace('hover:text-off-white', 'bg-off-white');
+        tabUx?.classList.add('bg-off-white');
 
-      tabAuto?.classList.replace('text-deep-blue', 'text-off-white/50');
-      tabAuto?.classList.replace('bg-off-white', 'hover:text-off-white');
-      tabAuto?.classList.remove('bg-off-white');
+        tabAuto?.classList.replace('text-deep-blue', 'text-off-white/50');
+        tabAuto?.classList.replace('bg-off-white', 'hover:text-off-white');
+        tabAuto?.classList.remove('bg-off-white');
 
-      // Mostrar UX
-      gridUx?.classList.replace('opacity-0', 'opacity-100');
-      gridUx?.classList.replace('pointer-events-none', 'pointer-events-auto');
-      gridUx?.classList.remove('translate-y-4');
-      
-      // Esconder Auto
-      gridAuto?.classList.replace('opacity-100', 'opacity-0');
-      gridAuto?.classList.replace('pointer-events-auto', 'pointer-events-none');
-      gridAuto?.classList.add('translate-y-4');
-    }
-  };
+        // Mostrar UX
+        gridUx?.classList.replace('opacity-0', 'opacity-100');
+        gridUx?.classList.replace('pointer-events-none', 'pointer-events-auto');
+        gridUx?.classList.remove('translate-y-4');
+        
+        // Esconder Auto
+        gridAuto?.classList.replace('opacity-100', 'opacity-0');
+        gridAuto?.classList.replace('pointer-events-auto', 'pointer-events-none');
+        gridAuto?.classList.add('translate-y-4');
+      }
+    };
 
-  tabAuto?.addEventListener('click', () => switchTab('auto'));
-  tabUx?.addEventListener('click', () => switchTab('ux'));
+    tabAuto?.addEventListener('click', () => switchTab('auto'));
+    tabUx?.addEventListener('click', () => switchTab('ux'));
+  });
 </script>
