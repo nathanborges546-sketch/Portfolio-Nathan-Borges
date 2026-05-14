@@ -17,6 +17,15 @@ export default {
         'card-dark': '#161b22', // Fundo dos cards Bento
         'off-white': '#f0f6fc', // Texto principal
         'cyan-accent': '#00FFFF', // Detalhes sutis
+      },
+      keyframes: {
+        marquee: {
+          '0%': { transform: 'translateX(0%)' },
+          '100%': { transform: 'translateX(-100%)' },
+        }
+      },
+      animation: {
+        'marquee': 'marquee 40s linear infinite',
       }
     },
   },

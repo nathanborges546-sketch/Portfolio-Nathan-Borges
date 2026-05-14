@@ -1,0 +1,88 @@
+---
+const reviews = [
+  {
+    name: "C-Level Executivo",
+    role: "Operações Corporativas",
+    text: "O diagnóstico foi cirúrgico. Reduzimos o tempo de prospecção em mais de 80% usando os scripts."
+  },
+  {
+    name: "Diretor de Produto",
+    role: "SaaS B2B",
+    text: "A clareza da interface somada à potência do backend em Python mudou o jogo para o nosso time."
+  },
+  {
+    name: "Gestor de Restaurante",
+    role: "Operação Local",
+    text: "Integração perfeita de cardápio digital. O fluxo de caixa e os pedidos estão finalmente em sincronia."
+  },
+  {
+    name: "Líder de UX",
+    role: "Agência Digital",
+    text: "Nathan não desenha apenas telas, ele projeta ecossistemas que os usuários realmente entendem."
+  },
+  {
+    name: "Empreendedor B2B",
+    role: "Consultoria Estratégica",
+    text: "Um arquiteto técnico de verdade. O dashboard em Streamlit validou toda a nossa tese de dados."
+  }
+];
+
+// Duplicamos o array para criar o efeito infinito contínuo no marquee
+const marqueeItems = [...reviews, ...reviews];
+---
+
+<section class="py-24 bg-[#07090d] overflow-hidden border-t border-white/5">
+  <div class="px-10 md:px-20 lg:px-40 mb-12 text-center">
+    <h2 class="text-sm font-mono tracking-widest text-off-white/40 uppercase mb-4">Feedback do Ecossistema</h2>
+    <p class="text-off-white font-sans text-2xl md:text-3xl font-bold tracking-tight">O impacto de uma arquitetura limpa.</p>
+  </div>
+
+  <!-- Marquee Wrapper -->
+  <div class="relative flex overflow-x-hidden group py-20">
+    
+    <!-- Track Animado -->
+    <div class="animate-marquee whitespace-nowrap flex group-hover:[animation-play-state:paused]">
+      {marqueeItems.map((review, index) => (
+        <div class="w-[350px] mx-4 inline-block bg-card-dark border border-white/5 rounded-2xl p-8 transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] hover:scale-150 hover:z-50 hover:shadow-[0_20px_50px_rgba(0,0,0,0.5)] cursor-default">
+          <div class="flex items-center gap-4 mb-4">
+            <div class="w-10 h-10 rounded-full bg-deep-blue border border-white/10 flex items-center justify-center">
+              <span class="text-cyan-accent font-mono text-xs">{review.name.charAt(0)}</span>
+            </div>
+            <div>
+              <p class="text-off-white font-sans font-semibold text-sm whitespace-normal leading-none">{review.name}</p>
+              <p class="text-off-white/40 font-mono text-[10px] mt-1">{review.role}</p>
+            </div>
+          </div>
+          <p class="text-off-white/70 font-sans text-sm leading-relaxed whitespace-normal break-words">
+            "{review.text}"
+          </p>
+        </div>
+      ))}
+    </div>
+
+    <!-- Track Duplicado Absoluto para Garantir Loop Sem Frestas -->
+    <div class="absolute top-20 animate-marquee whitespace-nowrap flex group-hover:[animation-play-state:paused]" aria-hidden="true" style="transform: translateX(100%); left: 100%;">
+      {marqueeItems.map((review, index) => (
+        <div class="w-[350px] mx-4 inline-block bg-card-dark border border-white/5 rounded-2xl p-8 transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] hover:scale-150 hover:z-50 hover:shadow-[0_20px_50px_rgba(0,0,0,0.5)] cursor-default">
+          <div class="flex items-center gap-4 mb-4">
+            <div class="w-10 h-10 rounded-full bg-deep-blue border border-white/10 flex items-center justify-center">
+              <span class="text-cyan-accent font-mono text-xs">{review.name.charAt(0)}</span>
+            </div>
+            <div>
+              <p class="text-off-white font-sans font-semibold text-sm whitespace-normal leading-none">{review.name}</p>
+              <p class="text-off-white/40 font-mono text-[10px] mt-1">{review.role}</p>
+            </div>
+          </div>
+          <p class="text-off-white/70 font-sans text-sm leading-relaxed whitespace-normal break-words">
+            "{review.text}"
+          </p>
+        </div>
+      ))}
+    </div>
+
+    <!-- Fade effects nas bordas da tela para mobile e desktop -->
+    <div class="pointer-events-none absolute inset-y-0 left-0 w-16 md:w-40 bg-gradient-to-r from-[#07090d] to-transparent z-40"></div>
+    <div class="pointer-events-none absolute inset-y-0 right-0 w-16 md:w-40 bg-gradient-to-l from-[#07090d] to-transparent z-40"></div>
+
+  </div>
+</section>
