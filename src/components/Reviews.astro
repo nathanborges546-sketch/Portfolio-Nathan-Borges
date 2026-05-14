@@ -38,12 +38,12 @@ const marqueeItems = [...reviews, ...reviews];
   </div>
 
   <!-- Marquee Wrapper -->
-  <div class="relative flex overflow-x-hidden group py-20">
+  <div class="relative flex overflow-hidden group py-20 gap-6">
     
-    <!-- Track Animado -->
-    <div class="animate-marquee whitespace-nowrap flex group-hover:[animation-play-state:paused]">
-      {marqueeItems.map((review, index) => (
-        <div class="w-[350px] mx-4 inline-block bg-card-dark border border-white/5 rounded-2xl p-8 transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] hover:scale-150 hover:z-50 hover:shadow-[0_20px_50px_rgba(0,0,0,0.5)] cursor-default">
+    <!-- Track Animado 1 -->
+    <div class="flex shrink-0 min-w-full gap-6 animate-marquee group-hover:[animation-play-state:paused]">
+      {reviews.map((review, index) => (
+        <div class="w-[350px] shrink-0 bg-card-dark border border-white/5 rounded-2xl p-8 transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] hover:scale-150 hover:z-50 hover:shadow-[0_20px_50px_rgba(0,0,0,0.5)] cursor-default">
           <div class="flex items-center gap-4 mb-4">
             <div class="w-10 h-10 rounded-full bg-deep-blue border border-white/10 flex items-center justify-center">
               <span class="text-cyan-accent font-mono text-xs">{review.name.charAt(0)}</span>
@@ -60,10 +60,10 @@ const marqueeItems = [...reviews, ...reviews];
       ))}
     </div>
 
-    <!-- Track Duplicado Absoluto para Garantir Loop Sem Frestas -->
-    <div class="absolute top-20 animate-marquee whitespace-nowrap flex group-hover:[animation-play-state:paused]" aria-hidden="true" style="transform: translateX(100%); left: 100%;">
-      {marqueeItems.map((review, index) => (
-        <div class="w-[350px] mx-4 inline-block bg-card-dark border border-white/5 rounded-2xl p-8 transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] hover:scale-150 hover:z-50 hover:shadow-[0_20px_50px_rgba(0,0,0,0.5)] cursor-default">
+    <!-- Track Animado 2 (Duplicado para o Loop) -->
+    <div class="flex shrink-0 min-w-full gap-6 animate-marquee group-hover:[animation-play-state:paused]" aria-hidden="true">
+      {reviews.map((review, index) => (
+        <div class="w-[350px] shrink-0 bg-card-dark border border-white/5 rounded-2xl p-8 transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] hover:scale-150 hover:z-50 hover:shadow-[0_20px_50px_rgba(0,0,0,0.5)] cursor-default">
           <div class="flex items-center gap-4 mb-4">
             <div class="w-10 h-10 rounded-full bg-deep-blue border border-white/10 flex items-center justify-center">
               <span class="text-cyan-accent font-mono text-xs">{review.name.charAt(0)}</span>
