@@ -1,55 +1,43 @@
 ---
-// Componente de Tabs (Switcher) + Bento Grid
+// Componente de Tabs (Switcher) + Bento Grid - Versão Engenharia Aplicada
 const automationsCases = [
   {
-    tag: "CASE 01",
+    title: "Sistema de Prospecção Automatizada e Extração de Dados",
     metric: "10h → 1h 05min",
-    title: "Sistema de Prospecção de Alta Performance",
-    desc: "Redução radical em pipelines comerciais. Extração inteligente e disparo seguro via Meta API.",
-    tags: ["Python", "Streamlit", "Meta API"],
+    desc: "Redução de 90% no ciclo de captação B2B. Arquitetura em Python para alimentação assíncrona do Notion e interface Streamlit.",
+    tags: ["Python", "Streamlit", "Meta API", "Notion API"],
     span: "md:col-span-2 md:row-span-2",
+    github: "https://github.com/nathanborges546"
   },
   {
-    tag: "CASE 02",
-    metric: "",
-    title: "Integração B2B de Fluxo de Caixa",
-    desc: "Sincronização em tempo real e arquitetura de dados resiliente para operação local em Himarë.",
-    tags: ["Node.js", "Webhooks", "APIs"],
+    title: "Sincronização de Dados B2B Real-Time",
+    metric: "Real-Time",
+    desc: "Microsserviços em Node.js e Webhooks para sincronização de estado em operações locais (Himarë).",
+    tags: ["Node.js", "Webhooks", "REST APIs"],
     span: "md:col-span-1 md:row-span-1",
   },
   {
-    tag: "CASE 03",
-    metric: "",
-    title: "Purificação Automatizada de Leads",
-    desc: "Script avançado de data cleansing para bases de dados exaustas, recuperando o CTR de campanhas corporativas.",
-    tags: ["Pandas", "Regex"],
+    title: "Pipeline de Purificação de Dados B2B",
+    metric: "Clean Data",
+    desc: "Script de higienização utilizando Pandas e Regex para mitigar atrito semântico em sistemas legados.",
+    tags: ["Pandas", "Python", "Data Science"],
     span: "md:col-span-1 md:row-span-1",
   }
 ];
 
 const uxCases = [
   {
-    tag: "CASE 01",
-    metric: "500+ Dados",
-    title: "Dashboard de Gestão de Dados IA",
-    desc: "Simplificação de data points diários para tomadores de decisão, focada em mitigar o estresse visual e a carga cognitiva.",
-    tags: ["Figma", "Design System"],
+    title: "Dashboard Analítico para Gestão de Dados de IA",
+    metric: "Carga Cognitiva Mínima",
+    desc: "Design de interface complexa focado em tomadores de decisão. Simplificação de 500+ data points diários.",
+    tags: ["Figma", "Design System", "User Flows"],
     span: "md:col-span-2 md:row-span-2",
   },
   {
-    tag: "CASE 02",
-    metric: "",
-    title: "Redesign de Checkout Conversivo",
-    desc: "Otimização de CRO baseada em heurísticas e microcopy colaborativo para anular erros humanos e abandono de carrinho.",
-    tags: ["UX Writing", "Heurísticas"],
-    span: "md:col-span-1 md:row-span-1",
-  },
-  {
-    tag: "CASE 03",
-    metric: "",
-    title: "Prototipagem de Ferramenta Interna",
-    desc: "Interface sob medida para CRM customizado, otimizando a zona do polegar (Mobile-First) e a produtividade da equipe.",
-    tags: ["Wireframing", "User Flows"],
+    title: "Redesign de Checkout e Fluxo de Entrada B2B",
+    metric: "Zona do Polegar",
+    desc: "Arquitetura de informação mobile-first e microcopy colaborativo para mitigação de erros humanos.",
+    tags: ["UX Writing", "Heurísticas", "Prototipagem"],
     span: "md:col-span-1 md:row-span-1",
   }
 ];
@@ -61,78 +49,64 @@ const uxCases = [
     <!-- Header e Tabs -->
     <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
       <div>
-        <h2 class="text-3xl md:text-5xl font-sora font-bold text-textPrimary tracking-tight mb-4">O Ecossistema de Soluções</h2>
-        <p class="text-textSecondary text-lg font-sora max-w-2xl">Alterne entre os eixos para entender como traduzo psicologia comportamental e código robusto em eficiência previsível.</p>
+        <h2 class="text-textSecondary font-space text-xs tracking-[0.3em] uppercase mb-4">Portfólio Técnico</h2>
+        <h3 class="text-3xl md:text-5xl font-sora font-bold text-textPrimary tracking-tight mb-4">Engenharia Aplicada</h3>
+        <p class="text-textSecondary text-lg font-sora">Projetos que unem validação de dados, performance algorítmica e usabilidade.</p>
       </div>
 
-      <div class="inline-flex p-1 bg-surface border border-white/5 rounded-xl md:rounded-full">
-        <button id="tab-auto" class="tab-btn active px-6 md:px-8 py-3 rounded-lg md:rounded-full text-sm font-space font-medium transition-all text-darkBg bg-textPrimary">
-          Automações & IA
+      <div class="inline-flex p-1 bg-surface border border-brandCyan/10 rounded-full font-space">
+        <button id="tab-auto" class="tab-btn active px-6 md:px-8 py-3 rounded-full text-xs md:text-sm font-medium transition-all text-darkBg bg-brandCyan">
+          AUTOMAÇÕES & CÓDIGO
         </button>
-        <button id="tab-ux" class="tab-btn px-6 md:px-8 py-3 rounded-lg md:rounded-full text-sm font-space font-medium transition-all text-textSecondary hover:text-textPrimary">
-          UX Design
+        <button id="tab-ux" class="tab-btn px-6 md:px-8 py-3 rounded-full text-xs md:text-sm font-medium transition-all text-textSecondary hover:text-textPrimary">
+          UX & PRODUCT DESIGN
         </button>
       </div>
     </div>
 
     <!-- Bento Grid Container -->
-    <div class="grid relative">
+    <div class="relative min-h-[800px] md:min-h-[600px]">
       
       <!-- Grid Automações -->
-      <div id="grid-auto" class="col-start-1 row-start-1 grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 gap-6 transition-all duration-500 opacity-100 pointer-events-auto">
+      <div id="grid-auto" class="absolute inset-0 grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 gap-6 transition-all duration-500 opacity-100 pointer-events-auto">
         {automationsCases.map(c => (
-          <div class={`group relative bg-surface rounded-[24px] p-8 border border-white/5 hover:border-brandCyan/30 hover:bg-[#1a202a] transition-all duration-300 overflow-hidden flex flex-col justify-between ${c.span}`}>
-            <div class="flex justify-between items-start w-full mb-8">
-               <span class="font-space text-xs text-brandCyan tracking-widest">{c.tag}</span>
-               <div class="p-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                 <svg class="w-6 h-6 text-brandCyan rotate-45 group-hover:rotate-0 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7"/></svg>
-               </div>
+          <div class={`group relative bg-surface rounded-[32px] p-8 border border-brandCyan/5 hover:border-brandCyan/30 transition-all duration-300 overflow-hidden flex flex-col justify-between ${c.span}`}>
+            <div class="z-10">
+              <p class="font-space text-4xl md:text-5xl text-brandCyan font-bold mb-6">{c.metric}</p>
+              <h4 class="text-xl md:text-2xl font-sora font-bold text-textPrimary mb-4">{c.title}</h4>
+              <p class="text-textSecondary text-sm leading-relaxed mb-8 font-sora">{c.desc}</p>
             </div>
             
-            {c.metric && (
-               <div class="mb-auto">
-                 <h2 class="font-space font-bold text-4xl md:text-5xl lg:text-6xl text-textPrimary tracking-tighter mb-4">{c.metric}</h2>
-               </div>
-            )}
-
-            <div class="mt-auto">
-              <h3 class="text-xl md:text-2xl font-sora font-medium text-textPrimary mb-3 group-hover:text-brandCyan transition-colors">{c.title}</h3>
-              <p class="text-textSecondary text-sm leading-relaxed mb-6 font-sora">{c.desc}</p>
-              
-              <div class="flex flex-wrap gap-2 mt-auto">
+            <div class="z-10">
+              <div class="flex flex-wrap gap-2 mb-6">
                 {c.tags.map(tag => (
-                  <span class="px-3 py-1.5 bg-darkBg border border-white/5 rounded-md text-[11px] font-space text-brandCyan/80 tracking-wide uppercase">{tag}</span>
+                  <span class="px-3 py-1 bg-darkBg border border-brandCyan/10 rounded-full text-[10px] font-space text-brandCyan/80">{tag}</span>
                 ))}
               </div>
+              {c.github && (
+                <a href={c.github} target="_blank" class="text-brandCyan font-space text-xs hover:underline inline-flex items-center gap-2">
+                  VER ARQUITETURA NO GITHUB →
+                </a>
+              )}
             </div>
           </div>
         ))}
       </div>
 
       <!-- Grid UX -->
-      <div id="grid-ux" class="col-start-1 row-start-1 grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 gap-6 transition-all duration-500 opacity-0 pointer-events-none translate-y-4">
+      <div id="grid-ux" class="absolute inset-0 grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 gap-6 transition-all duration-500 opacity-0 pointer-events-none translate-y-4">
         {uxCases.map(c => (
-          <div class={`group relative bg-surface rounded-[24px] p-8 border border-white/5 hover:border-white/20 hover:bg-[#1a202a] transition-all duration-300 overflow-hidden flex flex-col justify-between ${c.span}`}>
-            <div class="flex justify-between items-start w-full mb-8">
-               <span class="font-space text-xs text-textSecondary tracking-widest">{c.tag}</span>
-               <div class="p-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                 <svg class="w-6 h-6 text-textPrimary rotate-45 group-hover:rotate-0 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7"/></svg>
-               </div>
+          <div class={`group relative bg-surface rounded-[32px] p-8 border border-brandCyan/5 hover:border-brandCyan/30 transition-all duration-300 overflow-hidden flex flex-col justify-between ${c.span}`}>
+            <div class="z-10">
+              <p class="font-space text-2xl md:text-3xl text-brandCyan font-bold mb-6 uppercase tracking-tight">{c.metric}</p>
+              <h4 class="text-xl md:text-2xl font-sora font-bold text-textPrimary mb-4">{c.title}</h4>
+              <p class="text-textSecondary text-sm leading-relaxed mb-8 font-sora">{c.desc}</p>
             </div>
 
-            {c.metric && (
-               <div class="mb-auto">
-                 <h2 class="font-space font-bold text-4xl md:text-5xl lg:text-6xl text-textPrimary tracking-tighter mb-4">{c.metric}</h2>
-               </div>
-            )}
-
-            <div class="mt-auto">
-              <h3 class="text-xl md:text-2xl font-sora font-medium text-textPrimary mb-3">{c.title}</h3>
-              <p class="text-textSecondary text-sm leading-relaxed mb-6 font-sora">{c.desc}</p>
-              
-              <div class="flex flex-wrap gap-2 mt-auto">
+            <div class="z-10">
+              <div class="flex flex-wrap gap-2">
                 {c.tags.map(tag => (
-                  <span class="px-3 py-1.5 bg-darkBg border border-white/5 rounded-md text-[11px] font-space text-textSecondary tracking-wide uppercase">{tag}</span>
+                  <span class="px-3 py-1 bg-darkBg border border-brandCyan/10 rounded-full text-[10px] font-space text-brandCyan/80">{tag}</span>
                 ))}
               </div>
             </div>
@@ -154,30 +128,29 @@ const uxCases = [
 
     const switchTab = (activeTab) => {
       if (activeTab === 'auto') {
-        tabAuto?.classList.remove('text-textSecondary', 'hover:text-textPrimary');
-        tabAuto?.classList.add('text-darkBg', 'bg-textPrimary');
+        tabAuto?.classList.add('bg-brandCyan', 'text-darkBg');
+        tabAuto?.classList.remove('text-textSecondary');
+        tabUx?.classList.remove('bg-brandCyan', 'text-darkBg');
+        tabUx?.classList.add('text-textSecondary');
 
-        tabUx?.classList.remove('text-darkBg', 'bg-textPrimary');
-        tabUx?.classList.add('text-textSecondary', 'hover:text-textPrimary');
-
-        gridAuto?.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-4');
-        gridAuto?.classList.add('opacity-100', 'pointer-events-auto');
-        
-        gridUx?.classList.remove('opacity-100', 'pointer-events-auto');
-        gridUx?.classList.add('opacity-0', 'pointer-events-none', 'translate-y-4');
-
+        gridAuto?.classList.replace('opacity-0', 'opacity-100');
+        gridAuto?.classList.replace('pointer-events-none', 'pointer-events-auto');
+        gridAuto?.classList.remove('translate-y-4');
+        gridUx?.classList.replace('opacity-100', 'opacity-0');
+        gridUx?.classList.replace('pointer-events-auto', 'pointer-events-none');
+        gridUx?.classList.add('translate-y-4');
       } else {
-        tabUx?.classList.remove('text-textSecondary', 'hover:text-textPrimary');
-        tabUx?.classList.add('text-darkBg', 'bg-textPrimary');
+        tabUx?.classList.add('bg-brandCyan', 'text-darkBg');
+        tabUx?.classList.remove('text-textSecondary');
+        tabAuto?.classList.remove('bg-brandCyan', 'text-darkBg');
+        tabAuto?.classList.add('text-textSecondary');
 
-        tabAuto?.classList.remove('text-darkBg', 'bg-textPrimary');
-        tabAuto?.classList.add('text-textSecondary', 'hover:text-textPrimary');
-
-        gridUx?.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-4');
-        gridUx?.classList.add('opacity-100', 'pointer-events-auto');
-        
-        gridAuto?.classList.remove('opacity-100', 'pointer-events-auto');
-        gridAuto?.classList.add('opacity-0', 'pointer-events-none', 'translate-y-4');
+        gridUx?.classList.replace('opacity-0', 'opacity-100');
+        gridUx?.classList.replace('pointer-events-none', 'pointer-events-auto');
+        gridUx?.classList.remove('translate-y-4');
+        gridAuto?.classList.replace('opacity-100', 'opacity-0');
+        gridAuto?.classList.replace('pointer-events-auto', 'pointer-events-none');
+        gridAuto?.classList.add('translate-y-4');
       }
     };
 

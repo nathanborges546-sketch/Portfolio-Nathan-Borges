@@ -14,18 +14,21 @@ import Reviews from '../components/Reviews.astro';
 		<Reviews />
 	</main>
 
-	<footer class="py-12 px-10 border-t border-white/5 bg-darkBg text-center flex flex-col items-center gap-8">
-		<div class="flex items-center gap-2 px-3 py-1 bg-surface border border-white/5 rounded-full inline-flex">
-			<span class="w-2 h-2 rounded-full bg-brandCyan animate-pulse"></span>
-			<span class="text-brandCyan/80 font-space text-xs tracking-wide">● System Status: Optimal (INP &lt; 200ms)</span>
-		</div>
-		
-		<div class="flex items-center gap-6 text-textSecondary font-space text-sm">
-			<a href="https://wa.me/5564993335277" target="_blank" rel="noopener noreferrer" class="hover:text-brandCyan transition-colors">WhatsApp</a>
-			<a href="https://www.instagram.com/nathanb.exe/" target="_blank" rel="noopener noreferrer" class="hover:text-brandCyan transition-colors">Instagram</a>
-			<a href="https://www.behance.net/nathanborges546" target="_blank" rel="noopener noreferrer" class="hover:text-brandCyan transition-colors">Behance</a>
-		</div>
+	<footer class="py-24 px-6 md:px-20 lg:px-40 border-t border-surface/30 bg-darkBg">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-12">
+      <div class="flex flex-col items-center md:items-start gap-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 bg-surface border border-brandCyan/10 rounded-full">
+          <span class="w-1.5 h-1.5 rounded-full bg-brandCyan"></span>
+          <span class="text-textSecondary font-space text-[10px] uppercase tracking-widest leading-none">Stack: Astro 5 • Tailwind • INP &lt; 200ms</span>
+        </div>
+        <p class="text-textSecondary text-sm font-sora">© 2026 Nathan Borges. Arquitetando sistemas de alta performance.</p>
+      </div>
 
-		<p class="text-textSecondary/40 text-xs font-space">© 2026 Nathan Borges. Projetando a Engenharia da Conversão.</p>
+      <div class="flex items-center gap-8 font-space text-xs tracking-widest uppercase">
+        <a href="https://github.com/nathanborges546" target="_blank" class="text-textSecondary hover:text-brandCyan transition-colors">GitHub</a>
+        <a href="https://linkedin.com/in/nathanborges" target="_blank" class="text-textSecondary hover:text-brandCyan transition-colors">LinkedIn</a>
+        <a href="https://wa.me/5511999999999" target="_blank" class="text-textSecondary hover:text-brandCyan transition-colors">WhatsApp</a>
+      </div>
+    </div>
 	</footer>
 </Layout>

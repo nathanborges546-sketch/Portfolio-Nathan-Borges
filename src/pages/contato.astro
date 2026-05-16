@@ -2,33 +2,47 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="Contato | Engenharia da Conversão">
-	<section class="min-h-screen flex flex-col justify-center px-6 md:px-20 lg:px-40 bg-darkBg pt-32 pb-20">
-		<span class="text-brandCyan font-space text-xs md:text-sm tracking-widest uppercase mb-8">Engenharia da Conversão</span>
-		<h1 class="font-sora text-4xl md:text-6xl lg:text-7xl font-bold tracking-tighter text-textPrimary leading-[1.05] mb-8">
-			Descubra onde sua operação está perdendo dinheiro.
+<Layout title="Conexão Técnica | Nathan Borges">
+	<section class="min-h-screen flex flex-col justify-center px-6 md:px-20 lg:px-40 py-32 bg-darkBg">
+		<span class="text-brandCyan font-space text-xs tracking-[0.3em] uppercase mb-8 opacity-0 animate-fade-in-up">
+      CONEXÃO TÉCNICA
+    </span>
+		
+    <h1 class="font-sora text-4xl md:text-6xl font-bold tracking-tighter text-textPrimary leading-[1.1] mb-8 opacity-0 animate-fade-in-up [animation-delay:100ms]">
+			Vamos escalar a eficiência do seu produto?
 		</h1>
-		<p class="font-sora text-lg md:text-xl text-textSecondary max-w-2xl leading-relaxed mb-16">
-			Análises indicam que 71% das empresas falham por falta de método, não de tecnologia. Vamos fazer uma auditoria de 30 minutos para mapear e eliminar os atritos do seu negócio.
+		
+    <p class="font-sora text-lg md:text-xl text-textSecondary max-w-3xl leading-relaxed mb-16 opacity-0 animate-fade-in-up [animation-delay:200ms]">
+			Se você busca um desenvolvedor sênior que domine arquitetura de automação, IA e design centrado no usuário para integrar seu time fixo ou projeto de alta escala, vamos conversar.
 		</p>
 		
-		<div class="flex flex-col items-start gap-4 mb-24 bg-surface p-8 rounded-2xl border border-white/5 w-full max-w-xl">
-			<a href="#" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/nathanborges546/30min'});return false;" class="inline-flex items-center justify-center px-8 py-4 bg-brandCyan text-darkBg font-space font-medium tracking-wide uppercase rounded-xl hover:bg-brandCyan/90 transition-transform hover:scale-105 active:scale-95 w-full sm:w-auto">
-				Garantir Minha Auditoria Gratuita
+		<div class="flex flex-col sm:flex-row sm:items-center gap-6 mb-20 opacity-0 animate-fade-in-up [animation-delay:300ms]">
+      <!-- Botão RH -->
+			<a href="https://wa.me/5511999999999" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-8 py-4 bg-brandCyan text-darkBg font-space font-medium rounded-full hover:brightness-110 transition-all hover:scale-105 active:scale-95">
+				CHAMAR NO WHATSAPP PARA ENTREVISTA
 			</a>
-			<p class="text-textSecondary/60 font-space text-xs tracking-wide">
-				* Garantia de conformidade com GEO e otimização de INP inferior a 200ms.
-			</p>
+      
+      <!-- Botão Tech Lead -->
+      <a href="#" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/nathanborges546/30min'});return false;" class="inline-flex items-center justify-center px-8 py-4 border border-surface text-textPrimary font-space font-medium rounded-full hover:bg-surface transition-all hover:scale-105 active:scale-95">
+				VER AGENDA TÉCNICA VIA CALENDLY
+			</a>
 		</div>
 
-		<div class="mt-auto pt-10 border-t border-white/5 flex flex-col md:flex-row md:items-center justify-between gap-8">
-			<a href="/" class="text-textSecondary hover:text-textPrimary transition-colors font-space text-sm">← Voltar para Home</a>
-			
-			<div class="flex items-center gap-6 text-textSecondary font-space text-sm">
-				<a href="https://wa.me/5564993335277" target="_blank" rel="noopener noreferrer" class="hover:text-brandCyan transition-colors">WhatsApp</a>
-				<a href="https://www.instagram.com/nathanb.exe/" target="_blank" rel="noopener noreferrer" class="hover:text-brandCyan transition-colors">Instagram</a>
-				<a href="https://www.behance.net/nathanborges546" target="_blank" rel="noopener noreferrer" class="hover:text-brandCyan transition-colors">Behance</a>
-			</div>
-		</div>
+    <div class="flex flex-col gap-4 opacity-0 animate-fade-in-up [animation-delay:400ms]">
+      <p class="text-textSecondary font-space text-xs uppercase tracking-widest">Direct Info</p>
+		  <a href="mailto:nathanborges546@gmail.com" class="text-textPrimary text-xl md:text-2xl font-sora font-bold hover:text-brandCyan transition-colors">nathanborges546@gmail.com</a>
+    </div>
+
+		<a href="/" class="mt-20 text-textSecondary hover:text-textPrimary transition-colors font-sora text-sm inline-flex items-center gap-2">
+      ← Voltar para Home
+    </a>
 	</section>
 </Layout>
+
+<style>
+  @keyframes fade-in-up {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .animate-fade-in-up { animation: fade-in-up 0.8s cubic-bezier(0.23, 1, 0.32, 1) forwards; }
+</style>

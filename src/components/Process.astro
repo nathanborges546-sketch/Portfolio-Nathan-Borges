@@ -1,52 +1,43 @@
 ---
-// Seção do Processo Consultivo
+// Seção Metodologia - Como agrego valor ao time (Squad Focus)
 const steps = [
   {
-    title: "Diagnóstico & UX Research",
-    desc: "Identifico onde o seu ecossistema está lento ou confuso. Não adianta injetar IA se a interface gera fadiga emocional no usuário."
+    title: "Imersão & Diagnóstico",
+    desc: "Analiso os gargalos do produto e a dor real do usuário final. Código sem contexto gera desperdício de stack.",
   },
   {
-    title: "Arquitetura & Prototipagem",
-    desc: "Desenho o fluxo lógico e a interface em um ambiente isolado de rascunho, garantindo validação visual sem interferir na sua operação viva."
+    title: "Arquitetura & Design de Fricção Zero",
+    desc: "Desenho a topologia do sistema e os protótipos de interface, garantindo validação de escopo antes da primeira linha de código.",
   },
   {
-    title: "Desenvolvimento de Alta Precisão",
-    desc: "Construo a solução conectando as APIs oficiais (Python/Node). Foco em código limpo, sem erros e com tempo de resposta imediato."
+    title: "Desenvolvimento Limpo & Integração",
+    desc: "Implemento a solução com foco em performance (INP < 200ms), modularidade e documentação clara para o restante do time de engenharia.",
   },
   {
-    title: "Manutenção & Evolução (GEO)",
-    desc: "APIs atualizam e mercados mudam. Garanto suporte contínuo para manter suas conexões blindadas e prontas para as recomendações de motores de busca generativos."
+    title: "Evolução & Blindagem (GEO)",
+    desc: "Monitoro a integridade das APIs e a adaptabilidade do conteúdo para os novos motores de busca generativos, garantindo que o sistema nunca fique obsoleto.",
   }
 ];
 ---
-<section class="py-32 px-6 md:px-20 lg:px-40 bg-darkBg border-t border-white/5">
-  <div class="max-w-4xl mx-auto">
-    <div class="mb-24 md:text-center">
-      <h2 class="text-3xl md:text-5xl font-sora font-bold text-textPrimary tracking-tight mb-6">O Fluxo Híbrido</h2>
-      <p class="text-textSecondary text-lg font-sora max-w-2xl md:mx-auto">
-        Uma metodologia circular que une a profundidade da pesquisa de comportamento com a força bruta da engenharia de dados.
+<section id="metodologia" class="py-32 px-6 md:px-20 lg:px-40 bg-darkBg border-t border-surface/30">
+  <div class="max-w-7xl mx-auto">
+    <div class="mb-24">
+      <h2 class="text-3xl md:text-5xl font-sora font-bold text-textPrimary tracking-tight mb-6">Como eu agrego valor ao time</h2>
+      <p class="text-textSecondary text-lg max-w-2xl font-sora">
+        Minha abordagem de desenvolvimento segue um ciclo previsível, limpo e focado em engenharia Human-First.
       </p>
     </div>
 
-    <div class="flex flex-col gap-16 md:gap-24 relative">
-      <div class="absolute left-8 top-0 bottom-0 w-px bg-white/5 hidden md:block"></div>
-      
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
       {steps.map((step, index) => (
-        <div class="relative flex flex-col md:flex-row items-start md:items-center gap-8 md:gap-16 group">
-          
-          <div class="absolute top-0 right-0 md:-left-32 md:top-auto font-space font-extrabold text-[80px] md:text-[120px] leading-none text-white/5 select-none pointer-events-none group-hover:text-white/10 transition-colors">
+        <div class="flex flex-col relative group">
+          <span class="text-brandCyan/10 font-space text-8xl font-bold absolute -top-12 -left-4 select-none pointer-events-none group-hover:text-brandCyan/20 transition-colors">
             0{index + 1}
+          </span>
+          <div class="relative z-10 pt-4">
+            <h3 class="text-textPrimary font-sora text-xl font-bold mb-4">{step.title}</h3>
+            <p class="text-textSecondary text-sm leading-relaxed font-sora">{step.desc}</p>
           </div>
-
-          <div class="hidden md:flex w-16 h-16 shrink-0 rounded-full bg-surface border border-white/10 items-center justify-center relative z-10 group-hover:border-brandCyan/50 transition-colors">
-             <div class="w-3 h-3 rounded-full bg-brandCyan/30 group-hover:bg-brandCyan transition-colors"></div>
-          </div>
-
-          <div class="relative z-10 pt-4 md:pt-0">
-            <h3 class="text-textPrimary font-sora text-2xl font-semibold mb-4 group-hover:text-brandCyan transition-colors">{step.title}</h3>
-            <p class="text-textSecondary text-base leading-relaxed font-sora max-w-xl">{step.desc}</p>
-          </div>
-
         </div>
       ))}
     </div>
