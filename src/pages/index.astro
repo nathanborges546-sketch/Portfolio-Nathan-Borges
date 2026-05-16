@@ -4,6 +4,8 @@ import Hero from '../components/Hero.astro';
 import ProjectSwitcher from '../components/ProjectSwitcher.astro';
 import Process from '../components/Process.astro';
 import Reviews from '../components/Reviews.astro';
+import { Image } from 'astro:assets';
+import logoImg from '../assets/logo.png';
 ---
 
 <Layout title="Nathan Borges | Engenharia de Sistemas & UX">
@@ -20,7 +22,7 @@ import Reviews from '../components/Reviews.astro';
       <!-- Info Col -->
       <div class="flex flex-col items-center md:items-start gap-6">
         <div class="flex items-center gap-3">
-          <img src="/logo.png" alt="Nathan Borges" width="120" height="40" loading="lazy" decoding="async" class="h-5 w-auto invert brightness-0 opacity-50" />
+          <Image src={logoImg} alt="Nathan Borges" width={120} class="h-5 w-auto invert brightness-0 opacity-50" />
           <span class="text-textSecondary font-sora text-sm font-bold tracking-tight">Nathan Borges</span>
         </div>
         <div class="flex flex-col items-center md:items-start gap-2">

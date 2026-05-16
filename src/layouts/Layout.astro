@@ -34,8 +34,9 @@ const { title } = Astro.props;
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
 
-		<!-- Calendly Widget -->
-		<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+		<!-- Calendly Widget (Deferred) -->
+		<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" media="print" onload="this.media='all'">
+		<noscript><link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet"></noscript>
 		<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
 		
 		<!-- View Transitions para navegação cinematográfica -->

@@ -1,3 +1,8 @@
+---
+import { Image } from 'astro:assets';
+import profileImg from '../assets/nathan.jpg';
+---
+
 <header class="relative min-h-screen flex flex-col justify-center px-8 overflow-hidden bg-darkBg pt-32 pb-20">
   <div class="max-w-7xl mx-auto z-10 w-full">
     <div class="grid lg:grid-cols-[1.2fr_0.8fr] gap-12 lg:gap-24 items-center">
@@ -33,7 +38,7 @@
         <div class="relative group cursor-zoom-in" id="photo-zoom-trigger">
           <div class="absolute -inset-2 bg-brandCyan/20 rounded-[24px] blur-sm opacity-50 group-hover:opacity-100 transition-opacity"></div>
           <div class="relative p-1 bg-darkBg border-[5px] border-brandCyan/40 rounded-[22px] shadow-[0_0_30px_rgba(28,105,183,0.15)] overflow-hidden">
-            <img src="/nathan.jpg" id="profile-img" alt="Nathan Borges" width="192" height="192" fetchpriority="high" loading="eager" decoding="async" class="w-32 h-32 md:w-48 md:h-48 rounded-[18px] object-cover transition-transform duration-500 group-hover:scale-105" />
+            <Image src={profileImg} id="profile-img" alt="Nathan Borges" width={192} fetchpriority="high" loading="eager" class="w-32 h-32 md:w-48 md:h-48 rounded-[18px] object-cover transition-transform duration-500 group-hover:scale-105" />
             <!-- Tech Accents -->
             <div class="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-brandCyan rounded-tl-lg"></div>
             <div class="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-brandCyan rounded-br-lg"></div>
@@ -78,7 +83,7 @@
         <path d="M18 6L6 18M6 6l12 12" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
     </button>
-    <img src="/nathan.jpg" alt="Nathan Borges Zoom" width="800" height="800" loading="lazy" decoding="async" class="max-w-[90%] max-h-[80%] rounded-[32px] border-[5px] border-brandCyan/40 shadow-2xl object-cover shadow-brandCyan/10" />
+    <Image src={profileImg} alt="Nathan Borges Zoom" width={800} class="max-w-[90%] max-h-[80%] rounded-[32px] border-[5px] border-brandCyan/40 shadow-2xl object-cover shadow-brandCyan/10" />
   </div>
 
   <!-- Background Ambient Light -->
