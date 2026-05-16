@@ -4,7 +4,20 @@
       
       <!-- Coluna de Texto -->
       <div class="order-2 lg:order-1">
-        <h1 class="font-sora text-4xl md:text-6xl lg:text-7xl font-bold tracking-tighter text-textPrimary leading-[1.1] mb-8 opacity-0 animate-fade-in-up">
+        <!-- Rating & Social Proof -->
+        <div class="flex items-center gap-3 mb-6 opacity-0 animate-fade-in-up">
+          <div class="flex text-brandCyan">
+            {[1, 2, 3, 4, 5].map(() => (
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+              </svg>
+            ))}
+          </div>
+          <span class="text-textPrimary font-space text-sm font-bold">4,9/5</span>
+          <span class="text-textSecondary font-space text-xs uppercase tracking-widest border-l border-white/10 pl-3">+150 clientes satisfeitos</span>
+        </div>
+
+        <h1 class="font-sora text-4xl md:text-6xl lg:text-7xl font-bold tracking-tighter text-textPrimary leading-[1.1] mb-8 opacity-0 animate-fade-in-up [animation-delay:100ms]">
           Construindo a <span class="text-brandCyan">infraestrutura de IA</span> e a <span class="text-brandCyan">clareza de UX</span> que escalam produtos digitais.
         </h1>
 
@@ -24,31 +37,41 @@
       </div>
 
       <!-- Coluna de Perfil -->
-      <div class="order-1 lg:order-2 flex flex-col items-center lg:items-start gap-8 opacity-0 animate-fade-in-up [animation-delay:600ms]">
+      <div class="order-1 lg:order-2 flex flex-col items-center lg:items-start gap-6 opacity-0 animate-fade-in-up [animation-delay:600ms]">
+        <!-- Foto com Moldura Tech -->
         <div class="relative group">
-          <div class="absolute -inset-1 bg-gradient-to-r from-brandCyan to-transparent rounded-[32px] blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
-          <img src="/nathan.jpg" alt="Nathan Borges" class="relative w-48 h-48 md:w-64 md:h-64 rounded-[32px] object-cover border border-white/10 shadow-2xl" />
+          <div class="absolute -inset-2 bg-brandCyan/20 rounded-[24px] blur-sm opacity-50"></div>
+          <div class="relative p-1 bg-darkBg border border-brandCyan/40 rounded-[22px] shadow-[0_0_30px_rgba(28,105,183,0.15)] overflow-hidden">
+            <img src="/nathan.jpg" alt="Nathan Borges" class="w-32 h-32 md:w-40 md:h-40 rounded-[18px] object-cover transition-transform duration-500 group-hover:scale-110" />
+            <!-- Tech Accents -->
+            <div class="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-brandCyan rounded-tl-lg"></div>
+            <div class="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-brandCyan rounded-br-lg"></div>
+          </div>
         </div>
 
-        <!-- Badges de Habilidades -->
-        <div class="flex flex-wrap justify-center lg:justify-start gap-2 max-w-sm">
-          {["Criativo", "Organizado", "Estratégico", "Experiente", "Profissional", "Pontual"].map((skill) => (
-            <span class="px-4 py-2 bg-surface border border-white/5 rounded-xl text-textSecondary font-space text-[10px] md:text-xs uppercase tracking-widest cursor-default hover:border-brandCyan/30 hover:text-textPrimary transition-colors">
-              {skill}
-            </span>
-          ))}
+        <!-- Nome e Habilidades -->
+        <div class="flex flex-col items-center lg:items-start gap-4">
+          <h2 class="text-textPrimary font-sora text-xl font-bold tracking-tight">Nathan Borges</h2>
+          
+          <div class="flex flex-wrap justify-center lg:justify-start gap-2 max-w-[280px]">
+            {["Criativo", "Organizado", "Estratégico", "Experiente", "Profissional", "Pontual"].map((skill) => (
+              <span class="px-3 py-1.5 bg-surface border border-white/5 rounded-lg text-textSecondary font-space text-[9px] md:text-[10px] uppercase tracking-widest cursor-default hover:border-brandCyan/30 hover:text-textPrimary transition-colors">
+                {skill}
+              </span>
+            ))}
+          </div>
         </div>
 
         <!-- Tagline de Experiência -->
-        <div class="flex items-center gap-4 py-4 px-6 bg-brandCyan/5 border border-brandCyan/10 rounded-2xl w-full lg:w-auto">
-          <div class="w-10 h-10 rounded-full bg-brandCyan/20 flex items-center justify-center text-brandCyan">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <div class="flex items-center gap-4 py-3 px-5 bg-brandCyan/5 border border-brandCyan/10 rounded-2xl w-full lg:w-auto mt-4">
+          <div class="w-8 h-8 rounded-full bg-brandCyan/20 flex items-center justify-center text-brandCyan">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
             </svg>
           </div>
           <div>
-            <p class="text-textPrimary font-sora font-bold text-sm leading-tight">Mais de 7 anos</p>
-            <p class="text-brandCyan font-space text-[10px] uppercase tracking-widest">construindo autoridade digital</p>
+            <p class="text-textPrimary font-sora font-bold text-xs leading-tight">Mais de 7 anos</p>
+            <p class="text-brandCyan font-space text-[9px] uppercase tracking-widest leading-none">construindo autoridade digital</p>
           </div>
         </div>
       </div>
