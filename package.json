@@ -11,10 +11,10 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/tailwind": "latest",
+    "@astrojs/tailwind": "^6.0.0",
     "@rive-app/canvas": "latest",
-    "astro": "latest",
+    "astro": "^5.0.0",
     "gsap": "latest",
-    "tailwindcss": "latest"
+    "tailwindcss": "^3.4.0"
   }
 }
