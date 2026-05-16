@@ -33,7 +33,7 @@
         <div class="relative group cursor-zoom-in" id="photo-zoom-trigger">
           <div class="absolute -inset-2 bg-brandCyan/20 rounded-[24px] blur-sm opacity-50 group-hover:opacity-100 transition-opacity"></div>
           <div class="relative p-1 bg-darkBg border-[5px] border-brandCyan/40 rounded-[22px] shadow-[0_0_30px_rgba(28,105,183,0.15)] overflow-hidden">
-            <img src="/nathan.jpg" id="profile-img" alt="Nathan Borges" class="w-32 h-32 md:w-48 md:h-48 rounded-[18px] object-cover transition-transform duration-500 group-hover:scale-105" />
+            <img src="/nathan.jpg" id="profile-img" alt="Nathan Borges" width="192" height="192" fetchpriority="high" loading="eager" decoding="async" class="w-32 h-32 md:w-48 md:h-48 rounded-[18px] object-cover transition-transform duration-500 group-hover:scale-105" />
             <!-- Tech Accents -->
             <div class="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-brandCyan rounded-tl-lg"></div>
             <div class="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-brandCyan rounded-br-lg"></div>
@@ -63,7 +63,7 @@
           </div>
           <div class="flex flex-col">
             <p class="text-textPrimary font-sora font-bold text-sm leading-tight sm:leading-none">Mais de 7 anos construindo autoridade digital</p>
-            <p class="text-brandCyan font-space text-[10px] uppercase tracking-widest leading-none mt-1">Senior Software Engineer & UX Specialist</p>
+            <p class="text-blue-400 font-space text-[10px] uppercase tracking-widest leading-none mt-1">Senior Software Engineer & UX Specialist</p>
           </div>
         </div>
       </div>
@@ -73,12 +73,12 @@
 
   <!-- Modal de Zoom (Hidden by default) -->
   <div id="zoom-modal" class="fixed inset-0 z-[100] bg-darkBg/95 backdrop-blur-xl flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300">
-    <button id="close-zoom" class="absolute top-10 right-10 text-textPrimary hover:text-brandCyan p-4">
+    <button id="close-zoom" aria-label="Fechar zoom da foto" class="absolute top-10 right-10 text-textPrimary hover:text-brandCyan p-4">
       <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
         <path d="M18 6L6 18M6 6l12 12" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
     </button>
-    <img src="/nathan.jpg" alt="Nathan Borges Zoom" class="max-w-[90%] max-h-[80%] rounded-[32px] border-[5px] border-brandCyan/40 shadow-2xl object-cover shadow-brandCyan/10" />
+    <img src="/nathan.jpg" alt="Nathan Borges Zoom" width="800" height="800" loading="lazy" decoding="async" class="max-w-[90%] max-h-[80%] rounded-[32px] border-[5px] border-brandCyan/40 shadow-2xl object-cover shadow-brandCyan/10" />
   </div>
 
   <!-- Background Ambient Light -->
