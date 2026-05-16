@@ -11,6 +11,13 @@ import Layout from '../layouts/Layout.astro';
 		<p class="font-sora text-lg md:text-xl text-textSecondary max-w-2xl leading-relaxed mb-12">
 			Em breve: Estudos de caso demonstrando a aplicação de microcopy estratégico, psicologia comportamental e interfaces otimizadas para conversão máxima.
 		</p>
-		<a href="/" class="text-textSecondary hover:text-brandCyan transition-colors font-space text-sm">← Voltar para Home</a>
+		<div class="flex flex-col sm:flex-row gap-6 mt-8">
+			<button onclick="Calendly.initPopupWidget({url: 'https://calendly.com/nathanborges546/30min'});return false;" class="inline-flex items-center justify-center px-10 py-4 bg-brandCyan text-textPrimary font-space font-bold rounded-full hover:brightness-110 transition-all hover:scale-105 active:scale-95 shadow-[0_0_30px_rgba(28,105,183,0.3)] uppercase tracking-widest text-xs">
+				AGENDAR PAPO TÉCNICO
+			</button>
+			<a href="/" class="inline-flex items-center justify-center px-10 py-4 border border-surface text-textSecondary hover:text-textPrimary transition-all rounded-full font-space text-sm uppercase tracking-widest">
+				← Voltar
+			</a>
+		</div>
 	</section>
 </Layout>
