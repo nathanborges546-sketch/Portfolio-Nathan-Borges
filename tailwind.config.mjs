@@ -12,7 +12,7 @@ export default {
         surface: '#161b22',
         textPrimary: '#f0f6fc',
         textSecondary: '#8b949e',
-        brandCyan: '#00f2fe',
+        brandCyan: '#1c69b7',
       },
       keyframes: {
         marquee: {
