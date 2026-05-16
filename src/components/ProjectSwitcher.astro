@@ -2,20 +2,26 @@
 // Componente de Tabs (Switcher) + Bento Grid
 const automationsCases = [
   {
+    tag: "CASE 01",
+    metric: "10h → 1h 05min",
     title: "Sistema de Prospecção de Alta Performance",
-    desc: "Redução de 10h para 1h 05min na montagem de pipelines comerciais.",
-    tags: ["Python", "Outscraper", "Meta API"],
+    desc: "Redução radical em pipelines comerciais. Extração inteligente e disparo seguro via Meta API.",
+    tags: ["Python", "Streamlit", "Meta API"],
     span: "md:col-span-2 md:row-span-2",
   },
   {
-    title: "Integração B2B de Cardápio",
-    desc: "Sincronização em tempo real de dados para operação em Himarë.",
-    tags: ["Node.js", "Webhooks"],
+    tag: "CASE 02",
+    metric: "",
+    title: "Integração B2B de Fluxo de Caixa",
+    desc: "Sincronização em tempo real e arquitetura de dados resiliente para operação local em Himarë.",
+    tags: ["Node.js", "Webhooks", "APIs"],
     span: "md:col-span-1 md:row-span-1",
   },
   {
-    title: "Data Cleansing Automático",
-    desc: "Script de purificação de leads B2B.",
+    tag: "CASE 03",
+    metric: "",
+    title: "Purificação Automatizada de Leads",
+    desc: "Script avançado de data cleansing para bases de dados exaustas, recuperando o CTR de campanhas corporativas.",
     tags: ["Pandas", "Regex"],
     span: "md:col-span-1 md:row-span-1",
   }
@@ -23,64 +29,81 @@ const automationsCases = [
 
 const uxCases = [
   {
+    tag: "CASE 01",
+    metric: "500+ Dados",
     title: "Dashboard de Gestão de Dados IA",
-    desc: "Simplificação de 500+ data points diários para tomadores de decisão corporativos.",
-    tags: ["Figma", "Design System", "User Flows"],
+    desc: "Simplificação de data points diários para tomadores de decisão, focada em mitigar o estresse visual e a carga cognitiva.",
+    tags: ["Figma", "Design System"],
     span: "md:col-span-2 md:row-span-2",
   },
   {
-    title: "Redesign de Checkout B2B",
-    desc: "Fluxo focado em redução de carga cognitiva e erro humano.",
-    tags: ["Heurísticas", "Prototipagem"],
+    tag: "CASE 02",
+    metric: "",
+    title: "Redesign de Checkout Conversivo",
+    desc: "Otimização de CRO baseada em heurísticas e microcopy colaborativo para anular erros humanos e abandono de carrinho.",
+    tags: ["UX Writing", "Heurísticas"],
     span: "md:col-span-1 md:row-span-1",
   },
   {
+    tag: "CASE 03",
+    metric: "",
     title: "Prototipagem de Ferramenta Interna",
-    desc: "Interface para sistema de CRM customizado.",
-    tags: ["Wireframing"],
+    desc: "Interface sob medida para CRM customizado, otimizando a zona do polegar (Mobile-First) e a produtividade da equipe.",
+    tags: ["Wireframing", "User Flows"],
     span: "md:col-span-1 md:row-span-1",
   }
 ];
 ---
 
-<section id="projetos" class="py-32 px-10 md:px-20 lg:px-40 bg-deep-blue">
+<section id="projetos" class="py-32 px-6 md:px-20 lg:px-40 bg-darkBg">
   <div class="max-w-7xl mx-auto">
     
     <!-- Header e Tabs -->
     <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
       <div>
-        <h2 class="text-3xl md:text-5xl font-sans font-bold text-off-white tracking-tight mb-4">O Ecossistema</h2>
-        <p class="text-off-white/50 text-lg">Selecione o eixo de atuação para explorar os *cases*.</p>
+        <h2 class="text-3xl md:text-5xl font-sora font-bold text-textPrimary tracking-tight mb-4">O Ecossistema de Soluções</h2>
+        <p class="text-textSecondary text-lg font-sora max-w-2xl">Alterne entre os eixos para entender como traduzo psicologia comportamental e código robusto em eficiência previsível.</p>
       </div>
 
-      <div class="inline-flex p-1 bg-card-dark border border-white/5 rounded-full">
-        <button id="tab-auto" class="tab-btn active px-8 py-3 rounded-full text-sm font-sans font-medium transition-all text-deep-blue bg-off-white">
-          Automações & IA
+      <div class="inline-flex p-1 bg-surface border border-white/5 rounded-xl md:rounded-full">
+        <button id="tab-auto" class="tab-btn active px-6 md:px-8 py-3 rounded-lg md:rounded-full text-sm font-space font-medium transition-all text-darkBg bg-textPrimary">
+          [ Automações & IA ]
         </button>
-        <button id="tab-ux" class="tab-btn px-8 py-3 rounded-full text-sm font-sans font-medium transition-all text-off-white/50 hover:text-off-white">
-          UX Design
+        <button id="tab-ux" class="tab-btn px-6 md:px-8 py-3 rounded-lg md:rounded-full text-sm font-space font-medium transition-all text-textSecondary hover:text-textPrimary">
+          [ UX Design ]
         </button>
       </div>
     </div>
 
     <!-- Bento Grid Container -->
-    <div class="relative min-h-[600px]">
+    <div class="relative min-h-[800px] md:min-h-[600px]">
       
       <!-- Grid Automações -->
       <div id="grid-auto" class="absolute inset-0 grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 gap-6 transition-all duration-500 opacity-100 pointer-events-auto">
         {automationsCases.map(c => (
-          <div class={`group relative bg-card-dark rounded-3xl p-8 border border-white/5 hover:border-cyan-accent/30 hover:bg-[#1a202a] transition-all duration-300 overflow-hidden flex flex-col justify-end ${c.span}`}>
-            <div class="absolute top-0 right-0 p-8 opacity-0 group-hover:opacity-100 transition-opacity">
-               <svg class="w-6 h-6 text-cyan-accent rotate-45 group-hover:rotate-0 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7"/></svg>
+          <div class={`group relative bg-surface rounded-[24px] p-8 border border-white/5 hover:border-brandCyan/30 hover:bg-[#1a202a] transition-all duration-300 overflow-hidden flex flex-col justify-between ${c.span}`}>
+            <div class="flex justify-between items-start w-full mb-8">
+               <span class="font-space text-xs text-brandCyan tracking-widest">{c.tag}</span>
+               <div class="p-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                 <svg class="w-6 h-6 text-brandCyan rotate-45 group-hover:rotate-0 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7"/></svg>
+               </div>
             </div>
-            <div>
-              <div class="flex flex-wrap gap-2 mb-6">
+            
+            {c.metric && (
+               <div class="mb-auto">
+                 <h2 class="font-space font-bold text-4xl md:text-5xl lg:text-6xl text-textPrimary tracking-tighter mb-4">{c.metric}</h2>
+               </div>
+            )}
+
+            <div class="mt-auto">
+              <h3 class="text-xl md:text-2xl font-sora font-medium text-textPrimary mb-3 group-hover:text-brandCyan transition-colors">{c.title}</h3>
+              <p class="text-textSecondary text-sm leading-relaxed mb-6 font-sora">{c.desc}</p>
+              
+              <div class="flex flex-wrap gap-2 mt-auto">
                 {c.tags.map(tag => (
-                  <span class="px-3 py-1 bg-deep-blue border border-white/10 rounded-full text-xs font-mono text-cyan-accent/80">{tag}</span>
+                  <span class="px-3 py-1.5 bg-darkBg border border-white/5 rounded-md text-[11px] font-space text-brandCyan/80 tracking-wide uppercase">{tag}</span>
                 ))}
               </div>
-              <h3 class="text-2xl md:text-3xl font-sans font-bold text-off-white mb-3 group-hover:text-cyan-accent transition-colors">{c.title}</h3>
-              <p class="text-off-white/60 text-sm md:text-base leading-relaxed">{c.desc}</p>
             </div>
           </div>
         ))}
@@ -89,18 +112,29 @@ const uxCases = [
       <!-- Grid UX -->
       <div id="grid-ux" class="absolute inset-0 grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 gap-6 transition-all duration-500 opacity-0 pointer-events-none translate-y-4">
         {uxCases.map(c => (
-          <div class={`group relative bg-card-dark rounded-3xl p-8 border border-white/5 hover:border-white/20 hover:bg-[#1a202a] transition-all duration-300 overflow-hidden flex flex-col justify-end ${c.span}`}>
-            <div class="absolute top-0 right-0 p-8 opacity-0 group-hover:opacity-100 transition-opacity">
-               <svg class="w-6 h-6 text-off-white rotate-45 group-hover:rotate-0 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7"/></svg>
+          <div class={`group relative bg-surface rounded-[24px] p-8 border border-white/5 hover:border-white/20 hover:bg-[#1a202a] transition-all duration-300 overflow-hidden flex flex-col justify-between ${c.span}`}>
+            <div class="flex justify-between items-start w-full mb-8">
+               <span class="font-space text-xs text-textSecondary tracking-widest">{c.tag}</span>
+               <div class="p-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                 <svg class="w-6 h-6 text-textPrimary rotate-45 group-hover:rotate-0 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7"/></svg>
+               </div>
             </div>
-            <div>
-              <div class="flex flex-wrap gap-2 mb-6">
+
+            {c.metric && (
+               <div class="mb-auto">
+                 <h2 class="font-space font-bold text-4xl md:text-5xl lg:text-6xl text-textPrimary tracking-tighter mb-4">{c.metric}</h2>
+               </div>
+            )}
+
+            <div class="mt-auto">
+              <h3 class="text-xl md:text-2xl font-sora font-medium text-textPrimary mb-3">{c.title}</h3>
+              <p class="text-textSecondary text-sm leading-relaxed mb-6 font-sora">{c.desc}</p>
+              
+              <div class="flex flex-wrap gap-2 mt-auto">
                 {c.tags.map(tag => (
-                  <span class="px-3 py-1 bg-deep-blue border border-white/10 rounded-full text-xs font-mono text-off-white/80">{tag}</span>
+                  <span class="px-3 py-1.5 bg-darkBg border border-white/5 rounded-md text-[11px] font-space text-textSecondary tracking-wide uppercase">{tag}</span>
                 ))}
               </div>
-              <h3 class="text-2xl md:text-3xl font-sans font-bold text-off-white mb-3">{c.title}</h3>
-              <p class="text-off-white/60 text-sm md:text-base leading-relaxed">{c.desc}</p>
             </div>
           </div>
         ))}
@@ -113,7 +147,6 @@ const uxCases = [
 
 <script>
   document.addEventListener('astro:page-load', () => {
-    // Script da Astro Island para alternar os grids
     const tabAuto = document.getElementById('tab-auto');
     const tabUx = document.getElementById('tab-ux');
     const gridAuto = document.getElementById('grid-auto');
@@ -121,41 +154,35 @@ const uxCases = [
 
     const switchTab = (activeTab) => {
       if (activeTab === 'auto') {
-        // Estilo dos botões
-        tabAuto?.classList.replace('text-off-white/50', 'text-deep-blue');
-        tabAuto?.classList.replace('hover:text-off-white', 'bg-off-white');
-        tabAuto?.classList.add('bg-off-white');
+        tabAuto?.classList.replace('text-textSecondary', 'text-darkBg');
+        tabAuto?.classList.replace('hover:text-textPrimary', 'bg-textPrimary');
+        tabAuto?.classList.add('bg-textPrimary');
 
-        tabUx?.classList.replace('text-deep-blue', 'text-off-white/50');
-        tabUx?.classList.replace('bg-off-white', 'hover:text-off-white');
-        tabUx?.classList.remove('bg-off-white');
+        tabUx?.classList.replace('text-darkBg', 'text-textSecondary');
+        tabUx?.classList.replace('bg-textPrimary', 'hover:text-textPrimary');
+        tabUx?.classList.remove('bg-textPrimary');
 
-        // Mostrar Auto
         gridAuto?.classList.replace('opacity-0', 'opacity-100');
         gridAuto?.classList.replace('pointer-events-none', 'pointer-events-auto');
         gridAuto?.classList.remove('translate-y-4');
         
-        // Esconder UX
         gridUx?.classList.replace('opacity-100', 'opacity-0');
         gridUx?.classList.replace('pointer-events-auto', 'pointer-events-none');
         gridUx?.classList.add('translate-y-4');
 
       } else {
-        // Estilo dos botões
-        tabUx?.classList.replace('text-off-white/50', 'text-deep-blue');
-        tabUx?.classList.replace('hover:text-off-white', 'bg-off-white');
-        tabUx?.classList.add('bg-off-white');
+        tabUx?.classList.replace('text-textSecondary', 'text-darkBg');
+        tabUx?.classList.replace('hover:text-textPrimary', 'bg-textPrimary');
+        tabUx?.classList.add('bg-textPrimary');
 
-        tabAuto?.classList.replace('text-deep-blue', 'text-off-white/50');
-        tabAuto?.classList.replace('bg-off-white', 'hover:text-off-white');
-        tabAuto?.classList.remove('bg-off-white');
+        tabAuto?.classList.replace('text-darkBg', 'text-textSecondary');
+        tabAuto?.classList.replace('bg-textPrimary', 'hover:text-textPrimary');
+        tabAuto?.classList.remove('bg-textPrimary');
 
-        // Mostrar UX
         gridUx?.classList.replace('opacity-0', 'opacity-100');
         gridUx?.classList.replace('pointer-events-none', 'pointer-events-auto');
         gridUx?.classList.remove('translate-y-4');
         
-        // Esconder Auto
         gridAuto?.classList.replace('opacity-100', 'opacity-0');
         gridAuto?.classList.replace('pointer-events-auto', 'pointer-events-none');
         gridAuto?.classList.add('translate-y-4');

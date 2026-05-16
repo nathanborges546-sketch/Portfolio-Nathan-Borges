@@ -3,27 +3,27 @@ const reviews = [
   {
     name: "C-Level Executivo",
     role: "Operações Corporativas",
-    text: "O diagnóstico foi cirúrgico. Reduzimos o tempo de prospecção em mais de 80% usando os scripts."
+    text: "O diagnóstico de gargalos foi cirúrgico. Eliminamos o esforço manual e reduzimos o tempo de prospecção em mais de 80% usando os scripts do Nathan."
   },
   {
     name: "Diretor de Produto",
     role: "SaaS B2B",
-    text: "A clareza da interface somada à potência do backend em Python mudou o jogo para o nosso time."
+    text: "A fusão entre a clareza do UX Writing e a potência do backend em Python trouxe previsibilidade e tirou o peso técnico das costas do time."
   },
   {
     name: "Gestor de Restaurante",
     role: "Operação Local",
-    text: "Integração perfeita de cardápio digital. O fluxo de caixa e os pedidos estão finalmente em sincronia."
+    text: "Integração perfeita de sistemas. O fluxo de pedidos e o cardápio digital finalmente sincronizaram, eliminando os erros manuais que nos custavam caro."
   },
   {
     name: "Líder de UX",
     role: "Agência Digital",
-    text: "Nathan não desenha apenas telas, ele projeta ecossistemas que os usuários realmente entendem."
+    text: "O Nathan domina o tecido conjuntivo de uma aplicação. Ele não desenha apenas telas bonitas, ele projeta engenharia focada na psicologia do usuário."
   },
   {
     name: "Empreendedor B2B",
     role: "Consultoria Estratégica",
-    text: "Um arquiteto técnico de verdade. O dashboard em Streamlit validou toda a nossa tese de dados."
+    text: "A abordagem Answer-First adotada no painel em Streamlit acelerou nossa tomada de decisão estratégica e validou nossa tese de dados em dias."
   }
 ];
 
@@ -31,29 +31,29 @@ const reviews = [
 const marqueeItems = [...reviews, ...reviews];
 ---
 
-<section class="py-24 bg-[#07090d] overflow-hidden border-t border-white/5">
-  <div class="px-10 md:px-20 lg:px-40 mb-12 text-center">
-    <h2 class="text-sm font-mono tracking-widest text-off-white/40 uppercase mb-4">Feedback do Ecossistema</h2>
-    <p class="text-off-white font-sans text-2xl md:text-3xl font-bold tracking-tight">O impacto de uma arquitetura limpa.</p>
+<section class="py-24 bg-darkBg overflow-hidden border-t border-white/5">
+  <div class="px-6 md:px-20 lg:px-40 mb-12 text-center">
+    <h2 class="text-xs md:text-sm font-space tracking-widest text-textSecondary uppercase mb-4">Validação de Impacto</h2>
+    <p class="text-textPrimary font-sora text-2xl md:text-4xl font-bold tracking-tight">O Retorno Real de uma Arquitetura Limpa.</p>
   </div>
 
   <!-- Marquee Wrapper -->
-  <div class="relative flex overflow-hidden group py-20 gap-6">
+  <div class="relative flex overflow-hidden group py-10 md:py-20 gap-6">
     
     <!-- Track Animado 1 -->
     <div class="flex shrink-0 min-w-full gap-6 animate-marquee group-hover:[animation-play-state:paused]">
       {reviews.map((review, index) => (
-        <div class="w-[350px] shrink-0 bg-card-dark border border-white/5 rounded-2xl p-8 transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] hover:scale-150 hover:z-50 hover:shadow-[0_20px_50px_rgba(0,0,0,0.5)] cursor-default">
+        <div class="w-[300px] md:w-[350px] shrink-0 bg-surface border border-white/5 rounded-2xl p-6 md:p-8 transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] md:hover:scale-110 hover:z-50 hover:shadow-[0_20px_50px_rgba(0,0,0,0.5)] hover:border-brandCyan/30 cursor-default">
           <div class="flex items-center gap-4 mb-4">
-            <div class="w-10 h-10 rounded-full bg-deep-blue border border-white/10 flex items-center justify-center">
-              <span class="text-cyan-accent font-mono text-xs">{review.name.charAt(0)}</span>
+            <div class="w-10 h-10 rounded-full bg-darkBg border border-white/10 flex items-center justify-center">
+              <span class="text-brandCyan font-space text-xs">{review.name.charAt(0)}</span>
             </div>
             <div>
-              <p class="text-off-white font-sans font-semibold text-sm whitespace-normal leading-none">{review.name}</p>
-              <p class="text-off-white/40 font-mono text-[10px] mt-1">{review.role}</p>
+              <p class="text-textPrimary font-sora font-semibold text-sm whitespace-normal leading-none">{review.name}</p>
+              <p class="text-textSecondary font-space text-[10px] md:text-xs mt-1.5 uppercase tracking-wide">{review.role}</p>
             </div>
           </div>
-          <p class="text-off-white/70 font-sans text-sm leading-relaxed whitespace-normal break-words">
+          <p class="text-textSecondary font-sora text-sm leading-relaxed whitespace-normal break-words">
             "{review.text}"
           </p>
         </div>
@@ -63,17 +63,17 @@ const marqueeItems = [...reviews, ...reviews];
     <!-- Track Animado 2 (Duplicado para o Loop) -->
     <div class="flex shrink-0 min-w-full gap-6 animate-marquee group-hover:[animation-play-state:paused]" aria-hidden="true">
       {reviews.map((review, index) => (
-        <div class="w-[350px] shrink-0 bg-card-dark border border-white/5 rounded-2xl p-8 transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] hover:scale-150 hover:z-50 hover:shadow-[0_20px_50px_rgba(0,0,0,0.5)] cursor-default">
+        <div class="w-[300px] md:w-[350px] shrink-0 bg-surface border border-white/5 rounded-2xl p-6 md:p-8 transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] md:hover:scale-110 hover:z-50 hover:shadow-[0_20px_50px_rgba(0,0,0,0.5)] hover:border-brandCyan/30 cursor-default">
           <div class="flex items-center gap-4 mb-4">
-            <div class="w-10 h-10 rounded-full bg-deep-blue border border-white/10 flex items-center justify-center">
-              <span class="text-cyan-accent font-mono text-xs">{review.name.charAt(0)}</span>
+            <div class="w-10 h-10 rounded-full bg-darkBg border border-white/10 flex items-center justify-center">
+              <span class="text-brandCyan font-space text-xs">{review.name.charAt(0)}</span>
             </div>
             <div>
-              <p class="text-off-white font-sans font-semibold text-sm whitespace-normal leading-none">{review.name}</p>
-              <p class="text-off-white/40 font-mono text-[10px] mt-1">{review.role}</p>
+              <p class="text-textPrimary font-sora font-semibold text-sm whitespace-normal leading-none">{review.name}</p>
+              <p class="text-textSecondary font-space text-[10px] md:text-xs mt-1.5 uppercase tracking-wide">{review.role}</p>
             </div>
           </div>
-          <p class="text-off-white/70 font-sans text-sm leading-relaxed whitespace-normal break-words">
+          <p class="text-textSecondary font-sora text-sm leading-relaxed whitespace-normal break-words">
             "{review.text}"
           </p>
         </div>
@@ -81,8 +81,8 @@ const marqueeItems = [...reviews, ...reviews];
     </div>
 
     <!-- Fade effects nas bordas da tela para mobile e desktop -->
-    <div class="pointer-events-none absolute inset-y-0 left-0 w-16 md:w-40 bg-gradient-to-r from-[#07090d] to-transparent z-40"></div>
-    <div class="pointer-events-none absolute inset-y-0 right-0 w-16 md:w-40 bg-gradient-to-l from-[#07090d] to-transparent z-40"></div>
+    <div class="pointer-events-none absolute inset-y-0 left-0 w-8 md:w-40 bg-gradient-to-r from-darkBg to-transparent z-40"></div>
+    <div class="pointer-events-none absolute inset-y-0 right-0 w-8 md:w-40 bg-gradient-to-l from-darkBg to-transparent z-40"></div>
 
   </div>
 </section>

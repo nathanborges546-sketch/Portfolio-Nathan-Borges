@@ -1,32 +1,32 @@
 ---
 // Navbar Minimalista com Gaveta de Projetos e Status Badge
 ---
-<nav class="fixed top-0 left-0 w-full z-50 px-6 md:px-10 py-6 flex justify-between items-center bg-deep-blue/80 backdrop-blur-xl border-b border-white/5">
+<nav class="fixed top-0 left-0 w-full z-50 px-6 md:px-10 py-6 flex justify-between items-center bg-darkBg/80 backdrop-blur-xl border-b border-white/5">
   <div class="flex items-center gap-6">
-    <a href="/" class="text-off-white font-sans text-lg font-semibold tracking-tight hover:text-cyan-accent transition-colors">Nathan Borges</a>
-    <div class="hidden lg:flex items-center gap-2 px-3 py-1 bg-[#161b22] border border-white/5 rounded-full">
-      <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-      <span class="text-green-500/80 font-sans text-xs tracking-wide">System Status: Ready for Integrations</span>
+    <a href="/" class="text-textPrimary font-sora text-lg font-semibold tracking-tight hover:text-brandCyan transition-colors">Nathan Borges</a>
+    <div class="hidden lg:flex items-center gap-2 px-3 py-1 bg-surface border border-white/5 rounded-full">
+      <span class="w-2 h-2 rounded-full bg-brandCyan animate-pulse"></span>
+      <span class="text-brandCyan/80 font-space text-xs tracking-wide">● System Status: Ready for Integrations</span>
     </div>
   </div>
   
   <div class="flex items-center gap-12">
     <!-- Desktop Menu -->
     <ul class="hidden md:flex items-center gap-10">
-      <li><a href="/blog" class="text-off-white/70 hover:text-off-white transition-colors text-sm font-medium">Blog</a></li>
+      <li><a href="/blog" class="text-textSecondary hover:text-textPrimary transition-colors text-sm font-medium font-sora">Blog</a></li>
       <li class="relative group">
-        <button id="project-trigger" class="text-off-white/70 hover:text-off-white transition-colors text-sm font-medium flex items-center gap-2">
+        <button id="project-trigger" class="text-textSecondary hover:text-textPrimary transition-colors text-sm font-medium flex items-center gap-2 font-sora">
           Projetos
           <svg width="10" height="6" viewBox="0 0 10 6" fill="none" class="opacity-50 group-hover:rotate-180 transition-transform">
             <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </button>
       </li>
-      <li><a href="/contato" class="text-off-white/70 hover:text-off-white transition-colors text-sm font-medium">Contato</a></li>
+      <li><a href="/contato" class="text-textSecondary hover:text-textPrimary transition-colors text-sm font-medium font-sora">Contato</a></li>
     </ul>
 
     <!-- Mobile Menu Trigger -->
-    <button id="mobile-menu-trigger" class="flex md:hidden text-off-white hover:text-cyan-accent transition-colors p-2">
+    <button id="mobile-menu-trigger" class="flex md:hidden text-textPrimary hover:text-brandCyan transition-colors p-2">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
         <path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
@@ -35,34 +35,34 @@
 </nav>
 
 <!-- Mobile Menu (Overlay) -->
-<div id="mobile-menu" class="fixed inset-0 z-[55] bg-deep-blue/95 backdrop-blur-xl translate-y-[-100%] transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] pointer-events-none flex flex-col justify-center items-center md:hidden">
-  <button id="close-mobile-menu" class="absolute top-6 right-6 text-off-white hover:text-cyan-accent transition-colors p-4">
+<div id="mobile-menu" class="fixed inset-0 z-[55] bg-darkBg/95 backdrop-blur-xl translate-y-[-100%] transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] pointer-events-none flex flex-col justify-center items-center md:hidden">
+  <button id="close-mobile-menu" class="absolute top-6 right-6 text-textPrimary hover:text-brandCyan transition-colors p-4">
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
       <path d="M18 6L6 18M6 6l12 12" stroke-linecap="round" stroke-linejoin="round"/>
     </svg>
   </button>
 
-  <ul class="flex flex-col items-center gap-10 text-2xl font-sans font-medium">
-    <li><a href="/" class="text-off-white hover:text-cyan-accent transition-colors">Home</a></li>
-    <li><a href="/blog" class="text-off-white hover:text-cyan-accent transition-colors">Blog</a></li>
+  <ul class="flex flex-col items-center gap-10 text-2xl font-sora font-medium">
+    <li><a href="/" class="text-textPrimary hover:text-brandCyan transition-colors">Home</a></li>
+    <li><a href="/blog" class="text-textPrimary hover:text-brandCyan transition-colors">Blog</a></li>
     <li>
-      <button id="mobile-project-trigger" class="text-off-white hover:text-cyan-accent transition-colors flex items-center gap-3">
+      <button id="mobile-project-trigger" class="text-textPrimary hover:text-brandCyan transition-colors flex items-center gap-3">
         Projetos
         <svg width="14" height="8" viewBox="0 0 10 6" fill="none" class="opacity-50">
           <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       </button>
     </li>
-    <li><a href="/contato" class="text-off-white hover:text-cyan-accent transition-colors">Contato</a></li>
+    <li><a href="/contato" class="text-textPrimary hover:text-brandCyan transition-colors">Contato</a></li>
   </ul>
 </div>
 
 <!-- Gaveta de Projetos (Overlay) -->
-<div id="project-drawer" class="fixed inset-0 z-[60] bg-deep-blue translate-y-[-100%] transition-transform duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] pointer-events-none overflow-hidden">
-  <div class="h-full flex flex-col justify-center px-6 md:px-20 lg:px-40">
-    <div class="flex justify-between items-start mb-12 md:mb-20">
-      <h2 class="text-off-white/40 font-sans text-sm tracking-widest uppercase mt-4 md:mt-0">Selecione o Eixo de Projeto</h2>
-      <button id="close-drawer" class="text-off-white hover:text-cyan-accent transition-colors p-4 md:p-4 absolute top-4 right-4 md:relative md:top-0 md:right-0">
+<div id="project-drawer" class="fixed inset-0 z-[60] bg-darkBg translate-y-[-100%] transition-transform duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] pointer-events-none overflow-y-auto overflow-x-hidden md:overflow-hidden">
+  <div class="min-h-full flex flex-col justify-center px-6 md:px-20 lg:px-40 py-24 md:py-0">
+    <div class="flex justify-between items-start mb-8 md:mb-20">
+      <h2 class="text-textSecondary font-space text-sm tracking-widest uppercase mt-4 md:mt-0">Selecione o Eixo Estratégico</h2>
+      <button id="close-drawer" class="text-textPrimary hover:text-brandCyan transition-colors p-4 md:p-4 absolute top-4 right-4 md:relative md:top-0 md:right-0">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
           <path d="M18 6L6 18M6 6l12 12" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
@@ -70,16 +70,16 @@
     </div>
 
     <div class="grid md:grid-cols-2 gap-6 md:gap-20">
-      <a href="/ux" class="group flex flex-col items-start p-6 md:p-8 rounded-[24px] bg-card-dark border border-white/5 hover:border-white/10 transition-colors">
-        <span class="text-off-white/30 font-mono text-xs block mb-4">01</span>
-        <h3 class="text-off-white text-2xl md:text-5xl font-sans font-bold mb-4 group-hover:text-cyan-accent transition-colors">UX Design</h3>
-        <p class="text-off-white/50 text-sm md:text-base leading-relaxed hidden sm:block">Interfaces minimalistas desenhadas para eliminar o esforço cognitivo e maximizar a fluidez operacional.</p>
+      <a href="/ux" class="group flex flex-col items-start p-6 md:p-8 rounded-[24px] bg-surface border border-white/5 hover:border-white/10 transition-colors">
+        <span class="text-textSecondary/50 font-space text-xs block mb-4">01</span>
+        <h3 class="text-textPrimary text-2xl md:text-5xl font-sora font-bold mb-4 group-hover:text-brandCyan transition-colors">UX & Product Design</h3>
+        <p class="text-textSecondary text-sm md:text-base leading-relaxed">Interfaces minimalistas desenhadas para anular o esforço cognitivo, eliminar a fricção e reter a atenção do usuário exausto.</p>
       </a>
 
-      <a href="/automations" class="group flex flex-col items-start p-6 md:p-8 rounded-[24px] bg-card-dark border border-white/5 hover:border-white/10 transition-colors">
-        <span class="text-off-white/30 font-mono text-xs block mb-4">02</span>
-        <h3 class="text-off-white text-2xl md:text-5xl font-sans font-bold mb-4 group-hover:text-cyan-accent transition-colors">Automação & IA</h3>
-        <p class="text-off-white/50 text-sm md:text-base leading-relaxed hidden sm:block">Scripts em Python que transformam processos manuais em fluxos de dados contínuos, recuperando horas vitais.</p>
+      <a href="/automations" class="group flex flex-col items-start p-6 md:p-8 rounded-[24px] bg-surface border border-white/5 hover:border-white/10 transition-colors">
+        <span class="text-textSecondary/50 font-space text-xs block mb-4">02</span>
+        <h3 class="text-textPrimary text-2xl md:text-5xl font-sora font-bold mb-4 group-hover:text-brandCyan transition-colors">Arquitetura de IA & Automação</h3>
+        <p class="text-textSecondary text-sm md:text-base leading-relaxed">Engenharia de dados e agentes autônomos que removem o peso operacional das suas costas, devolvendo horas vitais à sua empresa.</p>
       </a>
     </div>
   </div>
