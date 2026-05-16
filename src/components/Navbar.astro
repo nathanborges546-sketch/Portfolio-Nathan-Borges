@@ -10,9 +10,9 @@
     </a>
   </div>
 
-  <!-- Centro: Navegação -->
-  <div class="flex-1 flex justify-start md:justify-center">
-    <ul class="hidden md:flex items-center gap-8">
+  <!-- Centro: Navegação Desktop -->
+  <div class="flex-1 hidden md:flex justify-center">
+    <ul class="flex items-center gap-8">
       <li class="relative group">
         <button id="project-trigger" class="text-textSecondary hover:text-textPrimary transition-colors text-sm font-sora flex items-center gap-2">
           Projetos
@@ -24,20 +24,21 @@
       <li><a href="/#metodologia" class="text-textSecondary hover:text-textPrimary transition-colors text-sm font-sora">Metodologia</a></li>
       <li><a href="/blog" class="text-textSecondary hover:text-textPrimary transition-colors text-sm font-sora">Blog</a></li>
     </ul>
+  </div>
 
-    <!-- Mobile Burger (Visible only on mobile) -->
+  <!-- Lado Direito: CTA Desktop & Mobile Trigger -->
+  <div class="flex-1 flex justify-end items-center gap-4">
+    <!-- Desktop CTA -->
+    <a href="https://wa.me/5564993335277" target="_blank" rel="noopener noreferrer" class="hidden md:flex font-space text-xs tracking-[0.2em] bg-brandCyan text-textPrimary px-8 py-4 rounded-full hover:brightness-110 transition-all active:scale-95 uppercase font-bold shadow-[0_0_20px_rgba(28,105,183,0.3)]">
+      CONVERSAR NO WHATSAPP
+    </a>
+
+    <!-- Mobile Burger (Visible only on mobile, right aligned) -->
     <button id="mobile-menu-trigger" class="flex md:hidden text-textPrimary hover:text-brandCyan transition-colors p-2">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
         <path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
     </button>
-  </div>
-
-  <!-- Lado Direito: CTA Primário (WhatsApp) -->
-  <div class="flex-1 hidden md:flex justify-end">
-    <a href="https://wa.me/5564993335277" target="_blank" rel="noopener noreferrer" class="font-space text-xs tracking-[0.2em] bg-brandCyan text-textPrimary px-8 py-4 rounded-full hover:brightness-110 transition-all active:scale-95 uppercase font-bold shadow-[0_0_20px_rgba(28,105,183,0.3)]">
-      CONVERSAR NO WHATSAPP
-    </a>
   </div>
 
 </nav>
