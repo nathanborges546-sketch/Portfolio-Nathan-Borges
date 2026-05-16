@@ -33,11 +33,10 @@ const { title } = Astro.props;
 		<ViewTransitions />
 
 		<style is:global>
-			html, body {
+			* {
 				cursor: url('/cursor.svg') 0 0, auto !important;
-				min-height: 100vh;
 			}
-			a, button, [role="button"], #photo-zoom-trigger {
+			a, button, [role="button"], #photo-zoom-trigger, input, select, textarea {
 				cursor: url('/cursor.svg') 0 0, pointer !important;
 			}
 		</style>
