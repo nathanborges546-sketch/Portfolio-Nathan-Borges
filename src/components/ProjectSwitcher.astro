@@ -153,40 +153,31 @@ const uxCases = [
     const gridUx = document.getElementById('grid-ux');
 
     const switchTab = (activeTab) => {
-      if (activeTab === 'auto') {
-        tabAuto?.classList.replace('text-textSecondary', 'text-darkBg');
-        tabAuto?.classList.replace('hover:text-textPrimary', 'bg-textPrimary');
-        tabAuto?.classList.add('bg-textPrimary');
+      const isAuto = activeTab === 'auto';
+      
+      // Estilos das Tabs
+      tabAuto?.classList.toggle('text-darkBg', isAuto);
+      tabAuto?.classList.toggle('bg-textPrimary', isAuto);
+      tabAuto?.classList.toggle('text-textSecondary', !isAuto);
+      tabAuto?.classList.toggle('hover:text-textPrimary', !isAuto);
 
-        tabUx?.classList.replace('text-darkBg', 'text-textSecondary');
-        tabUx?.classList.replace('bg-textPrimary', 'hover:text-textPrimary');
-        tabUx?.classList.remove('bg-textPrimary');
+      tabUx?.classList.toggle('text-darkBg', !isAuto);
+      tabUx?.classList.toggle('bg-textPrimary', !isAuto);
+      tabUx?.classList.toggle('text-textSecondary', isAuto);
+      tabUx?.classList.toggle('hover:text-textPrimary', isAuto);
 
-        gridAuto?.classList.replace('opacity-0', 'opacity-100');
-        gridAuto?.classList.replace('pointer-events-none', 'pointer-events-auto');
-        gridAuto?.classList.remove('translate-y-4');
-        
-        gridUx?.classList.replace('opacity-100', 'opacity-0');
-        gridUx?.classList.replace('pointer-events-auto', 'pointer-events-none');
-        gridUx?.classList.add('translate-y-4');
+      // Visibilidade dos Grids
+      gridAuto?.classList.toggle('opacity-100', isAuto);
+      gridAuto?.classList.toggle('opacity-0', !isAuto);
+      gridAuto?.classList.toggle('pointer-events-auto', isAuto);
+      gridAuto?.classList.toggle('pointer-events-none', !isAuto);
+      gridAuto?.classList.toggle('translate-y-4', !isAuto);
 
-      } else {
-        tabUx?.classList.replace('text-textSecondary', 'text-darkBg');
-        tabUx?.classList.replace('hover:text-textPrimary', 'bg-textPrimary');
-        tabUx?.classList.add('bg-textPrimary');
-
-        tabAuto?.classList.replace('text-darkBg', 'text-textSecondary');
-        tabAuto?.classList.replace('bg-textPrimary', 'hover:text-textPrimary');
-        tabAuto?.classList.remove('bg-textPrimary');
-
-        gridUx?.classList.replace('opacity-0', 'opacity-100');
-        gridUx?.classList.replace('pointer-events-none', 'pointer-events-auto');
-        gridUx?.classList.remove('translate-y-4');
-        
-        gridAuto?.classList.replace('opacity-100', 'opacity-0');
-        gridAuto?.classList.replace('pointer-events-auto', 'pointer-events-none');
-        gridAuto?.classList.add('translate-y-4');
-      }
+      gridUx?.classList.toggle('opacity-100', !isAuto);
+      gridUx?.classList.toggle('opacity-0', isAuto);
+      gridUx?.classList.toggle('pointer-events-auto', !isAuto);
+      gridUx?.classList.toggle('pointer-events-none', isAuto);
+      gridUx?.classList.toggle('translate-y-4', isAuto);
     };
 
     tabAuto?.addEventListener('click', () => switchTab('auto'));

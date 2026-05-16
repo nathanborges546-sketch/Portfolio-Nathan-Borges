@@ -98,26 +98,14 @@
     const mobileClose = document.getElementById('close-mobile-menu');
     const mobileProjectTrigger = document.getElementById('mobile-project-trigger');
 
-    const toggleDrawer = (open) => {
+    const toggleOverlay = (element, open) => {
       if (open) {
-        drawer?.classList.remove('translate-y-[-100%]');
-        drawer?.classList.add('translate-y-0', 'pointer-events-auto');
+        element?.classList.remove('translate-y-[-100%]');
+        element?.classList.add('translate-y-0', 'pointer-events-auto');
         document.body.style.overflow = 'hidden';
       } else {
-        drawer?.classList.add('translate-y-[-100%]');
-        drawer?.classList.remove('translate-y-0', 'pointer-events-auto');
-        document.body.style.overflow = '';
-      }
-    };
-
-    const toggleMobileMenu = (open) => {
-      if (open) {
-        mobileMenu?.classList.remove('translate-y-[-100%]');
-        mobileMenu?.classList.add('translate-y-0', 'pointer-events-auto');
-        document.body.style.overflow = 'hidden';
-      } else {
-        mobileMenu?.classList.add('translate-y-[-100%]');
-        mobileMenu?.classList.remove('translate-y-0', 'pointer-events-auto');
+        element?.classList.add('translate-y-[-100%]');
+        element?.classList.remove('translate-y-0', 'pointer-events-auto');
         document.body.style.overflow = '';
       }
     };
