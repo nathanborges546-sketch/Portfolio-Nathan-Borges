@@ -60,7 +60,7 @@
         <!-- Table Input -->
         <div class="mb-4 flex items-center justify-between bg-white/5 border border-white/10 p-3 rounded-xl">
           <label class="text-xs text-gray-400 uppercase tracking-widest font-bold">Nº da Mesa</label>
-          <input type="number" id="input-table-number" min="1" max="50" value="5" class="w-16 bg-[#161b22] text-[#f0f6fc] text-center font-space font-bold border border-white/10 rounded-md py-1 focus:outline-none focus:border-[#00AEEF]">
+          <input type="number" id="input-table-number" min="1" max="5" value="5" class="w-16 bg-[#161b22] text-[#f0f6fc] text-center font-space font-bold border border-white/10 rounded-md py-1 focus:outline-none focus:border-[#00AEEF]">
         </div>
 
         <!-- Menu Simulator (Scrollable list of 6 curated items) -->
@@ -351,9 +351,9 @@
         btnPlaceOrder.classList.replace('cursor-not-allowed', 'cursor-pointer');
         btnPlaceOrder.classList.remove('border-[#00AEEF]/30');
         
-        if (activeLang === 'pt') btnPlaceOrder.innerHTML = `⚡ Disparar via Webhook`;
-        else if (activeLang === 'en') btnPlaceOrder.innerHTML = `⚡ Fire Webhook`;
-        else btnPlaceOrder.innerHTML = `⚡ Dërgo Webhook`;
+        if (activeLang === 'pt') btnPlaceOrder.innerHTML = `⚡ Fazer pedido`;
+        else if (activeLang === 'en') btnPlaceOrder.innerHTML = `⚡ Place Order`;
+        else btnPlaceOrder.innerHTML = `⚡ Bëj Porosinë`;
       } else {
         btnPlaceOrder.classList.replace('bg-[#00AEEF]', 'bg-[#00AEEF]/20');
         btnPlaceOrder.classList.replace('text-white', 'text-[#00AEEF]');
@@ -615,7 +615,10 @@
     btnPlaceOrder?.addEventListener('click', async () => {
       if (btnPlaceOrder.classList.contains('cursor-not-allowed')) return;
 
-      const currentTable = tableInput ? tableInput.value : "5";
+      let currentTable = tableInput ? parseInt(tableInput.value) : 5;
+      if (isNaN(currentTable) || currentTable < 1) currentTable = 1;
+      if (currentTable > 5) currentTable = 5;
+      if (tableInput) tableInput.value = currentTable.toString();
       const currentOrderId = `#${orderCounter++}`;
       
       let orderTotalLeke = 0;
