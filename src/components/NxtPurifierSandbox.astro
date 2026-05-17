@@ -451,6 +451,7 @@
 </div>
 
 <script>
+  document.addEventListener('astro:page-load', () => {
   // DOM Elements Selection
   const btnPurify = document.getElementById('btn-run-purify') as HTMLButtonElement;
   const btnSync = document.getElementById('btn-run-sync') as HTMLButtonElement;
@@ -643,6 +644,7 @@
       roiModalContent.classList.remove('scale-100');
       roiModalContent.classList.add('scale-95');
     }
+  });
   });
 </script>
 
