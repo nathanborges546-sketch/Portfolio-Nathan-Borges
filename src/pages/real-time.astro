@@ -1,0 +1,52 @@
+---
+import Layout from '../layouts/Layout.astro';
+import MoskatoSyncSandbox from '../components/MoskatoSyncSandbox.astro';
+---
+
+<Layout title="Sincronização B2B Real-Time | Nathan Borges">
+  <main class="min-h-screen bg-[#0b0e14] pt-24 pb-32 px-6">
+    <div class="max-w-4xl mx-auto">
+      
+      <!-- Navegação e Retorno -->
+      <a href="/#projetos" class="inline-flex items-center gap-2 text-[#8b949e] hover:text-[#f0f6fc] transition-colors font-space text-xs tracking-widest uppercase mb-12 group">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="group-hover:-translate-x-1 transition-transform">
+          <path d="M19 12H5M12 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Voltar para Projetos
+      </a>
+      
+      <!-- Título da Página -->
+      <div class="mb-12 animate-fade-in-up">
+        <div class="flex items-center gap-3 mb-6">
+          <span class="px-3 py-1 bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 font-space text-[10px] rounded-full uppercase tracking-widest font-bold">Microsserviços e Webhooks</span>
+          <span class="px-3 py-1 bg-[#F15A24]/10 border border-[#F15A24]/20 text-[#F15A24] font-space text-[10px] rounded-full uppercase tracking-widest font-bold">Offline-First</span>
+        </div>
+        
+        <h1 class="text-3xl md:text-5xl font-sora font-bold text-[#f0f6fc] tracking-tight mb-6 leading-tight">
+          Sincronização de Dados B2B Real-Time
+        </h1>
+        
+        <div class="prose prose-invert max-w-none">
+          <p class="text-[#8b949e] text-lg font-sora leading-relaxed">
+            Sistemas em nuvem são maravilhosos, mas falham quando a internet cai. Para a operação de um cliente corporativo focado em hospitalidade na Albânia (Himarë), quedas de conexão significavam perda de faturamento e desorganização da cozinha.
+          </p>
+          <p class="text-[#8b949e] text-lg font-sora leading-relaxed mt-4">
+            A solução: Arquitetura **Offline-First**. O Edge Client não depende mais da nuvem para funcionar. O restaurante opera localmente através de um **Node.js Sync Broker** via microsserviço. Assim que o processamento ocorre internamente, um Webhook sincroniza o estado global no CRM em milissegundos.
+          </p>
+        </div>
+      </div>
+
+      <!-- Divider -->
+      <div class="w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent my-16"></div>
+
+      <!-- Sandbox Interativa -->
+      <div class="mb-12 text-center animate-fade-in-up [animation-delay:100ms]">
+        <h2 class="text-xl md:text-2xl font-sora font-bold text-[#f0f6fc] mb-3">Simulação Interativa do Broker</h2>
+        <p class="text-sm font-space text-[#8b949e]">Teste o fluxo de pedidos atuando como o Cliente e como o Gerente da Cozinha.</p>
+      </div>
+
+      <MoskatoSyncSandbox />
+
+    </div>
+  </main>
+</Layout>
