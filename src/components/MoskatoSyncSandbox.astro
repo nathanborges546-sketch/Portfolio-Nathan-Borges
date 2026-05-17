@@ -8,10 +8,13 @@
   <div class="mb-8 border border-white/5 rounded-2xl overflow-hidden bg-white/[0.01] shadow-2xl">
     <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-white/5 p-5 bg-[#0b0e14]/30">
       <div class="flex items-center gap-3">
-        <span class="font-space text-[10px] bg-white/5 text-[#8b949e] px-3 py-1 rounded-full border border-white/5 tracking-wider font-semibold">LOCAL GATEWAY</span>
-        <h3 class="text-sm font-bold tracking-tight text-[#f0f6fc]">Node.js Sync Broker • Himarë</h3>
+        <span class="font-space text-[10px] bg-white/5 text-[#8b949e] px-3 py-1 rounded-full border border-white/5 tracking-wider font-semibold">ECOSSISTEMA NXT</span>
+        <h3 class="text-sm font-bold tracking-tight text-[#f0f6fc]">Node.js Sync Broker • Himarë, Albânia</h3>
       </div>
-      <div class="flex gap-3">
+      <div class="flex items-center gap-3">
+        <button id="btn-audio-toggle" class="font-space text-[10px] text-gray-400 border border-white/10 bg-white/5 px-3 py-1 rounded-md hover:bg-white/10 transition-colors uppercase tracking-widest font-semibold flex items-center gap-1.5">
+          <i id="audio-icon" class="fa-solid fa-volume-xmark text-red-400"></i> Som: Off
+        </button>
         <span class="font-space text-[10px] text-emerald-400 bg-emerald-400/10 px-3 py-1 rounded-full border border-emerald-400/20 tracking-wider font-semibold flex items-center gap-1.5">
           <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span> ONLINE
         </span>
@@ -19,116 +22,137 @@
     </div>
   </div>
 
-  <!-- Panels Container -->
-  <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 items-stretch">
+  <!-- Conveyor Belt 3-Column Container -->
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 items-stretch">
 
-    <!-- Left Panel: Edge Client (POS Simulator) -->
-    <div class="flex flex-col justify-between bg-[#0b0e14]/60 p-6 rounded-2xl border border-white/5 shadow-inner">
+    <!-- COLUNA 1: Cliente (App de Autoatendimento) -->
+    <div class="flex flex-col justify-between bg-[#0b0e14]/60 p-5 rounded-2xl border border-white/5 shadow-inner">
       <div>
-        <div class="flex justify-between items-center mb-6">
-          <h4 class="font-bold text-base tracking-tight text-[#f0f6fc] flex items-center gap-2">
-            <i class="fa-solid fa-mobile-screen text-[#00AEEF]"></i> Simulador de POS (Cliente)
+        <div class="flex justify-between items-center mb-4">
+          <h4 class="font-bold text-[15px] tracking-tight text-[#f0f6fc] flex items-center gap-2">
+            <i class="fa-solid fa-mobile-screen text-[#00AEEF]"></i> Totem do Cliente
           </h4>
-          <span class="font-space text-[10px] text-[#00AEEF] border border-[#00AEEF]/20 bg-[#00AEEF]/10 px-2 py-0.5 rounded-md">Frontend</span>
+          <span class="font-space text-[9px] text-[#00AEEF] border border-[#00AEEF]/20 bg-[#00AEEF]/10 px-2 py-0.5 rounded-md uppercase">Edge Local</span>
         </div>
         
-        <p class="text-xs text-[#8b949e] mb-6 leading-relaxed">
-          Simule o envio de um pedido através do dispositivo do cliente. Os dados são enviados para o servidor local (offline-first).
-        </p>
+        <!-- Table Input -->
+        <div class="mb-5 flex items-center justify-between bg-white/5 border border-white/10 p-3 rounded-xl">
+          <label class="text-xs text-gray-400 uppercase tracking-widest font-bold">Nº da Mesa</label>
+          <input type="number" id="input-table-number" min="1" max="50" value="5" class="w-16 bg-[#161b22] text-[#f0f6fc] text-center font-space font-bold border border-white/10 rounded-md py-1 focus:outline-none focus:border-[#00AEEF]">
+        </div>
 
-        <!-- Mock Menu Interface -->
-        <div class="bg-white/5 border border-white/10 rounded-xl p-4 mb-6">
-          <div class="flex justify-between items-center mb-4 pb-2 border-b border-white/5">
-            <span class="text-xs font-bold text-gray-400 uppercase tracking-widest">Identificação</span>
-            <span class="font-space font-bold text-[#f0f6fc] bg-[#161b22] px-3 py-1 rounded border border-white/10">Mesa 5</span>
-          </div>
-
-          <div class="space-y-3">
-            <div class="flex justify-between items-center text-sm font-body">
-              <span class="text-[#f0f6fc]">1x Burger Moskato Especial</span>
-              <span class="text-gray-400 font-space font-bold">650 L</span>
+        <!-- Menu Simulator -->
+        <div class="space-y-3 mb-6" id="client-menu-container">
+          <!-- Item 1 -->
+          <div class="bg-white/5 border border-white/10 rounded-xl p-3 flex justify-between items-center">
+            <div>
+              <h5 class="text-xs font-bold text-[#f0f6fc]">Burger Moskato Especial</h5>
+              <span class="text-[10px] font-space text-gray-400">650 LEKE</span>
             </div>
-            <div class="flex justify-between items-center text-sm font-body">
-              <span class="text-[#f0f6fc]">1x Spaghetti Carbonara</span>
-              <span class="text-gray-400 font-space font-bold">700 L</span>
-            </div>
-            <div class="flex justify-between items-center text-sm font-body">
-              <span class="text-[#f0f6fc]">2x Korça Beer Ice Cold</span>
-              <span class="text-gray-400 font-space font-bold">500 L</span>
+            <div class="flex items-center gap-2 bg-[#161b22] border border-white/5 rounded-full px-2 py-1">
+              <button class="w-5 h-5 text-gray-400 hover:text-white flex items-center justify-center text-xs" onclick="updateCart('burger', -1)"><i class="fa-solid fa-minus"></i></button>
+              <span id="qty-burger" class="font-space text-xs text-white font-bold w-4 text-center">0</span>
+              <button class="w-5 h-5 text-[#00AEEF] hover:text-white flex items-center justify-center text-xs" onclick="updateCart('burger', 1)"><i class="fa-solid fa-plus"></i></button>
             </div>
           </div>
-
-          <div class="flex justify-between items-center mt-5 pt-3 border-t border-white/5">
-            <span class="font-space text-xs text-gray-400 font-bold uppercase tracking-wider">Total</span>
-            <span class="font-space text-lg text-[#00AEEF] font-black">1850 LEKE</span>
+          <!-- Item 2 -->
+          <div class="bg-white/5 border border-white/10 rounded-xl p-3 flex justify-between items-center">
+            <div>
+              <h5 class="text-xs font-bold text-[#f0f6fc]">Spaghetti Carbonara</h5>
+              <span class="text-[10px] font-space text-gray-400">700 LEKE</span>
+            </div>
+            <div class="flex items-center gap-2 bg-[#161b22] border border-white/5 rounded-full px-2 py-1">
+              <button class="w-5 h-5 text-gray-400 hover:text-white flex items-center justify-center text-xs" onclick="updateCart('pasta', -1)"><i class="fa-solid fa-minus"></i></button>
+              <span id="qty-pasta" class="font-space text-xs text-white font-bold w-4 text-center">0</span>
+              <button class="w-5 h-5 text-[#00AEEF] hover:text-white flex items-center justify-center text-xs" onclick="updateCart('pasta', 1)"><i class="fa-solid fa-plus"></i></button>
+            </div>
+          </div>
+          <!-- Item 3 -->
+          <div class="bg-white/5 border border-white/10 rounded-xl p-3 flex justify-between items-center">
+            <div>
+              <h5 class="text-xs font-bold text-[#f0f6fc]">Cerveja Korça (Local)</h5>
+              <span class="text-[10px] font-space text-gray-400">250 LEKE</span>
+            </div>
+            <div class="flex items-center gap-2 bg-[#161b22] border border-white/5 rounded-full px-2 py-1">
+              <button class="w-5 h-5 text-gray-400 hover:text-white flex items-center justify-center text-xs" onclick="updateCart('beer', -1)"><i class="fa-solid fa-minus"></i></button>
+              <span id="qty-beer" class="font-space text-xs text-white font-bold w-4 text-center">0</span>
+              <button class="w-5 h-5 text-[#00AEEF] hover:text-white flex items-center justify-center text-xs" onclick="updateCart('beer', 1)"><i class="fa-solid fa-plus"></i></button>
+            </div>
           </div>
         </div>
+
       </div>
 
-      <!-- Send Action -->
-      <button id="btn-trigger-webhook" class="w-full bg-[#00AEEF] text-white font-space font-bold text-xs tracking-wider uppercase py-4 px-4 rounded-xl transition-all duration-300 hover:brightness-110 active:scale-[0.98] shadow-[0_0_15px_rgba(0,174,239,0.2)] cursor-pointer">
-        ⚡ Transmitir via Webhook
-      </button>
+      <!-- Action Footer -->
+      <div class="pt-4 border-t border-white/5">
+        <div class="flex justify-between items-center mb-4">
+          <span class="font-space text-xs text-gray-400 font-bold uppercase tracking-wider">Total Acumulado</span>
+          <span id="client-total-display" class="font-space text-lg text-[#00AEEF] font-black">0 L</span>
+        </div>
+        <button id="btn-place-order" class="w-full bg-[#00AEEF]/20 text-[#00AEEF] cursor-not-allowed border border-[#00AEEF]/30 font-space font-bold text-[11px] tracking-wider uppercase py-4 px-4 rounded-xl transition-all duration-300">
+          Selecione Itens
+        </button>
+      </div>
     </div>
 
-    <!-- Right Panel: Kitchen Monitor & Sync Broker -->
-    <div class="bg-[#0b0e14] rounded-2xl p-6 border border-white/5 flex flex-col justify-between shadow-inner">
+    <!-- COLUNA 2: Dashboard Administrativo (Caixa / Cloud) -->
+    <div class="flex flex-col bg-[#0b0e14] p-5 rounded-2xl border border-white/5 shadow-inner">
       <div class="flex justify-between items-center border-b border-white/5 pb-4 mb-4">
-        <h4 class="font-bold text-base tracking-tight text-[#f0f6fc] flex items-center gap-2">
-          <i class="fa-solid fa-fire-burner text-[#F15A24]"></i> Kitchen Console & Sync
+        <h4 class="font-bold text-[15px] tracking-tight text-[#f0f6fc] flex items-center gap-2">
+          <i class="fa-solid fa-chart-line text-emerald-400"></i> Gestão do Caixa
         </h4>
-        <div class="flex gap-2">
-          <button id="btn-audio-toggle" class="font-space text-[10px] text-gray-400 border border-white/10 bg-white/5 px-3 py-1 rounded-md hover:bg-white/10 transition-colors uppercase tracking-widest font-semibold flex items-center gap-1.5">
-            <i id="audio-icon" class="fa-solid fa-volume-xmark text-red-400"></i> Som: Off
-          </button>
+        <span class="font-space text-[9px] text-emerald-400 border border-emerald-400/20 bg-emerald-400/10 px-2 py-0.5 rounded-md uppercase">Sync Cloud</span>
+      </div>
+
+      <!-- Stats -->
+      <div class="grid grid-cols-2 gap-3 mb-6">
+        <div class="bg-white/5 border border-white/10 rounded-xl p-3 flex flex-col items-center justify-center text-center">
+          <span class="text-[9px] font-bold text-gray-500 uppercase tracking-widest mb-1">Pedidos Ativos</span>
+          <span id="admin-active-count" class="text-3xl font-black font-space text-yellow-500">0</span>
+        </div>
+        <div class="bg-emerald-500/5 border border-emerald-500/10 rounded-xl p-3 flex flex-col items-center justify-center text-center">
+          <span class="text-[9px] font-bold text-emerald-600 uppercase tracking-widest mb-1">Faturamento</span>
+          <span id="admin-revenue-total" class="text-xl font-black font-space text-emerald-400 flex items-center">0 <span class="text-xs ml-1">L</span></span>
         </div>
       </div>
 
-      <!-- Sync Terminal Log -->
-      <div class="font-space text-[10px] text-gray-500 mb-4 h-16 flex flex-col justify-end">
-        <div id="log-1" class="transition-all duration-300">✓ Websocket Broker: Listening on :8080</div>
-        <div id="log-2" class="transition-all duration-300">✓ Cloud DB Connection: Alive</div>
-        <div id="log-3" class="text-amber-400/70 animate-pulse mt-1 transition-all duration-300">⏳ Aguardando payload de webhooks locais...</div>
+      <!-- Webhook Logs -->
+      <div class="flex-1 flex flex-col min-h-[150px]">
+        <span class="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-3">Live Webhook Feed</span>
+        <div id="admin-log-feed" class="flex-1 overflow-y-auto space-y-2 pr-1 custom-scrollbar">
+          <!-- Default empty state -->
+          <div class="text-[10px] font-space text-gray-600 italic">Aguardando eventos locais...</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- COLUNA 3: Fila da Cozinha (Preparo) -->
+    <div class="flex flex-col bg-[#0b0e14] p-5 rounded-2xl border border-[#F15A24]/10 shadow-inner relative overflow-hidden">
+      <!-- Glow Decorativo -->
+      <div class="absolute top-0 right-0 w-32 h-32 bg-[#F15A24]/5 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="flex justify-between items-center border-b border-white/5 pb-4 mb-4 relative z-10">
+        <h4 class="font-bold text-[15px] tracking-tight text-[#f0f6fc] flex items-center gap-2">
+          <i class="fa-solid fa-fire-burner text-[#F15A24]"></i> Cozinha (Preparo)
+        </h4>
+        <span class="font-space text-[9px] text-[#F15A24] border border-[#F15A24]/20 bg-[#F15A24]/10 px-2 py-0.5 rounded-md uppercase">Local Monitor</span>
       </div>
 
-      <!-- Kitchen Ticket Container -->
-      <div class="flex-1 border border-white/5 bg-[#161b22]/40 rounded-xl p-5 relative overflow-hidden flex flex-col justify-center min-h-[220px]">
+      <!-- Kitchen Queue -->
+      <div id="kitchen-queue-container" class="flex-1 flex flex-col gap-3 overflow-y-auto custom-scrollbar relative z-10 pb-4">
         
         <!-- Empty State -->
-        <div id="kitchen-empty-state" class="absolute inset-0 flex flex-col items-center justify-center text-center opacity-100 transition-opacity duration-500">
-          <div class="w-12 h-12 rounded-full border border-white/5 bg-white/5 flex items-center justify-center mb-3">
-            <i class="fa-solid fa-utensils text-gray-500 text-xl"></i>
+        <div id="kitchen-empty-state" class="flex flex-col items-center justify-center text-center py-10 opacity-100 transition-opacity duration-500">
+          <div class="w-10 h-10 rounded-full border border-white/5 bg-white/5 flex items-center justify-center mb-3">
+            <i class="fa-solid fa-utensils text-gray-500"></i>
           </div>
           <span class="font-sora font-semibold text-gray-400 text-sm">Fila Vazia</span>
           <span class="font-space text-[10px] text-gray-600 mt-1 uppercase tracking-widest">Aguardando Pedidos</span>
         </div>
 
-        <!-- Active Order Ticket -->
-        <div id="kitchen-active-ticket" class="absolute inset-0 flex flex-col p-5 opacity-0 pointer-events-none scale-95 transition-all duration-500 bg-[#0b0e14]">
-          <div class="flex justify-between items-start mb-3">
-            <div>
-              <span class="text-[10px] font-space text-gray-500 uppercase tracking-widest font-bold">Tempo Gasto: <span id="kitchen-timer" class="text-[#F15A24]">00:00</span></span>
-              <h5 class="text-xl font-bold font-header text-white italic tracking-tight mt-0.5">#1042</h5>
-            </div>
-            <div class="text-right">
-              <span class="font-space font-black text-lg text-[#00AEEF]">Mesa 5</span>
-              <div><span class="text-[9px] font-bold bg-[#F15A24]/10 text-[#F15A24] border border-[#F15A24]/20 px-2 py-0.5 rounded-full uppercase tracking-widest animate-pulse">Preparando</span></div>
-            </div>
-          </div>
-          
-          <div class="flex-1 space-y-1.5 font-body text-xs text-gray-300">
-            <div class="flex gap-2 items-center"><i class="fa-regular fa-circle text-gray-600 text-[10px]"></i> 1x Burger Moskato Especial</div>
-            <div class="flex gap-2 items-center"><i class="fa-regular fa-circle text-gray-600 text-[10px]"></i> 1x Spaghetti Carbonara</div>
-            <div class="flex gap-2 items-center"><i class="fa-regular fa-circle text-gray-600 text-[10px]"></i> 2x Korça Beer Ice Cold</div>
-          </div>
-
-          <button id="btn-complete-order" class="mt-4 w-full bg-[#F15A24] text-white font-space font-bold text-xs tracking-wider uppercase py-3 rounded-xl transition-all duration-300 hover:brightness-110 active:scale-[0.98] shadow-[0_0_15px_rgba(241,90,36,0.15)] flex justify-center items-center gap-2">
-            <i class="fa-solid fa-check-double"></i> Concluir & Cloud Sync
-          </button>
-        </div>
       </div>
-
     </div>
+
   </div>
 
   <!-- Modal ROI de Alta Performance -->
@@ -144,27 +168,27 @@
       </div>
 
       <p class="text-xs text-[#8b949e] leading-relaxed">
-        A adoção da arquitetura orientada a eventos (<strong class="text-[#f0f6fc]">Node.js + Webhooks</strong>) transformou a operação local na Albânia. O sistema atua de forma nativa e rápida em modo <strong class="text-[#f0f6fc]">Offline-First</strong> para a equipe do restaurante.
+        Você acaba de simular uma arquitetura orientada a eventos (<strong class="text-[#f0f6fc]">Node.js + Webhooks</strong>). O sistema atuou de forma nativa e paralela, comunicando entre a ponta cliente, painel administrativo e a cozinha.
       </p>
 
       <div class="grid grid-cols-2 gap-3 font-space my-1">
         <div class="bg-[#0b0e14]/50 border border-white/5 p-4 rounded-xl flex flex-col items-center text-center">
           <div class="text-[10px] text-[#00AEEF] uppercase tracking-wider font-bold mb-1">Confiabilidade</div>
           <div class="text-2xl font-bold text-[#f0f6fc]">100%</div>
-          <div class="text-[10px] text-[#8b949e] mt-1">Uptime Local (Mesmo sem internet)</div>
+          <div class="text-[10px] text-[#8b949e] mt-1">Uptime Local Offline-First</div>
         </div>
         <div class="bg-[#F15A24]/5 border border-[#F15A24]/10 p-4 rounded-xl flex flex-col items-center text-center">
           <div class="text-[10px] text-[#F15A24] uppercase tracking-wider font-bold mb-1">Latência Cloud Sync</div>
           <div class="text-2xl font-bold text-[#F15A24]">18<span class="text-sm">ms</span></div>
-          <div class="text-[10px] text-[#F15A24]/70 mt-1">Sincronização em Background</div>
+          <div class="text-[10px] text-[#F15A24]/70 mt-1">Gatilho de Webhook</div>
         </div>
       </div>
 
-      <p class="text-xs text-[#8b949e] leading-relaxed">
-        Enquanto a cozinha despacha o pedido imediatamente sem travamentos, o broker de microsserviço concilia o inventário, finanças e comissões diretamente no Notion CRM e banco de dados em nuvem em milissegundos.
+      <p class="text-[11px] text-[#8b949e] leading-relaxed">
+        O corretor de microsserviços conciliou inventário e faturamento diretamente no painel gerencial em milissegundos, garantindo fluxo perfeito e livre de quedas para a operação do restaurante em Himarë.
       </p>
 
-      <button id="btn-close-sync-modal" class="w-full bg-white/10 text-white hover:bg-white/15 font-space font-semibold text-xs tracking-wider uppercase py-3 px-4 rounded-xl transition-all duration-300 mt-2 border border-white/5">
+      <button onclick="closeSyncModal()" class="w-full bg-white/10 text-white hover:bg-white/15 font-space font-semibold text-xs tracking-wider uppercase py-3 px-4 rounded-xl transition-all duration-300 mt-2 border border-white/5">
         Explorar Nova Simulação
       </button>
     </div>
@@ -172,191 +196,289 @@
 
 </div>
 
+<style>
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 4px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+  }
+</style>
+
 <script>
-  document.addEventListener('astro:page-load', () => {
-    // Buttons
-    const btnTrigger = document.getElementById('btn-trigger-webhook') as HTMLButtonElement;
-    const btnAudio = document.getElementById('btn-audio-toggle') as HTMLButtonElement;
-    const audioIcon = document.getElementById('audio-icon');
-    const btnComplete = document.getElementById('btn-complete-order') as HTMLButtonElement;
+  // State variables in global scope for the module
+  let cart = {
+    burger: { name: "Burger Moskato Especial", price: 650, qty: 0 },
+    pasta: { name: "Spaghetti Carbonara", price: 700, qty: 0 },
+    beer: { name: "Cerveja Korça (Local)", price: 250, qty: 0 }
+  };
+  
+  let orderCounter = 1042;
+  let activeOrdersCount = 0;
+  let totalRevenue = 0;
+  let kitchenQueue = [];
+  let totalOrdersPlaced = 0; // Tracks if at least one order was placed for ROI modal logic
+  let audioEnabled = false;
+
+  // Make functions globally accessible so inline onclick can use them
+  (window as any).updateCart = function(itemKey: string, change: number) {
+    const item = (cart as any)[itemKey];
+    item.qty += change;
+    if (item.qty < 0) item.qty = 0;
     
-    // UI Elements
-    const log3 = document.getElementById('log-3');
-    const emptyState = document.getElementById('kitchen-empty-state');
-    const activeTicket = document.getElementById('kitchen-active-ticket');
-    const kitchenTimer = document.getElementById('kitchen-timer');
+    // Update UI
+    const qtyElement = document.getElementById(`qty-${itemKey}`);
+    if (qtyElement) qtyElement.innerText = item.qty.toString();
 
-    // Modal
-    const modal = document.getElementById('sync-roi-modal');
-    const modalContent = document.getElementById('sync-roi-modal-content');
-    const btnCloseModal = document.getElementById('btn-close-sync-modal');
+    recalculateTotal();
+  };
 
-    let audioEnabled = false;
-    let timerInterval: any = null;
-    let secondsElapsed = 0;
-
-    // Helper sleep
-    const sleep = (ms: number) => new Promise(res => setTimeout(res, ms));
-
-    // Audio Context Setup (Web Audio API)
-    function playMoskatoChime() {
-      if (!audioEnabled) return;
-      try {
-        const audioCtx = new (window.AudioContext || (window as any).webkitAudioContext)();
-        
-        // Note 1: C5
-        let osc1 = audioCtx.createOscillator();
-        let gain1 = audioCtx.createGain();
-        osc1.connect(gain1);
-        gain1.connect(audioCtx.destination);
-        osc1.type = 'sine';
-        osc1.frequency.setValueAtTime(523.25, audioCtx.currentTime); 
-        gain1.gain.setValueAtTime(0.2, audioCtx.currentTime);
-        gain1.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.45);
-        osc1.start(audioCtx.currentTime);
-        osc1.stop(audioCtx.currentTime + 0.45);
-        
-        // Note 2: E5
-        let osc2 = audioCtx.createOscillator();
-        let gain2 = audioCtx.createGain();
-        osc2.connect(gain2);
-        gain2.connect(audioCtx.destination);
-        osc2.type = 'sine';
-        osc2.frequency.setValueAtTime(659.25, audioCtx.currentTime + 0.15); 
-        gain2.gain.setValueAtTime(0.2, audioCtx.currentTime + 0.15);
-        gain2.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.6);
-        osc2.start(audioCtx.currentTime + 0.15);
-        osc2.stop(audioCtx.currentTime + 0.6);
-      } catch (e) {
-        console.warn("Audio blocked by browser policy.", e);
-      }
+  function recalculateTotal() {
+    let total = 0;
+    let hasItems = false;
+    
+    for (const key in cart) {
+      const item = (cart as any)[key];
+      total += item.price * item.qty;
+      if (item.qty > 0) hasItems = true;
     }
 
-    // Toggle Audio
+    const display = document.getElementById('client-total-display');
+    const btnPlaceOrder = document.getElementById('btn-place-order');
+
+    if (display) display.innerText = `${total} L`;
+
+    if (btnPlaceOrder) {
+      if (hasItems) {
+        btnPlaceOrder.classList.replace('bg-[#00AEEF]/20', 'bg-[#00AEEF]');
+        btnPlaceOrder.classList.replace('text-[#00AEEF]', 'text-white');
+        btnPlaceOrder.classList.replace('cursor-not-allowed', 'cursor-pointer');
+        btnPlaceOrder.classList.remove('border-[#00AEEF]/30');
+        btnPlaceOrder.innerHTML = `⚡ Disparar via Webhook`;
+      } else {
+        btnPlaceOrder.classList.replace('bg-[#00AEEF]', 'bg-[#00AEEF]/20');
+        btnPlaceOrder.classList.replace('text-white', 'text-[#00AEEF]');
+        btnPlaceOrder.classList.replace('cursor-pointer', 'cursor-not-allowed');
+        btnPlaceOrder.classList.add('border-[#00AEEF]/30');
+        btnPlaceOrder.innerHTML = `Selecione Itens`;
+      }
+    }
+  }
+
+  // Audio Context Setup (Web Audio API)
+  function playMoskatoChime() {
+    if (!audioEnabled) return;
+    try {
+      const audioCtx = new (window.AudioContext || (window as any).webkitAudioContext)();
+      
+      let osc1 = audioCtx.createOscillator();
+      let gain1 = audioCtx.createGain();
+      osc1.connect(gain1);
+      gain1.connect(audioCtx.destination);
+      osc1.type = 'sine';
+      osc1.frequency.setValueAtTime(523.25, audioCtx.currentTime); 
+      gain1.gain.setValueAtTime(0.2, audioCtx.currentTime);
+      gain1.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.45);
+      osc1.start(audioCtx.currentTime);
+      osc1.stop(audioCtx.currentTime + 0.45);
+      
+      let osc2 = audioCtx.createOscillator();
+      let gain2 = audioCtx.createGain();
+      osc2.connect(gain2);
+      gain2.connect(audioCtx.destination);
+      osc2.type = 'sine';
+      osc2.frequency.setValueAtTime(659.25, audioCtx.currentTime + 0.15); 
+      gain2.gain.setValueAtTime(0.2, audioCtx.currentTime + 0.15);
+      gain2.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.6);
+      osc2.start(audioCtx.currentTime + 0.15);
+      osc2.stop(audioCtx.currentTime + 0.6);
+    } catch (e) {
+      console.warn("Audio blocked by browser policy.", e);
+    }
+  }
+
+  // Finalizar e Cloud Sync
+  (window as any).finishKitchenOrder = async function(orderId: string, btnElement: HTMLButtonElement) {
+    btnElement.disabled = true;
+    btnElement.innerHTML = `<i class="fa-solid fa-circle-notch animate-spin"></i> Sync Cloud...`;
+    btnElement.classList.replace('bg-[#F15A24]', 'bg-emerald-500');
+
+    // Simulate webhook to cloud
+    await new Promise(res => setTimeout(res, 800));
+
+    // Remove from Kitchen UI
+    const card = document.getElementById(`order-card-${orderId}`);
+    if (card) {
+      card.style.opacity = '0';
+      card.style.transform = 'scale(0.95)';
+      setTimeout(() => card.remove(), 300);
+    }
+
+    // Update Admin State
+    activeOrdersCount--;
+    const activeCountEl = document.getElementById('admin-active-count');
+    if (activeCountEl) activeCountEl.innerText = activeOrdersCount.toString();
+
+    logToAdminFeed(`✓ Sync Nuvem: Pedido ${orderId} Finalizado com sucesso.`, 'text-emerald-400');
+
+    // Check if queue is empty to trigger ROI modal
+    if (activeOrdersCount <= 0 && totalOrdersPlaced > 0) {
+      const emptyState = document.getElementById('kitchen-empty-state');
+      if (emptyState) {
+        emptyState.style.display = 'flex';
+        setTimeout(() => emptyState.style.opacity = '1', 100);
+      }
+      
+      setTimeout(() => {
+        const modal = document.getElementById('sync-roi-modal');
+        const modalContent = document.getElementById('sync-roi-modal-content');
+        if (modal && modalContent) {
+          modal.classList.remove('opacity-0', 'pointer-events-none');
+          modalContent.classList.remove('scale-95');
+          modalContent.classList.add('scale-100');
+        }
+      }, 500);
+    }
+  };
+
+  (window as any).closeSyncModal = function() {
+    const modal = document.getElementById('sync-roi-modal');
+    const modalContent = document.getElementById('sync-roi-modal-content');
+    if (modal && modalContent) {
+      modal.classList.add('opacity-0', 'pointer-events-none');
+      modalContent.classList.remove('scale-100');
+      modalContent.classList.add('scale-95');
+    }
+    // Reset tracker for next demo run
+    totalOrdersPlaced = 0;
+  };
+
+  function logToAdminFeed(message: string, colorClass: string = "text-[#f0f6fc]") {
+    const feed = document.getElementById('admin-log-feed');
+    if (!feed) return;
+    
+    // Remove the empty state placeholder if it exists
+    if (feed.innerHTML.includes("Aguardando eventos locais")) {
+      feed.innerHTML = '';
+    }
+
+    const timeStr = new Date().toLocaleTimeString([], { hour12: false });
+    const logEntry = document.createElement('div');
+    logEntry.className = `text-[10px] font-space border-b border-white/5 pb-1 ${colorClass} animate-fade-in-up`;
+    logEntry.innerHTML = `<span class="text-gray-500 mr-2">[${timeStr}]</span> ${message}`;
+    
+    feed.prepend(logEntry);
+  }
+
+  document.addEventListener('astro:page-load', () => {
+    // Reset state on page load
+    cart.burger.qty = 0; cart.pasta.qty = 0; cart.beer.qty = 0;
+    activeOrdersCount = 0;
+    totalRevenue = 0;
+    orderCounter = 1042;
+    totalOrdersPlaced = 0;
+    
+    // UI Elements
+    const btnPlaceOrder = document.getElementById('btn-place-order');
+    const tableInput = document.getElementById('input-table-number') as HTMLInputElement;
+    const btnAudio = document.getElementById('btn-audio-toggle');
+    const audioIcon = document.getElementById('audio-icon');
+
+    // Audio Toggle
     btnAudio?.addEventListener('click', () => {
       audioEnabled = !audioEnabled;
       if (audioEnabled) {
-        audioIcon!.className = "fa-solid fa-volume-high text-emerald-400";
+        if (audioIcon) audioIcon.className = "fa-solid fa-volume-high text-emerald-400";
         btnAudio.innerHTML = `<i id="audio-icon" class="fa-solid fa-volume-high text-emerald-400"></i> Som: On`;
         playMoskatoChime();
       } else {
-        audioIcon!.className = "fa-solid fa-volume-xmark text-red-400";
+        if (audioIcon) audioIcon.className = "fa-solid fa-volume-xmark text-red-400";
         btnAudio.innerHTML = `<i id="audio-icon" class="fa-solid fa-volume-xmark text-red-400"></i> Som: Off`;
       }
     });
 
-    // Formatting Timer
-    function updateTimer() {
-      if (!kitchenTimer) return;
-      const mins = Math.floor(secondsElapsed / 60).toString().padStart(2, '0');
-      const secs = (secondsElapsed % 60).toString().padStart(2, '0');
-      kitchenTimer.innerText = `${mins}:${secs}`;
-      secondsElapsed++;
-    }
+    // Place Order Logic
+    btnPlaceOrder?.addEventListener('click', async () => {
+      // Check if button is enabled
+      if (btnPlaceOrder.classList.contains('cursor-not-allowed')) return;
 
-    // Fluxo 1: Enviar via Webhook
-    btnTrigger?.addEventListener('click', async () => {
-      btnTrigger.disabled = true;
-      btnTrigger.innerHTML = `<i class="fa-solid fa-circle-notch animate-spin"></i> Emitindo Evento...`;
-      btnTrigger.classList.add('opacity-80', 'cursor-not-allowed');
+      const currentTable = tableInput?.value || "1";
+      const currentOrderId = `#${orderCounter++}`;
       
-      if (log3) {
-        log3.className = "text-[#00AEEF] transition-all duration-300";
-        log3.innerHTML = `> [POST] /api/v1/webhook - Payload { table: 5, items: 3 } recebido.`;
+      let orderTotal = 0;
+      let orderItems = [];
+
+      for (const key in cart) {
+        const item = (cart as any)[key];
+        if (item.qty > 0) {
+          orderTotal += item.price * item.qty;
+          orderItems.push(`${item.qty}x ${item.name}`);
+        }
       }
 
-      await sleep(600);
+      // Visual feedback on Client Button
+      btnPlaceOrder.innerHTML = `<i class="fa-solid fa-circle-notch animate-spin"></i> Emitindo...`;
+      await new Promise(res => setTimeout(res, 400));
+      
+      // Update Admin Dashboard
+      activeOrdersCount++;
+      totalRevenue += orderTotal;
+      totalOrdersPlaced++;
+      
+      document.getElementById('admin-active-count')!.innerText = activeOrdersCount.toString();
+      document.getElementById('admin-revenue-total')!.innerHTML = `${totalRevenue} <span class="text-xs ml-1">L</span>`;
+      
+      logToAdminFeed(`📡 Webhook Recebido: ${currentOrderId} | Mesa ${currentTable} | Valor: ${orderTotal}L`, "text-[#00AEEF]");
 
-      if (log3) {
-        log3.innerHTML = `> Emitindo Websocket para os nós locais...`;
-      }
-
-      await sleep(400);
-
-      // Play Chime and reveal Kitchen Ticket
+      // Play Chime
       playMoskatoChime();
+
+      // Render in Kitchen Queue
+      const emptyState = document.getElementById('kitchen-empty-state');
+      if (emptyState) emptyState.style.display = 'none';
+
+      const queueContainer = document.getElementById('kitchen-queue-container');
+      const orderCard = document.createElement('div');
+      orderCard.id = `order-card-${currentOrderId.replace('#','')}`;
+      orderCard.className = "bg-[#161b22] border border-white/5 rounded-xl p-4 flex flex-col gap-3 shadow-md animate-fade-in-up transition-all duration-300";
       
-      if (emptyState && activeTicket) {
-        emptyState.classList.add('opacity-0', 'pointer-events-none');
-        activeTicket.classList.remove('opacity-0', 'pointer-events-none', 'scale-95');
-        activeTicket.classList.add('opacity-100', 'scale-100');
-      }
+      const itemsHtml = orderItems.map(str => `<div class="flex gap-2 items-center text-xs text-gray-300 font-body"><i class="fa-regular fa-circle text-gray-600 text-[10px]"></i> ${str}</div>`).join('');
 
-      if (log3) {
-        log3.innerHTML = `> <span class="text-emerald-400">Sucesso: Sincronização Local (0ms). Cozinha acionada.</span>`;
-      }
+      orderCard.innerHTML = `
+        <div class="flex justify-between items-start">
+          <div>
+            <h5 class="text-base font-bold font-header text-white italic tracking-tight">${currentOrderId}</h5>
+            <span class="font-space font-bold text-[#00AEEF] text-xs">Mesa ${currentTable}</span>
+          </div>
+          <span class="text-[9px] font-bold bg-[#F15A24]/10 text-[#F15A24] border border-[#F15A24]/20 px-2 py-0.5 rounded-full uppercase tracking-widest animate-pulse">Preparo</span>
+        </div>
+        <div class="space-y-1.5 py-1">
+          ${itemsHtml}
+        </div>
+        <button onclick="window.finishKitchenOrder('${currentOrderId.replace('#','')}', this)" class="w-full bg-[#F15A24] text-white font-space font-bold text-[10px] tracking-wider uppercase py-2.5 rounded-lg transition-all hover:brightness-110 active:scale-95 flex justify-center items-center gap-2">
+          <i class="fa-solid fa-check"></i> Finalizar Pedido
+        </button>
+      `;
 
-      btnTrigger.innerHTML = `✓ Pedido Emitido Localmente`;
-      btnTrigger.classList.replace('bg-[#00AEEF]', 'bg-white/10');
-      btnTrigger.classList.replace('text-white', 'text-[#8b949e]');
+      queueContainer?.prepend(orderCard);
 
-      secondsElapsed = 0;
-      updateTimer();
-      timerInterval = setInterval(updateTimer, 1000);
-    });
+      // Reset Client Cart UI
+      cart.burger.qty = 0; cart.pasta.qty = 0; cart.beer.qty = 0;
+      (document.getElementById('qty-burger') as HTMLElement).innerText = "0";
+      (document.getElementById('qty-pasta') as HTMLElement).innerText = "0";
+      (document.getElementById('qty-beer') as HTMLElement).innerText = "0";
+      recalculateTotal();
 
-    // Fluxo 2: Concluir na Cozinha e Cloud Sync
-    btnComplete?.addEventListener('click', async () => {
-      clearInterval(timerInterval);
-      btnComplete.disabled = true;
-      btnComplete.innerHTML = `<i class="fa-solid fa-circle-notch animate-spin"></i> Conciliando Cloud Database...`;
-      btnComplete.classList.replace('bg-[#F15A24]', 'bg-[#F15A24]/60');
-      btnComplete.classList.remove('hover:brightness-110');
-
-      if (log3) {
-        log3.innerHTML = `> <span class="text-[#F15A24]">Fired Cloud Webhook: { status: 'ready', target: 'Cloud CRM' }</span>`;
-      }
-
-      await sleep(1000);
-
-      btnComplete.innerHTML = `✓ Status: Dorëzuar (Pronto)`;
-      btnComplete.classList.replace('bg-[#F15A24]/60', 'bg-emerald-500');
-      
-      if (log3) {
-        log3.innerHTML = `> <span class="text-emerald-400">✓ CRM Sincronizado. Latência: 18ms. Consistência: 100%.</span>`;
-      }
-
-      await sleep(800);
-
-      // Show ROI Modal
-      if (modal && modalContent) {
-        modal.classList.remove('opacity-0', 'pointer-events-none');
-        modalContent.classList.remove('scale-95');
-        modalContent.classList.add('scale-100');
-      }
-    });
-
-    // Close Modal -> Reset State
-    btnCloseModal?.addEventListener('click', () => {
-      if (modal && modalContent) {
-        modal.classList.add('opacity-0', 'pointer-events-none');
-        modalContent.classList.remove('scale-100');
-        modalContent.classList.add('scale-95');
-      }
-
-      // Quick reset visual state
+      btnPlaceOrder.innerHTML = `✓ Pedido Emitido`;
       setTimeout(() => {
-        if (emptyState && activeTicket) {
-          activeTicket.classList.add('opacity-0', 'pointer-events-none', 'scale-95');
-          activeTicket.classList.remove('opacity-100', 'scale-100');
-          emptyState.classList.remove('opacity-0', 'pointer-events-none');
+        if(btnPlaceOrder.innerText.includes('Emitido')) {
+           recalculateTotal(); // reset text back to 'Selecione Itens' if empty
         }
-        
-        btnTrigger.disabled = false;
-        btnTrigger.classList.remove('opacity-80', 'cursor-not-allowed', 'bg-white/10', 'text-[#8b949e]');
-        btnTrigger.classList.add('bg-[#00AEEF]', 'text-white');
-        btnTrigger.innerHTML = `⚡ Transmitir via Webhook`;
-
-        btnComplete.disabled = false;
-        btnComplete.classList.remove('bg-emerald-500');
-        btnComplete.classList.add('bg-[#F15A24]', 'hover:brightness-110');
-        btnComplete.innerHTML = `<i class="fa-solid fa-check-double"></i> Concluir & Cloud Sync`;
-
-        if (log3) {
-          log3.className = "text-amber-400/70 animate-pulse mt-1 transition-all duration-300";
-          log3.innerHTML = `⏳ Aguardando payload de webhooks locais...`;
-        }
-      }, 400);
+      }, 2000);
     });
 
   });
