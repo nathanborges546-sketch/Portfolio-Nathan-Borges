@@ -14,7 +14,7 @@
         <h3 class="text-sm font-bold tracking-tight text-[#f0f6fc]">Base_Leads_Brutos.csv</h3>
       </div>
       <span id="badge-total" class="font-space text-[10px] text-[#00f2fe] bg-[#00f2fe]/10 px-3 py-1 rounded-full border border-[#00f2fe]/20 tracking-wider font-semibold">
-        6 Entradas Detectadas
+        24 Entradas Detectadas
       </span>
     </div>
 
@@ -22,7 +22,7 @@
     <div class="overflow-x-auto scrollbar-thin">
       <div class="min-w-[800px] p-5">
         
-        <!-- Cabeçalho das Colunas -->
+        <!-- Cabeçalho das Colunas (Estático no topo) -->
         <div class="grid grid-cols-5 gap-4 text-xs font-space text-[#8b949e] uppercase tracking-wider pb-3 px-4 border-b border-white/5">
           <div>Empresa</div>
           <div>Telefone (Antes → Depois)</div>
@@ -31,73 +31,271 @@
           <div class="text-right">Tempo Economizado</div>
         </div>
 
-        <!-- Linhas de Dados -->
-        <div class="space-y-2 mt-3" id="table-body">
+        <!-- Linhas de Dados com Scroll Vertical (Apenas 6 visíveis simultaneamente) -->
+        <div class="space-y-2 mt-3 max-h-[385px] overflow-y-auto pr-2 scrollbar-thin" id="table-body">
           
           <!-- Linha 1 -->
-          <div class="grid grid-cols-5 gap-4 text-sm items-center bg-[#0b0e14]/40 p-4 rounded-xl border border-white/5 transition-all duration-500" id="row-1">
+          <div class="grid grid-cols-5 gap-4 text-sm items-center bg-[#0b0e14]/40 p-4 rounded-xl border border-white/5 transition-all duration-500 row-null" id="row-1">
             <div class="font-bold">Somos6digital</div>
-            <div class="text-[#8b949e] italic transition-all duration-300 font-space text-xs" id="tel-1">-- VAZIO --</div>
+            <div class="text-[#8b949e] italic transition-all duration-300 font-space text-xs tel-cell">-- VAZIO --</div>
             <div class="text-amber-400/80 text-xs flex items-center gap-1.5 font-medium">
               <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span> Dado Ausente
             </div>
-            <div class="font-space text-xs text-[#8b949e]" id="status-1">Aguardando Comando</div>
-            <div class="text-right font-space text-xs text-[#00f2fe] opacity-0 transition-all duration-500 font-bold" id="time-1">+ 3 min</div>
+            <div class="font-space text-xs text-[#8b949e] status-cell">Aguardando Comando</div>
+            <div class="text-right font-space text-xs text-[#00f2fe] opacity-0 transition-all duration-500 font-bold time-cell">+ 3 min</div>
           </div>
 
           <!-- Linha 2 -->
-          <div class="grid grid-cols-5 gap-4 text-sm items-center bg-[#0b0e14]/40 p-4 rounded-xl border border-white/5 transition-all duration-500" id="row-2">
+          <div class="grid grid-cols-5 gap-4 text-sm items-center bg-[#0b0e14]/40 p-4 rounded-xl border border-white/5 transition-all duration-500 row-regex" id="row-2">
             <div class="font-bold">Ramper</div>
-            <div class="text-[#f0f6fc] tracking-mono transition-all duration-300 font-space text-xs" id="tel-2">11999056763</div>
+            <div class="text-[#f0f6fc] tracking-mono transition-all duration-300 font-space text-xs tel-cell" data-clean="+55 (11) 99905-6763">11999056763</div>
             <div class="text-amber-400/80 text-xs flex items-center gap-1.5 font-medium">
               <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span> Desformatado
             </div>
-            <div class="font-space text-xs text-[#8b949e]" id="status-2">Aguardando Comando</div>
-            <div class="text-right font-space text-xs text-[#00f2fe] opacity-0 transition-all duration-500 font-bold" id="time-2">+ 2 min</div>
+            <div class="font-space text-xs text-[#8b949e] status-cell">Aguardando Comando</div>
+            <div class="text-right font-space text-xs text-[#00f2fe] opacity-0 transition-all duration-500 font-bold time-cell">+ 2 min</div>
           </div>
 
           <!-- Linha 3 -->
-          <div class="grid grid-cols-5 gap-4 text-sm items-center bg-[#0b0e14]/40 p-4 rounded-xl border border-white/5 transition-all duration-500" id="row-3">
+          <div class="grid grid-cols-5 gap-4 text-sm items-center bg-[#0b0e14]/40 p-4 rounded-xl border border-white/5 transition-all duration-500 row-regex" id="row-3">
             <div class="font-bold">Actwork</div>
-            <div class="text-[#f0f6fc] tracking-mono transition-all duration-300 font-space text-xs" id="tel-3">551120903030</div>
+            <div class="text-[#f0f6fc] tracking-mono transition-all duration-300 font-space text-xs tel-cell" data-clean="+55 (11) 2090-3030">551120903030</div>
             <div class="text-amber-400/80 text-xs flex items-center gap-1.5 font-medium">
               <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span> Desformatado
             </div>
-            <div class="font-space text-xs text-[#8b949e]" id="status-3">Aguardando Comando</div>
-            <div class="text-right font-space text-xs text-[#00f2fe] opacity-0 transition-all duration-500 font-bold" id="time-3">+ 2 min</div>
+            <div class="font-space text-xs text-[#8b949e] status-cell">Aguardando Comando</div>
+            <div class="text-right font-space text-xs text-[#00f2fe] opacity-0 transition-all duration-500 font-bold time-cell">+ 2 min</div>
           </div>
 
           <!-- Linha 4 (Redundante) -->
-          <div class="grid grid-cols-5 gap-4 text-sm items-center bg-[#0b0e14]/40 p-4 rounded-xl border border-white/5 transition-all duration-500 max-h-[200px] overflow-hidden origin-center" id="row-4">
+          <div class="grid grid-cols-5 gap-4 text-sm items-center bg-[#0b0e14]/40 p-4 rounded-xl border border-white/5 transition-all duration-500 max-h-[200px] overflow-hidden origin-center row-dup" id="row-4">
             <div class="font-bold text-[#8b949e]/60">Ramper <span class="text-[9px] bg-red-500/10 text-red-400 px-1.5 py-0.5 rounded border border-red-500/10 uppercase tracking-widest font-space font-semibold ml-1">DUP</span></div>
-            <div class="text-[#8b949e]/40 tracking-mono font-space text-xs">11999056763</div>
+            <div class="text-[#8b949e]/40 tracking-mono font-space text-xs tel-cell">11999056763</div>
             <div class="text-red-400/80 text-xs flex items-center gap-1.5 font-medium">
               <span class="w-1.5 h-1.5 rounded-full bg-red-400"></span> Entrada Repetida
             </div>
-            <div class="font-space text-xs text-red-400/60" id="status-4">Aguardando Comando</div>
-            <div class="text-right font-space text-xs text-[#00f2fe] opacity-0 transition-all duration-500 font-bold" id="time-4">+ 1 min</div>
+            <div class="font-space text-xs text-red-400/60 status-cell">Aguardando Comando</div>
+            <div class="text-right font-space text-xs text-[#00f2fe] opacity-0 transition-all duration-500 font-bold time-cell">+ 1 min</div>
           </div>
 
           <!-- Linha 5 -->
-          <div class="grid grid-cols-5 gap-4 text-sm items-center bg-[#0b0e14]/40 p-4 rounded-xl border border-white/5 transition-all duration-500" id="row-5">
+          <div class="grid grid-cols-5 gap-4 text-sm items-center bg-[#0b0e14]/40 p-4 rounded-xl border border-white/5 transition-all duration-500 row-regex" id="row-5">
             <div class="font-bold">Bazooka</div>
-            <div class="text-[#f0f6fc] tracking-mono transition-all duration-300 font-space text-xs" id="tel-5">351918318424</div>
+            <div class="text-[#f0f6fc] tracking-mono transition-all duration-300 font-space text-xs tel-cell" data-clean="+351 918 318 424">351918318424</div>
             <div class="text-amber-400/80 text-xs flex items-center gap-1.5 font-medium">
               <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span> Formato Int.
             </div>
-            <div class="font-space text-xs text-[#8b949e]" id="status-5">Aguardando Comando</div>
-            <div class="text-right font-space text-xs text-[#00f2fe] opacity-0 transition-all duration-500 font-bold" id="time-5">+ 4 min</div>
+            <div class="font-space text-xs text-[#8b949e] status-cell">Aguardando Comando</div>
+            <div class="text-right font-space text-xs text-[#00f2fe] opacity-0 transition-all duration-500 font-bold time-cell">+ 4 min</div>
           </div>
 
           <!-- Linha 6 (Redundante) -->
-          <div class="grid grid-cols-5 gap-4 text-sm items-center bg-[#0b0e14]/40 p-4 rounded-xl border border-white/5 transition-all duration-500 max-h-[200px] overflow-hidden origin-center" id="row-6">
+          <div class="grid grid-cols-5 gap-4 text-sm items-center bg-[#0b0e14]/40 p-4 rounded-xl border border-white/5 transition-all duration-500 max-h-[200px] overflow-hidden origin-center row-dup" id="row-6">
             <div class="font-bold text-[#8b949e]/60">Somos6digital <span class="text-[9px] bg-red-500/10 text-red-400 px-1.5 py-0.5 rounded border border-red-500/10 uppercase tracking-widest font-space font-semibold ml-1">DUP</span></div>
-            <div class="text-[#8b949e]/40 italic font-space text-xs">-- VAZIO --</div>
+            <div class="text-[#8b949e]/40 italic font-space text-xs tel-cell">-- VAZIO --</div>
             <div class="text-red-400/80 text-xs flex items-center gap-1.5 font-medium">
               <span class="w-1.5 h-1.5 rounded-full bg-red-400"></span> Entrada Repetida
             </div>
-            <div class="font-space text-xs text-red-400/60" id="status-6">Aguardando Comando</div>
-            <div class="text-right font-space text-xs text-[#00f2fe] opacity-0 transition-all duration-500 font-bold" id="time-6">+ 1 min</div>
+            <div class="font-space text-xs text-red-400/60 status-cell">Aguardando Comando</div>
+            <div class="text-right font-space text-xs text-[#00f2fe] opacity-0 transition-all duration-500 font-bold time-cell">+ 1 min</div>
+          </div>
+
+          <!-- Linha 7 -->
+          <div class="grid grid-cols-5 gap-4 text-sm items-center bg-[#0b0e14]/40 p-4 rounded-xl border border-white/5 transition-all duration-500 row-regex" id="row-7">
+            <div class="font-bold">Resultados Digitais</div>
+            <div class="text-[#f0f6fc] tracking-mono transition-all duration-300 font-space text-xs tel-cell" data-clean="+55 (48) 3025-2525">4830252525</div>
+            <div class="text-amber-400/80 text-xs flex items-center gap-1.5 font-medium">
+              <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span> Desformatado
+            </div>
+            <div class="font-space text-xs text-[#8b949e] status-cell">Aguardando Comando</div>
+            <div class="text-right font-space text-xs text-[#00f2fe] opacity-0 transition-all duration-500 font-bold time-cell">+ 2 min</div>
+          </div>
+
+          <!-- Linha 8 -->
+          <div class="grid grid-cols-5 gap-4 text-sm items-center bg-[#0b0e14]/40 p-4 rounded-xl border border-white/5 transition-all duration-500 row-null" id="row-8">
+            <div class="font-bold">Rock Content</div>
+            <div class="text-[#8b949e] italic transition-all duration-300 font-space text-xs tel-cell">-- VAZIO --</div>
+            <div class="text-amber-400/80 text-xs flex items-center gap-1.5 font-medium">
+              <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span> Dado Ausente
+            </div>
+            <div class="font-space text-xs text-[#8b949e] status-cell">Aguardando Comando</div>
+            <div class="text-right font-space text-xs text-[#00f2fe] opacity-0 transition-all duration-500 font-bold time-cell">+ 3 min</div>
+          </div>
+
+          <!-- Linha 9 -->
+          <div class="grid grid-cols-5 gap-4 text-sm items-center bg-[#0b0e14]/40 p-4 rounded-xl border border-white/5 transition-all duration-500 row-regex" id="row-9">
+            <div class="font-bold">Klickpages</div>
+            <div class="text-[#f0f6fc] tracking-mono transition-all duration-300 font-space text-xs tel-cell" data-clean="+55 (11) 98888-7777">11988887777</div>
+            <div class="text-amber-400/80 text-xs flex items-center gap-1.5 font-medium">
+              <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span> Desformatado
+            </div>
+            <div class="font-space text-xs text-[#8b949e] status-cell">Aguardando Comando</div>
+            <div class="text-right font-space text-xs text-[#00f2fe] opacity-0 transition-all duration-500 font-bold time-cell">+ 2 min</div>
+          </div>
+
+          <!-- Linha 10 -->
+          <div class="grid grid-cols-5 gap-4 text-sm items-center bg-[#0b0e14]/40 p-4 rounded-xl border border-white/5 transition-all duration-500 row-regex" id="row-10">
+            <div class="font-bold">Hotmart</div>
+            <div class="text-[#f0f6fc] tracking-mono transition-all duration-300 font-space text-xs tel-cell" data-clean="+55 (31) 3999-8888">3139998888</div>
+            <div class="text-amber-400/80 text-xs flex items-center gap-1.5 font-medium">
+              <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span> Desformatado
+            </div>
+            <div class="font-space text-xs text-[#8b949e] status-cell">Aguardando Comando</div>
+            <div class="text-right font-space text-xs text-[#00f2fe] opacity-0 transition-all duration-500 font-bold time-cell">+ 2 min</div>
+          </div>
+
+          <!-- Linha 11 (Redundante) -->
+          <div class="grid grid-cols-5 gap-4 text-sm items-center bg-[#0b0e14]/40 p-4 rounded-xl border border-white/5 transition-all duration-500 max-h-[200px] overflow-hidden origin-center row-dup" id="row-11">
+            <div class="font-bold text-[#8b949e]/60">Resultados Digitais <span class="text-[9px] bg-red-500/10 text-red-400 px-1.5 py-0.5 rounded border border-red-500/10 uppercase tracking-widest font-space font-semibold ml-1">DUP</span></div>
+            <div class="text-[#8b949e]/40 tracking-mono font-space text-xs tel-cell">4830252525</div>
+            <div class="text-red-400/80 text-xs flex items-center gap-1.5 font-medium">
+              <span class="w-1.5 h-1.5 rounded-full bg-red-400"></span> Entrada Repetida
+            </div>
+            <div class="font-space text-xs text-red-400/60 status-cell">Aguardando Comando</div>
+            <div class="text-right font-space text-xs text-[#00f2fe] opacity-0 transition-all duration-500 font-bold time-cell">+ 1 min</div>
+          </div>
+
+          <!-- Linha 12 -->
+          <div class="grid grid-cols-5 gap-4 text-sm items-center bg-[#0b0e14]/40 p-4 rounded-xl border border-white/5 transition-all duration-500 row-null" id="row-12">
+            <div class="font-bold">Vindi</div>
+            <div class="text-[#8b949e] italic transition-all duration-300 font-space text-xs tel-cell">-- VAZIO --</div>
+            <div class="text-amber-400/80 text-xs flex items-center gap-1.5 font-medium">
+              <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span> Dado Ausente
+            </div>
+            <div class="font-space text-xs text-[#8b949e] status-cell">Aguardando Comando</div>
+            <div class="text-right font-space text-xs text-[#00f2fe] opacity-0 transition-all duration-500 font-bold time-cell">+ 3 min</div>
+          </div>
+
+          <!-- Linha 13 -->
+          <div class="grid grid-cols-5 gap-4 text-sm items-center bg-[#0b0e14]/40 p-4 rounded-xl border border-white/5 transition-all duration-500 row-regex" id="row-13">
+            <div class="font-bold">SaaSFlow</div>
+            <div class="text-[#f0f6fc] tracking-mono transition-all duration-300 font-space text-xs tel-cell" data-clean="+55 (11) 95555-4444">11955554444</div>
+            <div class="text-amber-400/80 text-xs flex items-center gap-1.5 font-medium">
+              <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span> Desformatado
+            </div>
+            <div class="font-space text-xs text-[#8b949e] status-cell">Aguardando Comando</div>
+            <div class="text-right font-space text-xs text-[#00f2fe] opacity-0 transition-all duration-500 font-bold time-cell">+ 2 min</div>
+          </div>
+
+          <!-- Linha 14 -->
+          <div class="grid grid-cols-5 gap-4 text-sm items-center bg-[#0b0e14]/40 p-4 rounded-xl border border-white/5 transition-all duration-500 row-regex" id="row-14">
+            <div class="font-bold">Leadster</div>
+            <div class="text-[#f0f6fc] tracking-mono transition-all duration-300 font-space text-xs tel-cell" data-clean="+55 (41) 97777-6666">41977776666</div>
+            <div class="text-amber-400/80 text-xs flex items-center gap-1.5 font-medium">
+              <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span> Desformatado
+            </div>
+            <div class="font-space text-xs text-[#8b949e] status-cell">Aguardando Comando</div>
+            <div class="text-right font-space text-xs text-[#00f2fe] opacity-0 transition-all duration-500 font-bold time-cell">+ 2 min</div>
+          </div>
+
+          <!-- Linha 15 (Redundante) -->
+          <div class="grid grid-cols-5 gap-4 text-sm items-center bg-[#0b0e14]/40 p-4 rounded-xl border border-white/5 transition-all duration-500 max-h-[200px] overflow-hidden origin-center row-dup" id="row-15">
+            <div class="font-bold text-[#8b949e]/60">Klickpages <span class="text-[9px] bg-red-500/10 text-red-400 px-1.5 py-0.5 rounded border border-red-500/10 uppercase tracking-widest font-space font-semibold ml-1">DUP</span></div>
+            <div class="text-[#8b949e]/40 tracking-mono font-space text-xs tel-cell">11988887777</div>
+            <div class="text-red-400/80 text-xs flex items-center gap-1.5 font-medium">
+              <span class="w-1.5 h-1.5 rounded-full bg-red-400"></span> Entrada Repetida
+            </div>
+            <div class="font-space text-xs text-red-400/60 status-cell">Aguardando Comando</div>
+            <div class="text-right font-space text-xs text-[#00f2fe] opacity-0 transition-all duration-500 font-bold time-cell">+ 1 min</div>
+          </div>
+
+          <!-- Linha 16 -->
+          <div class="grid grid-cols-5 gap-4 text-sm items-center bg-[#0b0e14]/40 p-4 rounded-xl border border-white/5 transition-all duration-500 row-null" id="row-16">
+            <div class="font-bold">GrowthHackers</div>
+            <div class="text-[#8b949e] italic transition-all duration-300 font-space text-xs tel-cell">-- VAZIO --</div>
+            <div class="text-amber-400/80 text-xs flex items-center gap-1.5 font-medium">
+              <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span> Dado Ausente
+            </div>
+            <div class="font-space text-xs text-[#8b949e] status-cell">Aguardando Comando</div>
+            <div class="text-right font-space text-xs text-[#00f2fe] opacity-0 transition-all duration-500 font-bold time-cell">+ 3 min</div>
+          </div>
+
+          <!-- Linha 17 -->
+          <div class="grid grid-cols-5 gap-4 text-sm items-center bg-[#0b0e14]/40 p-4 rounded-xl border border-white/5 transition-all duration-500 row-regex" id="row-17">
+            <div class="font-bold">Pipefy</div>
+            <div class="text-[#f0f6fc] tracking-mono transition-all duration-300 font-space text-xs tel-cell" data-clean="+55 (41) 3010-2030">4130102030</div>
+            <div class="text-amber-400/80 text-xs flex items-center gap-1.5 font-medium">
+              <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span> Desformatado
+            </div>
+            <div class="font-space text-xs text-[#8b949e] status-cell">Aguardando Comando</div>
+            <div class="text-right font-space text-xs text-[#00f2fe] opacity-0 transition-all duration-500 font-bold time-cell">+ 2 min</div>
+          </div>
+
+          <!-- Linha 18 -->
+          <div class="grid grid-cols-5 gap-4 text-sm items-center bg-[#0b0e14]/40 p-4 rounded-xl border border-white/5 transition-all duration-500 row-regex" id="row-18">
+            <div class="font-bold">Stripe Brasil</div>
+            <div class="text-[#f0f6fc] tracking-mono transition-all duration-300 font-space text-xs tel-cell" data-clean="+55 (11) 8000-9000">1180009000</div>
+            <div class="text-amber-400/80 text-xs flex items-center gap-1.5 font-medium">
+              <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span> Desformatado
+            </div>
+            <div class="font-space text-xs text-[#8b949e] status-cell">Aguardando Comando</div>
+            <div class="text-right font-space text-xs text-[#00f2fe] opacity-0 transition-all duration-500 font-bold time-cell">+ 2 min</div>
+          </div>
+
+          <!-- Linha 19 (Redundante) -->
+          <div class="grid grid-cols-5 gap-4 text-sm items-center bg-[#0b0e14]/40 p-4 rounded-xl border border-white/5 transition-all duration-500 max-h-[200px] overflow-hidden origin-center row-dup" id="row-19">
+            <div class="font-bold text-[#8b949e]/60">Pipefy <span class="text-[9px] bg-red-500/10 text-red-400 px-1.5 py-0.5 rounded border border-red-500/10 uppercase tracking-widest font-space font-semibold ml-1">DUP</span></div>
+            <div class="text-[#8b949e]/40 tracking-mono font-space text-xs tel-cell">4130102030</div>
+            <div class="text-red-400/80 text-xs flex items-center gap-1.5 font-medium">
+              <span class="w-1.5 h-1.5 rounded-full bg-red-400"></span> Entrada Repetida
+            </div>
+            <div class="font-space text-xs text-red-400/60 status-cell">Aguardando Comando</div>
+            <div class="text-right font-space text-xs text-[#00f2fe] opacity-0 transition-all duration-500 font-bold time-cell">+ 1 min</div>
+          </div>
+
+          <!-- Linha 20 -->
+          <div class="grid grid-cols-5 gap-4 text-sm items-center bg-[#0b0e14]/40 p-4 rounded-xl border border-white/5 transition-all duration-500 row-null" id="row-20">
+            <div class="font-bold">Reev</div>
+            <div class="text-[#8b949e] italic transition-all duration-300 font-space text-xs tel-cell">-- VAZIO --</div>
+            <div class="text-amber-400/80 text-xs flex items-center gap-1.5 font-medium">
+              <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span> Dado Ausente
+            </div>
+            <div class="font-space text-xs text-[#8b949e] status-cell">Aguardando Comando</div>
+            <div class="text-right font-space text-xs text-[#00f2fe] opacity-0 transition-all duration-500 font-bold time-cell">+ 3 min</div>
+          </div>
+
+          <!-- Linha 21 -->
+          <div class="grid grid-cols-5 gap-4 text-sm items-center bg-[#0b0e14]/40 p-4 rounded-xl border border-white/5 transition-all duration-500 row-regex" id="row-21">
+            <div class="font-bold">Meetime</div>
+            <div class="text-[#f0f6fc] tracking-mono transition-all duration-300 font-space text-xs tel-cell" data-clean="+55 (48) 99911-2233">48999112233</div>
+            <div class="text-amber-400/80 text-xs flex items-center gap-1.5 font-medium">
+              <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span> Desformatado
+            </div>
+            <div class="font-space text-xs text-[#8b949e] status-cell">Aguardando Comando</div>
+            <div class="text-right font-space text-xs text-[#00f2fe] opacity-0 transition-all duration-500 font-bold time-cell">+ 2 min</div>
+          </div>
+
+          <!-- Linha 22 -->
+          <div class="grid grid-cols-5 gap-4 text-sm items-center bg-[#0b0e14]/40 p-4 rounded-xl border border-white/5 transition-all duration-500 row-regex" id="row-22">
+            <div class="font-bold">Distrito</div>
+            <div class="text-[#f0f6fc] tracking-mono transition-all duration-300 font-space text-xs tel-cell" data-clean="+55 (11) 3333-4444">1133334444</div>
+            <div class="text-amber-400/80 text-xs flex items-center gap-1.5 font-medium">
+              <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span> Desformatado
+            </div>
+            <div class="font-space text-xs text-[#8b949e] status-cell">Aguardando Comando</div>
+            <div class="text-right font-space text-xs text-[#00f2fe] opacity-0 transition-all duration-500 font-bold time-cell">+ 2 min</div>
+          </div>
+
+          <!-- Linha 23 (Redundante) -->
+          <div class="grid grid-cols-5 gap-4 text-sm items-center bg-[#0b0e14]/40 p-4 rounded-xl border border-white/5 transition-all duration-500 max-h-[200px] overflow-hidden origin-center row-dup" id="row-23">
+            <div class="font-bold text-[#8b949e]/60">Meetime <span class="text-[9px] bg-red-500/10 text-red-400 px-1.5 py-0.5 rounded border border-red-500/10 uppercase tracking-widest font-space font-semibold ml-1">DUP</span></div>
+            <div class="text-[#8b949e]/40 tracking-mono font-space text-xs tel-cell">48999112233</div>
+            <div class="text-red-400/80 text-xs flex items-center gap-1.5 font-medium">
+              <span class="w-1.5 h-1.5 rounded-full bg-red-400"></span> Entrada Repetida
+            </div>
+            <div class="font-space text-xs text-red-400/60 status-cell">Aguardando Comando</div>
+            <div class="text-right font-space text-xs text-[#00f2fe] opacity-0 transition-all duration-500 font-bold time-cell">+ 1 min</div>
+          </div>
+
+          <!-- Linha 24 -->
+          <div class="grid grid-cols-5 gap-4 text-sm items-center bg-[#0b0e14]/40 p-4 rounded-xl border border-white/5 transition-all duration-500 row-null" id="row-24">
+            <div class="font-bold">Zenvia</div>
+            <div class="text-[#8b949e] italic transition-all duration-300 font-space text-xs tel-cell">-- VAZIO --</div>
+            <div class="text-amber-400/80 text-xs flex items-center gap-1.5 font-medium">
+              <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span> Dado Ausente
+            </div>
+            <div class="font-space text-xs text-[#8b949e] status-cell">Aguardando Comando</div>
+            <div class="text-right font-space text-xs text-[#00f2fe] opacity-0 transition-all duration-500 font-bold time-cell">+ 3 min</div>
           </div>
 
         </div>
@@ -210,6 +408,46 @@
     </div>
 
   </div>
+
+  <!-- Modal de Impacto Operacional (POPUP ROI) -->
+  <div id="roi-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#0b0e14]/80 backdrop-blur-md opacity-0 pointer-events-none transition-all duration-500">
+    <div class="bg-[#161b22] border border-white/10 rounded-3xl p-6 max-w-lg w-full shadow-2xl transform scale-95 transition-all duration-500 flex flex-col gap-5" id="roi-modal-content">
+      
+      <div class="flex items-start justify-between">
+        <div>
+          <span class="font-space text-[10px] text-[#00f2fe] uppercase tracking-widest font-semibold">Métrica de Impacto Real</span>
+          <h4 class="text-xl font-bold text-[#f0f6fc] mt-1 tracking-tight">O Poder da Engenharia de IA</h4>
+        </div>
+        <div class="w-8 h-8 rounded-full bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 text-sm">⚡</div>
+      </div>
+
+      <p class="text-xs text-[#8b949e] leading-relaxed">
+        Antes deste sistema ser implementado, a equipe gastava cerca de <strong class="text-[#f0f6fc]">8 horas de trabalho manual exaustivo</strong> para mapear e extrair individualmente apenas <strong class="text-[#f0f6fc]">50 leads comerciais</strong>.
+      </p>
+
+      <div class="grid grid-cols-2 gap-3 font-space my-1">
+        <div class="bg-[#0b0e14]/50 border border-white/5 p-4 rounded-xl">
+          <div class="text-[10px] text-red-400 uppercase tracking-wider font-medium">Processo Manual Antigo</div>
+          <div class="text-2xl font-bold text-[#f0f6fc] mt-1">8h <span class="text-xs text-[#8b949e] font-normal">de fricção</span></div>
+          <div class="text-[10px] text-[#8b949e] mt-1">Mapeamento manual por atendente</div>
+        </div>
+        <div class="bg-[#00f2fe]/5 border border-[#00f2fe]/10 p-4 rounded-xl relative overflow-hidden group">
+          <div class="text-[10px] text-[#00f2fe] uppercase tracking-wider font-medium">Ecossistema NXT</div>
+          <div class="text-2xl font-bold text-[#00f2fe] mt-1">5 min <span class="text-xs text-[#00f2fe]/60 font-normal">em lote</span></div>
+          <div class="text-[10px] text-[#8b949e] mt-1">Extração automática (Outscraper)</div>
+        </div>
+      </div>
+
+      <p class="text-xs text-[#8b949e] leading-relaxed">
+        Ao integrar o pipeline com o motor de busca em lote do <strong class="text-[#00f2fe]">Outscraper</strong>, o tempo total caiu para poucos minutos. Todo o fluxo de captação, higienização com Pandas e disparo foi condensado em apenas 2 cliques automáticos.
+      </p>
+
+      <button id="btn-close-modal" class="w-full bg-[#00f2fe] text-[#0b0e14] font-space font-medium text-xs tracking-wider uppercase py-3 px-4 rounded-xl transition-all duration-300 hover:opacity-90 active:scale-[0.98] mt-2 cursor-pointer">
+        Fechar e Explorar Sandbox
+      </button>
+    </div>
+  </div>
+
 </div>
 
 <script>
@@ -220,6 +458,11 @@
   const badgeTotal = document.getElementById('badge-total');
   const globalStatus = document.getElementById('global-status');
   const statusPulse = document.getElementById('status-pulse');
+
+  // Elementos do Modal Popup
+  const roiModal = document.getElementById('roi-modal');
+  const roiModalContent = document.getElementById('roi-modal-content');
+  const btnCloseModal = document.getElementById('btn-close-modal');
 
   // Helper for delay transitions
   const sleep = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
@@ -276,16 +519,19 @@
     activateCard(2, 'Filtrando...');
     await sleep(1500);
     
-    // Update table elements
-    ['tel-2', 'tel-3', 'tel-5'].forEach((id, idx) => {
-      const el = document.getElementById(id);
-      const st = document.getElementById(`status-${idx+2 === 4 ? 5 : idx+2}`);
-      if (el && st) {
-        el.classList.add('text-emerald-400');
-        if(id === 'tel-2') el.innerText = '+55 (11) 99905-6763';
-        if(id === 'tel-3') el.innerText = '+55 (11) 2090-3030';
-        if(id === 'tel-5') el.innerText = '+351 918 318 424';
-        st.innerText = '✓ Padronizado'; st.className = 'font-space text-xs text-emerald-400 font-medium';
+    // Update all row-regex phones using generic data-clean attribute
+    const regexRows = document.querySelectorAll('.row-regex');
+    regexRows.forEach(row => {
+      const tel = row.querySelector('.tel-cell') as HTMLElement;
+      const st = row.querySelector('.status-cell') as HTMLElement;
+      if (tel && st) {
+        const cleanVal = tel.getAttribute('data-clean');
+        if (cleanVal) {
+          tel.innerText = cleanVal;
+          tel.classList.add('text-emerald-400');
+        }
+        st.innerText = '✓ Padronizado';
+        st.className = 'font-space text-xs text-emerald-400 font-semibold';
       }
     });
     activateCard(2, '', true);
@@ -294,22 +540,31 @@
     activateCard(3, 'Expurgando...');
     await sleep(1800);
     
-    // Collapse duplicates rows in the table
-    ['row-4', 'row-6'].forEach(id => {
-      const row = document.getElementById(id);
-      if (row) row.classList.add('opacity-0', 'scale-[0.95]', 'max-h-0', '!p-0', '!my-0', '!border-0', 'pointer-events-none');
+    // Collapse duplicates rows in the table dynamically
+    const dupRows = document.querySelectorAll('.row-dup');
+    dupRows.forEach(row => {
+      row.classList.add('opacity-0', 'scale-[0.95]', 'max-h-0', '!p-0', '!my-0', '!border-0', 'pointer-events-none');
+      const timeCell = row.querySelector('.time-cell');
+      if (timeCell) timeCell.classList.remove('opacity-0');
     });
+
+    setTimeout(() => {
+      dupRows.forEach(row => row.remove());
+    }, 1000);
     
     if (badgeTotal) {
-      badgeTotal.innerText = '4 Entradas Consolidadas';
+      badgeTotal.innerText = '18 Entradas Consolidadas'; // 24 original - 6 dupes
       badgeTotal.className = 'font-space text-[10px] text-emerald-400 bg-emerald-400/10 px-3 py-1 rounded-full border border-emerald-400/20 tracking-wider font-semibold';
     }
     activateCard(3, '', true);
 
-    // Finalize stage 1
-    animateCounter(13, 1000);
-    ['time-1', 'time-2', 'time-3', 'time-4', 'time-5', 'time-6'].forEach(id => {
-      document.getElementById(id)?.classList.remove('opacity-0');
+    // Finalize stage 1 (Relógio de Produtividade acumula 50 min economizados no total)
+    animateCounter(50, 1000);
+    
+    // Reveal all time spent formatted tags in table
+    const timeCells = document.querySelectorAll('.time-cell');
+    timeCells.forEach(cell => {
+      cell.classList.remove('opacity-0');
     });
 
     if (btnSync && globalStatus) {
@@ -332,20 +587,32 @@
     // Step 4: AI Enrichment
     activateCard(4, 'Enriquecendo...');
     await sleep(1800);
-    const tel1 = document.getElementById('tel-1');
-    const st1 = document.getElementById('status-1');
-    if (tel1 && st1) {
-      tel1.innerText = 'Não informado'; tel1.classList.add('text-[#8b949e]/60', 'italic');
-      st1.innerText = '✓ Tratado'; st1.className = 'font-space text-xs text-emerald-400 font-semibold';
-    }
+    
+    // Treat all row-null entries dynamically
+    const nullRows = document.querySelectorAll('.row-null');
+    nullRows.forEach(row => {
+      const tel = row.querySelector('.tel-cell') as HTMLElement;
+      const st = row.querySelector('.status-cell') as HTMLElement;
+      if (tel && st) {
+        if (tel.innerText.includes('VAZIO')) {
+          tel.innerText = 'Não informado';
+          tel.classList.add('text-[#8b949e]/60', 'italic');
+        }
+        st.innerText = '✓ Tratado';
+        st.className = 'font-space text-xs text-emerald-400 font-semibold';
+      }
+    });
     activateCard(4, '', true);
 
     // Step 5: Notion Synchronization
     activateCard(5, 'Transmitindo...');
     await sleep(1500);
-    ['status-1', 'status-2', 'status-3', 'status-5'].forEach(id => {
-      const el = document.getElementById(id);
-      if (el) el.innerText = '✓ Sincronizado';
+    
+    const statusCells = document.querySelectorAll('.status-cell');
+    statusCells.forEach(cell => {
+      const el = cell as HTMLElement;
+      el.innerText = '✓ Sincronizado';
+      el.className = 'font-space text-xs text-[#00f2fe] font-semibold';
     });
     activateCard(5, '', true);
 
@@ -357,6 +624,25 @@
     btnSync.classList.replace('bg-white/5', 'bg-emerald-500');
     btnSync.classList.replace('text-[#8b949e]', 'text-white');
     btnSync.innerText = '✓ Ecossistema Sincronizado';
+
+    // ──────────────────────────────────────────────────────────────────────────
+    // DISPARO AUTOMÁTICO DO POPUP ROI APÓS A CONCLUSÃO DA OPERAÇÃO
+    // ──────────────────────────────────────────────────────────────────────────
+    await sleep(800);
+    if (roiModal && roiModalContent) {
+      roiModal.classList.remove('opacity-0', 'pointer-events-none');
+      roiModalContent.classList.remove('scale-95');
+      roiModalContent.classList.add('scale-100');
+    }
+  });
+
+  // Fechamento do Modal Popup
+  btnCloseModal?.addEventListener('click', () => {
+    if (roiModal && roiModalContent) {
+      roiModal.classList.add('opacity-0', 'pointer-events-none');
+      roiModalContent.classList.remove('scale-100');
+      roiModalContent.classList.add('scale-95');
+    }
   });
 </script>
 
