@@ -1,0 +1,33 @@
+---
+import Layout from '../layouts/Layout.astro';
+import NxtPurifierSandbox from '../components/NxtPurifierSandbox.astro';
+---
+
+<Layout title="Pipeline B2B | Clean Data Sandbox">
+  <div class="min-h-screen bg-darkBg text-textPrimary py-32 px-8 flex flex-col font-sora relative overflow-hidden">
+    <!-- Glow Effects -->
+    <div class="absolute top-0 left-1/4 w-[600px] h-[600px] bg-brandCyan/5 rounded-full blur-[120px] pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto w-full flex-1 flex flex-col z-10">
+      <!-- Cabeçalho de Navegação -->
+      <a href="/#projetos" class="inline-flex items-center gap-2 text-textSecondary hover:text-[#00f2fe] transition-colors mb-12 font-space text-sm tracking-widest uppercase group w-fit">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="group-hover:-translate-x-1 transition-transform">
+          <path d="M19 12H5M12 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Voltar para o Portfólio
+      </a>
+      
+      <!-- Título da Página -->
+      <div class="mb-16">
+        <h1 class="text-4xl md:text-6xl font-bold mb-6 tracking-tight">Pipeline de <span class="text-[#00f2fe]">Purificação</span> de Dados</h1>
+        <p class="text-textSecondary text-lg md:text-xl max-w-4xl leading-relaxed font-sora">
+          Esta sandbox iterativa simula um banco de dados Notion sendo limpo em tempo real pelos meus scripts em Python. 
+          Acompanhe o algoritmo identificar anomalias, mascarar telefones com Regex e mesclar leads duplicados através de <i>Smart Erase</i>.
+        </p>
+      </div>
+
+      <!-- Sandbox Interativo (Tabela Notion) -->
+      <NxtPurifierSandbox />
+    </div>
+  </div>
+</Layout>

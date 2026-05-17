@@ -23,6 +23,7 @@ const automationsCases = [
     desc: "Script de higienização utilizando Pandas e Regex para mitigar atrito semântico em sistemas legados.",
     tags: ["Pandas", "Python", "Data Science"],
     span: "md:col-span-1 md:row-span-1",
+    link: "/clean-data"
   }
 ];
 
@@ -70,8 +71,12 @@ const uxCases = [
       
       <!-- Grid Automações -->
       <div id="grid-auto" class="[grid-area:1/1] grid grid-cols-1 md:grid-cols-3 gap-6 transition-all duration-500 opacity-100 pointer-events-auto">
-        {automationsCases.map(c => (
-          <div class={`group relative bg-surface rounded-[32px] p-8 border border-brandCyan/5 hover:border-brandCyan/30 transition-all duration-300 overflow-hidden flex flex-col justify-between ${c.span}`}>
+        {automationsCases.map(c => {
+          const TagWrapper = c.link ? 'a' : 'div';
+          const tagProps = c.link ? { href: c.link, target: "_blank" } : {};
+          
+          return (
+          <TagWrapper {...tagProps} class={`group relative bg-surface rounded-[32px] p-8 border border-brandCyan/5 hover:border-brandCyan/30 transition-all duration-300 overflow-hidden flex flex-col justify-between ${c.link ? 'cursor-pointer hover:shadow-xl hover:scale-[1.02] z-20' : ''} ${c.span}`}>
             <div class="z-10">
               <p class="font-space text-4xl md:text-5xl text-brandCyan font-bold mb-6">{c.metric}</p>
               <h4 class="text-xl md:text-2xl font-sora font-bold text-textPrimary mb-4">{c.title}</h4>
@@ -89,12 +94,15 @@ const uxCases = [
                   VER ARQUITETURA NO GITHUB →
                 </a>
               )}
+              {c.link && (
+                <span class="text-blue-400 font-space text-xs inline-flex items-center gap-2 group-hover:translate-x-2 transition-transform">
+                  ABRIR SIMULADOR →
+                </span>
+              )}
             </div>
-          </div>
-        ))}
-        
-        <!-- Componente Interativo Sandbox -->
-        <NxtPurifierSandbox />
+          </TagWrapper>
+          );
+        })}
       </div>
 
       <!-- Grid UX -->
