@@ -196,7 +196,7 @@
   }
 </style>
 
-<script>
+<script is:inline>
   // Static Exchange Rate (1 EUR = 95 LEKE)
   const EXCHANGE_RATE = 95;
 
@@ -238,7 +238,7 @@
   let activeLang = 'pt'; // pt, en, al
   let activeCurrency = 'leke'; // leke, euro
   
-  let cart: Record<string, number> = {
+  let cart = {
     omelette: 0,
     pancakes: 0,
     greek_salad: 0,
@@ -261,7 +261,7 @@
     container.innerHTML = '';
 
     SIM_MENU.forEach(item => {
-      const name = (item.names as any)[activeLang];
+      const name = item.names[activeLang];
       const qty = cart[item.id] || 0;
       
       let priceDisplay = '';
@@ -291,7 +291,7 @@
   }
 
   // Globally accessible cart updater
-  (window as any).updateSimCart = function(itemId: string, change: number) {
+  window.updateSimCart = function(itemId, change) {
     if (cart[itemId] !== undefined) {
       cart[itemId] += change;
       if (cart[itemId] < 0) cart[itemId] = 0;
@@ -347,7 +347,7 @@
   function playMoskatoChime() {
     if (!audioEnabled) return;
     try {
-      const audioCtx = new (window.AudioContext || (window as any).webkitAudioContext)();
+      const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
       
       let osc1 = audioCtx.createOscillator();
       let gain1 = audioCtx.createGain();
@@ -376,7 +376,7 @@
   }
 
   // Finalizar e Cloud Sync
-  (window as any).finishKitchenOrder = async function(orderId: string, btnElement: HTMLButtonElement) {
+  window.finishKitchenOrder = async function(orderId, btnElement) {
     btnElement.disabled = true;
     btnElement.innerHTML = `<i class="fa-solid fa-circle-notch animate-spin"></i> Sync Cloud...`;
     btnElement.classList.replace('bg-[#F15A24]', 'bg-emerald-500');
@@ -419,7 +419,7 @@
     }
   };
 
-  (window as any).closeSyncModal = function() {
+  window.closeSyncModal = function() {
     const modal = document.getElementById('sync-roi-modal');
     const modalContent = document.getElementById('sync-roi-modal-content');
     if (modal && modalContent) {
@@ -430,7 +430,7 @@
     totalOrdersPlaced = 0;
   };
 
-  function logToAdminFeed(message: string, colorClass: string = "text-[#f0f6fc]") {
+  function logToAdminFeed(message, colorClass = "text-[#f0f6fc]") {
     const feed = document.getElementById('admin-log-feed');
     if (!feed) return;
     
@@ -446,7 +446,8 @@
     feed.prepend(logEntry);
   }
 
-  document.addEventListener('astro:page-load', () => {
+  // Use the standard setup or page-load
+  const initSimulation = () => {
     // Reset state
     SIM_MENU.forEach(i => cart[i.id] = 0);
     activeOrdersCount = 0;
@@ -464,12 +465,12 @@
     const btnEuro = document.getElementById('curr-euro');
     
     const btnPlaceOrder = document.getElementById('btn-place-order');
-    const tableInput = document.getElementById('input-table-number') as HTMLInputElement;
+    const tableInput = document.getElementById('input-table-number');
     const btnAudio = document.getElementById('btn-audio-toggle');
     const audioIcon = document.getElementById('audio-icon');
 
     // Language Toggles
-    const updateLangBtnStyles = (active: string) => {
+    const updateLangBtnStyles = (active) => {
       [btnPt, btnEn, btnAl].forEach(btn => {
         if (!btn) return;
         btn.className = "flex-1 py-1 rounded text-[10px] font-space font-bold bg-white/5 text-gray-400 hover:text-white transition-all";
@@ -483,7 +484,7 @@
     btnAl?.addEventListener('click', () => { activeLang = 'al'; updateLangBtnStyles('al'); renderMenuUI(); });
 
     // Currency Toggles
-    const updateCurrBtnStyles = (active: string) => {
+    const updateCurrBtnStyles = (active) => {
       [btnLeke, btnEuro].forEach(btn => {
         if (!btn) return;
         btn.className = "flex-1 py-1 rounded text-[10px] font-space font-bold bg-white/5 text-gray-400 hover:text-white transition-all";
@@ -512,17 +513,17 @@
     btnPlaceOrder?.addEventListener('click', async () => {
       if (btnPlaceOrder.classList.contains('cursor-not-allowed')) return;
 
-      const currentTable = tableInput?.value || "1";
+      const currentTable = tableInput ? tableInput.value : "5";
       const currentOrderId = `#${orderCounter++}`;
       
       let orderTotalLeke = 0;
-      let orderItems: string[] = [];
+      let orderItems = [];
 
       SIM_MENU.forEach(item => {
         const qty = cart[item.id] || 0;
         if (qty > 0) {
           orderTotalLeke += item.priceLeke * qty;
-          const name = (item.names as any)[activeLang];
+          const name = item.names[activeLang];
           orderItems.push(`${qty}x ${name}`);
         }
       });
@@ -536,7 +537,7 @@
       totalRevenueLeke += orderTotalLeke;
       totalOrdersPlaced++;
       
-      document.getElementById('admin-active-count')!.innerText = activeOrdersCount.toString();
+      document.getElementById('admin-active-count').innerText = activeOrdersCount.toString();
       
       // Format total revenue for Admin panel based on active currency at placement time (or keep general Leke)
       const adminRevenueDisplay = document.getElementById('admin-revenue-total');
@@ -577,7 +578,7 @@
         </button>
       `;
 
-      queueContainer?.prepend(orderCard);
+      queueContainer.prepend(orderCard);
 
       // Reset Client Cart UI
       SIM_MENU.forEach(i => cart[i.id] = 0);
@@ -593,5 +594,8 @@
 
     // Run Initial Menu Rendering
     renderMenuUI();
-  });
+  };
+
+  // Run on first load & after Astro page navigation
+  document.addEventListener('astro:page-load', initSimulation);
 </script>

@@ -74,7 +74,10 @@ const uxCases = [
       <div id="grid-auto" class="[grid-area:1/1] grid grid-cols-1 md:grid-cols-3 gap-6 transition-all duration-500 opacity-100 pointer-events-auto">
         {automationsCases.map(c => {
           const TagWrapper = c.link ? 'a' : 'div';
-          const tagProps = c.link ? { href: c.link, target: "_blank" } : {};
+          const tagProps = c.link ? { 
+            href: c.link, 
+            ...(c.link.startsWith('http') ? { target: "_blank" } : {}) 
+          } : {};
           
           return (
           <TagWrapper {...tagProps} class={`group relative bg-surface rounded-[32px] p-8 border border-brandCyan/5 hover:border-brandCyan/30 transition-all duration-300 overflow-hidden flex flex-col justify-between ${c.link ? 'cursor-pointer hover:shadow-xl hover:scale-[1.02] z-20' : ''} ${c.span}`}>
