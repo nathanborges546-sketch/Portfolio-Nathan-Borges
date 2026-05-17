@@ -397,7 +397,7 @@
     const activeCountEl = document.getElementById('admin-active-count');
     if (activeCountEl) activeCountEl.innerText = activeOrdersCount.toString();
 
-    logToAdminFeed(`✓ Sync Nuvem: Pedido ${orderId} conciliado na nuvem.`, 'text-emerald-400');
+    logToAdminFeed('', 'sync', '', '#' + orderId);
 
     // Check if queue is empty to trigger ROI modal
     if (activeOrdersCount <= 0 && totalOrdersPlaced > 0) {
@@ -430,7 +430,7 @@
     totalOrdersPlaced = 0;
   };
 
-  function logToAdminFeed(message, colorClass = "text-[#f0f6fc]") {
+  function logToAdminFeed(message, type = 'webhook', colorClass = "", orderId = '', table = '', value = '', lang = '') {
     const feed = document.getElementById('admin-log-feed');
     if (!feed) return;
     
@@ -440,8 +440,49 @@
 
     const timeStr = new Date().toLocaleTimeString([], { hour12: false });
     const logEntry = document.createElement('div');
-    logEntry.className = `text-[10px] font-space border-b border-white/5 pb-1 ${colorClass} animate-fade-in-up`;
-    logEntry.innerHTML = `<span class="text-gray-500 mr-2">[${timeStr}]</span> ${message}`;
+    
+    if (type === 'webhook') {
+      logEntry.className = "bg-white/5 border border-white/10 rounded-xl p-3 flex justify-between items-center animate-fade-in-up hover:border-brandCyan/20 transition-colors shadow-sm mb-3";
+      logEntry.innerHTML = `
+        <div class="flex items-center gap-3">
+          <div class="w-8 h-8 rounded-full bg-[#00AEEF]/10 border border-[#00AEEF]/20 flex items-center justify-center text-[#00AEEF]">
+            <i class="fa-solid fa-satellite-dish text-xs animate-pulse"></i>
+          </div>
+          <div class="text-left">
+            <div class="flex items-center gap-1.5">
+              <span class="text-xs font-bold text-white">${orderId}</span>
+              <span class="text-[9px] bg-white/5 border border-white/10 px-1.5 py-0.5 rounded text-gray-400 font-space uppercase">Mesa ${table}</span>
+            </div>
+            <span class="text-[9px] text-gray-500 font-space">${timeStr} • Webhook Inbound</span>
+          </div>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="text-[9px] font-space font-bold border border-white/5 bg-white/5 px-2 py-0.5 rounded text-gray-400 uppercase">${lang}</span>
+          <span class="text-xs font-black text-[#00AEEF] font-space">${value}</span>
+        </div>
+      `;
+    } else {
+      // Sync log
+      logEntry.className = "bg-emerald-500/5 border border-emerald-500/10 rounded-xl p-3 flex justify-between items-center animate-fade-in-up hover:border-emerald-500/20 transition-colors shadow-sm mb-3";
+      logEntry.innerHTML = `
+        <div class="flex items-center gap-3">
+          <div class="w-8 h-8 rounded-full bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400">
+            <i class="fa-solid fa-cloud-arrow-up text-xs"></i>
+          </div>
+          <div class="text-left">
+            <div class="flex items-center gap-1.5">
+              <span class="text-xs font-bold text-emerald-400">${orderId}</span>
+              <span class="text-[9px] bg-emerald-500/10 border border-emerald-500/20 px-1.5 py-0.5 rounded text-emerald-400 font-space uppercase">Conciliado</span>
+            </div>
+            <span class="text-[9px] text-emerald-600 font-space">${timeStr} • Sync Cloud Ok</span>
+          </div>
+        </div>
+        <div class="flex items-center gap-2 text-right">
+          <span class="text-[9px] font-space text-emerald-400 mr-2">18ms Latency</span>
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        </div>
+      `;
+    }
     
     feed.prepend(logEntry);
   }
@@ -546,7 +587,7 @@
       }
       
       const formattedLogVal = activeCurrency === 'leke' ? `${orderTotalLeke}L` : `${(orderTotalLeke / EXCHANGE_RATE).toFixed(1)}€`;
-      logToAdminFeed(`📡 Webhook: ${currentOrderId} | Mesa ${currentTable} | Valor: ${formattedLogVal} (Lang: ${activeLang.toUpperCase()})`, "text-[#00AEEF]");
+      logToAdminFeed('', 'webhook', '', currentOrderId, currentTable, formattedLogVal, activeLang.toUpperCase());
 
       // Play Chime
       playMoskatoChime();
