@@ -3,7 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import NxtPurifierSandbox from '../components/NxtPurifierSandbox.astro';
 ---
 
-<Layout title="Pipeline B2B | Clean Data Sandbox">
+<Layout title="Inteligência e Purificação de Dados | Nathan Borges">
   <div class="min-h-screen bg-darkBg text-textPrimary py-32 px-8 flex flex-col font-sora relative overflow-hidden">
     <!-- Glow Effects -->
     <div class="absolute top-0 left-1/4 w-[600px] h-[600px] bg-brandCyan/5 rounded-full blur-[120px] pointer-events-none"></div>
@@ -18,11 +18,63 @@ import NxtPurifierSandbox from '../components/NxtPurifierSandbox.astro';
       </a>
       
       <!-- Título da Página -->
-      <div class="mb-16">
+      <div class="mb-12">
         <h1 class="text-4xl md:text-6xl font-bold mb-6 tracking-tight">Inteligência e <span class="text-[#00f2fe]">Purificação</span> de Dados</h1>
-        <p class="text-textSecondary text-lg md:text-xl max-w-4xl leading-relaxed font-sora">
-          Planilhas mal estruturadas geram gargalos operacionais e desperdiçam o tempo da sua equipe. Este simulador demonstra como meus scripts em Python interceptam uma base de dados corrompida, corrigem erros ocultos automaticamente e sincronizam as informações limpas direto no ecossistema da empresa (Notion).
-        </p>
+      </div>
+
+      <!-- Grid de Cenário (Antes vs Depois) -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+        
+        <!-- Antes: O Desperdício Manual -->
+        <div class="bg-red-500/[0.02] border border-red-500/10 p-6 rounded-3xl flex flex-col gap-5">
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-full bg-red-500/10 border border-red-500/20 flex items-center justify-center text-red-400">
+              <i class="fa-solid fa-circle-xmark text-sm"></i>
+            </div>
+            <h3 class="font-bold text-xl text-red-400 font-sora">Antes: O Desperdício Manual</h3>
+          </div>
+          
+          <div class="space-y-4">
+            <div class="bg-[#0b0e14]/40 border border-white/5 p-4 rounded-2xl">
+              <span class="text-xs font-bold text-red-400 uppercase tracking-widest block mb-1">Esforço Exaustivo</span>
+              <p class="text-textSecondary text-sm leading-relaxed font-sora">A equipe gastava até 8 horas por lote para extrair, revisar e tentar limpar manualmente planilhas de leads comerciais.</p>
+            </div>
+            <div class="bg-[#0b0e14]/40 border border-white/5 p-4 rounded-2xl">
+              <span class="text-xs font-bold text-red-400 uppercase tracking-widest block mb-1">Erros Ocultos</span>
+              <p class="text-textSecondary text-sm leading-relaxed font-sora">Contatos duplicados, números desformatados e dados ausentes passavam despercebidos, gerando perda de vendas e falhas graves de comunicação.</p>
+            </div>
+            <div class="bg-[#0b0e14]/40 border border-white/5 p-4 rounded-2xl">
+              <span class="text-xs font-bold text-red-400 uppercase tracking-widest block mb-1">Falta de Integração</span>
+              <p class="text-textSecondary text-sm leading-relaxed font-sora">Informações inconsistentes que exigiam digitação manual demorada para conseguir entrar no sistema central da empresa.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Depois: O Motor de Purificação -->
+        <div class="bg-emerald-500/[0.02] border border-emerald-500/10 p-6 rounded-3xl flex flex-col gap-5">
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-full bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400">
+              <i class="fa-solid fa-circle-check text-sm"></i>
+            </div>
+            <h3 class="font-bold text-xl text-emerald-400 font-sora">Depois: O Motor de Purificação</h3>
+          </div>
+          
+          <div class="space-y-4">
+            <div class="bg-[#0b0e14]/40 border border-white/5 p-4 rounded-2xl">
+              <span class="text-xs font-bold text-emerald-400 uppercase tracking-widest block mb-1">Processamento em Segundos</span>
+              <p class="text-textSecondary text-sm leading-relaxed font-sora">O script intercepta a base bruta e resolve todas as falhas estruturais de uma única vez, em menos de 2 segundos.</p>
+            </div>
+            <div class="bg-[#0b0e14]/40 border border-white/5 p-4 rounded-2xl">
+              <span class="text-xs font-bold text-emerald-400 uppercase tracking-widest block mb-1">Correção Inteligente</span>
+              <p class="text-textSecondary text-sm leading-relaxed font-sora">O algoritmo padroniza os telefones automaticamente, remove as repetições e usa inteligência artificial para tratar dados nulos de forma preditiva.</p>
+            </div>
+            <div class="bg-[#0b0e14]/40 border border-white/5 p-4 rounded-2xl">
+              <span class="text-xs font-bold text-emerald-400 uppercase tracking-widest block mb-1">Sincronização Direta</span>
+              <p class="text-textSecondary text-sm leading-relaxed font-sora">Dados 100% limpos e qualificados são injetados direto no banco de dados central (Notion), economizando horas de trabalho e blindando o funil comercial.</p>
+            </div>
+          </div>
+        </div>
+
       </div>
 
       <!-- Sandbox Interativo (Tabela Notion) -->
