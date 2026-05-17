@@ -18,14 +18,63 @@ import MoskatoSyncSandbox from '../components/MoskatoSyncSandbox.astro';
       </a>
       
       <!-- Título da Página -->
-      <div class="mb-16">
+      <div class="mb-12">
         <h1 class="text-4xl md:text-6xl font-bold mb-6 tracking-tight">Menu Digital <span class="text-[#00f2fe]">Personalizado</span></h1>
-        <p class="text-textSecondary text-lg md:text-xl max-w-4xl leading-relaxed font-sora">
-          O Cenário Real: No Moskato Camping em Himarë (Albânia), a operação dependia de comandas em papel. O proprietário enfrentava atrasos, erros de escrita e uma barreira crítica: atender turistas internacionais que não falavam o idioma local. Sistemas comuns em nuvem trancariam a operação devido à instabilidade crônica de internet na região costeira.
-        </p>
-        <p class="text-textSecondary text-lg md:text-xl max-w-4xl leading-relaxed font-sora mt-4">
-          A Engenharia da Solução: Projetei um cardápio digital multilíngue localizado (Inglês, Albanês, Alemão e Polonês) onde o cliente pede de forma autônoma. O grande diferencial: o sistema opera em uma rede local e funciona 100% sem precisar de internet. Os pedidos chegam à cozinha em menos de 100ms, anulando erros humanos, quebrando barreiras linguísticas e blindando o faturamento contra quedas de sinal.
-        </p>
+      </div>
+
+      <!-- Grid de Cenário (Antes vs Depois) -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+        
+        <!-- Antes: O Caos Analógico -->
+        <div class="bg-red-500/[0.02] border border-red-500/10 p-6 rounded-3xl flex flex-col gap-5">
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-full bg-red-500/10 border border-red-500/20 flex items-center justify-center text-red-400">
+              <i class="fa-solid fa-circle-xmark text-sm"></i>
+            </div>
+            <h3 class="font-bold text-xl text-red-400 font-sora">Antes: O Caos Analógico</h3>
+          </div>
+          
+          <div class="space-y-4">
+            <div class="bg-[#0b0e14]/40 border border-white/5 p-4 rounded-2xl">
+              <span class="text-xs font-bold text-red-400 uppercase tracking-widest block mb-1">Erros e Atrasos</span>
+              <p class="text-textSecondary text-sm leading-relaxed font-sora">Operação baseada em comandas de papel. O dono corria de um lado para o outro, gerando confusão de escrita e pratos errados na cozinha.</p>
+            </div>
+            <div class="bg-[#0b0e14]/40 border border-white/5 p-4 rounded-2xl">
+              <span class="text-xs font-bold text-red-400 uppercase tracking-widest block mb-1">Barreira de Idioma</span>
+              <p class="text-textSecondary text-sm leading-relaxed font-sora">Dificuldade extrema para atender turistas internacionais que não falavam albanês nem inglês.</p>
+            </div>
+            <div class="bg-[#0b0e14]/40 border border-white/5 p-4 rounded-2xl">
+              <span class="text-xs font-bold text-red-400 uppercase tracking-widest block mb-1">Insegurança de Rede</span>
+              <p class="text-textSecondary text-sm leading-relaxed font-sora">A internet instável da costa da Albânia impedia o uso de sistemas comuns baseados em nuvem.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Depois: O Ecossistema Moskato -->
+        <div class="bg-emerald-500/[0.02] border border-emerald-500/10 p-6 rounded-3xl flex flex-col gap-5">
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-full bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400">
+              <i class="fa-solid fa-circle-check text-sm"></i>
+            </div>
+            <h3 class="font-bold text-xl text-emerald-400 font-sora">Depois: O Ecossistema Moskato</h3>
+          </div>
+          
+          <div class="space-y-4">
+            <div class="bg-[#0b0e14]/40 border border-white/5 p-4 rounded-2xl">
+              <span class="text-xs font-bold text-emerald-400 uppercase tracking-widest block mb-1">Fricção Zero</span>
+              <p class="text-textSecondary text-sm leading-relaxed font-sora">Cardápio digital onde o cliente pede de forma autônoma e os pratos chegam à cozinha em menos de 100ms.</p>
+            </div>
+            <div class="bg-[#0b0e14]/40 border border-white/5 p-4 rounded-2xl">
+              <span class="text-xs font-bold text-emerald-400 uppercase tracking-widest block mb-1">Tradução Nativa</span>
+              <p class="text-textSecondary text-sm leading-relaxed font-sora">Sistema totalmente localizado (Inglês, Albanês, Alemão e Polonês), quebrando barreiras linguísticas e aumentando as vendas.</p>
+            </div>
+            <div class="bg-[#0b0e14]/40 border border-white/5 p-4 rounded-2xl">
+              <span class="text-xs font-bold text-emerald-400 uppercase tracking-widest block mb-1">100% Offline-First</span>
+              <p class="text-textSecondary text-sm leading-relaxed font-sora">O software opera em uma rede local fechada. Funciona perfeitamente mesmo se a internet da região cair, blindando o faturamento.</p>
+            </div>
+          </div>
+        </div>
+
       </div>
 
       <!-- Sandbox Interativo -->
