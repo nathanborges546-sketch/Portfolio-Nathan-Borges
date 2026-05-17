@@ -1,5 +1,6 @@
 ---
 // Componente de Tabs (Switcher) + Bento Grid - Versão Engenharia Aplicada
+import NxtPurifierSandbox from './NxtPurifierSandbox.astro';
 const automationsCases = [
   {
     title: "Sistema de Prospecção Automatizada e Extração de Dados",
@@ -65,10 +66,10 @@ const uxCases = [
     </div>
 
     <!-- Bento Grid Container -->
-    <div class="relative min-h-[800px] md:min-h-[600px]">
+    <div class="grid relative">
       
       <!-- Grid Automações -->
-      <div id="grid-auto" class="absolute inset-0 grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 gap-6 transition-all duration-500 opacity-100 pointer-events-auto">
+      <div id="grid-auto" class="[grid-area:1/1] grid grid-cols-1 md:grid-cols-3 gap-6 transition-all duration-500 opacity-100 pointer-events-auto">
         {automationsCases.map(c => (
           <div class={`group relative bg-surface rounded-[32px] p-8 border border-brandCyan/5 hover:border-brandCyan/30 transition-all duration-300 overflow-hidden flex flex-col justify-between ${c.span}`}>
             <div class="z-10">
@@ -91,10 +92,13 @@ const uxCases = [
             </div>
           </div>
         ))}
+        
+        <!-- Componente Interativo Sandbox -->
+        <NxtPurifierSandbox />
       </div>
 
       <!-- Grid UX -->
-      <div id="grid-ux" class="absolute inset-0 grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 gap-6 transition-all duration-500 opacity-0 pointer-events-none translate-y-4">
+      <div id="grid-ux" class="[grid-area:1/1] grid grid-cols-1 md:grid-cols-3 gap-6 transition-all duration-500 opacity-0 pointer-events-none translate-y-4">
         {uxCases.map(c => (
           <div class={`group relative bg-surface rounded-[32px] p-8 border border-brandCyan/5 hover:border-brandCyan/30 transition-all duration-300 overflow-hidden flex flex-col justify-between ${c.span}`}>
             <div class="z-10">
