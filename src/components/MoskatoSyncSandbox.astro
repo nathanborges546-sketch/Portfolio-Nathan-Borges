@@ -88,7 +88,7 @@
         <h4 class="font-bold text-[15px] tracking-tight text-[#f0f6fc] flex items-center gap-2">
           <i class="fa-solid fa-chart-line text-emerald-400"></i> Gestão do Caixa
         </h4>
-        <span class="font-space text-[9px] text-emerald-400 border border-emerald-400/20 bg-emerald-400/10 px-2 py-0.5 rounded-md uppercase">Sync Cloud</span>
+        <span class="font-space text-[9px] text-emerald-400 border border-emerald-400/20 bg-emerald-400/10 px-2 py-0.5 rounded-md uppercase">Painel de Controle</span>
       </div>
 
       <!-- Stats -->
@@ -120,10 +120,10 @@
 
       <!-- Webhook Logs -->
       <div class="flex-1 flex flex-col min-h-[150px]">
-        <span class="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-3">Live Webhook Feed</span>
+        <span class="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-3">Pedidos do Dia</span>
         <div id="admin-log-feed" class="flex-1 overflow-y-auto space-y-2 pr-1 custom-scrollbar text-[10px]">
           <!-- Default empty state -->
-          <div class="text-[10px] font-space text-gray-600 italic">Aguardando eventos locais...</div>
+          <div class="text-[10px] font-space text-gray-600 italic">Aguardando pedidos</div>
         </div>
       </div>
     </div>
@@ -135,9 +135,9 @@
 
       <div class="flex justify-between items-center border-b border-white/5 pb-4 mb-4 relative z-10">
         <h4 class="font-bold text-[15px] tracking-tight text-[#f0f6fc] flex items-center gap-2">
-          <i class="fa-solid fa-fire-burner text-[#F15A24]"></i> Cozinha (Preparo)
+          <i class="fa-solid fa-fire-burner text-[#F15A24]"></i> Cozinha
         </h4>
-        <span class="font-space text-[9px] text-[#F15A24] border border-[#F15A24]/20 bg-[#F15A24]/10 px-2 py-0.5 rounded-md uppercase">Local Monitor</span>
+        <span class="font-space text-[9px] text-[#F15A24] border border-[#F15A24]/20 bg-[#F15A24]/10 px-2 py-0.5 rounded-md uppercase">Preparo</span>
       </div>
 
       <!-- Kitchen Queue -->
@@ -493,7 +493,7 @@
     const feed = document.getElementById('admin-log-feed');
     if (!feed) return;
     
-    if (feed.innerHTML.includes("Aguardando eventos locais")) {
+    if (feed.innerHTML.includes("Aguardando pedidos")) {
       feed.innerHTML = '';
     }
 
