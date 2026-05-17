@@ -399,6 +399,38 @@
     }
   }
 
+  // Kitchen Chime (Slightly higher pitch G5 & C6)
+  function playKitchenFinishChime() {
+    if (!audioEnabled) return;
+    try {
+      const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      
+      let osc1 = audioCtx.createOscillator();
+      let gain1 = audioCtx.createGain();
+      osc1.connect(gain1);
+      gain1.connect(audioCtx.destination);
+      osc1.type = 'sine';
+      osc1.frequency.setValueAtTime(783.99, audioCtx.currentTime); 
+      gain1.gain.setValueAtTime(0.15, audioCtx.currentTime);
+      gain1.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.3);
+      osc1.start(audioCtx.currentTime);
+      osc1.stop(audioCtx.currentTime + 0.3);
+      
+      let osc2 = audioCtx.createOscillator();
+      let gain2 = audioCtx.createGain();
+      osc2.connect(gain2);
+      gain2.connect(audioCtx.destination);
+      osc2.type = 'sine';
+      osc2.frequency.setValueAtTime(1046.50, audioCtx.currentTime + 0.1); 
+      gain2.gain.setValueAtTime(0.15, audioCtx.currentTime + 0.1);
+      gain2.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.45);
+      osc2.start(audioCtx.currentTime + 0.1);
+      osc2.stop(audioCtx.currentTime + 0.45);
+    } catch (e) {
+      console.warn("Audio blocked by browser policy.", e);
+    }
+  }
+
   // Finalizar e Cloud Sync
   window.finishKitchenOrder = async function(orderId, tableNum, btnElement) {
     btnElement.disabled = true;
@@ -407,6 +439,9 @@
 
     // Simulate webhook to cloud
     await new Promise(res => setTimeout(res, 800));
+
+    // Play High Pitch Kitchen Chime
+    playKitchenFinishChime();
 
     // Remove from Kitchen UI
     const card = document.getElementById(`order-card-${orderId}`);
