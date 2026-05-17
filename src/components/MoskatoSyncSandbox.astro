@@ -8,8 +8,8 @@
   <div class="mb-8 border border-white/5 rounded-2xl overflow-hidden bg-white/[0.01] shadow-2xl">
     <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-white/5 p-5 bg-[#0b0e14]/30">
       <div class="flex items-center gap-3">
-        <span class="font-space text-[10px] bg-white/5 text-[#8b949e] px-3 py-1 rounded-full border border-white/5 tracking-wider font-semibold">ECOSSISTEMA NXT</span>
-        <h3 class="text-sm font-bold tracking-tight text-[#f0f6fc]">Node.js Sync Broker • Himarë, Albânia</h3>
+        <span class="font-space text-[10px] bg-white/5 text-[#8b949e] px-3 py-1 rounded-full border border-white/5 tracking-wider font-semibold">Digital Menu Moskato</span>
+        <h3 class="text-sm font-bold tracking-tight text-[#f0f6fc]">Himarë, Albânia</h3>
       </div>
       <div class="flex items-center gap-3">
         <button id="btn-audio-toggle" class="font-space text-[10px] text-gray-400 border border-white/10 bg-white/5 px-3 py-1 rounded-md hover:bg-white/10 transition-colors uppercase tracking-widest font-semibold flex items-center gap-1.5">
@@ -30,9 +30,9 @@
       <div>
         <div class="flex justify-between items-center mb-4">
           <h4 class="font-bold text-[15px] tracking-tight text-[#f0f6fc] flex items-center gap-2">
-            <i class="fa-solid fa-mobile-screen text-[#00AEEF]"></i> Totem do Cliente
+            <i class="fa-solid fa-mobile-screen text-[#00AEEF]"></i> Digital Menu
           </h4>
-          <span class="font-space text-[9px] text-[#00AEEF] border border-[#00AEEF]/20 bg-[#00AEEF]/10 px-2 py-0.5 rounded-md uppercase">Edge Local</span>
+          <span class="font-space text-[9px] text-[#00AEEF] border border-[#00AEEF]/20 bg-[#00AEEF]/10 px-2 py-0.5 rounded-md uppercase">Pedido Local</span>
         </div>
 
         <!-- Controls (Language + Currency) -->
@@ -100,6 +100,21 @@
         <div class="bg-emerald-500/5 border border-emerald-500/10 rounded-xl p-3 flex flex-col items-center justify-center text-center">
           <span class="text-[9px] font-bold text-emerald-600 uppercase tracking-widest mb-1">Faturamento Geral</span>
           <span id="admin-revenue-total" class="text-lg font-black font-space text-emerald-400 flex items-center justify-center gap-0.5">0 <span class="text-xs">L</span></span>
+        </div>
+      </div>
+
+      <!-- Faturamento por Mesa -->
+      <div class="bg-white/[0.02] border border-white/5 rounded-xl p-3 mb-6 flex flex-col gap-2.5 animate-fade-in-up">
+        <div class="flex justify-between items-center">
+          <span class="text-[8px] font-bold text-gray-500 uppercase tracking-widest pl-1">Faturamento por Mesa</span>
+          <span id="table-revenue-selected-val" class="text-[10px] font-bold text-[#00AEEF] font-space">Mesa 5: 0 L</span>
+        </div>
+        <div class="flex justify-between gap-1.5" id="table-selector-container">
+          <button onclick="window.selectAdminTable('1')" class="admin-table-btn flex-1 py-1 bg-white/5 text-gray-400 border border-white/5 rounded-lg text-xs font-bold font-space transition-all hover:text-white">1</button>
+          <button onclick="window.selectAdminTable('2')" class="admin-table-btn flex-1 py-1 bg-white/5 text-gray-400 border border-white/5 rounded-lg text-xs font-bold font-space transition-all hover:text-white">2</button>
+          <button onclick="window.selectAdminTable('3')" class="admin-table-btn flex-1 py-1 bg-white/5 text-gray-400 border border-white/5 rounded-lg text-xs font-bold font-space transition-all hover:text-white">3</button>
+          <button onclick="window.selectAdminTable('4')" class="admin-table-btn flex-1 py-1 bg-white/5 text-gray-400 border border-white/5 rounded-lg text-xs font-bold font-space transition-all hover:text-white">4</button>
+          <button onclick="window.selectAdminTable('5')" class="admin-table-btn flex-1 py-1 bg-[#00AEEF]/20 text-[#00AEEF] border border-[#00AEEF]/30 rounded-lg text-xs font-bold font-space transition-all">5</button>
         </div>
       </div>
 
@@ -252,6 +267,15 @@
   let totalRevenueLeke = 0;
   let totalOrdersPlaced = 0;
   let audioEnabled = false;
+  
+  let selectedAdminTable = '5';
+  let tableRevenue = {
+    "1": 0,
+    "2": 0,
+    "3": 0,
+    "4": 0,
+    "5": 0
+  };
 
   // Render client menu dynamically based on Lang & Currency
   function renderMenuUI() {
@@ -278,10 +302,10 @@
           <h5 class="text-xs font-bold text-[#f0f6fc]">${name}</h5>
           <span class="text-[10px] font-space text-gray-400">${priceDisplay}</span>
         </div>
-        <div class="flex items-center gap-2 bg-[#161b22] border border-white/5 rounded-full px-2 py-1">
-          <button class="w-5 h-5 text-gray-400 hover:text-white flex items-center justify-center text-xs" onclick="window.updateSimCart('${item.id}', -1)"><i class="fa-solid fa-minus"></i></button>
-          <span class="font-space text-xs text-white font-bold w-4 text-center">${qty}</span>
-          <button class="w-5 h-5 text-[#00AEEF] hover:text-white flex items-center justify-center text-xs" onclick="window.updateSimCart('${item.id}', 1)"><i class="fa-solid fa-plus"></i></button>
+        <div class="flex items-center gap-2 bg-[#161b22] border border-white/5 rounded-full px-2.5 py-1">
+          <button class="w-5 h-5 text-gray-400 hover:text-white flex items-center justify-center text-sm font-black" onclick="window.updateSimCart('${item.id}', -1)">−</button>
+          <span class="font-space text-xs text-white font-bold w-4 text-center select-none">${qty}</span>
+          <button class="w-5 h-5 text-[#00AEEF] hover:text-white flex items-center justify-center text-sm font-black" onclick="window.updateSimCart('${item.id}', 1)">+</button>
         </div>
       `;
       container.appendChild(itemDiv);
@@ -376,7 +400,7 @@
   }
 
   // Finalizar e Cloud Sync
-  window.finishKitchenOrder = async function(orderId, btnElement) {
+  window.finishKitchenOrder = async function(orderId, tableNum, btnElement) {
     btnElement.disabled = true;
     btnElement.innerHTML = `<i class="fa-solid fa-circle-notch animate-spin"></i> Sync Cloud...`;
     btnElement.classList.replace('bg-[#F15A24]', 'bg-emerald-500');
@@ -397,7 +421,7 @@
     const activeCountEl = document.getElementById('admin-active-count');
     if (activeCountEl) activeCountEl.innerText = activeOrdersCount.toString();
 
-    logToAdminFeed('', 'sync', '', '#' + orderId);
+    logToAdminFeed('', 'sync', '', '#' + orderId, tableNum);
 
     // Check if queue is empty to trigger ROI modal
     if (activeOrdersCount <= 0 && totalOrdersPlaced > 0) {
@@ -472,13 +496,13 @@
           <div class="text-left">
             <div class="flex items-center gap-1.5">
               <span class="text-xs font-bold text-emerald-400">${orderId}</span>
-              <span class="text-[9px] bg-emerald-500/10 border border-emerald-500/20 px-1.5 py-0.5 rounded text-emerald-400 font-space uppercase">Conciliado</span>
+              <span class="text-[9px] bg-emerald-500/10 border border-emerald-500/20 px-1.5 py-0.5 rounded text-emerald-400 font-space uppercase">Mesa ${table}</span>
             </div>
             <span class="text-[9px] text-emerald-600 font-space">${timeStr} • Sync Cloud Ok</span>
           </div>
         </div>
         <div class="flex items-center gap-2 text-right">
-          <span class="text-[9px] font-space text-emerald-400 mr-2">18ms Latency</span>
+          <span class="text-[9px] font-space text-emerald-400 mr-2">Pedido Pronto</span>
           <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
         </div>
       `;
@@ -486,6 +510,35 @@
     
     feed.prepend(logEntry);
   }
+
+  // Globally accessible table selector for Admin Panel
+  window.selectAdminTable = function(tableNum) {
+    selectedAdminTable = tableNum;
+    
+    // Update selector buttons styling
+    const buttons = document.querySelectorAll('.admin-table-btn');
+    buttons.forEach(btn => {
+      if (btn.innerText.trim() === tableNum) {
+        btn.className = "admin-table-btn flex-1 py-1 bg-[#00AEEF]/20 text-[#00AEEF] border border-[#00AEEF]/30 rounded-lg text-xs font-bold font-space transition-all";
+      } else {
+        btn.className = "admin-table-btn flex-1 py-1 bg-white/5 text-gray-400 border border-white/5 rounded-lg text-xs font-bold font-space transition-all hover:text-white";
+      }
+    });
+
+    // Update table revenue display
+    const displayVal = document.getElementById('table-revenue-selected-val');
+    if (displayVal) {
+      if (tableRevenue[tableNum] === undefined) {
+        tableRevenue[tableNum] = 0;
+      }
+      const revenueLeke = tableRevenue[tableNum];
+      if (activeCurrency === 'leke') {
+        displayVal.innerText = `Mesa ${tableNum}: ${revenueLeke} L`;
+      } else {
+        displayVal.innerText = `Mesa ${tableNum}: ${(revenueLeke / EXCHANGE_RATE).toFixed(1)} €`;
+      }
+    }
+  };
 
   // Use the standard setup or page-load
   const initSimulation = () => {
@@ -497,6 +550,14 @@
     totalOrdersPlaced = 0;
     activeLang = 'pt';
     activeCurrency = 'leke';
+    selectedAdminTable = '5';
+    tableRevenue = {
+      "1": 0,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0
+    };
 
     // Controls Selection
     const btnPt = document.getElementById('lang-pt');
@@ -534,8 +595,8 @@
       if (activeBtn) activeBtn.className = "flex-1 py-1 rounded text-[10px] font-space font-bold bg-[#00AEEF] text-white transition-all";
     };
 
-    btnLeke?.addEventListener('click', () => { activeCurrency = 'leke'; updateCurrBtnStyles('leke'); renderMenuUI(); });
-    btnEuro?.addEventListener('click', () => { activeCurrency = 'euro'; updateCurrBtnStyles('euro'); renderMenuUI(); });
+    btnLeke?.addEventListener('click', () => { activeCurrency = 'leke'; updateCurrBtnStyles('leke'); renderMenuUI(); window.selectAdminTable(selectedAdminTable); });
+    btnEuro?.addEventListener('click', () => { activeCurrency = 'euro'; updateCurrBtnStyles('euro'); renderMenuUI(); window.selectAdminTable(selectedAdminTable); });
 
     // Audio Toggle
     btnAudio?.addEventListener('click', () => {
@@ -578,6 +639,12 @@
       totalRevenueLeke += orderTotalLeke;
       totalOrdersPlaced++;
       
+      if (tableRevenue[currentTable] === undefined) {
+        tableRevenue[currentTable] = 0;
+      }
+      tableRevenue[currentTable] += orderTotalLeke;
+      window.selectAdminTable(selectedAdminTable);
+      
       document.getElementById('admin-active-count').innerText = activeOrdersCount.toString();
       
       // Format total revenue for Admin panel based on active currency at placement time (or keep general Leke)
@@ -614,7 +681,7 @@
         <div class="space-y-1.5 py-1">
           ${itemsHtml}
         </div>
-        <button onclick="window.finishKitchenOrder('${currentOrderId.replace('#','')}', this)" class="w-full bg-[#F15A24] text-white font-space font-bold text-[10px] tracking-wider uppercase py-2.5 rounded-lg transition-all hover:brightness-110 active:scale-95 flex justify-center items-center gap-2">
+        <button onclick="window.finishKitchenOrder('${currentOrderId.replace('#','')}', '${currentTable}', this)" class="w-full bg-[#F15A24] text-white font-space font-bold text-[10px] tracking-wider uppercase py-2.5 rounded-lg transition-all hover:brightness-110 active:scale-95 flex justify-center items-center gap-2">
           <i class="fa-solid fa-check"></i> Finalizar Pedido
         </button>
       `;
@@ -635,6 +702,9 @@
 
     // Run Initial Menu Rendering
     renderMenuUI();
+    
+    // Select Table 5 initially in Admin view
+    window.selectAdminTable('5');
   };
 
   // Run on first load & after Astro page navigation
