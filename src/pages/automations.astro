@@ -1,23 +1,316 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import NxtOsSandbox from '../components/NxtOsSandbox.astro';
+import NxtPurifierSandbox from '../components/NxtPurifierSandbox.astro';
+import MoskatoSyncSandbox from '../components/MoskatoSyncSandbox.astro';
 ---
 
-<Layout title="Arquitetura de Dados | Nathan Borges">
-	<section class="min-h-screen flex flex-col justify-center px-8 bg-darkBg">
-		<span class="text-brandCyan font-space text-xs tracking-widest uppercase mb-8">Eixo 02</span>
-		<h1 class="font-sora text-4xl md:text-6xl lg:text-7xl font-bold tracking-tighter text-textPrimary leading-[1.05] mb-8">
-			Arquitetura de Dados & Agentes Autônomos.
-		</h1>
-		<p class="font-sora text-lg md:text-xl text-textSecondary max-w-2xl leading-relaxed mb-12">
-			Em breve: Relatórios técnicos detalhados de como recuperei centenas de horas operacionais aplicando engenharia de dados em Python e integrações de API.
-		</p>
-		<div class="flex flex-col sm:flex-row gap-6 mt-8">
-			<button onclick="Calendly.initPopupWidget({url: 'https://calendly.com/nathanborges546/30min'});return false;" class="inline-flex items-center justify-center px-10 py-4 bg-brandCyan text-textPrimary font-space font-bold rounded-full hover:brightness-110 transition-all hover:scale-105 active:scale-95 shadow-[0_0_30px_rgba(28,105,183,0.3)] uppercase tracking-widest text-xs">
-				AGENDAR PAPO TÉCNICO
-			</button>
-			<a href="/" class="inline-flex items-center justify-center px-10 py-4 border border-surface text-textSecondary hover:text-textPrimary transition-all rounded-full font-space text-sm uppercase tracking-widest">
-				← Voltar
-			</a>
-		</div>
-	</section>
+<Layout title="Arquitetura de Dados & IA | Nathan Borges">
+  <main class="min-h-screen bg-darkBg text-textPrimary py-24 px-6 md:px-12 lg:px-24">
+    <div class="max-w-5xl mx-auto flex flex-col gap-16">
+      
+      <!-- Voltar Home & Cabeçalho -->
+      <div class="flex flex-col gap-6">
+        <a href="/" class="group inline-flex items-center text-xs font-space font-bold tracking-widest text-textSecondary hover:text-brandCyan transition-colors w-fit">
+          <span class="mr-2 group-hover:-translate-x-1 transition-transform">←</span> VOLTAR PARA PORTFÓLIO
+        </a>
+        
+        <div>
+          <span class="text-brandCyan font-space text-xs tracking-[0.3em] uppercase mb-4 block">Eixo Automação e Código</span>
+          <h1 class="font-sora text-4xl md:text-6xl lg:text-7xl font-bold tracking-tighter leading-[1.05] mb-6">
+            Arquitetura de Dados & Agentes Autônomos.
+          </h1>
+          <p class="font-sora text-lg md:text-xl text-textSecondary max-w-3xl leading-relaxed">
+            Como recuperei centenas de horas de trabalho operacional através de engenharia de dados avançada, APIs assíncronas, pipelines em Python e agentes autônomos integrados a modelos de linguagem de elite.
+          </p>
+        </div>
+      </div>
+
+      <!-- Divisor elegante -->
+      <div class="h-px bg-white/5 w-full"></div>
+
+      <!-- SEÇÃO DOS PROJETOS -->
+      <div class="flex flex-col gap-24">
+        
+        <!-- PROJETO 01: CRM Inteligente -->
+        <article class="flex flex-col gap-8 scroll-mt-24" id="crm-inteligente">
+          
+          <!-- Cabeçalho Projeto -->
+          <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-white/5">
+            <div class="flex flex-col gap-2">
+              <span class="font-space text-xs text-brandCyan font-bold tracking-wider">CASO DE ESTUDO 01</span>
+              <h2 class="text-3xl md:text-4xl font-sora font-bold tracking-tight">CRM Inteligente & Prospecção B2B</h2>
+            </div>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-3.5 py-1 bg-surface border border-brandCyan/10 rounded-full text-xs font-space text-blue-400">Python</span>
+              <span class="px-3.5 py-1 bg-surface border border-brandCyan/10 rounded-full text-xs font-space text-blue-400">Gemini 2.0 API</span>
+              <span class="px-3.5 py-1 bg-surface border border-brandCyan/10 rounded-full text-xs font-space text-blue-400">Notion API</span>
+            </div>
+          </div>
+
+          <!-- 1. O Diagnóstico do Gargalo -->
+          <div class="flex flex-col gap-3 p-6 rounded-2xl bg-red-950/10 border border-red-500/10">
+            <div class="flex items-center gap-2 text-red-400 font-space text-xs uppercase tracking-wider font-bold">
+              <span class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
+              O Diagnóstico do Gargalo (O Problema Comercial)
+            </div>
+            <p class="text-textSecondary text-sm md:text-base leading-relaxed font-sora italic">
+              "Processos manuais de prospecção comercial B2B drenavam até 8 horas semanais da equipe de vendas por lead. O preenchimento manual do funil de CRMs resultava em falhas críticas, follow-ups atrasados e dados de inteligência ausentes em planilhas."
+            </p>
+          </div>
+
+          <!-- 2. A Engenharia da Solução -->
+          <div class="flex flex-col gap-4">
+            <div class="flex items-center gap-2 text-brandCyan font-space text-xs uppercase tracking-wider font-bold">
+              <span class="w-2 h-2 rounded-full bg-brandCyan"></span>
+              A Engenharia da Solução (O Fluxo Técnico)
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div class="p-5 rounded-2xl bg-surface/50 border border-white/5 flex flex-col gap-2">
+                <span class="text-xs font-space text-textSecondary font-bold uppercase tracking-widest">Etapa 01</span>
+                <h4 class="text-sm font-sora font-bold text-textPrimary">Extração Assistida</h4>
+                <p class="text-xs text-textSecondary font-sora leading-relaxed">O crawler acessa o site do prospect e minera toda a arquitetura de canais de contato e tecnologia comercial.</p>
+              </div>
+              <div class="p-5 rounded-2xl bg-surface/50 border border-white/5 flex flex-col gap-2">
+                <span class="text-xs font-space text-textSecondary font-bold uppercase tracking-widest">Etapa 02</span>
+                <h4 class="text-sm font-sora font-bold text-textPrimary">IA Cognitiva</h4>
+                <p class="text-xs text-textSecondary font-sora leading-relaxed">O Gemini 2.0 processa o diagnóstico de inteligência (RID) e estrutura uma abordagem fria altamente contextualizada.</p>
+              </div>
+              <div class="p-5 rounded-2xl bg-surface/50 border border-white/5 flex flex-col gap-2">
+                <span class="text-xs font-space text-textSecondary font-bold uppercase tracking-widest">Etapa 03</span>
+                <h4 class="text-sm font-sora font-bold text-textPrimary">Despacho Assíncrono</h4>
+                <p class="text-xs text-textSecondary font-sora leading-relaxed">Validação automatizada de canais ativos (WhatsApp) com gravação paralela e assíncrona nas bases do Notion.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. Sandbox Interativa (Simulador Inline!) -->
+          <div class="flex flex-col gap-4">
+            <div class="flex items-center gap-2 text-brandCyan font-space text-xs uppercase tracking-wider font-bold">
+              <span class="w-2 h-2 rounded-full bg-brandCyan"></span>
+              Demonstração Prática (Sandbox Executável)
+            </div>
+            <div class="p-6 bg-surface border border-white/5 rounded-3xl">
+              <NxtOsSandbox />
+            </div>
+          </div>
+
+          <!-- 4. Vetor de Implementação & CTA WhatsApp -->
+          <div class="flex flex-col gap-4 p-6 md:p-8 rounded-3xl bg-brandCyan/5 border border-brandCyan/10">
+            <div class="flex items-center gap-2 text-brandCyan font-space text-xs uppercase tracking-wider font-bold">
+              <span class="w-2 h-2 rounded-full bg-brandCyan"></span>
+              Vetor de Implementação Comercial
+            </div>
+            <p class="text-textSecondary text-sm md:text-base leading-relaxed font-sora">
+              "Este mesmo ecossistema pode ser acoplado à sua operação atual. Se a sua empresa perde leads qualificados, gasta tempo excessivo na triagem de novos parceiros ou sofre com falta de sincronização entre o seu CRM (HubSpot, Salesforce) e pipelines legados, eu consigo desenhar e implementar este motor sob medida."
+            </p>
+            <a 
+              href="https://wa.me/5564993335277?text=Olá%20Nathan,%20li%20o%20caso%20técnico%20sobre%20o%20CRM%20Inteligente%20no%20seu%20portfólio%20e%20gostaria%20de%20conversar%20sobre%20a%20implementação%20de%20um%20motor%20de%20vendas%20similar!"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="mt-2 inline-flex items-center justify-center px-8 py-4 bg-[#00f2fe] text-[#0b0e14] font-space font-bold rounded-xl hover:bg-white hover:text-[#0b0e14] transition-all duration-300 hover:scale-[1.02] active:scale-95 uppercase tracking-wider text-xs w-fit shadow-[0_0_25px_rgba(0,242,254,0.2)]"
+            >
+              💬 Discutir Implementação deste Motor de Vendas
+            </a>
+          </div>
+
+        </article>
+
+        <!-- Divisor elegante -->
+        <div class="h-px bg-white/5 w-full"></div>
+
+        <!-- PROJETO 02: Purifier Engine -->
+        <article class="flex flex-col gap-8 scroll-mt-24" id="purifier-engine">
+          
+          <!-- Cabeçalho Projeto -->
+          <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-white/5">
+            <div class="flex flex-col gap-2">
+              <span class="font-space text-xs text-brandCyan font-bold tracking-wider">CASO DE ESTUDO 02</span>
+              <h2 class="text-3xl md:text-4xl font-sora font-bold tracking-tight">Purifier Engine & Higienização de Dados</h2>
+            </div>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-3.5 py-1 bg-surface border border-brandCyan/10 rounded-full text-xs font-space text-blue-400">Python</span>
+              <span class="px-3.5 py-1 bg-surface border border-brandCyan/10 rounded-full text-xs font-space text-blue-400">Pandas</span>
+              <span class="px-3.5 py-1 bg-surface border border-brandCyan/10 rounded-full text-xs font-space text-blue-400">Data Science</span>
+            </div>
+          </div>
+
+          <!-- 1. O Diagnóstico do Gargalo -->
+          <div class="flex flex-col gap-3 p-6 rounded-2xl bg-red-950/10 border border-red-500/10">
+            <div class="flex items-center gap-2 text-red-400 font-space text-xs uppercase tracking-wider font-bold">
+              <span class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
+              O Diagnóstico do Gargalo (O Problema Comercial)
+            </div>
+            <p class="text-textSecondary text-sm md:text-base leading-relaxed font-sora italic">
+              "Bases de dados duplicadas, contatos inconsistentes e campos nulos corrompem a segmentação de CRM e reduzem a conversão em campanhas comerciais. Equipes de tecnologia gastavam dias higienizando dados manualmente."
+            </p>
+          </div>
+
+          <!-- 2. A Engenharia da Solução -->
+          <div class="flex flex-col gap-4">
+            <div class="flex items-center gap-2 text-brandCyan font-space text-xs uppercase tracking-wider font-bold">
+              <span class="w-2 h-2 rounded-full bg-brandCyan"></span>
+              A Engenharia da Solução (O Fluxo Técnico)
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div class="p-5 rounded-2xl bg-surface/50 border border-white/5 flex flex-col gap-2">
+                <span class="text-xs font-space text-textSecondary font-bold uppercase tracking-widest">Etapa 01</span>
+                <h4 class="text-sm font-sora font-bold text-textPrimary">Ingestão Segura</h4>
+                <p class="text-xs text-textSecondary font-sora leading-relaxed">Carregamento e decodificação automática de arquivos xlsx/csv brutos através do motor do pipeline.</p>
+              </div>
+              <div class="p-5 rounded-2xl bg-surface/50 border border-white/5 flex flex-col gap-2">
+                <span class="text-xs font-space text-textSecondary font-bold uppercase tracking-widest">Etapa 02</span>
+                <h4 class="text-sm font-sora font-bold text-textPrimary">Fuzzy Match</h4>
+                <p class="text-xs text-textSecondary font-sora leading-relaxed">O algoritmo Pandas varre as colunas, calcula similaridade estatística e agrupa contatos duplicados ocultos.</p>
+              </div>
+              <div class="p-5 rounded-2xl bg-surface/50 border border-white/5 flex flex-col gap-2">
+                <span class="text-xs font-space text-textSecondary font-bold uppercase tracking-widest">Etapa 03</span>
+                <h4 class="text-sm font-sora font-bold text-textPrimary">Carga Consistente</h4>
+                <p class="text-xs text-textSecondary font-sora leading-relaxed">Exportação direta dos registros normalizados de forma limpa, sanitizada e pronta para importação no banco.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. Sandbox Interativa (Simulador Inline!) -->
+          <div class="flex flex-col gap-4">
+            <div class="flex items-center gap-2 text-brandCyan font-space text-xs uppercase tracking-wider font-bold">
+              <span class="w-2 h-2 rounded-full bg-brandCyan"></span>
+              Demonstração Prática (Sandbox Executável)
+            </div>
+            <div class="p-6 bg-surface border border-white/5 rounded-3xl">
+              <NxtPurifierSandbox />
+            </div>
+          </div>
+
+          <!-- 4. Vetor de Implementação & CTA WhatsApp -->
+          <div class="flex flex-col gap-4 p-6 md:p-8 rounded-3xl bg-brandCyan/5 border border-brandCyan/10">
+            <div class="flex items-center gap-2 text-brandCyan font-space text-xs uppercase tracking-wider font-bold">
+              <span class="w-2 h-2 rounded-full bg-brandCyan"></span>
+              Vetor de Implementação Comercial
+            </div>
+            <p class="text-textSecondary text-sm md:text-base leading-relaxed font-sora">
+              "Se a sua equipe comercial perde tempo filtrando planilhas despadronizadas ou se a qualidade das suas bases afeta o seu faturamento B2B, eu posso programar e implantar um pipeline automatizado de limpeza de bases customizado."
+            </p>
+            <a 
+              href="https://wa.me/5564993335277?text=Olá%20Nathan,%20li%20o%20caso%20técnico%20sobre%20o%20Purifier%20Engine%20no%20seu%20portfólio%20e%20gostaria%20de%20conversar%20sobre%20a%20limpeza%20e%20higienização%20de%20nossas%20bases%20de%20dados!"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="mt-2 inline-flex items-center justify-center px-8 py-4 bg-[#00f2fe] text-[#0b0e14] font-space font-bold rounded-xl hover:bg-white hover:text-[#0b0e14] transition-all duration-300 hover:scale-[1.02] active:scale-95 uppercase tracking-wider text-xs w-fit shadow-[0_0_25px_rgba(0,242,254,0.2)]"
+            >
+              💬 Discutir Higienização de Bases do meu Negócio
+            </a>
+          </div>
+
+        </article>
+
+        <!-- Divisor elegante -->
+        <div class="h-px bg-white/5 w-full"></div>
+
+        <!-- PROJETO 03: Ecossistema Menu -->
+        <article class="flex flex-col gap-8 scroll-mt-24" id="ecossistema-menu">
+          
+          <!-- Cabeçalho Projeto -->
+          <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-white/5">
+            <div class="flex flex-col gap-2">
+              <span class="font-space text-xs text-brandCyan font-bold tracking-wider">CASO DE ESTUDO 03</span>
+              <h2 class="text-3xl md:text-4xl font-sora font-bold tracking-tight">Ecossistema Menu & Suporte Autônomo</h2>
+            </div>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-3.5 py-1 bg-surface border border-brandCyan/10 rounded-full text-xs font-space text-blue-400">Node.js</span>
+              <span class="px-3.5 py-1 bg-surface border border-brandCyan/10 rounded-full text-xs font-space text-blue-400">APIs</span>
+              <span class="px-3.5 py-1 bg-surface border border-brandCyan/10 rounded-full text-xs font-space text-blue-400">Webhooks</span>
+            </div>
+          </div>
+
+          <!-- 1. O Diagnóstico do Gargalo -->
+          <div class="flex flex-col gap-3 p-6 rounded-2xl bg-red-950/10 border border-red-500/10">
+            <div class="flex items-center gap-2 text-red-400 font-space text-xs uppercase tracking-wider font-bold">
+              <span class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
+              O Diagnóstico do Gargalo (O Problema Comercial)
+            </div>
+            <p class="text-textSecondary text-sm md:text-base leading-relaxed font-sora italic">
+              "Falta de atendimento instantâneo em horários de pico e fins de semana custa até 40% das conversões de reservas. Um suporte fragmentado gera perda de vendas diretas e fricção no engajamento dos prospects."
+            </p>
+          </div>
+
+          <!-- 2. A Engenharia da Solução -->
+          <div class="flex flex-col gap-4">
+            <div class="flex items-center gap-2 text-brandCyan font-space text-xs uppercase tracking-wider font-bold">
+              <span class="w-2 h-2 rounded-full bg-brandCyan"></span>
+              A Engenharia da Solução (O Fluxo Técnico)
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div class="p-5 rounded-2xl bg-surface/50 border border-white/5 flex flex-col gap-2">
+                <span class="text-xs font-space text-textSecondary font-bold uppercase tracking-widest">Etapa 01</span>
+                <h4 class="text-sm font-sora font-bold text-textPrimary">Interceptação API</h4>
+                <p class="text-xs text-textSecondary font-sora leading-relaxed">Evolution API captura mensagens de clientes via Webhook de forma altamente resiliente e offline-first.</p>
+              </div>
+              <div class="p-5 rounded-2xl bg-surface/50 border border-white/5 flex flex-col gap-2">
+                <span class="text-xs font-space text-textSecondary font-bold uppercase tracking-widest">Etapa 02</span>
+                <h4 class="text-sm font-sora font-bold text-textPrimary">Validação Assíncrona</h4>
+                <p class="text-xs text-textSecondary font-sora leading-relaxed">O microsserviço Node.js analisa parâmetros de reservas e disponibilidade de tabelas de forma assíncrona no banco.</p>
+              </div>
+              <div class="p-5 rounded-2xl bg-surface/50 border border-white/5 flex flex-col gap-2">
+                <span class="text-xs font-space text-textSecondary font-bold uppercase tracking-widest">Etapa 03</span>
+                <h4 class="text-sm font-sora font-bold text-textPrimary">Despacho Fluido</h4>
+                <p class="text-xs text-textSecondary font-sora leading-relaxed">Envio instantâneo do cardápio digital e catálogo dinâmico de suporte, liberando 90% do overhead humano.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. Sandbox Interativa (Simulador Inline!) -->
+          <div class="flex flex-col gap-4">
+            <div class="flex items-center gap-2 text-brandCyan font-space text-xs uppercase tracking-wider font-bold">
+              <span class="w-2 h-2 rounded-full bg-brandCyan"></span>
+              Demonstração Prática (Sandbox Executável)
+            </div>
+            <div class="p-6 bg-surface border border-white/5 rounded-3xl">
+              <MoskatoSyncSandbox />
+            </div>
+          </div>
+
+          <!-- 4. Vetor de Implementação & CTA WhatsApp -->
+          <div class="flex flex-col gap-4 p-6 md:p-8 rounded-3xl bg-brandCyan/5 border border-brandCyan/10">
+            <div class="flex items-center gap-2 text-brandCyan font-space text-xs uppercase tracking-wider font-bold">
+              <span class="w-2 h-2 rounded-full bg-brandCyan"></span>
+              Vetor de Implementação Comercial
+            </div>
+            <p class="text-textSecondary text-sm md:text-base leading-relaxed font-sora">
+              "Posso arquitetar um ecossistema completo de mensageria com microsserviços integrados a APIs e Webhooks resilientes para automatizar o seu atendimento comercial, mantendo consistência e integridade."
+            </p>
+            <a 
+              href="https://wa.me/5564993335277?text=Olá%20Nathan,%20li%20o%20caso%20técnico%20sobre%20o%20Ecossistema%20Menu%20no%20seu%20portfólio%20e%20gostaria%20de%20conversar%20sobre%20a%20integração%20de%20atendimento%20automatizado!"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="mt-2 inline-flex items-center justify-center px-8 py-4 bg-[#00f2fe] text-[#0b0e14] font-space font-bold rounded-xl hover:bg-white hover:text-[#0b0e14] transition-all duration-300 hover:scale-[1.02] active:scale-95 uppercase tracking-wider text-xs w-fit shadow-[0_0_25px_rgba(0,242,254,0.2)]"
+            >
+              💬 Discutir Automatização do meu Atendimento B2B
+            </a>
+          </div>
+
+        </article>
+
+      </div>
+
+      <!-- Divisor elegante -->
+      <div class="h-px bg-white/5 w-full"></div>
+
+      <!-- Calendly CTA Bottom & Footer -->
+      <div class="flex flex-col md:flex-row justify-between items-center gap-8 py-8">
+        <p class="text-sm font-sora text-textSecondary">
+          © {new Date().getFullYear()} Nathan Borges. Todos os direitos reservados.
+        </p>
+        
+        <div class="flex gap-4">
+          <button onclick="Calendly.initPopupWidget({url: 'https://calendly.com/nathanborges546/30min'});return false;" class="px-8 py-3.5 bg-brandCyan text-textPrimary font-space font-bold rounded-full text-xs uppercase tracking-widest hover:brightness-110 transition-all cursor-pointer active:scale-95 shadow-[0_0_20px_rgba(28,105,183,0.2)]">
+            AGENDAR MENTORIA COMERCIAL
+          </button>
+          <a href="/" class="px-8 py-3.5 border border-surface text-textSecondary hover:text-textPrimary transition-all rounded-full font-space text-xs uppercase tracking-widest">
+            ← Voltar
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </main>
 </Layout>
