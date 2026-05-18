@@ -4,17 +4,16 @@ import NxtPurifierSandbox from './NxtPurifierSandbox.astro';
 const automationsCases = [
   {
     title: "Sistema de Prospecção Automatizada e Extração de Dados",
-    metric: "10h → 1h 05min",
-    desc: "Redução de 90% no ciclo de captação B2B. Arquitetura em Python para alimentação assíncrona do Notion e interface Streamlit.",
+    metric: "CRM Inteligente",
+    desc: "Redução de 90% do ciclo de captação e prospecção B2B, através da automação da extração e preenchimento dos leads na base de dados e posteriormente o envio automático das mensagens via API",
     tags: ["Python", "Streamlit", "Meta API", "Notion API"],
     span: "md:col-span-2 md:row-span-2",
-    github: "https://github.com/nathanborges546",
     link: "/nxt-os"
   },
   {
     title: "Menu Digital Personalizado",
-    metric: "Real-Time",
-    desc: "Microsserviços em Node.js e Webhooks para sincronização de estado em operações locais (Himarë).",
+    metric: "Desenvolvimento de Sistema",
+    desc: "Criação de um software personalizado de atendimento ao cliente para Moskato Camping - Albânia - Himarë",
     tags: ["Node.js", "Webhooks", "REST APIs"],
     span: "md:col-span-1 md:row-span-1",
     link: "/real-time"
@@ -91,11 +90,6 @@ const uxCases = [
                   <span class="px-3 py-1 bg-darkBg border border-brandCyan/10 rounded-full text-[10px] font-space text-blue-400">{tag}</span>
                 ))}
               </div>
-              {c.github && (
-                <a href={c.github} target="_blank" onclick="event.stopPropagation();" class="text-blue-400 font-space text-xs hover:underline inline-flex items-center gap-2 relative z-30">
-                  VER ARQUITETURA NO GITHUB →
-                </a>
-              )}
               {c.link && (
                 <span class="text-blue-400 font-space text-xs inline-flex items-center gap-2 group-hover:translate-x-2 transition-transform">
                   ABRIR SIMULADOR →
