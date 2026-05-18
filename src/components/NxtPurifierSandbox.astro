@@ -454,7 +454,7 @@
         Ao integrar o pipeline com o motor de busca em lote do <strong class="text-[#00f2fe]">Outscraper</strong>, o tempo total caiu para poucos minutos. Todo o fluxo de captação, higienização com Pandas e disparo foi condensado em apenas 2 cliques automáticos.
       </p>
 
-      <button id="btn-close-modal" class="w-full bg-[#00f2fe] text-[#0b0e14] font-space font-medium text-xs tracking-wider uppercase py-3 px-4 rounded-xl transition-all duration-300 hover:opacity-90 active:scale-[0.98] mt-2 cursor-pointer">
+      <button id="btn-close-purifier-modal" class="w-full bg-[#00f2fe] text-[#0b0e14] font-space font-medium text-xs tracking-wider uppercase py-3 px-4 rounded-xl transition-all duration-300 hover:opacity-90 active:scale-[0.98] mt-2 cursor-pointer">
         Fechar e Explorar Sandbox
       </button>
     </div>
@@ -475,7 +475,7 @@
   // Elementos do Modal Popup
   const roiModal = document.getElementById('roi-modal');
   const roiModalContent = document.getElementById('roi-modal-content');
-  const btnCloseModal = document.getElementById('btn-close-modal');
+  const btnCloseModal = document.getElementById('btn-close-purifier-modal');
 
   // Helper for delay transitions
   const sleep = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
