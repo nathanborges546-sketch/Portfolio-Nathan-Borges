@@ -60,7 +60,7 @@
       <div id="automation-console-box" class="bg-darkBg/60 border border-brandCyan/5 rounded-2xl p-4 font-mono text-[10px] text-textPrimary leading-relaxed hidden">
         <div class="flex items-center justify-between border-b border-white/5 pb-2 mb-2">
           <span class="text-textSecondary font-space uppercase tracking-wider font-bold text-[9px]"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="inline mr-1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg> Monitor de Atividades</span>
-          <span class="w-1.5 h-1.5 rounded-full bg-[#00f2fe] animate-pulse"></span>
+          <span class="w-1.5 h-1.5 rounded-full bg-[#36d6d6] animate-pulse"></span>
         </div>
         <div id="automation-console-logs" class="flex flex-col gap-1 pr-1 max-h-[110px] overflow-y-auto scrollbar-thin">
           <!-- Logs will stream here dynamically -->
@@ -168,7 +168,15 @@ Corrigir essa brecha costuma destravar os resultados de faturamento e melhorar a
     <div class="lg:col-span-5 flex flex-col gap-6 bg-surface border border-brandCyan/5 p-8 rounded-3xl">
       <div class="flex items-center justify-between border-b border-brandCyan/5 pb-4">
         <div>
-          <h3 class="text-base font-bold text-textPrimary">🔁 Esteira de Follow Up</h3>
+          <h3 class="text-base font-bold text-textPrimary flex items-center gap-2">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="text-[#36d6d6]" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 1l4 4-4 4"/>
+              <path d="M3 11V9a4 4 0 0 1 4-4h14"/>
+              <path d="M7 23l-4-4 4-4"/>
+              <path d="M21 13v2a4 4 0 0 1-4 4H3"/>
+            </svg>
+            Esteira de Follow Up
+          </h3>
           <p class="text-xs text-textSecondary mt-0.5">Sincronização ativa via Notion API.</p>
         </div>
       </div>
@@ -243,12 +251,12 @@ Corrigir essa brecha costuma destravar os resultados de faturamento e melhorar a
           <h4 class="text-xl font-bold text-textPrimary mt-1 tracking-tight">Abordagens Despachadas e CRM Sincronizado!</h4>
         </div>
         <div class="w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-textPrimary text-sm">
-          <i class="fa-solid fa-circle-check text-[11px] text-[#00f2fe] animate-pulse"></i>
+          <i class="fa-solid fa-circle-check text-[11px] text-[#36d6d6] animate-pulse"></i>
         </div>
       </div>
 
       <!-- Texto Principal -->
-      <div class="bg-darkBg/40 border-l-2 border-[#00f2fe] p-4 rounded-r-xl">
+      <div class="bg-darkBg/40 border-l-2 border-[#36d6d6] p-4 rounded-r-xl">
         <p class="text-xs text-textSecondary leading-relaxed italic">
           Você acaba de simular o ciclo completo de prospecção inteligente. O sistema utiliza Inteligência Artificial para analisar o site de cada potencial cliente, gera uma abordagem 100% personalizada com base nas brechas encontradas e agenda os próximos pontos de contato sem que você precise preencher nenhuma linha manualmente.
         </p>
@@ -483,7 +491,7 @@ Corrigir essa brecha costuma destravar os resultados de faturamento e melhorar a
       let colorClass = 'text-textPrimary';
       if (type === 'error') colorClass = 'text-white/40';
       else if (type === 'warn') colorClass = 'text-textSecondary';
-      else if (type === 'success') colorClass = 'text-[#00f2fe] font-bold';
+      else if (type === 'success') colorClass = 'text-[#36d6d6] font-bold';
 
       const logElement = document.createElement('div');
       logElement.className = `leading-relaxed animate-fade-in-up font-mono ${colorClass}`;
@@ -683,7 +691,7 @@ Corrigir essa brecha costuma destravar os resultados de faturamento e melhorar a
         navigator.clipboard.writeText(modalScriptText.innerText);
         const icon = btnCopyModal.querySelector('i');
         if (icon) {
-          icon.className = "fa-solid fa-check text-[#00f2fe]";
+          icon.className = "fa-solid fa-check text-[#36d6d6]";
           setTimeout(() => {
             icon.className = "fa-solid fa-copy text-xs";
           }, 1500);
@@ -858,7 +866,7 @@ Corrigir essa brecha costuma destravar os resultados de faturamento e melhorar a
       followUpContainer.innerHTML = activeFollowUpLeads.map(lead => {
         let borderLeftColor = 'rgba(255, 255, 255, 0.05)';
         if (lead.status === 'Follow up') borderLeftColor = 'rgba(255, 255, 255, 0.1)';
-        else if (lead.status === 'Convertido') borderLeftColor = '#00f2fe';
+        else if (lead.status === 'Convertido') borderLeftColor = '#36d6d6';
         else if (lead.status === 'Reunião agendada') borderLeftColor = 'rgba(255, 255, 255, 0.3)';
 
         let urgencyLabel = 'Recente';
@@ -884,13 +892,13 @@ Corrigir essa brecha costuma destravar os resultados de faturamento e melhorar a
         let followUpMsg = '';
         if (lead.status !== 'Convertido') {
           if (lead.diasPassados >= sliderFollowUpVal) {
-            followUpMsg = `<span class="text-textPrimary font-semibold flex items-center gap-1.5"><i class="fa-solid fa-bell animate-pulse text-[9px] text-[#00f2fe]"></i> Acompanhamento Atrasado</span>`;
+            followUpMsg = `<span class="text-textPrimary font-semibold flex items-center gap-1.5"><i class="fa-solid fa-bell animate-pulse text-[9px] text-[#36d6d6]"></i> Acompanhamento Atrasado</span>`;
           } else {
             const rem = sliderFollowUpVal - lead.diasPassados;
             followUpMsg = `<span class="text-textSecondary">Acompanhar em <strong class="text-textPrimary font-bold">${rem} ${rem === 1 ? 'dia' : 'dias'}</strong></span>`;
           }
         } else {
-          followUpMsg = `<span class="text-[#00f2fe] font-semibold">Funil concluído</span>`;
+          followUpMsg = `<span class="text-[#36d6d6] font-semibold">Funil concluído</span>`;
         }
 
         return `
@@ -964,7 +972,7 @@ Corrigir essa brecha costuma destravar os resultados de faturamento e melhorar a
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
       
-      const colors = ['#00f2fe', '#f0f6fc', '#1c69b7', '#3b82f6'];
+      const colors = ['#36d6d6', '#f0f6fc', '#1c69b7', '#3b82f6'];
       confettiArray = [];
       for (let i = 0; i < 80; i++) {
         confettiArray.push({
@@ -1018,8 +1026,8 @@ Corrigir essa brecha costuma destravar os resultados de faturamento e melhorar a
     // Success Notification Toast
     function showNotification(text) {
       const toast = document.createElement('div');
-      toast.className = "fixed bottom-8 right-8 z-50 bg-[#161b22] border border-[#00f2fe]/30 text-[#00f2fe] px-6 py-4 rounded-2xl shadow-2xl flex items-center gap-3 animate-fade-in-up font-bold text-sm leading-relaxed";
-      toast.innerHTML = `<i class="fa-solid fa-circle-check text-lg text-[#00f2fe]"></i> ${text}`;
+      toast.className = "fixed bottom-8 right-8 z-50 bg-[#161b22] border border-[#36d6d6]/30 text-[#36d6d6] px-6 py-4 rounded-2xl shadow-2xl flex items-center gap-3 animate-fade-in-up font-bold text-sm leading-relaxed";
+      toast.innerHTML = `<i class="fa-solid fa-circle-check text-lg text-[#36d6d6]"></i> ${text}`;
       document.body.appendChild(toast);
       
       try {
