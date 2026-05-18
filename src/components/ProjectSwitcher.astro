@@ -1,8 +1,31 @@
 ---
 // Componente de Tabs (Switcher) + Bento Grid - Versão Engenharia Aplicada
-import NxtPurifierSandbox from './NxtPurifierSandbox.astro';
-import NxtOsSandbox from './NxtOsSandbox.astro';
-import MoskatoSyncSandbox from './MoskatoSyncSandbox.astro';
+const automationsCases = [
+  {
+    title: "Sistema de Prospecção Automatizada e Extração de Dados",
+    metric: "CRM Inteligente",
+    desc: "Redução de 90% do ciclo de captação e prospecção B2B, através da automação da extração e preenchimento dos leads na base de dados e posteriormente o envio automático das mensagens via API.",
+    tags: ["Python", "Streamlit", "Meta API", "Notion API"],
+    span: "md:col-span-2 md:row-span-2",
+    link: "/nxt-os"
+  },
+  {
+    title: "Menu Digital Personalizado",
+    metric: "Criação de Software",
+    desc: "Personalização de atendimento ao cliente para Moskato Camping - Albânia - Himarë.",
+    tags: ["Node.js", "Webhooks", "REST APIs"],
+    span: "md:col-span-1 md:row-span-1",
+    link: "/real-time"
+  },
+  {
+    title: "Pipeline de Higienização de Dados B2B",
+    metric: "Eficiência de Dados",
+    desc: "Automação inteligente que limpa bases de dados confusas, corrige informações nulas e elimina duplicadas instantaneamente.",
+    tags: ["Python", "Pandas", "Data Science"],
+    span: "md:col-span-1 md:row-span-1",
+    link: "/clean-data"
+  }
+];
 
 const uxCases = [
   {
@@ -46,40 +69,35 @@ const uxCases = [
     <!-- Bento Grid Container -->
     <div class="grid relative">
       
-      <!-- Grid Automações: Agora um Painel Unificado de Simuladores -->
-      <div id="grid-auto" class="[grid-area:1/1] w-full flex flex-col gap-8 transition-all duration-500 opacity-100 pointer-events-auto">
-        <!-- Vercel-like minimal navbar -->
-        <div class="flex justify-center border-b border-white/[0.03] pb-6 mb-2">
-          <div class="inline-flex p-1 bg-surface border border-white/5 rounded-2xl font-space">
-            <button id="btn-tab-purifier" class="sandbox-tab-btn active px-6 py-3 rounded-xl text-xs font-semibold tracking-wider transition-all duration-300 text-white bg-white/5 hover:text-white flex items-center gap-2 cursor-pointer">
-              <span>🧼</span> Moskato Purifier
-            </button>
-            <button id="btn-tab-crm" class="sandbox-tab-btn px-6 py-3 rounded-xl text-xs font-semibold tracking-wider transition-all duration-300 text-textSecondary hover:text-textPrimary flex items-center gap-2 cursor-pointer">
-              <span>🎯</span> Moskato CRM
-            </button>
-            <button id="btn-tab-menu" class="sandbox-tab-btn px-6 py-3 rounded-xl text-xs font-semibold tracking-wider transition-all duration-300 text-textSecondary hover:text-textPrimary flex items-center gap-2 cursor-pointer">
-              <span>📱</span> Ecossistema Menu
-            </button>
+      <!-- Grid Automações -->
+      <div id="grid-auto" class="[grid-area:1/1] grid grid-cols-1 md:grid-cols-3 gap-6 transition-all duration-500 opacity-100 pointer-events-auto">
+        {automationsCases.map(c => {
+          return (
+          <div 
+            onclick={c.link ? (c.link.startsWith('http') ? `window.open('${c.link}', '_blank')` : `window.location.href='${c.link}'`) : undefined} 
+            class={`group relative bg-surface rounded-[32px] p-8 border border-brandCyan/5 hover:border-brandCyan/30 transition-all duration-300 overflow-hidden flex flex-col justify-between ${c.link ? 'cursor-pointer hover:shadow-xl hover:scale-[1.02] z-20' : ''} ${c.span}`}
+          >
+            <div class="z-10">
+              <p class="font-space text-4xl md:text-5xl text-brandCyan font-bold mb-6">{c.metric}</p>
+              <h4 class="text-xl md:text-2xl font-sora font-bold text-textPrimary mb-4">{c.title}</h4>
+              <p class="text-textSecondary text-sm leading-relaxed mb-8 font-sora">{c.desc}</p>
+            </div>
+            
+            <div class="z-10">
+              <div class="flex flex-wrap gap-2 mb-6">
+                {c.tags.map(tag => (
+                  <span class="px-3 py-1 bg-darkBg border border-brandCyan/10 rounded-full text-[10px] font-space text-blue-400">{tag}</span>
+                ))}
+              </div>
+              {c.link && (
+                <span class="text-blue-400 font-space text-xs inline-flex items-center gap-2 group-hover:translate-x-2 transition-transform">
+                  ABRIR SIMULADOR →
+                </span>
+              )}
+            </div>
           </div>
-        </div>
-
-        <!-- Container of Sandboxes -->
-        <div class="relative w-full">
-          <!-- Tab 1: Moskato Purifier -->
-          <div id="panel-purifier" class="sandbox-panel transition-all duration-300 opacity-100 block">
-            <NxtPurifierSandbox />
-          </div>
-
-          <!-- Tab 2: Moskato CRM -->
-          <div id="panel-crm" class="sandbox-panel transition-all duration-300 opacity-0 hidden">
-            <NxtOsSandbox />
-          </div>
-
-          <!-- Tab 3: Ecossistema Menu -->
-          <div id="panel-menu" class="sandbox-panel transition-all duration-300 opacity-0 hidden">
-            <MoskatoSyncSandbox />
-          </div>
-        </div>
+          );
+        })}
       </div>
 
       <!-- Grid UX -->
@@ -118,7 +136,6 @@ const uxCases = [
 
 <script>
   document.addEventListener('astro:page-load', () => {
-    // Outer Tab Switching (Automations vs UX)
     const tabAuto = document.getElementById('tab-auto');
     const tabUx = document.getElementById('tab-ux');
     const gridAuto = document.getElementById('grid-auto');
@@ -154,41 +171,5 @@ const uxCases = [
 
     tabAuto?.addEventListener('click', () => switchTab('auto'));
     tabUx?.addEventListener('click', () => switchTab('ux'));
-
-    // Inner Sandbox Tab Switching (Purifier vs CRM vs Menu)
-    const btnTabPurifier = document.getElementById('btn-tab-purifier');
-    const btnTabCrm = document.getElementById('btn-tab-crm');
-    const btnTabMenu = document.getElementById('btn-tab-menu');
-
-    const panelPurifier = document.getElementById('panel-purifier');
-    const panelCrm = document.getElementById('panel-crm');
-    const panelMenu = document.getElementById('panel-menu');
-
-    const sandboxTabs = [btnTabPurifier, btnTabCrm, btnTabMenu];
-    const sandboxPanels = [panelPurifier, panelCrm, panelMenu];
-
-    const switchSandbox = (activeIndex) => {
-      sandboxTabs.forEach((tab, index) => {
-        if (index === activeIndex) {
-          tab?.classList.add('bg-white/5', 'text-white');
-          tab?.classList.remove('text-textSecondary');
-          
-          sandboxPanels[index]?.classList.remove('hidden');
-          setTimeout(() => {
-            sandboxPanels[index]?.classList.replace('opacity-0', 'opacity-100');
-          }, 20);
-        } else {
-          tab?.classList.remove('bg-white/5', 'text-white');
-          tab?.classList.add('text-textSecondary');
-          
-          sandboxPanels[index]?.classList.replace('opacity-100', 'opacity-0');
-          sandboxPanels[index]?.classList.add('hidden');
-        }
-      });
-    };
-
-    btnTabPurifier?.addEventListener('click', () => switchSandbox(0));
-    btnTabCrm?.addEventListener('click', () => switchSandbox(1));
-    btnTabMenu?.addEventListener('click', () => switchSandbox(2));
   });
 </script>
