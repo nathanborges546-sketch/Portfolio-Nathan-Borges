@@ -46,7 +46,7 @@ const reviews = [
     <!-- Track Animado 1 -->
     <div class="flex shrink-0 min-w-full gap-6 animate-marquee group-hover:[animation-play-state:paused]">
       {reviews.map((review, index) => (
-        <div class="review-card-container w-[350px] shrink-0 bg-surface border border-brandCyan/5 rounded-[32px] p-8 transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] hover:scale-110 hover:z-50 hover:shadow-[0_20px_50px_rgba(0,0,0,0.8)] cursor-default flex flex-col justify-between">
+        <div class="review-card-container w-[350px] shrink-0 bg-surface border border-brandCyan/5 rounded-[32px] p-8 transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] hover:scale-110 hover:z-50 hover:shadow-[0_20px_50px_rgba(0,0,0,0.8)] cursor-pointer flex flex-col justify-between">
           <div>
             <div class="flex items-center gap-4 mb-6">
               <canvas 
@@ -55,7 +55,7 @@ const reviews = [
               ></canvas>
               <div>
                 <p class="text-textPrimary font-sora font-bold text-sm whitespace-normal leading-none">{review.company}</p>
-                <p class="text-blue-400 font-space text-[10px] uppercase tracking-widest mt-1">{review.name}</p>
+                <p class="text-[#36d6d6] font-space text-[10px] uppercase tracking-widest mt-1 reviewer-name">{review.name}</p>
               </div>
             </div>
             <p class="review-text-content text-textSecondary font-sora text-sm leading-relaxed whitespace-normal break-words italic">
@@ -79,7 +79,7 @@ const reviews = [
     <!-- Track Animado 2 (Duplicado para o Loop) -->
     <div class="flex shrink-0 min-w-full gap-6 animate-marquee group-hover:[animation-play-state:paused]" aria-hidden="true">
       {reviews.map((review, index) => (
-        <div class="review-card-container w-[350px] shrink-0 bg-surface border border-brandCyan/5 rounded-[32px] p-8 transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] hover:scale-110 hover:z-50 hover:shadow-[0_20px_50px_rgba(0,0,0,0.8)] cursor-default flex flex-col justify-between">
+        <div class="review-card-container w-[350px] shrink-0 bg-surface border border-brandCyan/5 rounded-[32px] p-8 transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] hover:scale-110 hover:z-50 hover:shadow-[0_20px_50px_rgba(0,0,0,0.8)] cursor-pointer flex flex-col justify-between">
           <div>
             <div class="flex items-center gap-4 mb-6">
               <canvas 
@@ -88,7 +88,7 @@ const reviews = [
               ></canvas>
               <div>
                 <p class="text-textPrimary font-sora font-bold text-sm whitespace-normal leading-none">{review.company}</p>
-                <p class="text-blue-400 font-space text-[10px] uppercase tracking-widest mt-1">{review.name}</p>
+                <p class="text-[#36d6d6] font-space text-[10px] uppercase tracking-widest mt-1 reviewer-name">{review.name}</p>
               </div>
             </div>
             <p class="review-text-content text-textSecondary font-sora text-sm leading-relaxed whitespace-normal break-words italic">
@@ -114,6 +114,40 @@ const reviews = [
     <div class="pointer-events-none absolute inset-y-0 right-0 w-16 md:w-40 bg-gradient-to-l from-darkBg to-transparent z-40"></div>
 
   </div>
+
+  <!-- Modal de Zoom do Depoimento (Centralizado na Tela) -->
+  <div id="review-zoom-modal" class="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-[#0b0e14]/90 backdrop-blur-xl opacity-0 pointer-events-none transition-all duration-500">
+    <div class="bg-[#161b22] border border-white/10 rounded-[32px] p-8 md:p-10 max-w-lg w-full shadow-[0_0_50px_rgba(54,214,214,0.15)] transform scale-95 transition-all duration-500 flex flex-col gap-6 relative" id="review-zoom-modal-content">
+      
+      <!-- Botão de Fechar -->
+      <button id="btn-close-review-modal" class="absolute top-6 right-6 w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-textSecondary hover:text-textPrimary transition-all cursor-pointer">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+
+      <div class="flex items-center gap-4">
+        <canvas 
+          id="modal-review-avatar"
+          class="w-14 h-14 rounded-full border border-brandCyan/20 bg-darkBg pointer-events-none select-none"
+        ></canvas>
+        <div>
+          <p id="modal-review-company" class="text-textPrimary font-sora font-extrabold text-base leading-none"></p>
+          <p id="modal-review-name" class="text-[#36d6d6] font-space text-[10px] uppercase tracking-widest mt-1.5 font-bold"></p>
+        </div>
+      </div>
+
+      <div class="relative mt-2">
+        <svg class="absolute -top-6 -left-6 text-white/[0.02] w-16 h-16 pointer-events-none" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.154c-2.416.913-3.979 3.633-3.979 5.844h3.983v10h-10z"/>
+        </svg>
+        <p id="modal-review-text" class="text-textPrimary font-sora text-base leading-relaxed italic relative z-10 pl-2">
+        </p>
+      </div>
+
+    </div>
+  </div>
 </section>
 
 <script>
@@ -126,7 +160,7 @@ const reviews = [
       
       try {
         const decodedPath = atob(hash);
-        const ctx = canvas.getContext('2d');
+        const ctx = (canvas as HTMLCanvasElement).getContext('2d');
         if (!ctx) return;
         
         const img = new Image();
@@ -134,8 +168,8 @@ const reviews = [
         img.onload = () => {
           // Retina high-resolution size scaling
           const size = 96;
-          canvas.width = size;
-          canvas.height = size;
+          (canvas as HTMLCanvasElement).width = size;
+          (canvas as HTMLCanvasElement).height = size;
           
           // Draw circular crop
           ctx.beginPath();
@@ -153,12 +187,12 @@ const reviews = [
 
     // 2. Prevent right-click / drag on secure canvases
     document.addEventListener('contextmenu', (e) => {
-      if (e.target.classList.contains('review-avatar-canvas')) {
+      if ((e.target as HTMLElement).classList.contains('review-avatar-canvas')) {
         e.preventDefault();
       }
     });
     document.addEventListener('dragstart', (e) => {
-      if (e.target.classList.contains('review-avatar-canvas')) {
+      if ((e.target as HTMLElement).classList.contains('review-avatar-canvas')) {
         e.preventDefault();
       }
     });
@@ -198,6 +232,106 @@ const reviews = [
           }
         });
       });
+    });
+
+    // 4. Modal Zoom Logic (Centralizado no clique/hover com grace-period)
+    const modal = document.getElementById('review-zoom-modal');
+    const modalContent = document.getElementById('review-zoom-modal-content');
+    const btnCloseModal = document.getElementById('btn-close-review-modal');
+    
+    const modalCompany = document.getElementById('modal-review-company');
+    const modalName = document.getElementById('modal-review-name');
+    const modalText = document.getElementById('modal-review-text');
+    const modalAvatar = document.getElementById('modal-review-avatar') as HTMLCanvasElement;
+    
+    const cards = document.querySelectorAll('.review-card-container');
+    let openedByHover = false;
+    let hoverTimeout: any = null;
+
+    function openModal(card: Element, isHover: boolean) {
+      if (!modal || !modalContent || !modalCompany || !modalName || !modalText) return;
+
+      const company = card.querySelector('.text-textPrimary')?.textContent || '';
+      const name = card.querySelector('.reviewer-name')?.textContent || '';
+      const text = card.querySelector('.review-text-content')?.textContent || '';
+      const canvasSrc = card.querySelector('.review-avatar-canvas') as HTMLCanvasElement;
+
+      modalCompany.textContent = company;
+      modalName.textContent = name;
+      modalText.textContent = text;
+
+      // Draw avatar onto modal canvas
+      if (canvasSrc && modalAvatar) {
+        modalAvatar.width = 112;
+        modalAvatar.height = 112;
+        const mCtx = modalAvatar.getContext('2d');
+        if (mCtx) {
+          mCtx.clearRect(0, 0, 112, 112);
+          mCtx.drawImage(canvasSrc, 0, 0, 112, 112);
+        }
+      }
+
+      openedByHover = isHover;
+
+      modal.classList.remove('opacity-0', 'pointer-events-none');
+      modalContent.classList.remove('scale-95');
+      modalContent.classList.add('scale-100');
+    }
+
+    function closeModal() {
+      if (!modal || !modalContent) return;
+      modal.classList.add('opacity-0', 'pointer-events-none');
+      modalContent.classList.remove('scale-100');
+      modalContent.classList.add('scale-95');
+      openedByHover = false;
+    }
+
+    cards.forEach(card => {
+      // Hover Interactions
+      card.addEventListener('mouseenter', () => {
+        if (hoverTimeout) clearTimeout(hoverTimeout);
+        openModal(card, true);
+      });
+
+      card.addEventListener('mouseleave', () => {
+        if (openedByHover) {
+          hoverTimeout = setTimeout(() => {
+            closeModal();
+          }, 150); // 150ms grace period to transit cursor to modal
+        }
+      });
+
+      // Click Interaction (Persistent)
+      card.addEventListener('click', (e) => {
+        // Prevent click if clicking the translation button
+        if ((e.target as HTMLElement).closest('.translate-review-btn')) return;
+        
+        if (hoverTimeout) clearTimeout(hoverTimeout);
+        openModal(card, false);
+      });
+    });
+
+    // Close actions
+    btnCloseModal?.addEventListener('click', () => {
+      closeModal();
+    });
+
+    modal?.addEventListener('click', () => {
+      if (!openedByHover) closeModal();
+    });
+
+    modalContent?.addEventListener('click', (e) => {
+      e.stopPropagation();
+    });
+
+    modalContent?.addEventListener('mouseenter', () => {
+      if (hoverTimeout) clearTimeout(hoverTimeout);
+    });
+
+    modalContent?.addEventListener('mouseleave', () => {
+      if (openedByHover) {
+        closeModal();
+      }
     });
   });
 </script>
