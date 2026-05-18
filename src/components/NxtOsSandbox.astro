@@ -41,9 +41,80 @@
       <div class="flex items-center justify-between border-b border-white/5 pb-4">
         <div>
           <h3 class="text-lg font-bold text-[#f0f6fc]">🎯 Central de Disparos Ativos</h3>
-          <p class="text-xs text-[#8b949e] mt-1">Gere diagnósticos personalizados e acione leads em lote.</p>
+          <p class="text-xs text-[#8b949e] mt-1">Configure regras de roteamento, fallbacks e acione em lote.</p>
         </div>
-        <span class="text-[10px] font-space bg-brandCyan/10 text-brandCyan border border-brandCyan/20 px-3 py-1 rounded-full uppercase tracking-wider font-semibold">GEMINI 2.0 READY</span>
+        <span class="text-[10px] font-space bg-brandCyan/10 text-brandCyan border border-brandCyan/20 px-3 py-1 rounded-full uppercase tracking-wider font-semibold">NXT OS CORE</span>
+      </div>
+
+      <!-- PAINEL DE AUTOMAÇÃO AVANÇADA -->
+      <div class="bg-[#0b0e14]/60 border border-white/5 rounded-2xl p-5 flex flex-col gap-4 shadow-inner">
+        <div class="flex items-center justify-between border-b border-white/5 pb-3">
+          <span class="text-[10px] font-space text-[#00f2fe] uppercase tracking-widest font-bold flex items-center gap-1.5">
+            <i class="fa-solid fa-gears animate-spin [animation-duration:12s]"></i> Painel de Automação Avançada
+          </span>
+          <span class="text-[8px] bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-2 py-0.5 rounded font-semibold uppercase tracking-wider">Scheduler Active</span>
+        </div>
+
+        <!-- Linha 1: Scheduler & Data/Hora -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="flex flex-col gap-1.5">
+            <label class="text-[9px] text-[#8b949e] font-bold uppercase tracking-wider font-space">Janela de Disparo (Agendamento)</label>
+            <div class="flex gap-2">
+              <input type="date" id="scheduler-date" class="bg-[#0b0e14] border border-white/10 rounded-xl px-3 py-2 text-xs text-white outline-none focus:border-brandCyan/50 font-sora cursor-pointer w-full" value="2026-05-18" />
+              <input type="time" id="scheduler-time" class="bg-[#0b0e14] border border-white/10 rounded-xl px-3 py-2 text-xs text-white outline-none focus:border-brandCyan/50 font-sora cursor-pointer w-full" value="15:00" />
+            </div>
+          </div>
+
+          <div class="flex flex-col gap-1.5">
+            <label class="text-[9px] text-[#8b949e] font-bold uppercase tracking-wider font-space">Roteamento Multicanal (Prioridade)</label>
+            <select id="automation-strategy" class="bg-[#0b0e14] border border-white/10 rounded-xl px-3 py-2.5 text-xs text-white outline-none focus:border-brandCyan/50 font-sora cursor-pointer w-full">
+              <option value="priority-whatsapp" selected>Prioridade WhatsApp (Smart Fallback)</option>
+              <option value="priority-email">Prioridade E-mail (Smart Fallback)</option>
+              <option value="simultaneous">WhatsApp & E-mail Simultâneo</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Linha 2: Sliders de dias para CRM -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 border-t border-white/5 pt-3">
+          <div class="flex flex-col gap-1.5">
+            <div class="flex justify-between items-center text-[9px] text-[#8b949e] font-bold uppercase tracking-wider font-space">
+              <span>Intervalo Follow Up</span>
+              <span id="label-val-followup" class="text-brandCyan font-bold text-xs">3 dias</span>
+            </div>
+            <input type="range" id="slider-followup" min="1" max="10" value="3" class="w-full h-1 bg-[#0b0e14] border border-white/10 rounded-lg appearance-none cursor-pointer accent-[#00f2fe]" />
+          </div>
+
+          <div class="flex flex-col gap-1.5">
+            <div class="flex justify-between items-center text-[9px] text-[#8b949e] font-bold uppercase tracking-wider font-space">
+              <span>Arquivar sem resposta após</span>
+              <span id="label-val-archive" class="text-red-400 font-bold text-xs">7 dias</span>
+            </div>
+            <input type="range" id="slider-archive" min="3" max="15" value="7" class="w-full h-1 bg-[#0b0e14] border border-white/10 rounded-lg appearance-none cursor-pointer accent-red-500" />
+          </div>
+        </div>
+
+        <!-- Ação do Bulk Scheduler -->
+        <div class="flex gap-3 items-stretch mt-1">
+          <button id="btn-run-automation" class="flex-1 bg-gradient-to-r from-[#00f2fe] to-blue-500 text-[#0b0e14] font-space font-bold text-xs tracking-wider uppercase py-3.5 px-6 rounded-xl hover:brightness-110 active:scale-95 transition-all flex items-center justify-center gap-2 cursor-pointer shadow-lg shadow-brandCyan/10">
+            <i class="fa-solid fa-play"></i> Iniciar Automação Programada em Lote
+          </button>
+          
+          <button id="btn-reset-leads" class="bg-white/5 border border-white/10 text-gray-400 hover:text-white px-4 rounded-xl hover:bg-white/10 transition-all flex items-center justify-center cursor-pointer" title="Reiniciar Simulação">
+            <i class="fa-solid fa-arrows-rotate text-xs"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Console de Logs da Automação NXT OS -->
+      <div id="automation-console-box" class="bg-[#0b0e14]/85 border border-white/10 rounded-2xl p-4 font-mono text-[10px] text-emerald-400 leading-relaxed shadow-inner hidden">
+        <div class="flex items-center justify-between border-b border-white/5 pb-2 mb-2">
+          <span class="text-gray-400 font-space uppercase tracking-wider font-bold text-[9px]">🖥️ Console de Execução NXT OS (automacao_nxt.py)</span>
+          <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+        </div>
+        <div id="automation-console-logs" class="flex flex-col gap-1 pr-1 max-h-[110px] overflow-y-auto scrollbar-thin">
+          <!-- Logs will stream here dynamically -->
+        </div>
       </div>
 
       <!-- Customizador de Scripts (Abas Rápidas) -->
@@ -88,7 +159,7 @@
       </div>
 
       <!-- Lista de Follow-Up -->
-      <div class="flex-1 flex flex-col gap-4 overflow-y-auto max-h-[600px] pr-1" id="follow-up-container">
+      <div class="flex-1 flex flex-col gap-4 overflow-y-auto max-h-[750px] pr-1" id="follow-up-container">
         <!-- Renders follow up cards here dynamically -->
       </div>
       
@@ -152,7 +223,7 @@
 </div>
 
 <script>
-  let activeQueueLeads = [
+  const INITIAL_QUEUE = [
     {
       id: '1',
       empresa: 'Somos6digital',
@@ -162,36 +233,42 @@
       linkedin: 'https://linkedin.com/company/somos6digital',
       instagram: 'https://instagram.com/somos6digital',
       diagnostico: 'Ausência de Pixel do Meta no checkout, tempo de carregamento mobile de 4.8s (LCP crítico) e falta de formulário de captura rápida na home.',
-      status: 'Aguardando Disparo'
+      status: 'Aguardando Disparo',
+      hasWhatsApp: true,
+      hasEmail: true
     },
     {
       id: '2',
       empresa: 'Actwork',
       site: 'https://actwork.com.br',
-      telefone: '551120903030',
+      telefone: '',
       email: 'vendas@actwork.com.br',
       linkedin: 'https://linkedin.com/company/actwork',
       instagram: 'https://instagram.com/actwork',
       diagnostico: 'Formulário de contato principal quebrado (retorna erro 500 no console), sem pixel de rastreamento de anúncios e ausência de SSL ativo no subdomínio de blog.',
-      status: 'Aguardando Disparo'
+      status: 'Aguardando Disparo',
+      hasWhatsApp: false,
+      hasEmail: true
     },
     {
       id: '3',
-      empresa: 'Bazooka',
+      empresa: 'Bazooka Design',
       site: 'https://bazooka.pt',
-      telefone: '351918318424',
-      email: 'hello@bazooka.pt',
+      telefone: '',
+      email: '',
       linkedin: 'https://linkedin.com/company/bazooka',
-      instagram: 'https://instagram.com/bazooka',
+      instagram: 'https://instagram.com/bazookadesign',
       diagnostico: 'Perfil do Instagram sem link direto para o WhatsApp, velocidade de página baixa por imagens sem otimização (WebP) e falta de cabeçalho de conversão evidente.',
-      status: 'Aguardando Disparo'
+      status: 'Aguardando Disparo',
+      hasWhatsApp: false,
+      hasEmail: false
     }
   ];
 
-  let activeFollowUpLeads = [
+  const INITIAL_FOLLOWUP = [
     {
       id: '4',
-      empresa: 'Ramper',
+      empresa: 'Ramper B2B',
       site: 'https://ramper.com.br',
       telefone: '5511999056763',
       email: 'leads@ramper.com.br',
@@ -200,11 +277,11 @@
       diagnostico: 'Contatos duplicados na base do comercial, números desformatados e falta de follow up de leads frios.',
       status: 'Tentativa de contato',
       canal: 'WhatsApp',
-      diasPassados: 5
+      diasPassados: 4
     },
     {
       id: '5',
-      empresa: 'Reev',
+      empresa: 'Reev CRM',
       site: 'https://reev.co',
       telefone: '553133334444',
       email: 'contato@reev.co',
@@ -230,16 +307,36 @@
     }
   ];
 
+  let activeQueueLeads = JSON.parse(JSON.stringify(INITIAL_QUEUE));
+  let activeFollowUpLeads = JSON.parse(JSON.stringify(INITIAL_FOLLOWUP));
+
   let currentSelectedChannel = 'whatsapp';
   let leadToProspectId = '';
 
-  const EXCHANGE_LTV_RATE = 5000.00; // Valor fixo simulado de LTV ganho por lead convertido
+  const EXCHANGE_LTV_RATE = 5000.00;
 
   function initNxtOsSimulation() {
     // DOM Elements
     const queueContainer = document.getElementById('leads-queue-container');
     const followUpContainer = document.getElementById('follow-up-container');
     
+    // Sliders
+    const sliderFollowUp = document.getElementById('slider-followup') as HTMLInputElement;
+    const sliderArchive = document.getElementById('slider-archive') as HTMLInputElement;
+    const labelFollowUp = document.getElementById('label-val-followup');
+    const labelArchive = document.getElementById('label-val-archive');
+    const selectStrategy = document.getElementById('automation-strategy') as HTMLSelectElement;
+
+    // Advanced Automation Elements
+    const btnRunAutomation = document.getElementById('btn-run-automation');
+    const btnResetLeads = document.getElementById('btn-reset-leads');
+    const consoleBox = document.getElementById('automation-console-box');
+    const consoleLogs = document.getElementById('automation-console-logs');
+
+    // Scheduler inputs
+    const schedulerDate = document.getElementById('scheduler-date') as HTMLInputElement;
+    const schedulerTime = document.getElementById('scheduler-time') as HTMLInputElement;
+
     // Script Customization Tabs
     const scriptTabBtns = document.querySelectorAll('.script-tab-btn');
     const textareaWa = document.getElementById('script-input-whatsapp') as HTMLTextAreaElement;
@@ -256,6 +353,198 @@
     const btnCloseModal = document.getElementById('btn-close-modal');
     const btnCopyModal = document.getElementById('btn-copy-modal');
     const btnSaveModal = document.getElementById('btn-save-modal');
+
+    // Re-render leads when strategy changes
+    selectStrategy?.addEventListener('change', () => {
+      renderQueueUI();
+    });
+
+    // Slider Listeners
+    sliderFollowUp?.addEventListener('input', (e) => {
+      const val = (e.target as HTMLInputElement).value;
+      if (labelFollowUp) labelFollowUp.innerText = `${val} ${val === '1' ? 'dia' : 'dias'}`;
+      renderFollowUpUI();
+    });
+
+    sliderArchive?.addEventListener('input', (e) => {
+      const val = (e.target as HTMLInputElement).value;
+      if (labelArchive) labelArchive.innerText = `${val} ${val === '1' ? 'dia' : 'dias'}`;
+      applyAutoArchiveRule(parseInt(val));
+    });
+
+    function applyAutoArchiveRule(archiveLimit) {
+      // Find leads that exceed the limit
+      const toArchive = activeFollowUpLeads.filter(l => l.status !== 'Convertido' && l.diasPassados >= archiveLimit);
+      
+      if (toArchive.length > 0) {
+        toArchive.forEach(lead => {
+          showNotification(`🗄️ Lead ${lead.empresa} arquivado automaticamente (Excedeu limite de ${archiveLimit} dias)`);
+          addConsoleLog(`[CRM] Lead "${lead.empresa}" sem resposta há ${lead.diasPassados} dias. Movido automaticamente para status: ARQUIVADO.`, 'error');
+        });
+
+        // Filter active list
+        activeFollowUpLeads = activeFollowUpLeads.filter(l => !(l.status !== 'Convertido' && l.diasPassados >= archiveLimit));
+        
+        recalculateMetrics();
+        renderFollowUpUI();
+      }
+    }
+
+    function addConsoleLog(text, type = 'info') {
+      if (!consoleLogs || !consoleBox) return;
+      consoleBox.classList.remove('hidden');
+      
+      const time = new Date().toLocaleTimeString('pt-BR');
+      let colorClass = 'text-emerald-400';
+      if (type === 'error') colorClass = 'text-red-400';
+      else if (type === 'warn') colorClass = 'text-amber-400';
+      else if (type === 'success') colorClass = 'text-[#00f2fe] font-bold';
+
+      const logElement = document.createElement('div');
+      logElement.className = `leading-relaxed animate-fade-in-up font-mono ${colorClass}`;
+      logElement.innerHTML = `[${time}] ${text}`;
+      consoleLogs.appendChild(logElement);
+      
+      // Auto Scroll
+      consoleLogs.scrollTop = consoleLogs.scrollHeight;
+    }
+
+    // Interactive Bulk Scheduler Run
+    btnRunAutomation?.addEventListener('click', () => {
+      if (activeQueueLeads.length === 0) {
+        showNotification("⚠️ A fila de leads ativos já está vazia!");
+        return;
+      }
+
+      const dateVal = schedulerDate.value;
+      const timeVal = schedulerTime.value;
+      const strategyVal = selectStrategy.value;
+
+      // Lock buttons
+      btnRunAutomation.setAttribute('disabled', 'true');
+      btnRunAutomation.classList.add('opacity-50', 'pointer-events-none');
+
+      // Clear logs
+      if (consoleLogs) consoleLogs.innerHTML = '';
+      addConsoleLog(`🕒 Agendador programado para a data: ${dateVal} às ${timeVal}...`, 'warn');
+      addConsoleLog("⏱️ Aguardando janela de disparo automático (simulando 2000ms)...", 'warn');
+
+      setTimeout(() => {
+        addConsoleLog("🚀 Janela de disparo aberta! Iniciando automacao_nxt.py em lote...", 'success');
+        
+        // Loop chain to simulate beautiful delayed logs
+        let delay = 600;
+        const leadsToProcess = [...activeQueueLeads];
+        
+        leadsToProcess.forEach((lead, index) => {
+          // Calculate channel for each lead based on strategy
+          const routing = calculateChannelRouting(lead, strategyVal);
+          
+          setTimeout(() => {
+            addConsoleLog(`🔍 Analisando lead "${lead.empresa}" (${lead.site})...`);
+          }, delay);
+          delay += 600;
+
+          setTimeout(() => {
+            if (strategyVal === 'priority-whatsapp') {
+              addConsoleLog(`📡 Evolution API: Verificando presença de WhatsApp no número...`);
+              if (lead.hasWhatsApp) {
+                addConsoleLog(`✅ WhatsApp ativo! Canal eleito: WhatsApp.`, 'info');
+              } else {
+                addConsoleLog(`⚠️ WhatsApp indisponível. Aplicando Smart Fallback de 1º nível...`, 'warn');
+                if (lead.hasEmail) {
+                  addConsoleLog(`📧 E-mail ativo! Canal eleito: E-mail.`, 'info');
+                } else {
+                  addConsoleLog(`⚠️ E-mail também indisponível. Aplicando Smart Fallback de 2º nível...`, 'warn');
+                  addConsoleLog(`📸 Perfil de Instagram detectado! Canal eleito: Direct Instagram.`, 'info');
+                }
+              }
+            } else if (strategyVal === 'priority-email') {
+              addConsoleLog(`📡 SMTP Check: Verificando integridade da conta de E-mail...`);
+              if (lead.hasEmail) {
+                addConsoleLog(`✅ E-mail verificado! Canal eleito: E-mail.`, 'info');
+              } else {
+                addConsoleLog(`⚠️ E-mail indisponível. Aplicando Smart Fallback de 1º nível...`, 'warn');
+                if (lead.hasWhatsApp) {
+                  addConsoleLog(`📲 WhatsApp ativo! Canal eleito: WhatsApp.`, 'info');
+                } else {
+                  addConsoleLog(`⚠️ WhatsApp também indisponível. Aplicando Smart Fallback de 2º nível...`, 'warn');
+                  addConsoleLog(`📸 Perfil de Instagram detectado! Canal eleito: Direct Instagram.`, 'info');
+                }
+              }
+            } else {
+              addConsoleLog(`⚡ Modo Simultâneo: Disparando cópias idênticas para todos os canais cadastrados...`);
+            }
+          }, delay);
+          delay += 700;
+
+          setTimeout(() => {
+            addConsoleLog(`🧠 IA: Aplicando prompt RID no Gemini 2.0 Flash... [Sucesso]`);
+            addConsoleLog(`📤 Enviando abordagem personalizada para "${lead.empresa}" via ${routing.channelName}.`, 'success');
+          }, delay);
+          delay += 800;
+
+          // Actually move the lead in the background
+          setTimeout(() => {
+            // Remove from queue
+            const qIndex = activeQueueLeads.findIndex(l => l.id === lead.id);
+            if (qIndex !== -1) {
+              activeQueueLeads.splice(qIndex, 1);
+            }
+            
+            // Push to CRM
+            activeFollowUpLeads.unshift({
+              ...lead,
+              status: 'Tentativa de contato',
+              canal: routing.channelName,
+              diasPassados: 0
+            });
+            
+            // Visual feedback on card
+            const cardEl = document.getElementById(`queue-card-${lead.id}`);
+            if (cardEl) {
+              cardEl.classList.add('opacity-0', 'scale-95', 'translate-x-4');
+            }
+
+            renderQueueUI();
+            renderFollowUpUI();
+            recalculateMetrics();
+          }, delay);
+          delay += 200;
+        });
+
+        // Wrap up execution
+        setTimeout(() => {
+          addConsoleLog("💾 Notion API: Sincronizando dados de prospecção e atualizando tags de funil...", 'warn');
+        }, delay);
+        delay += 600;
+
+        setTimeout(() => {
+          addConsoleLog("🏆 Execução em Lote Finalizada com 100% de Confiabilidade!", 'success');
+          showNotification("🚀 Disparo de Automação Concluído com Sucesso!");
+          
+          // Re-enable button
+          btnRunAutomation.removeAttribute('disabled');
+          btnRunAutomation.classList.remove('opacity-50', 'pointer-events-none');
+        }, delay);
+
+      }, 2000);
+    });
+
+    // Reset leads to initial simulation state
+    btnResetLeads?.addEventListener('click', () => {
+      activeQueueLeads = JSON.parse(JSON.stringify(INITIAL_QUEUE));
+      activeFollowUpLeads = JSON.parse(JSON.stringify(INITIAL_FOLLOWUP));
+      
+      // Hide console
+      if (consoleBox) consoleBox.classList.add('hidden');
+      if (consoleLogs) consoleLogs.innerHTML = '';
+      
+      renderQueueUI();
+      renderFollowUpUI();
+      recalculateMetrics();
+      showNotification("🔄 Simulação Reiniciada para os Padrões!");
+    });
 
     // Tab Logic for customizer
     scriptTabBtns.forEach(btn => {
@@ -276,6 +565,25 @@
         else if (channel === 'linkedin') textareaLinkedin.classList.remove('hidden');
       });
     });
+
+    // Calculate smart channel routing on the fly based on strategy
+    function calculateChannelRouting(lead, strategy) {
+      if (strategy === 'priority-whatsapp') {
+        if (lead.hasWhatsApp) return { channelName: 'WhatsApp', badge: '📲 WhatsApp (Canal Principal)', color: 'text-emerald-400 bg-emerald-400/10 border-emerald-400/20' };
+        if (lead.hasEmail) return { channelName: 'E-mail', badge: '📧 E-mail (Fallback: WA indisponível)', color: 'text-blue-400 bg-blue-400/10 border-blue-400/20' };
+        return { channelName: 'Instagram', badge: '📸 Instagram (2º Fallback: WA/E-mail indisponíveis)', color: 'text-pink-400 bg-pink-400/10 border-pink-400/20' };
+      } else if (strategy === 'priority-email') {
+        if (lead.hasEmail) return { channelName: 'E-mail', badge: '📧 E-mail (Canal Principal)', color: 'text-blue-400 bg-blue-400/10 border-blue-400/20' };
+        if (lead.hasWhatsApp) return { channelName: 'WhatsApp', badge: '📲 WhatsApp (Fallback: E-mail indisponível)', color: 'text-emerald-400 bg-emerald-400/10 border-emerald-400/20' };
+        return { channelName: 'Instagram', badge: '📸 Instagram (2º Fallback: WA/E-mail indisponíveis)', color: 'text-pink-400 bg-pink-400/10 border-pink-400/20' };
+      } else {
+        // Simultaneous
+        if (lead.hasWhatsApp && lead.hasEmail) return { channelName: 'WA & E-mail', badge: '⚡ WA + E-mail (Simultâneo)', color: 'text-[#00f2fe] bg-[#00f2fe]/10 border-[#00f2fe]/20' };
+        if (lead.hasWhatsApp) return { channelName: 'WhatsApp', badge: '📲 WhatsApp (E-mail indisponível)', color: 'text-emerald-400 bg-emerald-400/10 border-emerald-400/20' };
+        if (lead.hasEmail) return { channelName: 'E-mail', badge: '📧 E-mail (WA indisponível)', color: 'text-blue-400 bg-blue-400/10 border-blue-400/20' };
+        return { channelName: 'Instagram', badge: '📸 Instagram (Simultâneo indisponível)', color: 'text-pink-400 bg-pink-400/10 border-pink-400/20' };
+      }
+    }
 
     // Generate calculated script based on selected channel and templates
     function getPersonalizedScript(lead, channel) {
@@ -382,6 +690,7 @@
         if (newStatus === 'Convertido') {
           triggerConfettiCelebration();
           showNotification(`🚀 Contrato Fechado com ${lead.empresa}! LTV Ganho: R$ 5.000,00`);
+          addConsoleLog(`🏆 CONTRATO FECHADO: Lead "${lead.empresa}" converteu! LTV de R$ 5.000,00 conciliado no Notion CRM.`, 'success');
         }
 
         recalculateMetrics();
@@ -397,56 +706,68 @@
         queueContainer.innerHTML = `
           <div class="flex flex-col items-center justify-center text-center py-12 border border-dashed border-white/10 rounded-2xl bg-white/[0.01]">
             <div class="w-12 h-12 rounded-full bg-brandCyan/10 border border-brandCyan/20 flex items-center justify-center mb-3 text-brandCyan">
-              <i class="fa-solid fa-check"></i>
+              <i class="fa-solid fa-check animate-bounce"></i>
             </div>
-            <span class="text-sm font-bold text-white">Todos os Leads Foram Contactados!</span>
-            <p class="text-xs text-[#8b949e] mt-1">Acompanhe a esteira de follow up ao lado para converter em vendas.</p>
+            <span class="text-xs font-bold text-white">Todos os Leads Foram Contactados!</span>
+            <p class="text-[10px] text-[#8b949e] mt-1 font-space">Acompanhe a esteira de follow up ao lado para converter em vendas.</p>
           </div>
         `;
         return;
       }
 
-      queueContainer.innerHTML = activeQueueLeads.map(lead => `
-        <div id="queue-card-${lead.id}" class="bg-[#161b22]/40 border border-white/5 rounded-2xl p-5 flex flex-col gap-4 hover:border-brandCyan/20 transition-all duration-300 transform">
-          <div class="flex justify-between items-start">
-            <div>
-              <h4 class="text-sm font-bold text-white">${lead.empresa}</h4>
-              <a href="${lead.site}" target="_blank" class="text-[10px] text-brandCyan hover:underline font-space mt-1 inline-flex items-center gap-1">
-                🌐 ${lead.site}
-              </a>
+      const currentStrategy = selectStrategy?.value || 'priority-whatsapp';
+
+      queueContainer.innerHTML = activeQueueLeads.map(lead => {
+        // Calculate smart routing tag and details on the fly
+        const routing = calculateChannelRouting(lead, currentStrategy);
+
+        return `
+          <div id="queue-card-${lead.id}" class="bg-[#161b22]/40 border border-white/5 rounded-2xl p-5 flex flex-col gap-4 hover:border-brandCyan/20 transition-all duration-300 transform">
+            <div class="flex justify-between items-start">
+              <div>
+                <h4 class="text-sm font-bold text-white">${lead.empresa}</h4>
+                <a href="${lead.site}" target="_blank" class="text-[10px] text-brandCyan hover:underline font-space mt-1 inline-flex items-center gap-1">
+                  🌐 ${lead.site}
+                </a>
+              </div>
+              <span class="text-[8px] font-space border px-2 py-0.5 rounded font-bold uppercase tracking-wider ${routing.color}">
+                ${routing.badge}
+              </span>
             </div>
-            <span class="text-[9px] font-space bg-white/5 border border-white/10 px-2 py-0.5 rounded text-gray-400 font-semibold uppercase tracking-wider">AGUARDANDO</span>
-          </div>
 
-          <div class="bg-[#0b0e14]/50 border border-white/5 p-3 rounded-xl">
-            <span class="text-[9px] font-space text-brandCyan font-bold uppercase tracking-wider block mb-1">Diagnóstico RID Gemini</span>
-            <p class="text-xs text-gray-300 leading-relaxed font-sora italic">"${lead.diagnostico}"</p>
-          </div>
+            <div class="bg-[#0b0e14]/50 border border-white/5 p-3 rounded-xl">
+              <span class="text-[9px] font-space text-brandCyan font-bold uppercase tracking-wider block mb-1">Diagnóstico RID Gemini</span>
+              <p class="text-xs text-gray-300 leading-relaxed font-sora italic">"${lead.diagnostico}"</p>
+            </div>
 
-          <div class="grid grid-cols-3 gap-2">
-            <button onclick="window.openProspectModal('${lead.id}', 'whatsapp')" class="bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 font-space font-bold text-[10px] tracking-wider uppercase py-2.5 rounded-lg hover:bg-emerald-500/20 active:scale-95 transition-all flex items-center justify-center gap-1.5 cursor-pointer">
-              <i class="fa-brands fa-whatsapp text-xs"></i> WhatsApp
-            </button>
-            <button onclick="window.openProspectModal('${lead.id}', 'email')" class="bg-blue-500/10 border border-blue-500/20 text-blue-400 font-space font-bold text-[10px] tracking-wider uppercase py-2.5 rounded-lg hover:bg-blue-500/20 active:scale-95 transition-all flex items-center justify-center gap-1.5 cursor-pointer">
-              <i class="fa-regular fa-envelope text-xs"></i> E-mail
-            </button>
-            <button onclick="window.openProspectModal('${lead.id}', 'linkedin')" class="bg-sky-500/10 border border-sky-500/20 text-sky-400 font-space font-bold text-[10px] tracking-wider uppercase py-2.5 rounded-lg hover:bg-sky-500/20 active:scale-95 transition-all flex items-center justify-center gap-1.5 cursor-pointer">
-              <i class="fa-brands fa-linkedin text-xs"></i> LinkedIn
-            </button>
+            <div class="grid grid-cols-3 gap-2">
+              <button onclick="window.openProspectModal('${lead.id}', 'whatsapp')" class="bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 font-space font-bold text-[10px] tracking-wider uppercase py-2.5 rounded-lg hover:bg-emerald-500/20 active:scale-95 transition-all flex items-center justify-center gap-1.5 cursor-pointer">
+                <i class="fa-brands fa-whatsapp text-xs"></i> WhatsApp
+              </button>
+              <button onclick="window.openProspectModal('${lead.id}', 'email')" class="bg-blue-500/10 border border-blue-500/20 text-blue-400 font-space font-bold text-[10px] tracking-wider uppercase py-2.5 rounded-lg hover:bg-blue-500/20 active:scale-95 transition-all flex items-center justify-center gap-1.5 cursor-pointer">
+                <i class="fa-regular fa-envelope text-xs"></i> E-mail
+              </button>
+              <button onclick="window.openProspectModal('${lead.id}', 'linkedin')" class="bg-sky-500/10 border border-sky-500/20 text-sky-400 font-space font-bold text-[10px] tracking-wider uppercase py-2.5 rounded-lg hover:bg-sky-500/20 active:scale-95 transition-all flex items-center justify-center gap-1.5 cursor-pointer">
+                <i class="fa-brands fa-linkedin text-xs"></i> LinkedIn
+              </button>
+            </div>
           </div>
-        </div>
-      `).join('');
+        `;
+      }).join('');
     }
 
     // Render CRM Follow-Up Board
     function renderFollowUpUI() {
       if (!followUpContainer) return;
 
+      const sliderFollowUpVal = parseInt(sliderFollowUp?.value || '3');
+      const sliderArchiveVal = parseInt(sliderArchive?.value || '7');
+
       followUpContainer.innerHTML = activeFollowUpLeads.map(lead => {
-        let borderLeftColor = '#3498db'; // Azul - Tentativa de contato
-        if (lead.status === 'Follow up') borderLeftColor = '#f1c40f'; // Amarelo
-        else if (lead.status === 'Convertido') borderLeftColor = '#2ecc71'; // Verde
-        else if (lead.status === 'Reunião agendada') borderLeftColor = '#9b59b6'; // Roxo
+        let borderLeftColor = '#3498db';
+        if (lead.status === 'Follow up') borderLeftColor = '#f1c40f';
+        else if (lead.status === 'Convertido') borderLeftColor = '#2ecc71';
+        else if (lead.status === 'Reunião agendada') borderLeftColor = '#9b59b6';
 
         let urgencyLabel = '🟢 Recente';
         let urgencyColor = 'text-emerald-400 bg-emerald-400/10 border-emerald-400/20';
@@ -468,13 +789,26 @@
           <option value="${opt}" ${lead.status === opt ? 'selected' : ''}>${opt}</option>
         `).join('');
 
+        // Calculate dynamic follow-up remaining days message
+        let followUpMsg = '';
+        if (lead.status !== 'Convertido') {
+          if (lead.diasPassados >= sliderFollowUpVal) {
+            followUpMsg = `<span class="text-red-400 font-bold"><i class="fa-solid fa-bell animate-bounce"></i> Follow-Up IMEDIATO Pendente!</span>`;
+          } else {
+            const rem = sliderFollowUpVal - lead.diasPassados;
+            followUpMsg = `<span class="text-gray-400">Próximo follow-up em <strong class="text-brandCyan">${rem} ${rem === 1 ? 'dia' : 'dias'}</strong></span>`;
+          }
+        } else {
+          followUpMsg = `<span class="text-emerald-400 font-bold"><i class="fa-solid fa-circle-check"></i> Funil Concluído</span>`;
+        }
+
         return `
           <div class="bg-[#161b22]/40 rounded-2xl p-4 flex flex-col gap-3 transition-all duration-300 border-l-4" style="border-left-color: ${borderLeftColor}; border-top: 1px solid rgba(255,255,255,0.03); border-right: 1px solid rgba(255,255,255,0.03); border-bottom: 1px solid rgba(255,255,255,0.03);">
             <div class="flex justify-between items-start">
               <div>
                 <h5 class="text-xs font-bold text-white">${lead.empresa}</h5>
                 <span class="text-[9px] text-[#8b949e] font-space block mt-1">
-                  📡 Canal: <strong class="text-white">${lead.canal}</strong> • ${lead.diasPassados} dia(s) atrás
+                  📡 Canal: <strong class="text-white">${lead.canal}</strong> • ${lead.diasPassados} dia(s) sem retorno
                 </span>
               </div>
               <span class="text-[8px] font-space border px-2 py-0.5 rounded-full font-bold uppercase tracking-wider ${urgencyColor}">
@@ -482,8 +816,13 @@
               </span>
             </div>
 
+            <div class="bg-[#0b0e14]/30 px-3 py-2 rounded-xl text-[9px] font-space flex justify-between items-center border border-white/[0.02]">
+              ${followUpMsg}
+              <span class="text-gray-500">Limite: ${sliderArchiveVal}d</span>
+            </div>
+
             <div class="flex gap-2 items-center">
-              <span class="text-[10px] text-[#8b949e] font-space">Status:</span>
+              <span class="text-[9px] text-[#8b949e] font-space uppercase tracking-wider font-semibold">Status CRM:</span>
               <select onchange="window.updateFollowUpStatus('${lead.id}', this.value)" class="flex-1 bg-[#0b0e14] border border-white/5 rounded-lg px-2 py-1 text-[10px] text-white outline-none focus:border-brandCyan/50 font-sora cursor-pointer">
                 ${selectOptionsHtml}
               </select>
@@ -496,10 +835,8 @@
     // Metric calculation
     function recalculateMetrics() {
       const totalLeads = activeQueueLeads.length + activeFollowUpLeads.length;
-      
       const contactedLeads = activeFollowUpLeads.length;
       
-      // Respostas: qualquer lead que mudou o status padrão de 'Tentativa de contato'
       const respondedCount = activeFollowUpLeads.filter(l => l.status !== 'Tentativa de contato').length;
       const responseRate = contactedLeads > 0 ? (respondedCount / contactedLeads * 100).toFixed(1) : '0.0';
       
@@ -509,13 +846,21 @@
       const totalLtv = convertedCount * EXCHANGE_LTV_RATE;
 
       // Update UI
-      document.getElementById('dash-total').innerText = totalLeads.toString();
-      document.getElementById('dash-contacted').innerText = contactedLeads.toString();
-      document.getElementById('dash-response').innerText = `${responseRate}%`;
-      document.getElementById('dash-meetings').innerText = meetingsCount.toString();
+      const elTotal = document.getElementById('dash-total');
+      const elContacted = document.getElementById('dash-contacted');
+      const elResponse = document.getElementById('dash-response');
+      const elMeetings = document.getElementById('dash-meetings');
+      const elLtv = document.getElementById('dash-ltv');
+
+      if (elTotal) elTotal.innerText = totalLeads.toString();
+      if (elContacted) elContacted.innerText = contactedLeads.toString();
+      if (elResponse) elResponse.innerText = `${responseRate}%`;
+      if (elMeetings) elMeetings.innerText = meetingsCount.toString();
       
-      const formatLtv = totalLtv.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-      document.getElementById('dash-ltv').innerText = formatLtv;
+      if (elLtv) {
+        const formatLtv = totalLtv.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+        elLtv.innerText = formatLtv;
+      }
     }
 
     // Confetti Engine
@@ -581,20 +926,18 @@
 
     // Success Notification Toast
     function showNotification(text) {
-      // Simple custom toast
       const toast = document.createElement('div');
       toast.className = "fixed bottom-8 right-8 z-50 bg-[#161b22] border-2 border-emerald-500/40 text-emerald-400 px-6 py-4 rounded-2xl shadow-2xl flex items-center gap-3 animate-fade-in-up font-bold text-sm leading-relaxed";
       toast.innerHTML = `<i class="fa-solid fa-trophy text-lg text-amber-500 animate-bounce"></i> ${text}`;
       document.body.appendChild(toast);
       
-      // play a short high pitch synth note for tactility
       try {
         const audioCtx = new (window.AudioContext || (window as any).webkitAudioContext)();
         const osc = audioCtx.createOscillator();
         const gain = audioCtx.createGain();
         osc.connect(gain);
         gain.connect(audioCtx.destination);
-        osc.frequency.setValueAtTime(880, audioCtx.currentTime); // A5 note
+        osc.frequency.setValueAtTime(880, audioCtx.currentTime);
         gain.gain.setValueAtTime(0.1, audioCtx.currentTime);
         gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.35);
         osc.start();
@@ -634,5 +977,27 @@
   .custom-textarea {
     resize: none;
     transition: border-color 0.3s;
+  }
+  
+  /* Styling simple for sliders */
+  input[type="range"]::-webkit-slider-runnable-track {
+    background: #0b0e14;
+    border-radius: 999px;
+  }
+  input[type="range"]::-moz-range-track {
+    background: #0b0e14;
+    border-radius: 999px;
+  }
+  
+  /* Scrollbar simple styling */
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 4px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,0.1);
+    border-radius: 999px;
   }
 </style>
