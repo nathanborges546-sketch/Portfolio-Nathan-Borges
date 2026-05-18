@@ -6,7 +6,6 @@ const automationsCases = [
     metric: "CRM Inteligente",
     desc: "Redução de 90% do ciclo de captação e prospecção B2B, através da automação da extração e preenchimento dos leads na base de dados e posteriormente o envio automático das mensagens via API.",
     tags: ["Python", "Streamlit", "Meta API", "Notion API"],
-    span: "md:col-span-2 md:row-span-2",
     link: "/nxt-os"
   },
   {
@@ -14,7 +13,6 @@ const automationsCases = [
     metric: "Criação de Software",
     desc: "Personalização de atendimento ao cliente para Moskato Camping - Albânia - Himarë.",
     tags: ["Node.js", "Webhooks", "REST APIs"],
-    span: "md:col-span-1 md:row-span-1",
     link: "/real-time"
   },
   {
@@ -22,7 +20,6 @@ const automationsCases = [
     metric: "Eficiência de Dados",
     desc: "Automação inteligente que limpa bases de dados confusas, corrige informações nulas e elimina duplicadas instantaneamente.",
     tags: ["Python", "Pandas", "Data Science"],
-    span: "md:col-span-1 md:row-span-1",
     link: "/clean-data"
   }
 ];
@@ -56,51 +53,140 @@ const uxCases = [
         <p class="text-textSecondary text-lg font-sora">Projetos que unem validação de dados, performance algorítmica e usabilidade.</p>
       </div>
 
-      <div class="inline-flex p-1 bg-surface border border-brandCyan/10 rounded-full font-space">
-        <button id="tab-auto" class="tab-btn active px-6 md:px-8 py-3 rounded-full text-xs md:text-sm font-medium transition-all text-white bg-brandCyan">
-          AUTOMAÇÕES & CÓDIGO
-        </button>
-        <button id="tab-ux" class="tab-btn px-6 md:px-8 py-3 rounded-full text-xs md:text-sm font-medium transition-all text-textSecondary hover:text-textPrimary">
-          UX & PRODUCT DESIGN
-        </button>
+      <div class="flex flex-wrap items-center gap-6 self-start md:self-auto">
+        <!-- Carousel Nav Controls (Setas minimalistas) -->
+        <div id="carousel-controls" class="flex items-center gap-2 font-space transition-all duration-300">
+          <button id="btn-carousel-prev" class="w-10 h-10 rounded-full bg-surface border border-white/5 flex items-center justify-center text-textSecondary hover:text-white hover:border-white/20 transition-all cursor-pointer active:scale-95">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M19 12H5M12 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <button id="btn-carousel-next" class="w-10 h-10 rounded-full bg-surface border border-white/5 flex items-center justify-center text-textSecondary hover:text-white hover:border-white/20 transition-all cursor-pointer active:scale-95">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
+
+        <div class="inline-flex p-1 bg-surface border border-brandCyan/10 rounded-full font-space">
+          <button id="tab-auto" class="tab-btn active px-6 md:px-8 py-3 rounded-full text-xs md:text-sm font-medium transition-all text-white bg-brandCyan">
+            AUTOMAÇÕES & CÓDIGO
+          </button>
+          <button id="tab-ux" class="tab-btn px-6 md:px-8 py-3 rounded-full text-xs md:text-sm font-medium transition-all text-textSecondary hover:text-textPrimary">
+            UX & PRODUCT DESIGN
+          </button>
+        </div>
       </div>
     </div>
 
-    <!-- Bento Grid Container -->
+    <!-- Bento Grid / Carousel Container -->
     <div class="grid relative">
       
-      <!-- Grid Automações -->
-      <div id="grid-auto" class="[grid-area:1/1] grid grid-cols-1 md:grid-cols-3 gap-6 transition-all duration-500 opacity-100 pointer-events-auto">
-        {automationsCases.map(c => {
+      <!-- Grid Automações: Carrossel Horizontal Dinâmico de Card Único -->
+      <div id="grid-auto" class="[grid-area:1/1] w-full min-h-[460px] md:min-h-[420px] relative transition-all duration-500 opacity-100 pointer-events-auto">
+        {automationsCases.map((c, index) => {
+          const isActive = index === 0;
           return (
-          <div 
-            onclick={c.link ? (c.link.startsWith('http') ? `window.open('${c.link}', '_blank')` : `window.location.href='${c.link}'`) : undefined} 
-            class={`group relative bg-surface rounded-[32px] p-8 border border-brandCyan/5 hover:border-brandCyan/30 transition-all duration-300 overflow-hidden flex flex-col justify-between ${c.link ? 'cursor-pointer hover:shadow-xl hover:scale-[1.02] z-20' : ''} ${c.span}`}
-          >
-            <div class="z-10">
-              <p class="font-space text-4xl md:text-5xl text-brandCyan font-bold mb-6">{c.metric}</p>
-              <h4 class="text-xl md:text-2xl font-sora font-bold text-textPrimary mb-4">{c.title}</h4>
-              <p class="text-textSecondary text-sm leading-relaxed mb-8 font-sora">{c.desc}</p>
-            </div>
-            
-            <div class="z-10">
-              <div class="flex flex-wrap gap-2 mb-6">
-                {c.tags.map(tag => (
-                  <span class="px-3 py-1 bg-darkBg border border-brandCyan/10 rounded-full text-[10px] font-space text-blue-400">{tag}</span>
-                ))}
+            <div 
+              data-index={index}
+              class={`carousel-slide-auto transition-all duration-500 absolute inset-0 w-full h-full flex flex-col md:flex-row gap-8 md:gap-12 bg-surface rounded-[36px] p-8 md:p-12 border border-brandCyan/5 hover:border-brandCyan/25 ${isActive ? 'opacity-100 translate-x-0 pointer-events-auto z-10' : 'opacity-0 translate-x-8 pointer-events-none z-0'}`}
+            >
+              <!-- Lado Esquerdo: Conteúdo Comercial -->
+              <div class="flex-1 flex flex-col justify-between gap-6">
+                <div class="flex flex-col gap-4">
+                  <span class="font-space text-4xl md:text-5xl text-brandCyan font-bold tracking-tight">{c.metric}</span>
+                  <h4 class="text-2xl md:text-3xl font-sora font-bold text-textPrimary tracking-tight">{c.title}</h4>
+                  <p class="text-textSecondary text-sm md:text-base leading-relaxed font-sora max-w-xl">{c.desc}</p>
+                </div>
+
+                <div>
+                  <div class="flex flex-wrap gap-2 mb-6">
+                    {c.tags.map(tag => (
+                      <span class="px-3 py-1 bg-darkBg border border-brandCyan/10 rounded-full text-[10px] font-space text-blue-400">{tag}</span>
+                    ))}
+                  </div>
+                  {c.link && (
+                    <a href={c.link} class="inline-flex items-center gap-2 text-blue-400 font-space text-xs font-bold uppercase tracking-wider hover:text-white transition-colors group">
+                      Abrir Simulador Interativo 
+                      <span class="group-hover:translate-x-1 transition-transform">→</span>
+                    </a>
+                  )}
+                </div>
               </div>
-              {c.link && (
-                <span class="text-blue-400 font-space text-xs inline-flex items-center gap-2 group-hover:translate-x-2 transition-transform">
-                  ABRIR SIMULADOR →
-                </span>
-              )}
+
+              <!-- Lado Direito: Preview Decorativo/Gráfico Premium -->
+              <div class="hidden md:flex flex-1 items-center justify-center relative overflow-hidden bg-darkBg/30 border border-white/5 rounded-2xl p-8">
+                <!-- Grid background -->
+                <div class="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:16px_16px]"></div>
+                
+                <!-- UI Mocks correspondentes a cada projeto -->
+                {index === 0 && (
+                  <div class="relative w-full max-w-[280px] aspect-[4/3] bg-surface/50 border border-white/5 rounded-2xl p-5 shadow-2xl flex flex-col justify-between">
+                    <div class="flex justify-between items-center pb-3 border-b border-white/5">
+                      <span class="text-[9px] font-space text-textSecondary uppercase tracking-widest font-bold">Evolution API Sync</span>
+                      <span class="w-2 h-2 rounded-full bg-[#00f2fe] animate-pulse"></span>
+                    </div>
+                    <div class="flex flex-col gap-2 my-3">
+                      <div class="h-1.5 w-2/3 bg-white/5 rounded"></div>
+                      <div class="h-1.5 w-5/6 bg-white/5 rounded"></div>
+                      <div class="h-1.5 w-1/2 bg-white/5 rounded"></div>
+                    </div>
+                    <div class="flex justify-between items-center text-[10px]">
+                      <span class="text-textSecondary">Sincronização</span>
+                      <span class="text-[#00f2fe] font-bold">100% Ativa</span>
+                    </div>
+                  </div>
+                )}
+
+                {index === 1 && (
+                  <div class="relative w-full max-w-[280px] aspect-[4/3] bg-surface/50 border border-white/5 rounded-2xl p-5 shadow-2xl flex flex-col justify-between">
+                    <div class="flex justify-between items-center pb-3 border-b border-white/5">
+                      <span class="text-[9px] font-space text-textSecondary uppercase tracking-widest font-bold">Moskato Server</span>
+                      <span class="text-[9px] text-[#00f2fe] font-bold">Local</span>
+                    </div>
+                    <div class="flex flex-col gap-2.5 my-3">
+                      <div class="flex justify-between text-[10px]">
+                        <span class="text-textSecondary">Albânia - Himarë</span>
+                        <span class="text-textPrimary font-semibold">Online</span>
+                      </div>
+                      <div class="h-1.5 w-full bg-white/5 rounded"></div>
+                      <div class="h-1.5 w-3/4 bg-white/5 rounded"></div>
+                    </div>
+                    <div class="text-[10px] text-textSecondary font-space">
+                      Status: <span class="text-[#00f2fe] font-bold">100% Offline-First</span>
+                    </div>
+                  </div>
+                )}
+
+                {index === 2 && (
+                  <div class="relative w-full max-w-[280px] aspect-[4/3] bg-surface/50 border border-white/5 rounded-2xl p-5 shadow-2xl flex flex-col justify-between">
+                    <div class="flex justify-between items-center pb-3 border-b border-white/5">
+                      <span class="text-[9px] font-space text-textSecondary uppercase tracking-widest font-bold">Data Purifier Engine</span>
+                      <span class="text-[9px] text-[#00f2fe] font-bold">Python</span>
+                    </div>
+                    <div class="flex flex-col gap-2 my-3">
+                      <div class="flex justify-between text-[10px]">
+                        <span class="text-textSecondary">Registros Limpos</span>
+                        <span class="text-textPrimary font-semibold">+1,204</span>
+                      </div>
+                      <div class="flex justify-between text-[10px]">
+                        <span class="text-textSecondary">Duplicatas Resolvidas</span>
+                        <span class="text-textPrimary font-semibold">100%</span>
+                      </div>
+                    </div>
+                    <div class="flex justify-between items-center text-[10px]">
+                      <span class="text-textSecondary">Eficiência</span>
+                      <span class="text-[#00f2fe] font-bold">100% Puro</span>
+                    </div>
+                  </div>
+                )}
+              </div>
             </div>
-          </div>
           );
         })}
       </div>
 
-      <!-- Grid UX -->
+      <!-- Grid UX: Mantém o layout bento tradicional para UX -->
       <div id="grid-ux" class="[grid-area:1/1] grid grid-cols-1 md:grid-cols-3 gap-6 transition-all duration-500 opacity-0 pointer-events-none translate-y-4">
         {uxCases.map(c => (
           <div class={`group relative bg-surface rounded-[32px] p-8 border border-brandCyan/5 hover:border-brandCyan/30 transition-all duration-300 overflow-hidden flex flex-col justify-between ${c.span}`}>
@@ -136,10 +222,12 @@ const uxCases = [
 
 <script>
   document.addEventListener('astro:page-load', () => {
+    // Outer Tab Switching (Automations vs UX)
     const tabAuto = document.getElementById('tab-auto');
     const tabUx = document.getElementById('tab-ux');
     const gridAuto = document.getElementById('grid-auto');
     const gridUx = document.getElementById('grid-ux');
+    const carouselControls = document.getElementById('carousel-controls');
 
     const switchTab = (activeTab) => {
       if (activeTab === 'auto') {
@@ -154,6 +242,9 @@ const uxCases = [
         gridUx?.classList.replace('opacity-100', 'opacity-0');
         gridUx?.classList.replace('pointer-events-auto', 'pointer-events-none');
         gridUx?.classList.add('translate-y-4');
+
+        // Show carousel controls
+        carouselControls?.classList.remove('opacity-0', 'pointer-events-none');
       } else {
         tabUx?.classList.add('bg-brandCyan', 'text-white');
         tabUx?.classList.remove('text-textSecondary');
@@ -166,10 +257,42 @@ const uxCases = [
         gridAuto?.classList.replace('opacity-100', 'opacity-0');
         gridAuto?.classList.replace('pointer-events-auto', 'pointer-events-none');
         gridAuto?.classList.add('translate-y-4');
+
+        // Hide carousel controls
+        carouselControls?.classList.add('opacity-0', 'pointer-events-none');
       }
     };
 
     tabAuto?.addEventListener('click', () => switchTab('auto'));
     tabUx?.addEventListener('click', () => switchTab('ux'));
+
+    // Carousel Auto cases state
+    let activeCarouselIndex = 0;
+    const slidesAuto = document.querySelectorAll('.carousel-slide-auto');
+    const totalSlides = slidesAuto.length;
+    const btnCarouselPrev = document.getElementById('btn-carousel-prev');
+    const btnCarouselNext = document.getElementById('btn-carousel-next');
+
+    const renderCarousel = () => {
+      slidesAuto.forEach((slide, idx) => {
+        if (idx === activeCarouselIndex) {
+          slide.classList.remove('opacity-0', 'translate-x-8', 'pointer-events-none', 'z-0');
+          slide.classList.add('opacity-100', 'translate-x-0', 'pointer-events-auto', 'z-10');
+        } else {
+          slide.classList.remove('opacity-100', 'translate-x-0', 'pointer-events-auto', 'z-10');
+          slide.classList.add('opacity-0', 'translate-x-8', 'pointer-events-none', 'z-0');
+        }
+      });
+    };
+
+    btnCarouselPrev?.addEventListener('click', () => {
+      activeCarouselIndex = (activeCarouselIndex - 1 + totalSlides) % totalSlides;
+      renderCarousel();
+    });
+
+    btnCarouselNext?.addEventListener('click', () => {
+      activeCarouselIndex = (activeCarouselIndex + 1) % totalSlides;
+      renderCarousel();
+    });
   });
 </script>
