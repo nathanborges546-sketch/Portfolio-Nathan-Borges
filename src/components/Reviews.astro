@@ -47,7 +47,7 @@ const reviews = [
     <div id="marquee-shift-wrapper" class="flex gap-6 w-max transition-transform duration-600 ease-[cubic-bezier(0.25,1,0.5,1)]">
       
       <!-- Track Animado 1 -->
-      <div class="flex shrink-0 min-w-full gap-6 animate-marquee group-hover:[animation-play-state:paused] marquee-track">
+      <div class="flex shrink-0 gap-6 animate-marquee group-hover:[animation-play-state:paused] marquee-track">
         {reviews.map((review, index) => (
           <div class="review-card-container w-[350px] shrink-0 bg-surface border border-brandCyan/5 rounded-[32px] p-8 cursor-pointer flex flex-col justify-between">
             <div>
@@ -80,7 +80,7 @@ const reviews = [
       </div>
 
       <!-- Track Animado 2 (Duplicado para o Loop) -->
-      <div class="flex shrink-0 min-w-full gap-6 animate-marquee group-hover:[animation-play-state:paused] marquee-track" aria-hidden="true">
+      <div class="flex shrink-0 gap-6 animate-marquee group-hover:[animation-play-state:paused] marquee-track" aria-hidden="true">
         {reviews.map((review, index) => (
           <div class="review-card-container w-[350px] shrink-0 bg-surface border border-brandCyan/5 rounded-[32px] p-8 cursor-pointer flex flex-col justify-between">
             <div>
