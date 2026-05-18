@@ -41,72 +41,77 @@ const reviews = [
   </div>
 
   <!-- Marquee Wrapper -->
-  <div class="relative flex overflow-hidden group py-20 gap-6">
+  <div class="relative overflow-hidden group py-16">
     
-    <!-- Track Animado 1 -->
-    <div class="flex shrink-0 min-w-full gap-6 animate-marquee group-hover:[animation-play-state:paused]">
-      {reviews.map((review, index) => (
-        <div class="review-card-container w-[350px] shrink-0 bg-surface border border-brandCyan/5 rounded-[32px] p-8 transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] hover:scale-110 hover:z-50 hover:shadow-[0_20px_50px_rgba(0,0,0,0.8)] cursor-pointer flex flex-col justify-between">
-          <div>
-            <div class="flex items-center gap-4 mb-6">
-              <canvas 
-                class="review-avatar-canvas w-12 h-12 rounded-full border border-brandCyan/20 bg-darkBg pointer-events-none select-none"
-                data-hash={review.photoHash}
-              ></canvas>
-              <div>
-                <p class="text-textPrimary font-sora font-bold text-sm whitespace-normal leading-none">{review.company}</p>
-                <p class="text-[#36d6d6] font-space text-[10px] uppercase tracking-widest mt-1 reviewer-name">{review.name}</p>
+    <!-- Shift Wrapper: Permite o deslocamento horizontal suave para centralização -->
+    <div id="marquee-shift-wrapper" class="flex gap-6 w-max transition-transform duration-600 ease-[cubic-bezier(0.25,1,0.5,1)]">
+      
+      <!-- Track Animado 1 -->
+      <div class="flex shrink-0 min-w-full gap-6 animate-marquee group-hover:[animation-play-state:paused] marquee-track">
+        {reviews.map((review, index) => (
+          <div class="review-card-container w-[350px] shrink-0 bg-surface border border-brandCyan/5 rounded-[32px] p-8 cursor-pointer flex flex-col justify-between">
+            <div>
+              <div class="flex items-center gap-4 mb-6">
+                <canvas 
+                  class="review-avatar-canvas w-12 h-12 rounded-full border border-brandCyan/20 bg-darkBg pointer-events-none select-none"
+                  data-hash={review.photoHash}
+                ></canvas>
+                <div>
+                  <p class="text-textPrimary font-sora font-bold text-sm whitespace-normal leading-none">{review.company}</p>
+                  <p class="text-[#1C69B7] font-space text-[10px] uppercase tracking-widest mt-1 reviewer-name">{review.name}</p>
+                </div>
               </div>
+              <p class="review-text-content text-textSecondary font-sora text-sm leading-relaxed whitespace-normal break-words italic">
+                "{review.isTranslatable ? review.textEn : review.text}"
+              </p>
             </div>
-            <p class="review-text-content text-textSecondary font-sora text-sm leading-relaxed whitespace-normal break-words italic">
-              "{review.isTranslatable ? review.textEn : review.text}"
-            </p>
+            {review.isTranslatable && (
+              <button 
+                class="translate-review-btn mt-4 text-[10px] font-space text-brandCyan/70 hover:text-brandCyan flex items-center gap-1 transition-all active:scale-95 cursor-pointer uppercase tracking-wider bg-transparent border-none p-0 w-fit"
+                data-en={review.textEn}
+                data-pt={review.textPt}
+                data-current="en"
+              >
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="inline mr-1" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg> Traduzir para o Português
+              </button>
+            )}
           </div>
-          {review.isTranslatable && (
-            <button 
-              class="translate-review-btn mt-4 text-[10px] font-space text-brandCyan/70 hover:text-brandCyan flex items-center gap-1 transition-all active:scale-95 cursor-pointer uppercase tracking-wider bg-transparent border-none p-0 w-fit"
-              data-en={review.textEn}
-              data-pt={review.textPt}
-              data-current="en"
-            >
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="inline mr-1" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg> Traduzir para o Português
-            </button>
-          )}
-        </div>
-      ))}
-    </div>
+        ))}
+      </div>
 
-    <!-- Track Animado 2 (Duplicado para o Loop) -->
-    <div class="flex shrink-0 min-w-full gap-6 animate-marquee group-hover:[animation-play-state:paused]" aria-hidden="true">
-      {reviews.map((review, index) => (
-        <div class="review-card-container w-[350px] shrink-0 bg-surface border border-brandCyan/5 rounded-[32px] p-8 transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] hover:scale-110 hover:z-50 hover:shadow-[0_20px_50px_rgba(0,0,0,0.8)] cursor-pointer flex flex-col justify-between">
-          <div>
-            <div class="flex items-center gap-4 mb-6">
-              <canvas 
-                class="review-avatar-canvas w-12 h-12 rounded-full border border-brandCyan/20 bg-darkBg pointer-events-none select-none"
-                data-hash={review.photoHash}
-              ></canvas>
-              <div>
-                <p class="text-textPrimary font-sora font-bold text-sm whitespace-normal leading-none">{review.company}</p>
-                <p class="text-[#36d6d6] font-space text-[10px] uppercase tracking-widest mt-1 reviewer-name">{review.name}</p>
+      <!-- Track Animado 2 (Duplicado para o Loop) -->
+      <div class="flex shrink-0 min-w-full gap-6 animate-marquee group-hover:[animation-play-state:paused] marquee-track" aria-hidden="true">
+        {reviews.map((review, index) => (
+          <div class="review-card-container w-[350px] shrink-0 bg-surface border border-brandCyan/5 rounded-[32px] p-8 cursor-pointer flex flex-col justify-between">
+            <div>
+              <div class="flex items-center gap-4 mb-6">
+                <canvas 
+                  class="review-avatar-canvas w-12 h-12 rounded-full border border-brandCyan/20 bg-darkBg pointer-events-none select-none"
+                  data-hash={review.photoHash}
+                ></canvas>
+                <div>
+                  <p class="text-textPrimary font-sora font-bold text-sm whitespace-normal leading-none">{review.company}</p>
+                  <p class="text-[#1C69B7] font-space text-[10px] uppercase tracking-widest mt-1 reviewer-name">{review.name}</p>
+                </div>
               </div>
+              <p class="review-text-content text-textSecondary font-sora text-sm leading-relaxed whitespace-normal break-words italic">
+                "{review.isTranslatable ? review.textEn : review.text}"
+              </p>
             </div>
-            <p class="review-text-content text-textSecondary font-sora text-sm leading-relaxed whitespace-normal break-words italic">
-              "{review.isTranslatable ? review.textEn : review.text}"
-            </p>
+            {review.isTranslatable && (
+              <button 
+                class="translate-review-btn mt-4 text-[10px] font-space text-brandCyan/70 hover:text-brandCyan flex items-center gap-1 transition-all active:scale-95 cursor-pointer uppercase tracking-wider bg-transparent border-none p-0 w-fit"
+                data-en={review.textEn}
+                data-pt={review.textPt}
+                data-current="en"
+              >
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="inline mr-1" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg> Traduzir para o Português
+              </button>
+            )}
           </div>
-          {review.isTranslatable && (
-            <button 
-              class="translate-review-btn mt-4 text-[10px] font-space text-brandCyan/70 hover:text-brandCyan flex items-center gap-1 transition-all active:scale-95 cursor-pointer uppercase tracking-wider bg-transparent border-none p-0 w-fit"
-              data-en={review.textEn}
-              data-pt={review.textPt}
-              data-current="en"
-            >
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="inline mr-1" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg> Traduzir para o Português
-            </button>
-          )}
-        </div>
-      ))}
+        ))}
+      </div>
+
     </div>
 
     <!-- Fade effects nas bordas -->
@@ -114,41 +119,34 @@ const reviews = [
     <div class="pointer-events-none absolute inset-y-0 right-0 w-16 md:w-40 bg-gradient-to-l from-darkBg to-transparent z-40"></div>
 
   </div>
-
-  <!-- Modal de Zoom do Depoimento (Centralizado na Tela) -->
-  <div id="review-zoom-modal" class="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-[#0b0e14]/90 backdrop-blur-xl opacity-0 pointer-events-none transition-all duration-500">
-    <div class="bg-[#161b22] border border-white/10 rounded-[32px] p-8 md:p-10 max-w-lg w-full shadow-[0_0_50px_rgba(54,214,214,0.15)] transform scale-95 transition-all duration-500 flex flex-col gap-6 relative" id="review-zoom-modal-content">
-      
-      <!-- Botão de Fechar -->
-      <button id="btn-close-review-modal" class="absolute top-6 right-6 w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-textSecondary hover:text-textPrimary transition-all cursor-pointer">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-          <line x1="18" y1="6" x2="6" y2="18"></line>
-          <line x1="6" y1="6" x2="18" y2="18"></line>
-        </svg>
-      </button>
-
-      <div class="flex items-center gap-4">
-        <canvas 
-          id="modal-review-avatar"
-          class="w-14 h-14 rounded-full border border-brandCyan/20 bg-darkBg pointer-events-none select-none"
-        ></canvas>
-        <div>
-          <p id="modal-review-company" class="text-textPrimary font-sora font-extrabold text-base leading-none"></p>
-          <p id="modal-review-name" class="text-[#36d6d6] font-space text-[10px] uppercase tracking-widest mt-1.5 font-bold"></p>
-        </div>
-      </div>
-
-      <div class="relative mt-2">
-        <svg class="absolute -top-6 -left-6 text-white/[0.02] w-16 h-16 pointer-events-none" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.154c-2.416.913-3.979 3.633-3.979 5.844h3.983v10h-10z"/>
-        </svg>
-        <p id="modal-review-text" class="text-textPrimary font-sora text-base leading-relaxed italic relative z-10 pl-2">
-        </p>
-      </div>
-
-    </div>
-  </div>
 </section>
+
+<!-- Efeitos CSS Spotlight de Transições Fluidas -->
+<style is:global>
+  /* Transições suaves e independentes para todos os elementos das reviews */
+  .review-card-container {
+    transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1) !important;
+  }
+
+  /* Quando houver foco ou hover em qualquer lugar do shift wrapper, reduz as demais reviews */
+  #marquee-shift-wrapper:hover .review-card-container,
+  #marquee-shift-wrapper.has-active .review-card-container {
+    opacity: 0.35;
+    filter: blur(1.5px);
+    transform: scale(0.92);
+  }
+
+  /* Zoom Premium do comentário focado/hovered */
+  #marquee-shift-wrapper:hover .review-card-container:hover,
+  #marquee-shift-wrapper .review-card-container.active-card {
+    opacity: 1 !important;
+    filter: none !important;
+    transform: scale(1.18) !important;
+    z-index: 50 !important;
+    border-color: rgba(54, 214, 214, 0.45) !important;
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.9), 0 0 35px rgba(54, 214, 214, 0.35) !important;
+  }
+</style>
 
 <script>
   document.addEventListener('astro:page-load', () => {
@@ -166,18 +164,15 @@ const reviews = [
         const img = new Image();
         img.src = decodedPath;
         img.onload = () => {
-          // Retina high-resolution size scaling
           const size = 96;
           (canvas as HTMLCanvasElement).width = size;
           (canvas as HTMLCanvasElement).height = size;
           
-          // Draw circular crop
           ctx.beginPath();
           ctx.arc(size / 2, size / 2, size / 2, 0, Math.PI * 2);
           ctx.closePath();
           ctx.clip();
           
-          // Draw image
           ctx.drawImage(img, 0, 0, size, size);
         };
       } catch (err) {
@@ -234,104 +229,116 @@ const reviews = [
       });
     });
 
-    // 4. Modal Zoom Logic (Centralizado no clique/hover com grace-period)
-    const modal = document.getElementById('review-zoom-modal');
-    const modalContent = document.getElementById('review-zoom-modal-content');
-    const btnCloseModal = document.getElementById('btn-close-review-modal');
-    
-    const modalCompany = document.getElementById('modal-review-company');
-    const modalName = document.getElementById('modal-review-name');
-    const modalText = document.getElementById('modal-review-text');
-    const modalAvatar = document.getElementById('modal-review-avatar') as HTMLCanvasElement;
-    
+    // 4. Mecanismo de Alinhamento Horizontal (Shift Spotlight)
+    const shiftWrapper = document.getElementById('marquee-shift-wrapper');
     const cards = document.querySelectorAll('.review-card-container');
-    let openedByHover = false;
-    let hoverTimeout: any = null;
+    let activeCard: Element | null = null;
+    let isLocked = false;
 
-    function openModal(card: Element, isHover: boolean) {
-      if (!modal || !modalContent || !modalCompany || !modalName || !modalText) return;
+    function centerCard(card: Element, locked = false) {
+      if (!shiftWrapper) return;
+      
+      // Se houver trava de clique ativo, ignora hovers genéricos
+      if (isLocked && !locked) return;
 
-      const company = card.querySelector('.text-textPrimary')?.textContent || '';
-      const name = card.querySelector('.reviewer-name')?.textContent || '';
-      const text = card.querySelector('.review-text-content')?.textContent || '';
-      const canvasSrc = card.querySelector('.review-avatar-canvas') as HTMLCanvasElement;
+      cards.forEach(c => c.classList.remove('active-card'));
+      
+      activeCard = card;
+      isLocked = locked;
+      
+      card.classList.add('active-card');
+      shiftWrapper.classList.add('has-active');
 
-      modalCompany.textContent = company;
-      modalName.textContent = name;
-      modalText.textContent = text;
+      // Força pausa total nas tracks de animação via inline CSS
+      const tracks = shiftWrapper.querySelectorAll('.marquee-track');
+      tracks.forEach(track => {
+        (track as HTMLElement).style.animationPlayState = 'paused';
+      });
 
-      // Draw avatar onto modal canvas
-      if (canvasSrc && modalAvatar) {
-        modalAvatar.width = 112;
-        modalAvatar.height = 112;
-        const mCtx = modalAvatar.getContext('2d');
-        if (mCtx) {
-          mCtx.clearRect(0, 0, 112, 112);
-          mCtx.drawImage(canvasSrc, 0, 0, 112, 112);
+      // Cálculo de centralização no viewport
+      const rect = card.getBoundingClientRect();
+      const cardCenter = rect.left + rect.width / 2;
+      const viewportCenter = window.innerWidth / 2;
+      
+      // Lê o transform atual do shiftWrapper para evitar incrementos errados
+      const currentTransform = window.getComputedStyle(shiftWrapper).transform;
+      let currentX = 0;
+      if (currentTransform && currentTransform !== 'none') {
+        const matrixValues = currentTransform.match(/matrix.*\((.+)\)/);
+        if (matrixValues) {
+          const values = matrixValues[1].split(', ');
+          currentX = parseFloat(values[4]);
         }
       }
 
-      openedByHover = isHover;
-
-      modal.classList.remove('opacity-0', 'pointer-events-none');
-      modalContent.classList.remove('scale-95');
-      modalContent.classList.add('scale-100');
+      // O novo X é o atual mais o deslocamento necessário para alinhar ao centro
+      const newX = currentX + (viewportCenter - cardCenter);
+      shiftWrapper.style.transform = `translateX(${newX}px)`;
     }
 
-    function closeModal() {
-      if (!modal || !modalContent) return;
-      modal.classList.add('opacity-0', 'pointer-events-none');
-      modalContent.classList.remove('scale-100');
-      modalContent.classList.add('scale-95');
-      openedByHover = false;
-    }
+    function resetCenter() {
+      if (!shiftWrapper || isLocked) return;
 
-    cards.forEach(card => {
-      // Hover Interactions
-      card.addEventListener('mouseenter', () => {
-        if (hoverTimeout) clearTimeout(hoverTimeout);
-        openModal(card, true);
+      cards.forEach(c => c.classList.remove('active-card'));
+      shiftWrapper.classList.remove('has-active');
+      shiftWrapper.style.transform = 'none';
+
+      // Libera as tracks para voltarem a rodar normalmente
+      const tracks = shiftWrapper.querySelectorAll('.marquee-track');
+      tracks.forEach(track => {
+        (track as HTMLElement).style.animationPlayState = '';
       });
 
+      activeCard = null;
+    }
+
+    function forceReset() {
+      isLocked = false;
+      resetCenter();
+    }
+
+    // Registra os ouvintes
+    cards.forEach(card => {
+      // Evento de entrada do Mouse (Desktop)
+      card.addEventListener('mouseenter', () => {
+        centerCard(card, false);
+      });
+
+      // Evento de saída do Mouse (Desktop)
       card.addEventListener('mouseleave', () => {
-        if (openedByHover) {
-          hoverTimeout = setTimeout(() => {
-            closeModal();
-          }, 150); // 150ms grace period to transit cursor to modal
+        resetCenter();
+      });
+
+      // Evento de Clique / Toque (Mobile & Desktop - Persistente/Travado)
+      card.addEventListener('click', (e) => {
+        if ((e.target as HTMLElement).closest('.translate-review-btn')) return;
+        e.stopPropagation();
+        
+        // Se clicar no card que já está travado, destrava
+        if (activeCard === card && isLocked) {
+          forceReset();
+        } else {
+          centerCard(card, true);
         }
       });
-
-      // Click Interaction (Persistent)
-      card.addEventListener('click', (e) => {
-        // Prevent click if clicking the translation button
-        if ((e.target as HTMLElement).closest('.translate-review-btn')) return;
-        
-        if (hoverTimeout) clearTimeout(hoverTimeout);
-        openModal(card, false);
-      });
     });
 
-    // Close actions
-    btnCloseModal?.addEventListener('click', () => {
-      closeModal();
+    // Clique fora das reviews destrava e reinicia a rolagem
+    document.addEventListener('click', (e) => {
+      if (!e.target || !(e.target as HTMLElement).closest('.review-card-container')) {
+        forceReset();
+      }
     });
 
-    modal?.addEventListener('click', () => {
-      if (!openedByHover) closeModal();
-    });
-
-    modalContent?.addEventListener('click', (e) => {
-      e.stopPropagation();
-    });
-
-    modalContent?.addEventListener('mouseenter', () => {
-      if (hoverTimeout) clearTimeout(hoverTimeout);
-    });
-
-    modalContent?.addEventListener('mouseleave', () => {
-      if (openedByHover) {
-        closeModal();
+    // Reposiciona em caso de redimensionamento da janela
+    window.addEventListener('resize', () => {
+      if (activeCard && isLocked && shiftWrapper) {
+        shiftWrapper.style.transform = 'none';
+        setTimeout(() => {
+          if (activeCard) centerCard(activeCard, true);
+        }, 50);
       }
     });
   });
 </script>
+
