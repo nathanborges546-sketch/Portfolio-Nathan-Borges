@@ -232,6 +232,65 @@ Corrigir essa brecha costuma destravar os resultados de faturamento e melhorar a
     </div>
   </div>
 
+  <!-- Popup Modal de Conclusão da Simulação (CRM Sincronizado) -->
+  <div id="crm-completion-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-darkBg/90 backdrop-blur-md opacity-0 pointer-events-none transition-all duration-500">
+    <div class="bg-surface border border-white/5 rounded-3xl p-8 max-w-2xl w-full shadow-2xl transform scale-95 transition-all duration-500 flex flex-col gap-6" id="crm-completion-modal-content">
+      
+      <!-- Cabeçalho -->
+      <div class="flex items-start justify-between border-b border-white/5 pb-4">
+        <div>
+          <span class="font-space text-[10px] text-textSecondary uppercase tracking-widest font-semibold">Engenharia Comercial</span>
+          <h4 class="text-xl font-bold text-textPrimary mt-1 tracking-tight">Abordagens Despachadas e CRM Sincronizado!</h4>
+        </div>
+        <div class="w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-textPrimary text-sm">
+          <i class="fa-solid fa-circle-check text-[11px] text-[#00f2fe] animate-pulse"></i>
+        </div>
+      </div>
+
+      <!-- Texto Principal -->
+      <div class="bg-darkBg/40 border-l-2 border-[#00f2fe] p-4 rounded-r-xl">
+        <p class="text-xs text-textSecondary leading-relaxed italic">
+          Você acaba de simular o ciclo completo de prospecção inteligente. O sistema utiliza Inteligência Artificial para analisar o site de cada potencial cliente, gera uma abordagem 100% personalizada com base nas brechas encontradas e agenda os próximos pontos de contato sem que você precise preencher nenhuma linha manualmente.
+        </p>
+      </div>
+
+      <!-- Bloco Comparativo de Impacto (ROI) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <!-- Card 1: Processo Manual Antigo -->
+        <div class="bg-darkBg/30 border border-white/5 rounded-2xl p-5 flex flex-col justify-between gap-3">
+          <div>
+            <span class="text-[9px] font-space text-textSecondary font-bold uppercase tracking-wider">Processo Manual Antigo</span>
+            <h5 class="text-2xl font-bold text-textSecondary mt-1">12 horas</h5>
+          </div>
+          <p class="text-[11px] text-textSecondary leading-relaxed">
+            Tempo gasto para redigir mensagens uma a uma, com falhas constantes em datas de retorno e status perdidos em planilhas.
+          </p>
+        </div>
+
+        <!-- Card 2: Ecossistema Moskato -->
+        <div class="bg-darkBg/50 border border-white/10 rounded-2xl p-5 flex flex-col justify-between gap-3">
+          <div>
+            <span class="text-[9px] font-space text-textPrimary font-bold uppercase tracking-wider">Ecossistema Moskato</span>
+            <h5 class="text-2xl font-bold text-textPrimary mt-1">Em lote</h5>
+          </div>
+          <p class="text-[11px] text-textSecondary leading-relaxed">
+            Envio em massa totalmente personalizado via API. O algoritmo gerencia os prazos e move a esteira sozinho.
+          </p>
+        </div>
+      </div>
+
+      <!-- Texto de Encerramento -->
+      <p class="text-[11px] text-textSecondary leading-relaxed">
+        Ao centralizar a operação, o sistema elimina os três maiores gargalos de um time de vendas: esquecer de cobrar o cliente (follow-up), errar a data de retorno e atualizar o status manualmente. O pipeline roda de forma autônoma nos bastidores, garantindo que nenhuma negociação esfrie por falha humana.
+      </p>
+
+      <!-- Botão de Fechar -->
+      <button id="btn-close-completion" class="w-full bg-[#00f2fe] text-[#0b0e14] font-space font-extrabold text-xs tracking-widest uppercase py-4 px-4 rounded-xl hover:bg-white hover:text-[#0b0e14] transition-all duration-300 cursor-pointer text-center">
+        Fechar e Ver Esteira de Vendas
+      </button>
+    </div>
+  </div>
+
   <!-- Elemento de Confetes Canvas de Comemoração -->
   <canvas id="confetti-canvas" class="fixed inset-0 z-40 pointer-events-none w-full h-full"></canvas>
 
@@ -368,9 +427,23 @@ Corrigir essa brecha costuma destravar os resultados de faturamento e melhorar a
     const btnCopyModal = document.getElementById('btn-copy-modal');
     const btnSaveModal = document.getElementById('btn-save-modal');
 
+    // CRM Completion Modal Elements
+    const completionModal = document.getElementById('crm-completion-modal');
+    const completionModalContent = document.getElementById('crm-completion-modal-content');
+    const btnCloseCompletion = document.getElementById('btn-close-completion');
+
     // Re-render leads when strategy changes
     selectStrategy?.addEventListener('change', () => {
       renderQueueUI();
+    });
+
+    // Close CRM Completion Modal
+    btnCloseCompletion?.addEventListener('click', () => {
+      if (completionModal && completionModalContent) {
+        completionModal.classList.add('opacity-0', 'pointer-events-none');
+        completionModalContent.classList.remove('scale-100');
+        completionModalContent.classList.add('scale-95');
+      }
     });
 
     // Slider Listeners
@@ -527,6 +600,16 @@ Corrigir essa brecha costuma destravar os resultados de faturamento e melhorar a
           
           btnRunAutomation.removeAttribute('disabled');
           btnRunAutomation.classList.remove('opacity-50', 'pointer-events-none');
+
+          // Trigger the completion modal
+          if (completionModal && completionModalContent) {
+            setTimeout(() => {
+              completionModal.classList.remove('opacity-0', 'pointer-events-none');
+              completionModalContent.classList.remove('scale-95');
+              completionModalContent.classList.add('scale-100');
+              triggerConfettiCelebration(); // Explode confetti on success!
+            }, 600);
+          }
         }, delay);
 
       }, 2000);
