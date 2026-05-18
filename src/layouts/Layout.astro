@@ -59,5 +59,72 @@ const { title } = Astro.props;
 	<body class="bg-darkBg text-textPrimary min-h-screen relative font-sora selection:bg-brandCyan selection:text-darkBg antialiased">
 		<Navbar />
 		<slot />
+
+		<!-- Script de Dynamic Tab Title (Conversão e Captura de Atenção) -->
+		<script is:inline>
+			(function() {
+				const titleOriginal = "Nathan Borges | Engenharia de Sistemas & UX";
+				const alertTitles = [
+					"Precisando de um especialista? 🤔",
+					"Clique em Conversar no WhatsApp! 💬",
+					"Vamos destravar o teu negócio? ⚡"
+				];
+				const awayTitles = [
+					"Ainda está ai? 👀",
+					"Se quiser voltar estou aqui! 👋"
+				];
+
+				let alertIndex = 0;
+				let awayIndex = 0;
+				let intervalId = null;
+
+				function handleVisibility() {
+					if (intervalId) clearInterval(intervalId);
+					
+					if (document.hidden) {
+						// Fora da página
+						awayIndex = 0;
+						document.title = awayTitles[0];
+						intervalId = setInterval(() => {
+							awayIndex = (awayIndex + 1) % awayTitles.length;
+							document.title = awayTitles[awayIndex];
+						}, 4000);
+					} else {
+						// De volta à página
+						document.title = titleOriginal;
+						let toggle = false;
+						intervalId = setInterval(() => {
+							toggle = !toggle;
+							if (toggle) {
+								document.title = alertTitles[alertIndex];
+								alertIndex = (alertIndex + 1) % alertTitles.length;
+							} else {
+								document.title = titleOriginal;
+							}
+						}, 6000);
+					}
+				}
+
+				document.addEventListener('visibilitychange', handleVisibility);
+				
+				// Ciclo Inicial (Ativo)
+				let toggle = false;
+				intervalId = setInterval(() => {
+					toggle = !toggle;
+					if (toggle) {
+						document.title = alertTitles[alertIndex];
+						alertIndex = (alertIndex + 1) % alertTitles.length;
+					} else {
+						document.title = titleOriginal;
+					}
+				}, 6000);
+
+				// Suporte completo a navegação do Astro View Transitions
+				document.addEventListener('astro:after-swap', () => {
+					if (intervalId) clearInterval(intervalId);
+					document.title = titleOriginal;
+				});
+			})();
+		</script>
 	</body>
 </html>

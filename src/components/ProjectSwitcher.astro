@@ -42,8 +42,8 @@ const uxCases = [
 ];
 ---
 
-<section id="projetos" class="py-32 px-6 md:px-12 bg-darkBg overflow-hidden">
-  <div class="max-w-7xl mx-auto">
+<section id="projetos" class="py-32 bg-darkBg overflow-hidden">
+  <div class="max-w-7xl mx-auto px-6 sm:px-8">
     
     <!-- Header e Tabs -->
     <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
@@ -83,115 +83,111 @@ const uxCases = [
           </svg>
         </button>
 
-        <!-- Carousel Track Window -->
-        <div class="w-full overflow-hidden rounded-[36px] border border-brandCyan/5 bg-surface">
-          <div id="carousel-track" class="flex flex-row w-full transition-transform duration-500 ease-[cubic-bezier(0.25,1,0.5,1)]">
-            
-            {automationsCases.map((c, index) => {
-              const isActive = index === 0;
-              return (
-                <div 
-                  data-slide-index={index}
-                  class={`w-full shrink-0 flex flex-col md:flex-row gap-8 md:gap-12 p-6 md:p-12 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] ${isActive ? 'opacity-100 scale-100' : 'opacity-20 scale-[0.98]'}`}
-                >
-                  <!-- Lado Esquerdo: Conteúdo Comercial -->
-                  <div class="flex-1 flex flex-col justify-between gap-6">
-                    <div class="flex flex-col gap-4">
-                      <span class="font-space text-3xl md:text-5xl text-brandCyan font-bold tracking-tight">{c.metric}</span>
-                      <h4 class="text-xl md:text-3xl font-sora font-bold text-textPrimary tracking-tight">{c.title}</h4>
-                      <p class="text-textSecondary text-sm md:text-base leading-relaxed font-sora max-w-xl">{c.desc}</p>
-                    </div>
-
-                    <div>
-                      <div class="flex flex-wrap gap-2 mb-8">
-                        {c.tags.map(tag => (
-                          <span class="px-3 py-1 bg-darkBg border border-brandCyan/10 rounded-full text-[9px] md:text-[10px] font-space text-blue-400">{tag}</span>
-                        ))}
-                      </div>
-                      {c.link && (
-                        <a 
-                          href={c.link} 
-                          class="inline-flex items-center justify-center px-6 py-3.5 md:px-8 md:py-4 bg-[#00f2fe] text-[#0b0e14] font-space font-bold rounded-xl hover:bg-white hover:text-[#0b0e14] transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_0_30px_rgba(0,242,254,0.45)] active:scale-95 uppercase tracking-wider text-xs w-fit group"
-                        >
-                          Abrir Simulador Interativo 
-                          <span class="ml-2 group-hover:translate-x-1 transition-transform font-bold text-sm">→</span>
-                        </a>
-                      )}
-                    </div>
+        <!-- Carousel Absolute Stack Container -->
+        <div class="relative w-full max-w-full min-h-[520px] md:min-h-[420px]">
+          {automationsCases.map((c, index) => {
+            const isActive = index === 0;
+            return (
+              <div 
+                data-slide-index={index}
+                class={`w-full flex flex-col md:flex-row gap-8 md:gap-12 p-6 md:p-12 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] bg-surface rounded-[36px] border border-brandCyan/5 hover:border-brandCyan/25 ${isActive ? 'relative opacity-100 scale-100 pointer-events-auto z-10 translate-x-0' : 'absolute inset-0 opacity-0 scale-[0.98] pointer-events-none z-0 translate-x-8'}`}
+              >
+                <!-- Lado Esquerdo: Conteúdo Comercial -->
+                <div class="flex-1 flex flex-col justify-between gap-6">
+                  <div class="flex flex-col gap-4">
+                    <span class="font-space text-3xl md:text-5xl text-brandCyan font-bold tracking-tight">{c.metric}</span>
+                    <h4 class="text-xl md:text-3xl font-sora font-bold text-textPrimary tracking-tight">{c.title}</h4>
+                    <p class="text-textSecondary text-sm md:text-base leading-relaxed font-sora max-w-xl">{c.desc}</p>
                   </div>
 
-                  <!-- Lado Direito: Preview Decorativo/Gráfico Premium -->
-                  <div class="hidden md:flex flex-1 items-center justify-center relative overflow-hidden bg-darkBg/30 border border-white/5 rounded-2xl p-8">
-                    <!-- Grid background -->
-                    <div class="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:16px_16px]"></div>
-                    
-                    <!-- UI Mocks correspondentes a cada projeto -->
-                    {index === 0 && (
-                      <div class="relative w-full max-w-[280px] aspect-[4/3] bg-surface/50 border border-white/5 rounded-2xl p-5 shadow-2xl flex flex-col justify-between">
-                        <div class="flex justify-between items-center pb-3 border-b border-white/5">
-                          <span class="text-[9px] font-space text-textSecondary uppercase tracking-widest font-bold">Evolution API Sync</span>
-                          <span class="w-2 h-2 rounded-full bg-[#00f2fe] animate-pulse"></span>
-                        </div>
-                        <div class="flex flex-col gap-2 my-3">
-                          <div class="h-1.5 w-2/3 bg-white/5 rounded"></div>
-                          <div class="h-1.5 w-5/6 bg-white/5 rounded"></div>
-                          <div class="h-1.5 w-1/2 bg-white/5 rounded"></div>
-                        </div>
-                        <div class="flex justify-between items-center text-[10px]">
-                          <span class="text-textSecondary">Sincronização</span>
-                          <span class="text-[#00f2fe] font-bold">100% Ativa</span>
-                        </div>
-                      </div>
-                    )}
-
-                    {index === 1 && (
-                      <div class="relative w-full max-w-[280px] aspect-[4/3] bg-surface/50 border border-white/5 rounded-2xl p-5 shadow-2xl flex flex-col justify-between">
-                        <div class="flex justify-between items-center pb-3 border-b border-white/5">
-                          <span class="text-[9px] font-space text-textSecondary uppercase tracking-widest font-bold">Moskato Server</span>
-                          <span class="text-[9px] text-[#00f2fe] font-bold">Local</span>
-                        </div>
-                        <div class="flex flex-col gap-2.5 my-3">
-                          <div class="flex justify-between text-[10px]">
-                            <span class="text-textSecondary">Albânia - Himarë</span>
-                            <span class="text-textPrimary font-semibold">Online</span>
-                          </div>
-                          <div class="h-1.5 w-full bg-white/5 rounded"></div>
-                          <div class="h-1.5 w-3/4 bg-white/5 rounded"></div>
-                        </div>
-                        <div class="text-[10px] text-textSecondary font-space">
-                          Status: <span class="text-[#00f2fe] font-bold">100% Offline-First</span>
-                        </div>
-                      </div>
-                    )}
-
-                    {index === 2 && (
-                      <div class="relative w-full max-w-[280px] aspect-[4/3] bg-surface/50 border border-white/5 rounded-2xl p-5 shadow-2xl flex flex-col justify-between">
-                        <div class="flex justify-between items-center pb-3 border-b border-white/5">
-                          <span class="text-[9px] font-space text-textSecondary uppercase tracking-widest font-bold">Data Purifier Engine</span>
-                          <span class="text-[9px] text-[#00f2fe] font-bold">Python</span>
-                        </div>
-                        <div class="flex flex-col gap-2 my-3">
-                          <div class="flex justify-between text-[10px]">
-                            <span class="text-textSecondary">Registros Limpos</span>
-                            <span class="text-textPrimary font-semibold">+1,204</span>
-                          </div>
-                          <div class="flex justify-between text-[10px]">
-                            <span class="text-textSecondary">Duplicatas Resolvidas</span>
-                            <span class="text-textPrimary font-semibold">100%</span>
-                          </div>
-                        </div>
-                        <div class="flex justify-between items-center text-[10px]">
-                          <span class="text-textSecondary">Eficiência</span>
-                          <span class="text-[#00f2fe] font-bold">100% Puro</span>
-                        </div>
-                      </div>
+                  <div>
+                    <div class="flex flex-wrap gap-2 mb-8">
+                      {c.tags.map(tag => (
+                        <span class="px-3 py-1 bg-darkBg border border-brandCyan/10 rounded-full text-[9px] md:text-[10px] font-space text-blue-400">{tag}</span>
+                      ))}
+                    </div>
+                    {c.link && (
+                      <a 
+                        href={c.link} 
+                        class="inline-flex items-center justify-center px-6 py-3.5 md:px-8 md:py-4 bg-[#00f2fe] text-[#0b0e14] font-space font-bold rounded-xl hover:bg-white hover:text-[#0b0e14] transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_0_30px_rgba(0,242,254,0.45)] active:scale-95 uppercase tracking-wider text-xs w-fit group"
+                      >
+                        Abrir Simulador Interativo 
+                        <span class="ml-2 group-hover:translate-x-1 transition-transform font-bold text-sm">→</span>
+                      </a>
                     )}
                   </div>
                 </div>
-              );
-            })}
 
-          </div>
+                <!-- Lado Direito: Preview Decorativo/Gráfico Premium -->
+                <div class="hidden md:flex flex-1 items-center justify-center relative overflow-hidden bg-darkBg/30 border border-white/5 rounded-2xl p-8">
+                  <!-- Grid background -->
+                  <div class="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:16px_16px]"></div>
+                  
+                  <!-- UI Mocks correspondentes a cada projeto -->
+                  {index === 0 && (
+                    <div class="relative w-full max-w-[280px] aspect-[4/3] bg-surface/50 border border-white/5 rounded-2xl p-5 shadow-2xl flex flex-col justify-between">
+                      <div class="flex justify-between items-center pb-3 border-b border-white/5">
+                        <span class="text-[9px] font-space text-textSecondary uppercase tracking-widest font-bold">Evolution API Sync</span>
+                        <span class="w-2 h-2 rounded-full bg-[#00f2fe] animate-pulse"></span>
+                      </div>
+                      <div class="flex flex-col gap-2 my-3">
+                        <div class="h-1.5 w-2/3 bg-white/5 rounded"></div>
+                        <div class="h-1.5 w-5/6 bg-white/5 rounded"></div>
+                        <div class="h-1.5 w-1/2 bg-white/5 rounded"></div>
+                      </div>
+                      <div class="flex justify-between items-center text-[10px]">
+                        <span class="text-textSecondary">Sincronização</span>
+                        <span class="text-[#00f2fe] font-bold">100% Ativa</span>
+                      </div>
+                    </div>
+                  )}
+
+                  {index === 1 && (
+                    <div class="relative w-full max-w-[280px] aspect-[4/3] bg-surface/50 border border-white/5 rounded-2xl p-5 shadow-2xl flex flex-col justify-between">
+                      <div class="flex justify-between items-center pb-3 border-b border-white/5">
+                        <span class="text-[9px] font-space text-textSecondary uppercase tracking-widest font-bold">Moskato Server</span>
+                        <span class="text-[9px] text-[#00f2fe] font-bold">Local</span>
+                      </div>
+                      <div class="flex flex-col gap-2.5 my-3">
+                        <div class="flex justify-between text-[10px]">
+                          <span class="text-textSecondary">Albânia - Himarë</span>
+                          <span class="text-textPrimary font-semibold">Online</span>
+                        </div>
+                        <div class="h-1.5 w-full bg-white/5 rounded"></div>
+                        <div class="h-1.5 w-3/4 bg-white/5 rounded"></div>
+                      </div>
+                      <div class="text-[10px] text-textSecondary font-space">
+                        Status: <span class="text-[#00f2fe] font-bold">100% Offline-First</span>
+                      </div>
+                    </div>
+                  )}
+
+                  {index === 2 && (
+                    <div class="relative w-full max-w-[280px] aspect-[4/3] bg-surface/50 border border-white/5 rounded-2xl p-5 shadow-2xl flex flex-col justify-between">
+                      <div class="flex justify-between items-center pb-3 border-b border-white/5">
+                        <span class="text-[9px] font-space text-textSecondary uppercase tracking-widest font-bold">Data Purifier Engine</span>
+                        <span class="text-[9px] text-[#00f2fe] font-bold">Python</span>
+                      </div>
+                      <div class="flex flex-col gap-2 my-3">
+                        <div class="flex justify-between text-[10px]">
+                          <span class="text-textSecondary">Registros Limpos</span>
+                          <span class="text-textPrimary font-semibold">+1,204</span>
+                        </div>
+                        <div class="flex justify-between text-[10px]">
+                          <span class="text-textSecondary">Duplicatas Resolvidas</span>
+                          <span class="text-textPrimary font-semibold">100%</span>
+                        </div>
+                      </div>
+                      <div class="flex justify-between items-center text-[10px]">
+                        <span class="text-textSecondary">Eficiência</span>
+                        <span class="text-[#00f2fe] font-bold">100% Puro</span>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </div>
+            );
+          })}
         </div>
 
         <!-- Mobile Navigation Controls (Visível apenas no mobile, abaixo do card) -->
@@ -293,22 +289,16 @@ const uxCases = [
     const btnCarouselPrevMobile = document.getElementById('btn-carousel-prev-mobile');
     const btnCarouselNextMobile = document.getElementById('btn-carousel-next-mobile');
     const carouselIndicatorMobile = document.getElementById('carousel-indicator-mobile');
-    const carouselTrack = document.getElementById('carousel-track');
 
     const renderCarousel = () => {
-      // Shift track wrapper via horizontal percentage
-      if (carouselTrack) {
-        carouselTrack.style.transform = `translateX(-${activeCarouselIndex * 100}%)`;
-      }
-
-      // Add fade and scale micro transitions to the slides
+      // Fade, scale, translate & stack active/inactive slides
       slidesAuto.forEach((slide, idx) => {
         if (idx === activeCarouselIndex) {
-          slide.classList.remove('opacity-20', 'scale-[0.98]');
-          slide.classList.add('opacity-100', 'scale-100');
+          slide.classList.remove('absolute', 'inset-0', 'opacity-0', 'scale-[0.98]', 'pointer-events-none', 'z-0', 'translate-x-8');
+          slide.classList.add('relative', 'opacity-100', 'scale-100', 'pointer-events-auto', 'z-10', 'translate-x-0');
         } else {
-          slide.classList.remove('opacity-100', 'scale-100');
-          slide.classList.add('opacity-20', 'scale-[0.98]');
+          slide.classList.remove('relative', 'opacity-100', 'scale-100', 'pointer-events-auto', 'z-10', 'translate-x-0');
+          slide.classList.add('absolute', 'inset-0', 'opacity-0', 'scale-[0.98]', 'pointer-events-none', 'z-0', 'translate-x-8');
         }
       });
 
