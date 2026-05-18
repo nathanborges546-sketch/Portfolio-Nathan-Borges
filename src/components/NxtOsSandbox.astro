@@ -4,32 +4,32 @@
 
 <div class="w-full flex flex-col font-sora mt-4 opacity-0 animate-fade-in-up [animation-delay:200ms]">
   
-  <!-- Painel de Métricas e KPIs (Dashboard) -->
-  <div class="grid grid-cols-2 lg:grid-cols-5 gap-4 mb-8">
-    <div class="bg-[#0b0e14]/60 border border-white/5 p-4 rounded-2xl flex flex-col justify-between shadow-inner">
-      <span class="text-[9px] font-space text-[#8b949e] uppercase tracking-widest font-bold">Total de Leads</span>
-      <div class="text-2xl font-bold text-white mt-1" id="dash-total">6</div>
-      <div class="text-[9px] text-[#8b949e] mt-1 font-space">Sincronizados Notion</div>
+  <!-- Painel de Métricas e KPIs (Dashboard) - Design Premium Minimalista -->
+  <div class="grid grid-cols-2 lg:grid-cols-5 gap-4 mb-10">
+    <div class="bg-white/[0.01] border border-white/[0.03] p-5 rounded-2xl flex flex-col justify-between">
+      <span class="text-[10px] text-gray-500 font-semibold uppercase tracking-wider font-space">Total de Leads</span>
+      <div class="text-3xl font-bold text-white mt-2" id="dash-total">6</div>
+      <div class="text-[9px] text-gray-500 mt-1 font-space">Sincronizados Notion</div>
     </div>
-    <div class="bg-[#0b0e14]/60 border border-white/5 p-4 rounded-2xl flex flex-col justify-between shadow-inner">
-      <span class="text-[9px] font-space text-[#00f2fe] uppercase tracking-widest font-bold">Contatados</span>
-      <div class="text-2xl font-bold text-[#00f2fe] mt-1" id="dash-contacted">3</div>
-      <div class="text-[9px] text-[#8b949e] mt-1 font-space">Pelo Script de Abordagem</div>
+    <div class="bg-white/[0.01] border border-white/[0.03] p-5 rounded-2xl flex flex-col justify-between">
+      <span class="text-[10px] text-gray-500 font-semibold uppercase tracking-wider font-space">Contatados</span>
+      <div class="text-3xl font-bold text-[#00f2fe] mt-2" id="dash-contacted">3</div>
+      <div class="text-[9px] text-gray-500 mt-1 font-space">Pelo Script de Abordagem</div>
     </div>
-    <div class="bg-[#0b0e14]/60 border border-white/5 p-4 rounded-2xl flex flex-col justify-between shadow-inner">
-      <span class="text-[9px] font-space text-emerald-400 uppercase tracking-widest font-bold">Taxa de Resposta</span>
-      <div class="text-2xl font-bold text-emerald-400 mt-1" id="dash-response">50.0%</div>
-      <div class="text-[9px] text-[#8b949e] mt-1 font-space">Feedbacks Ativos</div>
+    <div class="bg-white/[0.01] border border-white/[0.03] p-5 rounded-2xl flex flex-col justify-between">
+      <span class="text-[10px] text-gray-500 font-semibold uppercase tracking-wider font-space">Taxa de Resposta</span>
+      <div class="text-3xl font-bold text-white mt-2" id="dash-response">50.0%</div>
+      <div class="text-[9px] text-gray-500 mt-1 font-space">Feedbacks Ativos</div>
     </div>
-    <div class="bg-[#0b0e14]/60 border border-white/5 p-4 rounded-2xl flex flex-col justify-between shadow-inner">
-      <span class="text-[9px] font-space text-blue-400 uppercase tracking-widest font-bold">Reuniões</span>
-      <div class="text-2xl font-bold text-blue-400 mt-1" id="dash-meetings">1</div>
-      <div class="text-[9px] text-[#8b949e] mt-1 font-space">Agendadas via Link</div>
+    <div class="bg-white/[0.01] border border-white/[0.03] p-5 rounded-2xl flex flex-col justify-between">
+      <span class="text-[10px] text-gray-500 font-semibold uppercase tracking-wider font-space">Reuniões</span>
+      <div class="text-3xl font-bold text-white mt-2" id="dash-meetings">1</div>
+      <div class="text-[9px] text-gray-500 mt-1 font-space">Agendadas via Link</div>
     </div>
-    <div class="bg-[#0b0e14]/60 border border-white/5 p-4 rounded-2xl flex flex-col justify-between shadow-inner col-span-2 lg:col-span-1">
-      <span class="text-[9px] font-space text-amber-500 uppercase tracking-widest font-bold">LTV / Capital Convertido</span>
-      <div class="text-2xl font-bold text-amber-500 mt-1" id="dash-ltv">R$ 5.000,00</div>
-      <div class="text-[9px] text-[#8b949e] mt-1 font-space">Contratos B2B Fechados</div>
+    <div class="bg-white/[0.01] border border-white/[0.03] p-5 rounded-2xl flex flex-col justify-between col-span-2 lg:col-span-1">
+      <span class="text-[10px] text-gray-500 font-semibold uppercase tracking-wider font-space">Capital Convertido</span>
+      <div class="text-3xl font-bold text-[#00f2fe] mt-2" id="dash-ltv">R$ 5.000,00</div>
+      <div class="text-[9px] text-gray-500 mt-1 font-space">Contratos B2B Fechados</div>
     </div>
   </div>
 
@@ -37,37 +37,34 @@
   <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
     
     <!-- Coluna da Esquerda: Central de Prospecção Ativa (Disparos) -->
-    <div class="lg:col-span-7 flex flex-col gap-6 bg-[#0b0e14]/40 border border-white/5 p-6 rounded-3xl">
-      <div class="flex items-center justify-between border-b border-white/5 pb-4">
+    <div class="lg:col-span-7 flex flex-col gap-8 bg-[#0b0e14]/40 border border-white/[0.03] p-8 rounded-3xl">
+      <div class="flex items-center justify-between border-b border-white/[0.03] pb-5">
         <div>
           <h3 class="text-lg font-bold text-[#f0f6fc]">🎯 Central de Disparos Ativos</h3>
-          <p class="text-xs text-[#8b949e] mt-1">Configure regras de roteamento, fallbacks e acione em lote.</p>
+          <p class="text-xs text-gray-400 mt-1">Configure regras de roteamento, fallbacks e acione em lote.</p>
         </div>
-        <span class="text-[10px] font-space bg-brandCyan/10 text-brandCyan border border-brandCyan/20 px-3 py-1 rounded-full uppercase tracking-wider font-semibold">NXT OS CORE</span>
       </div>
 
-      <!-- PAINEL DE AUTOMAÇÃO AVANÇADA -->
-      <div class="bg-[#0b0e14]/60 border border-white/5 rounded-2xl p-5 flex flex-col gap-4 shadow-inner">
-        <div class="flex items-center justify-between border-b border-white/5 pb-3">
-          <span class="text-[10px] font-space text-[#00f2fe] uppercase tracking-widest font-bold flex items-center gap-1.5">
-            <i class="fa-solid fa-gears animate-spin [animation-duration:12s]"></i> Painel de Automação Avançada
-          </span>
-          <span class="text-[8px] bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-2 py-0.5 rounded font-semibold uppercase tracking-wider">Scheduler Active</span>
+      <!-- PAINEL DE AUTOMAÇÃO AVANÇADA (De-boxed: sem caixas pesadas de borda externa) -->
+      <div class="flex flex-col gap-6">
+        <div class="flex items-center gap-2 mb-1">
+          <i class="fa-solid fa-gears text-gray-400"></i>
+          <span class="text-xs font-semibold text-[#f0f6fc]">Configurações de Disparo</span>
         </div>
 
         <!-- Linha 1: Scheduler & Data/Hora -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div class="flex flex-col gap-1.5">
-            <label class="text-[9px] text-[#8b949e] font-bold uppercase tracking-wider font-space">Janela de Disparo (Agendamento)</label>
+          <div class="flex flex-col gap-2">
+            <label class="text-xs text-gray-400 font-medium">Janela de Disparo (Agendamento)</label>
             <div class="flex gap-2">
-              <input type="date" id="scheduler-date" class="bg-[#0b0e14] border border-white/10 rounded-xl px-3 py-2 text-xs text-white outline-none focus:border-brandCyan/50 font-sora cursor-pointer w-full" value="2026-05-18" />
-              <input type="time" id="scheduler-time" class="bg-[#0b0e14] border border-white/10 rounded-xl px-3 py-2 text-xs text-white outline-none focus:border-brandCyan/50 font-sora cursor-pointer w-full" value="15:00" />
+              <input type="date" id="scheduler-date" class="bg-[#0b0e14] border border-white/5 rounded-xl px-3 py-2 text-xs text-white outline-none focus:border-brandCyan/50 font-sora cursor-pointer w-full" value="2026-05-18" />
+              <input type="time" id="scheduler-time" class="bg-[#0b0e14] border border-white/5 rounded-xl px-3 py-2 text-xs text-white outline-none focus:border-brandCyan/50 font-sora cursor-pointer w-full" value="15:00" />
             </div>
           </div>
 
-          <div class="flex flex-col gap-1.5">
-            <label class="text-[9px] text-[#8b949e] font-bold uppercase tracking-wider font-space">Roteamento Multicanal (Prioridade)</label>
-            <select id="automation-strategy" class="bg-[#0b0e14] border border-white/10 rounded-xl px-3 py-2.5 text-xs text-white outline-none focus:border-brandCyan/50 font-sora cursor-pointer w-full">
+          <div class="flex flex-col gap-2">
+            <label class="text-xs text-gray-400 font-medium">Roteamento Multicanal (Prioridade)</label>
+            <select id="automation-strategy" class="bg-[#0b0e14] border border-white/5 rounded-xl px-3 py-2.5 text-xs text-white outline-none focus:border-brandCyan/50 font-sora cursor-pointer w-full">
               <option value="priority-whatsapp" selected>Prioridade WhatsApp (Smart Fallback)</option>
               <option value="priority-email">Prioridade E-mail (Smart Fallback)</option>
               <option value="simultaneous">WhatsApp & E-mail Simultâneo</option>
@@ -76,60 +73,63 @@
         </div>
 
         <!-- Linha 2: Sliders de dias para CRM -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 border-t border-white/5 pt-3">
-          <div class="flex flex-col gap-1.5">
-            <div class="flex justify-between items-center text-[9px] text-[#8b949e] font-bold uppercase tracking-wider font-space">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 border-t border-white/[0.03] pt-5">
+          <div class="flex flex-col gap-2.5">
+            <div class="flex justify-between items-center text-xs text-gray-400">
               <span>Intervalo Follow Up</span>
-              <span id="label-val-followup" class="text-brandCyan font-bold text-xs">3 dias</span>
+              <span id="label-val-followup" class="text-brandCyan font-bold">3 dias</span>
             </div>
-            <input type="range" id="slider-followup" min="1" max="10" value="3" class="w-full h-1 bg-[#0b0e14] border border-white/10 rounded-lg appearance-none cursor-pointer accent-[#00f2fe]" />
+            <input type="range" id="slider-followup" min="1" max="10" value="3" class="w-full h-1 bg-[#0b0e14] rounded-lg appearance-none cursor-pointer accent-[#00f2fe]" />
           </div>
 
-          <div class="flex flex-col gap-1.5">
-            <div class="flex justify-between items-center text-[9px] text-[#8b949e] font-bold uppercase tracking-wider font-space">
+          <div class="flex flex-col gap-2.5">
+            <div class="flex justify-between items-center text-xs text-gray-400">
               <span>Arquivar sem resposta após</span>
-              <span id="label-val-archive" class="text-red-400 font-bold text-xs">7 dias</span>
+              <span id="label-val-archive" class="text-red-400 font-bold">7 dias</span>
             </div>
-            <input type="range" id="slider-archive" min="3" max="15" value="7" class="w-full h-1 bg-[#0b0e14] border border-white/10 rounded-lg appearance-none cursor-pointer accent-red-500" />
+            <input type="range" id="slider-archive" min="3" max="15" value="7" class="w-full h-1 bg-[#0b0e14] rounded-lg appearance-none cursor-pointer accent-red-500" />
           </div>
         </div>
 
         <!-- Ação do Bulk Scheduler -->
-        <div class="flex gap-3 items-stretch mt-1">
-          <button id="btn-run-automation" class="flex-1 bg-gradient-to-r from-[#00f2fe] to-blue-500 text-[#0b0e14] font-space font-bold text-xs tracking-wider uppercase py-3.5 px-6 rounded-xl hover:brightness-110 active:scale-95 transition-all flex items-center justify-center gap-2 cursor-pointer shadow-lg shadow-brandCyan/10">
+        <div class="flex gap-3 items-stretch mt-2">
+          <button id="btn-run-automation" class="flex-1 bg-[#00f2fe] text-[#0b0e14] font-space font-bold text-xs tracking-wider uppercase py-4 px-6 rounded-xl hover:bg-[#00d8e4] active:scale-[0.98] transition-all flex items-center justify-center gap-2 cursor-pointer">
             <i class="fa-solid fa-play"></i> Iniciar Automação Programada em Lote
           </button>
           
-          <button id="btn-reset-leads" class="bg-white/5 border border-white/10 text-gray-400 hover:text-white px-4 rounded-xl hover:bg-white/10 transition-all flex items-center justify-center cursor-pointer" title="Reiniciar Simulação">
+          <button id="btn-reset-leads" class="bg-white/5 border border-white/5 text-gray-400 hover:text-white px-5 rounded-xl hover:bg-white/10 transition-all flex items-center justify-center cursor-pointer" title="Reiniciar Simulação">
             <i class="fa-solid fa-arrows-rotate text-xs"></i>
           </button>
         </div>
       </div>
 
-      <!-- Console de Logs da Automação NXT OS -->
-      <div id="automation-console-box" class="bg-[#0b0e14]/85 border border-white/10 rounded-2xl p-4 font-mono text-[10px] text-emerald-400 leading-relaxed shadow-inner hidden">
-        <div class="flex items-center justify-between border-b border-white/5 pb-2 mb-2">
-          <span class="text-gray-400 font-space uppercase tracking-wider font-bold text-[9px]">🖥️ Console de Execução NXT OS (automacao_nxt.py)</span>
-          <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+      <!-- Console de Logs da Automação NXT OS (Integrado e Minimalista) -->
+      <div id="automation-console-box" class="bg-[#0b0e14]/60 border border-white/[0.03] rounded-2xl p-4 font-mono text-[10px] text-emerald-400 leading-relaxed hidden">
+        <div class="flex items-center justify-between border-b border-white/[0.03] pb-2 mb-2">
+          <span class="text-gray-400 font-space uppercase tracking-wider font-bold text-[9px]">🖥️ Console NXT OS</span>
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
         </div>
         <div id="automation-console-logs" class="flex flex-col gap-1 pr-1 max-h-[110px] overflow-y-auto scrollbar-thin">
           <!-- Logs will stream here dynamically -->
         </div>
       </div>
 
-      <!-- Customizador de Scripts (Abas Rápidas) -->
-      <div class="bg-[#0b0e14]/60 border border-white/5 rounded-2xl p-4">
-        <span class="text-[9px] font-space text-[#8b949e] uppercase tracking-wider block mb-3 font-bold">📜 Customizar Script Padrão</span>
+      <!-- Customizador de Scripts (Clean, sem caixas ruidosas) -->
+      <div class="flex flex-col gap-4 border-t border-white/[0.03] pt-6">
+        <div class="flex items-center gap-2">
+          <i class="fa-regular fa-file-lines text-gray-400"></i>
+          <span class="text-xs font-semibold text-[#f0f6fc]">Script Padrão de Abordagem</span>
+        </div>
         
-        <div class="flex gap-2 border-b border-white/5 pb-2 mb-3">
+        <div class="flex gap-2 border-b border-white/[0.03] pb-3">
           <button class="script-tab-btn active text-xs font-semibold px-3 py-1.5 rounded-lg transition-all" data-channel="whatsapp">
-            <i class="fa-brands fa-whatsapp text-emerald-400"></i> WhatsApp
+            WhatsApp
           </button>
           <button class="script-tab-btn text-xs font-semibold px-3 py-1.5 rounded-lg transition-all" data-channel="email">
-            <i class="fa-regular fa-envelope text-blue-400"></i> E-mail
+            E-mail
           </button>
           <button class="script-tab-btn text-xs font-semibold px-3 py-1.5 rounded-lg transition-all" data-channel="linkedin">
-            <i class="fa-brands fa-linkedin text-sky-400"></i> LinkedIn
+            LinkedIn
           </button>
         </div>
 
@@ -139,31 +139,30 @@
           <textarea id="script-input-email" class="w-full bg-[#0b0e14] border border-white/5 rounded-xl p-3 text-xs text-[#f0f6fc] focus:border-brandCyan/50 outline-none leading-relaxed hidden custom-textarea font-sora" rows="3">Prezado(a) Diretor(a),\n\nRealizei um diagnóstico técnico no site da [Empresa] e identifiquei falhas que prejudicam a captação de leads:\n\n[Diagnóstico]\n\nDesenvolvi um pipeline que resolve essas brechas. Gostaria de receber a solução?\n\nAtenciosamente,\nNathan - NXT OS</textarea>
           <textarea id="script-input-linkedin" class="w-full bg-[#0b0e14] border border-white/5 rounded-xl p-3 text-xs text-[#f0f6fc] focus:border-brandCyan/50 outline-none leading-relaxed hidden custom-textarea font-sora" rows="3">Olá! Vi o trabalho da [Empresa] no mercado e notei pontos fortes. Mas também reparei que vocês sofrem com [Diagnóstico]. Tem interesse em ver como otimizar isso?</textarea>
         </div>
-        <p class="text-[9px] text-[#8b949e] mt-2 font-space leading-relaxed"><i class="fa-solid fa-info-circle"></i> As tags <strong class="text-white">[Empresa]</strong> e <strong class="text-white">[Diagnóstico]</strong> são substituídas automaticamente em tempo real.</p>
+        <p class="text-[10px] text-gray-500 leading-relaxed"><i class="fa-solid fa-info-circle"></i> As tags <strong class="text-white font-medium">[Empresa]</strong> e <strong class="text-white font-medium">[Diagnóstico]</strong> são preenchidas dinamicamente.</p>
       </div>
 
-      <!-- Fila de Leads Ativa -->
-      <div class="flex flex-col gap-4" id="leads-queue-container">
+      <!-- Fila de Leads Ativa (Visualmente leve, de-boxed) -->
+      <div class="flex flex-col gap-4 border-t border-white/[0.03] pt-6" id="leads-queue-container">
         <!-- Renders leads here dynamically -->
       </div>
     </div>
 
     <!-- Coluna da Direita: Central CRM & Esteira de Follow Up -->
-    <div class="lg:col-span-5 flex flex-col gap-6 bg-[#0b0e14]/40 border border-white/5 p-6 rounded-3xl">
-      <div class="flex items-center justify-between border-b border-white/5 pb-4">
+    <div class="lg:col-span-5 flex flex-col gap-8 bg-[#0b0e14]/40 border border-white/[0.03] p-8 rounded-3xl">
+      <div class="flex items-center justify-between border-b border-white/[0.03] pb-5">
         <div>
           <h3 class="text-lg font-bold text-[#f0f6fc]">🔁 Esteira de Follow Up</h3>
-          <p class="text-xs text-[#8b949e] mt-1">Acompanhe retornos e evite perda de negociações.</p>
+          <p class="text-xs text-gray-400 mt-1">Sincronização ativa via Notion API.</p>
         </div>
-        <span class="text-[10px] font-space bg-amber-500/10 text-amber-500 border border-amber-500/20 px-3 py-1 rounded-full uppercase tracking-wider font-semibold">NOTION SYNCED</span>
       </div>
 
       <!-- Lista de Follow-Up -->
-      <div class="flex-1 flex flex-col gap-4 overflow-y-auto max-h-[750px] pr-1" id="follow-up-container">
+      <div class="flex-1 flex flex-col gap-4 overflow-y-auto max-h-[850px] pr-1 scrollbar-thin" id="follow-up-container">
         <!-- Renders follow up cards here dynamically -->
       </div>
       
-      <div class="text-[9px] text-[#8b949e]/40 pt-3 border-t border-white/5 flex justify-between font-space font-semibold">
+      <div class="text-[9px] text-gray-600 pt-3 border-t border-white/[0.03] flex justify-between font-space font-semibold">
         <span>Sistemas integrados: notion_crm • gemini_agent.py</span>
         <span>Ação Inteligente (RID)</span>
       </div>
@@ -205,7 +204,7 @@
             <option value="E-mail">E-mail</option>
             <option value="LinkedIn">LinkedIn</option>
           </select>
-          <button id="btn-save-modal" class="bg-[#00f2fe] text-[#0b0e14] font-space font-bold text-xs tracking-wider uppercase py-3 px-6 rounded-xl hover:brightness-110 active:scale-95 transition-all cursor-pointer">
+          <button id="btn-save-modal" class="bg-[#00f2fe] text-[#0b0e14] font-space font-bold text-xs tracking-wider uppercase py-3 px-6 rounded-xl hover:bg-[#00d8e4] active:scale-[0.98] transition-all cursor-pointer">
             Registrar e Mover CRM
           </button>
         </div>
@@ -316,7 +315,6 @@
   const EXCHANGE_LTV_RATE = 5000.00;
 
   function initNxtOsSimulation() {
-    // DOM Elements
     const queueContainer = document.getElementById('leads-queue-container');
     const followUpContainer = document.getElementById('follow-up-container');
     
@@ -373,7 +371,6 @@
     });
 
     function applyAutoArchiveRule(archiveLimit) {
-      // Find leads that exceed the limit
       const toArchive = activeFollowUpLeads.filter(l => l.status !== 'Convertido' && l.diasPassados >= archiveLimit);
       
       if (toArchive.length > 0) {
@@ -382,7 +379,6 @@
           addConsoleLog(`[CRM] Lead "${lead.empresa}" sem resposta há ${lead.diasPassados} dias. Movido automaticamente para status: ARQUIVADO.`, 'error');
         });
 
-        // Filter active list
         activeFollowUpLeads = activeFollowUpLeads.filter(l => !(l.status !== 'Convertido' && l.diasPassados >= archiveLimit));
         
         recalculateMetrics();
@@ -405,7 +401,6 @@
       logElement.innerHTML = `[${time}] ${text}`;
       consoleLogs.appendChild(logElement);
       
-      // Auto Scroll
       consoleLogs.scrollTop = consoleLogs.scrollHeight;
     }
 
@@ -420,11 +415,9 @@
       const timeVal = schedulerTime.value;
       const strategyVal = selectStrategy.value;
 
-      // Lock buttons
       btnRunAutomation.setAttribute('disabled', 'true');
       btnRunAutomation.classList.add('opacity-50', 'pointer-events-none');
 
-      // Clear logs
       if (consoleLogs) consoleLogs.innerHTML = '';
       addConsoleLog(`🕒 Agendador programado para a data: ${dateVal} às ${timeVal}...`, 'warn');
       addConsoleLog("⏱️ Aguardando janela de disparo automático (simulando 2000ms)...", 'warn');
@@ -432,12 +425,10 @@
       setTimeout(() => {
         addConsoleLog("🚀 Janela de disparo aberta! Iniciando automacao_nxt.py em lote...", 'success');
         
-        // Loop chain to simulate beautiful delayed logs
         let delay = 600;
         const leadsToProcess = [...activeQueueLeads];
         
         leadsToProcess.forEach((lead, index) => {
-          // Calculate channel for each lead based on strategy
           const routing = calculateChannelRouting(lead, strategyVal);
           
           setTimeout(() => {
@@ -484,15 +475,12 @@
           }, delay);
           delay += 800;
 
-          // Actually move the lead in the background
           setTimeout(() => {
-            // Remove from queue
             const qIndex = activeQueueLeads.findIndex(l => l.id === lead.id);
             if (qIndex !== -1) {
               activeQueueLeads.splice(qIndex, 1);
             }
             
-            // Push to CRM
             activeFollowUpLeads.unshift({
               ...lead,
               status: 'Tentativa de contato',
@@ -500,7 +488,6 @@
               diasPassados: 0
             });
             
-            // Visual feedback on card
             const cardEl = document.getElementById(`queue-card-${lead.id}`);
             if (cardEl) {
               cardEl.classList.add('opacity-0', 'scale-95', 'translate-x-4');
@@ -523,7 +510,6 @@
           addConsoleLog("🏆 Execução em Lote Finalizada com 100% de Confiabilidade!", 'success');
           showNotification("🚀 Disparo de Automação Concluído com Sucesso!");
           
-          // Re-enable button
           btnRunAutomation.removeAttribute('disabled');
           btnRunAutomation.classList.remove('opacity-50', 'pointer-events-none');
         }, delay);
@@ -531,12 +517,10 @@
       }, 2000);
     });
 
-    // Reset leads to initial simulation state
     btnResetLeads?.addEventListener('click', () => {
       activeQueueLeads = JSON.parse(JSON.stringify(INITIAL_QUEUE));
       activeFollowUpLeads = JSON.parse(JSON.stringify(INITIAL_FOLLOWUP));
       
-      // Hide console
       if (consoleBox) consoleBox.classList.add('hidden');
       if (consoleLogs) consoleLogs.innerHTML = '';
       
@@ -555,7 +539,6 @@
         const channel = btn.getAttribute('data-channel');
         currentSelectedChannel = channel;
         
-        // Toggle textareas
         textareaWa.classList.add('hidden');
         textareaEmail.classList.add('hidden');
         textareaLinkedin.classList.add('hidden');
@@ -569,19 +552,18 @@
     // Calculate smart channel routing on the fly based on strategy
     function calculateChannelRouting(lead, strategy) {
       if (strategy === 'priority-whatsapp') {
-        if (lead.hasWhatsApp) return { channelName: 'WhatsApp', badge: '📲 WhatsApp (Canal Principal)', color: 'text-emerald-400 bg-emerald-400/10 border-emerald-400/20' };
-        if (lead.hasEmail) return { channelName: 'E-mail', badge: '📧 E-mail (Fallback: WA indisponível)', color: 'text-blue-400 bg-blue-400/10 border-blue-400/20' };
-        return { channelName: 'Instagram', badge: '📸 Instagram (2º Fallback: WA/E-mail indisponíveis)', color: 'text-pink-400 bg-pink-400/10 border-pink-400/20' };
+        if (lead.hasWhatsApp) return { channelName: 'WhatsApp', badge: 'WhatsApp', color: 'text-emerald-400 bg-emerald-400/5 border border-emerald-500/10' };
+        if (lead.hasEmail) return { channelName: 'E-mail', badge: 'E-mail (Fallback)', color: 'text-blue-400 bg-blue-400/5 border border-blue-500/10' };
+        return { channelName: 'Instagram', badge: 'Instagram (Fallback)', color: 'text-pink-400 bg-pink-400/5 border border-pink-500/10' };
       } else if (strategy === 'priority-email') {
-        if (lead.hasEmail) return { channelName: 'E-mail', badge: '📧 E-mail (Canal Principal)', color: 'text-blue-400 bg-blue-400/10 border-blue-400/20' };
-        if (lead.hasWhatsApp) return { channelName: 'WhatsApp', badge: '📲 WhatsApp (Fallback: E-mail indisponível)', color: 'text-emerald-400 bg-emerald-400/10 border-emerald-400/20' };
-        return { channelName: 'Instagram', badge: '📸 Instagram (2º Fallback: WA/E-mail indisponíveis)', color: 'text-pink-400 bg-pink-400/10 border-pink-400/20' };
+        if (lead.hasEmail) return { channelName: 'E-mail', badge: 'E-mail', color: 'text-blue-400 bg-blue-400/5 border border-blue-500/10' };
+        if (lead.hasWhatsApp) return { channelName: 'WhatsApp', badge: 'WhatsApp (Fallback)', color: 'text-emerald-400 bg-emerald-400/5 border border-emerald-500/10' };
+        return { channelName: 'Instagram', badge: 'Instagram (Fallback)', color: 'text-pink-400 bg-pink-400/5 border border-pink-500/10' };
       } else {
-        // Simultaneous
-        if (lead.hasWhatsApp && lead.hasEmail) return { channelName: 'WA & E-mail', badge: '⚡ WA + E-mail (Simultâneo)', color: 'text-[#00f2fe] bg-[#00f2fe]/10 border-[#00f2fe]/20' };
-        if (lead.hasWhatsApp) return { channelName: 'WhatsApp', badge: '📲 WhatsApp (E-mail indisponível)', color: 'text-emerald-400 bg-emerald-400/10 border-emerald-400/20' };
-        if (lead.hasEmail) return { channelName: 'E-mail', badge: '📧 E-mail (WA indisponível)', color: 'text-blue-400 bg-blue-400/10 border-blue-400/20' };
-        return { channelName: 'Instagram', badge: '📸 Instagram (Simultâneo indisponível)', color: 'text-pink-400 bg-pink-400/10 border-pink-400/20' };
+        if (lead.hasWhatsApp && lead.hasEmail) return { channelName: 'WA & E-mail', badge: 'WA + E-mail', color: 'text-[#00f2fe] bg-[#00f2fe]/5 border border-[#00f2fe]/10' };
+        if (lead.hasWhatsApp) return { channelName: 'WhatsApp', badge: 'WhatsApp', color: 'text-emerald-400 bg-emerald-400/5 border border-emerald-500/10' };
+        if (lead.hasEmail) return { channelName: 'E-mail', badge: 'E-mail', color: 'text-blue-400 bg-blue-400/5 border border-blue-500/10' };
+        return { channelName: 'Instagram', badge: 'Instagram', color: 'text-pink-400 bg-pink-400/5 border border-pink-500/10' };
       }
     }
 
@@ -624,15 +606,12 @@
     btnSaveModal?.addEventListener('click', () => {
       const selectedChannel = modalSelectChannel.value;
       
-      // Move lead from active queue to follow up
       const leadIndex = activeQueueLeads.findIndex(l => l.id === leadToProspectId);
       if (leadIndex !== -1) {
         const lead = activeQueueLeads[leadIndex];
         
-        // Remove from queue
         activeQueueLeads.splice(leadIndex, 1);
         
-        // Push to follow up
         activeFollowUpLeads.unshift({
           ...lead,
           status: 'Tentativa de contato',
@@ -640,7 +619,6 @@
           diasPassados: 0
         });
 
-        // Trigger CSS animation of card deletion
         const cardElement = document.getElementById(`queue-card-${leadToProspectId}`);
         if (cardElement) {
           cardElement.classList.add('opacity-0', 'scale-95', 'translate-x-4');
@@ -652,7 +630,6 @@
         }
       }
 
-      // Close modal
       if (previewModal && previewModalContent) {
         previewModal.classList.add('opacity-0', 'pointer-events-none');
         previewModalContent.classList.remove('scale-100');
@@ -668,12 +645,10 @@
           modalLeadTitle.innerText = `Script de abordagem para ${lead.empresa}`;
           modalScriptText.innerText = getPersonalizedScript(lead, channelType);
           
-          // Prefill channel selector matching the button clicked
           if (channelType === 'whatsapp') modalSelectChannel.value = 'WhatsApp';
           else if (channelType === 'email') modalSelectChannel.value = 'E-mail';
           else modalSelectChannel.value = 'LinkedIn';
           
-          // Open Modal
           previewModal.classList.remove('opacity-0', 'pointer-events-none');
           previewModalContent.classList.remove('scale-95');
           previewModalContent.classList.add('scale-100');
@@ -686,7 +661,6 @@
       if (lead) {
         lead.status = newStatus;
         
-        // If converted, celebrate!
         if (newStatus === 'Convertido') {
           triggerConfettiCelebration();
           showNotification(`🚀 Contrato Fechado com ${lead.empresa}! LTV Ganho: R$ 5.000,00`);
@@ -698,18 +672,18 @@
       }
     };
 
-    // Render Prospecting Queue UI
+    // Render Prospecting Queue UI - Clean and minimal, no redundant borders
     function renderQueueUI() {
       if (!queueContainer) return;
       
       if (activeQueueLeads.length === 0) {
         queueContainer.innerHTML = `
-          <div class="flex flex-col items-center justify-center text-center py-12 border border-dashed border-white/10 rounded-2xl bg-white/[0.01]">
-            <div class="w-12 h-12 rounded-full bg-brandCyan/10 border border-brandCyan/20 flex items-center justify-center mb-3 text-brandCyan">
+          <div class="flex flex-col items-center justify-center text-center py-12 bg-white/[0.01] rounded-2xl border border-white/[0.02]">
+            <div class="w-10 h-10 rounded-full bg-brandCyan/10 flex items-center justify-center mb-3 text-brandCyan text-xs">
               <i class="fa-solid fa-check animate-bounce"></i>
             </div>
             <span class="text-xs font-bold text-white">Todos os Leads Foram Contactados!</span>
-            <p class="text-[10px] text-[#8b949e] mt-1 font-space">Acompanhe a esteira de follow up ao lado para converter em vendas.</p>
+            <p class="text-[10px] text-gray-500 mt-1 font-space">Acompanhe a esteira de follow up ao lado para converter em vendas.</p>
           </div>
         `;
         return;
@@ -717,51 +691,71 @@
 
       const currentStrategy = selectStrategy?.value || 'priority-whatsapp';
 
-      queueContainer.innerHTML = activeQueueLeads.map(lead => {
-        // Calculate smart routing tag and details on the fly
-        const routing = calculateChannelRouting(lead, currentStrategy);
+      queueContainer.innerHTML = `
+        <div class="flex items-center gap-2 mb-2">
+          <i class="fa-solid fa-list text-gray-500 text-xs"></i>
+          <span class="text-xs font-semibold text-[#f0f6fc]">Fila de Prospecção (${activeQueueLeads.length})</span>
+        </div>
+        <div class="flex flex-col gap-4">
+          ${activeQueueLeads.map(lead => {
+            const routing = calculateChannelRouting(lead, currentStrategy);
 
-        return `
-          <div id="queue-card-${lead.id}" class="bg-[#161b22]/40 border border-white/5 rounded-2xl p-5 flex flex-col gap-4 hover:border-brandCyan/20 transition-all duration-300 transform">
-            <div class="flex justify-between items-start">
-              <div>
-                <h4 class="text-sm font-bold text-white">${lead.empresa}</h4>
-                <a href="${lead.site}" target="_blank" class="text-[10px] text-brandCyan hover:underline font-space mt-1 inline-flex items-center gap-1">
-                  🌐 ${lead.site}
-                </a>
+            return `
+              <div id="queue-card-${lead.id}" class="bg-white/[0.01] border border-white/[0.03] rounded-2xl p-5 flex flex-col gap-4 hover:border-brandCyan/20 transition-all duration-300 transform">
+                <div class="flex justify-between items-start">
+                  <div>
+                    <h4 class="text-sm font-bold text-white">${lead.empresa}</h4>
+                    <a href="${lead.site}" target="_blank" class="text-[10px] text-brandCyan hover:underline font-space mt-1 inline-flex items-center gap-1">
+                      🌐 ${lead.site.replace('https://', '')}
+                    </a>
+                  </div>
+                  <span class="text-[8px] font-space px-2 py-0.5 rounded font-bold uppercase tracking-wider ${routing.color}">
+                    ${routing.badge}
+                  </span>
+                </div>
+
+                <div class="bg-[#0b0e14]/30 p-3 rounded-xl">
+                  <span class="text-[9px] font-space text-brandCyan font-semibold uppercase tracking-wider block mb-1">Diagnóstico RID (Gemini)</span>
+                  <p class="text-xs text-gray-400 leading-relaxed font-sora italic">"${lead.diagnostico}"</p>
+                </div>
+
+                <div class="grid grid-cols-3 gap-2">
+                  <button onclick="window.openProspectModal('${lead.id}', 'whatsapp')" class="bg-white/5 text-emerald-400 font-space font-semibold text-[10px] tracking-wider uppercase py-2.5 rounded-lg hover:bg-white/10 active:scale-95 transition-all flex items-center justify-center gap-1.5 cursor-pointer">
+                    WhatsApp
+                  </button>
+                  <button onclick="window.openProspectModal('${lead.id}', 'email')" class="bg-white/5 text-blue-400 font-space font-semibold text-[10px] tracking-wider uppercase py-2.5 rounded-lg hover:bg-white/10 active:scale-95 transition-all flex items-center justify-center gap-1.5 cursor-pointer">
+                    E-mail
+                  </button>
+                  <button onclick="window.openProspectModal('${lead.id}', 'linkedin')" class="bg-white/5 text-sky-400 font-space font-semibold text-[10px] tracking-wider uppercase py-2.5 rounded-lg hover:bg-white/10 active:scale-95 transition-all flex items-center justify-center gap-1.5 cursor-pointer">
+                    LinkedIn
+                  </button>
+                </div>
               </div>
-              <span class="text-[8px] font-space border px-2 py-0.5 rounded font-bold uppercase tracking-wider ${routing.color}">
-                ${routing.badge}
-              </span>
-            </div>
-
-            <div class="bg-[#0b0e14]/50 border border-white/5 p-3 rounded-xl">
-              <span class="text-[9px] font-space text-brandCyan font-bold uppercase tracking-wider block mb-1">Diagnóstico RID Gemini</span>
-              <p class="text-xs text-gray-300 leading-relaxed font-sora italic">"${lead.diagnostico}"</p>
-            </div>
-
-            <div class="grid grid-cols-3 gap-2">
-              <button onclick="window.openProspectModal('${lead.id}', 'whatsapp')" class="bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 font-space font-bold text-[10px] tracking-wider uppercase py-2.5 rounded-lg hover:bg-emerald-500/20 active:scale-95 transition-all flex items-center justify-center gap-1.5 cursor-pointer">
-                <i class="fa-brands fa-whatsapp text-xs"></i> WhatsApp
-              </button>
-              <button onclick="window.openProspectModal('${lead.id}', 'email')" class="bg-blue-500/10 border border-blue-500/20 text-blue-400 font-space font-bold text-[10px] tracking-wider uppercase py-2.5 rounded-lg hover:bg-blue-500/20 active:scale-95 transition-all flex items-center justify-center gap-1.5 cursor-pointer">
-                <i class="fa-regular fa-envelope text-xs"></i> E-mail
-              </button>
-              <button onclick="window.openProspectModal('${lead.id}', 'linkedin')" class="bg-sky-500/10 border border-sky-500/20 text-sky-400 font-space font-bold text-[10px] tracking-wider uppercase py-2.5 rounded-lg hover:bg-sky-500/20 active:scale-95 transition-all flex items-center justify-center gap-1.5 cursor-pointer">
-                <i class="fa-brands fa-linkedin text-xs"></i> LinkedIn
-              </button>
-            </div>
-          </div>
-        `;
-      }).join('');
+            `;
+          }).join('')}
+        </div>
+      `;
     }
 
-    // Render CRM Follow-Up Board
+    // Render CRM Follow-Up Board - Premium Minimalist card layout
     function renderFollowUpUI() {
       if (!followUpContainer) return;
 
       const sliderFollowUpVal = parseInt(sliderFollowUp?.value || '3');
       const sliderArchiveVal = parseInt(sliderArchive?.value || '7');
+
+      if (activeFollowUpLeads.length === 0) {
+        followUpContainer.innerHTML = `
+          <div class="flex flex-col items-center justify-center text-center py-12 bg-white/[0.01] border border-white/[0.02] rounded-2xl">
+            <div class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center mb-3 text-gray-500">
+              <i class="fa-regular fa-folder-open text-xs"></i>
+            </div>
+            <span class="text-xs font-bold text-white">Nenhum Lead em Follow Up</span>
+            <p class="text-[10px] text-gray-500 mt-1 font-space">Dispare abordagens para alimentar o CRM.</p>
+          </div>
+        `;
+        return;
+      }
 
       followUpContainer.innerHTML = activeFollowUpLeads.map(lead => {
         let borderLeftColor = '#3498db';
@@ -770,18 +764,18 @@
         else if (lead.status === 'Reunião agendada') borderLeftColor = '#9b59b6';
 
         let urgencyLabel = '🟢 Recente';
-        let urgencyColor = 'text-emerald-400 bg-emerald-400/10 border-emerald-400/20';
+        let urgencyColor = 'text-emerald-400 bg-emerald-400/5 border border-emerald-500/10';
         if (lead.diasPassados >= 10) {
           urgencyLabel = '🔴 Crítico';
-          urgencyColor = 'text-red-400 bg-red-400/10 border-red-400/20';
+          urgencyColor = 'text-red-400 bg-red-400/5 border border-red-500/10';
         } else if (lead.diasPassados >= 5) {
           urgencyLabel = '🟡 Pendente';
-          urgencyColor = 'text-amber-500 bg-amber-500/10 border-amber-500/20';
+          urgencyColor = 'text-amber-500 bg-amber-500/5 border border-amber-500/10';
         }
 
         if (lead.status === 'Convertido') {
           urgencyLabel = '🏆 Sucesso';
-          urgencyColor = 'text-emerald-400 bg-emerald-400/10 border-emerald-400/20';
+          urgencyColor = 'text-emerald-400 bg-emerald-400/5 border border-emerald-500/10';
         }
 
         const options = ['Tentativa de contato', 'Follow up', 'Reunião agendada', 'Convertido'];
@@ -789,40 +783,39 @@
           <option value="${opt}" ${lead.status === opt ? 'selected' : ''}>${opt}</option>
         `).join('');
 
-        // Calculate dynamic follow-up remaining days message
         let followUpMsg = '';
         if (lead.status !== 'Convertido') {
           if (lead.diasPassados >= sliderFollowUpVal) {
-            followUpMsg = `<span class="text-red-400 font-bold"><i class="fa-solid fa-bell animate-bounce"></i> Follow-Up IMEDIATO Pendente!</span>`;
+            followUpMsg = `<span class="text-red-400 font-medium flex items-center gap-1.5"><i class="fa-solid fa-bell animate-pulse text-[10px]"></i> Follow-Up pendente!</span>`;
           } else {
             const rem = sliderFollowUpVal - lead.diasPassados;
-            followUpMsg = `<span class="text-gray-400">Próximo follow-up em <strong class="text-brandCyan">${rem} ${rem === 1 ? 'dia' : 'dias'}</strong></span>`;
+            followUpMsg = `<span class="text-gray-400">Follow-up em <strong class="text-[#00f2fe] font-bold">${rem} ${rem === 1 ? 'dia' : 'dias'}</strong></span>`;
           }
         } else {
-          followUpMsg = `<span class="text-emerald-400 font-bold"><i class="fa-solid fa-circle-check"></i> Funil Concluído</span>`;
+          followUpMsg = `<span class="text-emerald-400 font-medium">Funil fechado</span>`;
         }
 
         return `
-          <div class="bg-[#161b22]/40 rounded-2xl p-4 flex flex-col gap-3 transition-all duration-300 border-l-4" style="border-left-color: ${borderLeftColor}; border-top: 1px solid rgba(255,255,255,0.03); border-right: 1px solid rgba(255,255,255,0.03); border-bottom: 1px solid rgba(255,255,255,0.03);">
+          <div class="bg-white/[0.01] rounded-2xl p-4 flex flex-col gap-3 transition-all duration-300 border-l-4" style="border-left-color: ${borderLeftColor}; border-top: 1px solid rgba(255,255,255,0.01); border-right: 1px solid rgba(255,255,255,0.01); border-bottom: 1px solid rgba(255,255,255,0.01);">
             <div class="flex justify-between items-start">
               <div>
                 <h5 class="text-xs font-bold text-white">${lead.empresa}</h5>
-                <span class="text-[9px] text-[#8b949e] font-space block mt-1">
-                  📡 Canal: <strong class="text-white">${lead.canal}</strong> • ${lead.diasPassados} dia(s) sem retorno
+                <span class="text-[9px] text-gray-500 font-space block mt-1">
+                  📡 ${lead.canal} • há ${lead.diasPassados} dia(s)
                 </span>
               </div>
-              <span class="text-[8px] font-space border px-2 py-0.5 rounded-full font-bold uppercase tracking-wider ${urgencyColor}">
+              <span class="text-[8px] font-space px-2 py-0.5 rounded font-bold uppercase tracking-wider ${urgencyColor}">
                 ${urgencyLabel}
               </span>
             </div>
 
-            <div class="bg-[#0b0e14]/30 px-3 py-2 rounded-xl text-[9px] font-space flex justify-between items-center border border-white/[0.02]">
+            <div class="bg-[#0b0e14]/20 px-3 py-2 rounded-xl text-[10px] flex justify-between items-center">
               ${followUpMsg}
-              <span class="text-gray-500">Limite: ${sliderArchiveVal}d</span>
+              <span class="text-gray-600 text-[9px] font-space font-semibold">Limite: ${sliderArchiveVal}d</span>
             </div>
 
             <div class="flex gap-2 items-center">
-              <span class="text-[9px] text-[#8b949e] font-space uppercase tracking-wider font-semibold">Status CRM:</span>
+              <span class="text-[10px] text-gray-400 font-medium">Status:</span>
               <select onchange="window.updateFollowUpStatus('${lead.id}', this.value)" class="flex-1 bg-[#0b0e14] border border-white/5 rounded-lg px-2 py-1 text-[10px] text-white outline-none focus:border-brandCyan/50 font-sora cursor-pointer">
                 ${selectOptionsHtml}
               </select>
@@ -845,7 +838,6 @@
       const convertedCount = activeFollowUpLeads.filter(l => l.status === 'Convertido').length;
       const totalLtv = convertedCount * EXCHANGE_LTV_RATE;
 
-      // Update UI
       const elTotal = document.getElementById('dash-total');
       const elContacted = document.getElementById('dash-contacted');
       const elResponse = document.getElementById('dash-response');
@@ -970,16 +962,15 @@
     color: white;
   }
   .script-tab-btn.active {
-    background: rgba(0, 242, 254, 0.1);
+    background: rgba(0, 242, 254, 0.08);
     color: #00f2fe;
-    border-color: rgba(0, 242, 254, 0.2);
+    border-color: rgba(0, 242, 254, 0.15);
   }
   .custom-textarea {
     resize: none;
     transition: border-color 0.3s;
   }
   
-  /* Styling simple for sliders */
   input[type="range"]::-webkit-slider-runnable-track {
     background: #0b0e14;
     border-radius: 999px;
@@ -989,7 +980,6 @@
     border-radius: 999px;
   }
   
-  /* Scrollbar simple styling */
   .scrollbar-thin::-webkit-scrollbar {
     width: 4px;
   }
@@ -997,7 +987,7 @@
     background: transparent;
   }
   .scrollbar-thin::-webkit-scrollbar-thumb {
-    background: rgba(255,255,255,0.1);
+    background: rgba(255,255,255,0.06);
     border-radius: 999px;
   }
 </style>
