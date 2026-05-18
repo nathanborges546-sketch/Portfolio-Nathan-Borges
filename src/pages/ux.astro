@@ -3,21 +3,36 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="UX Design | Nathan Borges">
-	<section class="min-h-screen flex flex-col justify-center px-8 bg-darkBg">
-		<span class="text-brandCyan font-space text-xs tracking-widest uppercase mb-8">Eixo 01</span>
-		<h1 class="font-sora text-4xl md:text-6xl lg:text-7xl font-bold tracking-tighter text-textPrimary leading-[1.05] mb-8">
-			UX Design focado em Carga Cognitiva Zero.
-		</h1>
-		<p class="font-sora text-lg md:text-xl text-textSecondary max-w-2xl leading-relaxed mb-12">
-			Em breve: Estudos de caso demonstrando a aplicação de microcopy estratégico, psicologia comportamental e interfaces otimizadas para conversão máxima.
-		</p>
-		<div class="flex flex-col sm:flex-row gap-6 mt-8">
-			<button onclick="Calendly.initPopupWidget({url: 'https://calendly.com/nathanborges546/30min'});return false;" class="inline-flex items-center justify-center px-10 py-4 bg-brandCyan text-textPrimary font-space font-bold rounded-full hover:brightness-110 transition-all hover:scale-105 active:scale-95 shadow-[0_0_30px_rgba(28,105,183,0.3)] uppercase tracking-widest text-xs">
-				AGENDAR PAPO TÉCNICO
-			</button>
-			<a href="/" class="inline-flex items-center justify-center px-10 py-4 border border-surface text-textSecondary hover:text-textPrimary transition-all rounded-full font-space text-sm uppercase tracking-widest">
-				← Voltar
-			</a>
-		</div>
-	</section>
+  <section class="min-h-screen flex flex-col justify-center py-24 px-8 overflow-hidden bg-darkBg">
+    <div class="max-w-7xl mx-auto w-full z-10">
+      
+      <!-- Cabeçalho -->
+      <div class="flex flex-col gap-6">
+        <a href="/" class="group inline-flex items-center text-xs font-space font-bold tracking-widest text-textSecondary hover:text-brandCyan transition-colors w-fit">
+          <span class="mr-2 group-hover:-translate-x-1 transition-transform">←</span> VOLTAR PARA PORTFÓLIO
+        </a>
+        
+        <div>
+          <span class="text-brandCyan font-space text-xs tracking-[0.3em] uppercase mb-4 block">Eixo UX Design</span>
+          <h1 class="font-sora text-4xl md:text-6xl lg:text-7xl font-bold tracking-tighter text-textPrimary leading-[1.05] mb-8 max-w-4xl">
+            UX Design focado em Carga Cognitiva Zero.
+          </h1>
+          <p class="font-sora text-lg md:text-xl text-textSecondary max-w-2xl leading-relaxed mb-12">
+            Em breve: Estudos de caso demonstrando a aplicação de microcopy estratégico, psicologia comportamental e interfaces otimizadas para conversão máxima.
+          </p>
+        </div>
+      </div>
+
+      <!-- Ações -->
+      <div class="flex flex-col sm:flex-row gap-6 mt-8">
+        <button onclick="Calendly.initPopupWidget({url: 'https://calendly.com/nathanborges546/30min'});return false;" class="inline-flex items-center justify-center px-10 py-4 bg-brandCyan text-textPrimary font-space font-bold rounded-full hover:brightness-110 transition-all hover:scale-105 active:scale-95 shadow-[0_0_30px_rgba(28,105,183,0.3)] uppercase tracking-widest text-xs">
+          AGENDAR PAPO TÉCNICO
+        </button>
+        <a href="/" class="inline-flex items-center justify-center px-10 py-4 border border-surface text-textSecondary hover:text-textPrimary transition-all rounded-full font-space text-sm uppercase tracking-widest">
+          ← Voltar
+        </a>
+      </div>
+
+    </div>
+  </section>
 </Layout>

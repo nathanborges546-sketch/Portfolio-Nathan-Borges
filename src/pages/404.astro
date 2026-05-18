@@ -3,9 +3,28 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="404: Sistema Offline">
-	<section class="h-screen flex flex-col justify-center px-10 md:px-20 lg:px-40">
-		<h1 class="font-sans text-9xl font-extrabold text-white mb-8 tracking-tighter">404</h1>
-		<p class="text-white/40 text-2xl mb-12">O caminho solicitado não foi mapeado.</p>
-		<a href="/" class="text-azure-tech hover:underline underline-offset-8">Voltar para a base</a>
-	</section>
+  <section class="min-h-screen flex flex-col justify-center py-24 px-8 overflow-hidden bg-darkBg">
+    <div class="max-w-7xl mx-auto w-full z-10">
+      
+      <!-- Erro -->
+      <span class="text-brandCyan font-space text-xs tracking-[0.3em] uppercase mb-8 block">
+        CÓDIGO DE ERRO 404
+      </span>
+      
+      <h1 class="font-sora text-6xl md:text-8xl lg:text-9xl font-bold tracking-tighter text-textPrimary leading-none mb-8">
+        404
+      </h1>
+      
+      <p class="font-sora text-lg md:text-xl text-textSecondary max-w-2xl leading-relaxed mb-12">
+        O caminho solicitado não foi mapeado na arquitetura de rotas do sistema.
+      </p>
+      
+      <div class="flex gap-6">
+        <a href="/" class="inline-flex items-center justify-center px-10 py-4 border border-brandCyan text-brandCyan hover:bg-brandCyan hover:text-textPrimary transition-all rounded-full font-space text-sm uppercase tracking-widest active:scale-95 shadow-[0_0_20px_rgba(0,242,254,0.15)]">
+          ← Voltar para Home
+        </a>
+      </div>
+
+    </div>
+  </section>
 </Layout>
