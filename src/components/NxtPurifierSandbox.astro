@@ -323,7 +323,7 @@
 
       <!-- Ações do Painel -->
       <div class="space-y-3 mt-6">
-        <button id="btn-run-purify" class="w-full bg-[#00f2fe] text-[#0b0e14] font-space font-bold text-xs tracking-wider uppercase py-4 px-4 rounded-xl transition-all duration-300 hover:brightness-110 active:scale-[0.98] shadow-[0_0_15px_rgba(0,242,254,0.15)] flex items-center justify-center gap-2 cursor-pointer">
+        <button id="btn-run-purify" class="w-full bg-[#f3f4f6] text-[#0b0e14] font-space font-bold text-xs tracking-wider uppercase py-4 px-4 rounded-xl transition-all duration-300 hover:brightness-110 active:scale-[0.98] shadow-[0_0_15px_rgba(243,244,246,0.1)] flex items-center justify-center gap-2 cursor-pointer">
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="inline" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Passo 1: Executar Limpeza Automatizada
         </button>
         <button id="btn-run-sync" class="w-full bg-white/5 text-[#8b949e] font-space font-bold text-xs tracking-wider uppercase py-4 px-4 rounded-xl cursor-not-allowed transition-all duration-300 border border-white/5 flex items-center justify-center gap-2" disabled>
@@ -454,7 +454,7 @@
         Ao integrar o pipeline com o motor de busca em lote do <strong class="text-[#00f2fe]">Outscraper</strong>, o tempo total caiu para poucos minutos. Todo o fluxo de captação, higienização com Pandas e disparo foi condensado em apenas 2 cliques automáticos.
       </p>
 
-      <button id="btn-close-purifier-modal" class="w-full bg-[#00f2fe] text-[#0b0e14] font-space font-medium text-xs tracking-wider uppercase py-3 px-4 rounded-xl transition-all duration-300 hover:opacity-90 active:scale-[0.98] mt-2 cursor-pointer">
+      <button id="btn-close-purifier-modal" class="w-full bg-[#f3f4f6] text-[#0b0e14] font-space font-medium text-xs tracking-wider uppercase py-3 px-4 rounded-xl transition-all duration-300 hover:opacity-90 active:scale-[0.98] mt-2 cursor-pointer">
         Fechar e Explorar Sandbox
       </button>
     </div>
@@ -584,7 +584,7 @@
       globalStatus.innerText = 'AGUARDANDO PASSO 2';
       btnSync.disabled = false;
       btnSync.classList.remove('bg-white/5', 'text-[#8b949e]', 'cursor-not-allowed');
-      btnSync.classList.add('bg-[#00f2fe]', 'text-[#0b0e14]', 'hover:brightness-110', 'active:scale-[0.98]', 'shadow-[0_0_15px_rgba(0,242,254,0.15)]', 'cursor-pointer');
+      btnSync.classList.add('bg-[#f3f4f6]', 'text-[#0b0e14]', 'hover:brightness-110', 'active:scale-[0.98]', 'shadow-[0_0_15px_rgba(243,244,246,0.1)]', 'cursor-pointer');
     }
   });
 
@@ -593,7 +593,7 @@
   // ==========================================
   btnSync?.addEventListener('click', async () => {
     btnSync.disabled = true;
-    btnSync.classList.remove('bg-[#00f2fe]', 'shadow-[0_0_15px_rgba(0,242,254,0.15)]', 'cursor-pointer');
+    btnSync.classList.remove('bg-[#f3f4f6]', 'shadow-[0_0_15px_rgba(243,244,246,0.1)]', 'cursor-pointer');
     btnSync.classList.add('bg-white/5', 'text-[#8b949e]', 'cursor-not-allowed');
     if (globalStatus) globalStatus.innerText = 'SINCRONIZANDO';
 
