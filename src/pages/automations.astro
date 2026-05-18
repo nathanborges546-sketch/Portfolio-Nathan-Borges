@@ -315,20 +315,34 @@ import MoskatoSyncSandbox from '../components/MoskatoSyncSandbox.astro';
   </main>
 
   <!-- MODALS PARA OS SIMULADORES (FULL EXPERIENCE POPUPS) -->
+  <!-- MODALS PARA OS SIMULADORES (FULL EXPERIENCE POPUPS) -->
   
   <!-- Modal CRM -->
   <div id="modal-crm" class="sandbox-modal fixed inset-0 z-[100] bg-darkBg/95 backdrop-blur-md flex items-center justify-center p-4 md:p-8 opacity-0 pointer-events-none transition-all duration-300 hidden">
     <div class="modal-content max-w-4xl w-full bg-surface border border-white/5 rounded-3xl p-6 md:p-8 flex flex-col gap-6 relative shadow-2xl scale-95 transition-transform duration-300 max-h-[90vh] overflow-y-auto scrollbar-thin">
-      <button class="close-modal-btn absolute top-6 right-6 text-textSecondary hover:text-brandCyan transition-colors p-2 bg-darkBg/40 border border-white/5 rounded-full cursor-pointer active:scale-95">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M18 6L6 18M6 6l12 12" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </button>
-      <div class="flex flex-col gap-1">
+      
+      <!-- Botões de Controle do Modal -->
+      <div class="absolute top-6 right-6 flex items-center gap-2">
+        <button class="maximize-modal-btn text-textSecondary hover:text-brandCyan transition-colors p-2 bg-darkBg/40 border border-white/5 rounded-full cursor-pointer active:scale-95 flex items-center justify-center" aria-label="Maximizar simulador">
+          <svg class="icon-expand" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <svg class="icon-restore hidden" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 14h6v6M20 10h-6V4M14 10l7-7M10 14l-7 7" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <button class="close-modal-btn text-textSecondary hover:text-brandCyan transition-colors p-2 bg-darkBg/40 border border-white/5 rounded-full cursor-pointer active:scale-95 flex items-center justify-center" aria-label="Fechar simulador">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 6L6 18M6 6l12 12" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="flex flex-col gap-1 pr-24">
         <span class="text-xs font-space text-brandCyan font-bold tracking-widest">SIMULADOR INTERATIVO</span>
         <h3 class="text-xl md:text-2xl font-sora font-bold text-textPrimary">CRM Inteligente & Prospecção</h3>
       </div>
-      <div class="mt-2">
+      <div class="mt-2 h-full flex flex-col justify-stretch">
         <NxtOsSandbox />
       </div>
     </div>
@@ -337,16 +351,29 @@ import MoskatoSyncSandbox from '../components/MoskatoSyncSandbox.astro';
   <!-- Modal Purifier -->
   <div id="modal-purifier" class="sandbox-modal fixed inset-0 z-[100] bg-darkBg/95 backdrop-blur-md flex items-center justify-center p-4 md:p-8 opacity-0 pointer-events-none transition-all duration-300 hidden">
     <div class="modal-content max-w-4xl w-full bg-surface border border-white/5 rounded-3xl p-6 md:p-8 flex flex-col gap-6 relative shadow-2xl scale-95 transition-transform duration-300 max-h-[90vh] overflow-y-auto scrollbar-thin">
-      <button class="close-modal-btn absolute top-6 right-6 text-textSecondary hover:text-brandCyan transition-colors p-2 bg-darkBg/40 border border-white/5 rounded-full cursor-pointer active:scale-95">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M18 6L6 18M6 6l12 12" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </button>
-      <div class="flex flex-col gap-1">
+      
+      <!-- Botões de Controle do Modal -->
+      <div class="absolute top-6 right-6 flex items-center gap-2">
+        <button class="maximize-modal-btn text-textSecondary hover:text-brandCyan transition-colors p-2 bg-darkBg/40 border border-white/5 rounded-full cursor-pointer active:scale-95 flex items-center justify-center" aria-label="Maximizar simulador">
+          <svg class="icon-expand" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <svg class="icon-restore hidden" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 14h6v6M20 10h-6V4M14 10l7-7M10 14l-7 7" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <button class="close-modal-btn text-textSecondary hover:text-brandCyan transition-colors p-2 bg-darkBg/40 border border-white/5 rounded-full cursor-pointer active:scale-95 flex items-center justify-center" aria-label="Fechar simulador">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 6L6 18M6 6l12 12" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="flex flex-col gap-1 pr-24">
         <span class="text-xs font-space text-brandCyan font-bold tracking-widest">SIMULADOR INTERATIVO</span>
         <h3 class="text-xl md:text-2xl font-sora font-bold text-textPrimary">Purifier Engine & Higienização</h3>
       </div>
-      <div class="mt-2">
+      <div class="mt-2 h-full flex flex-col justify-stretch">
         <NxtPurifierSandbox />
       </div>
     </div>
@@ -355,16 +382,29 @@ import MoskatoSyncSandbox from '../components/MoskatoSyncSandbox.astro';
   <!-- Modal Menu -->
   <div id="modal-menu" class="sandbox-modal fixed inset-0 z-[100] bg-darkBg/95 backdrop-blur-md flex items-center justify-center p-4 md:p-8 opacity-0 pointer-events-none transition-all duration-300 hidden">
     <div class="modal-content max-w-4xl w-full bg-surface border border-white/5 rounded-3xl p-6 md:p-8 flex flex-col gap-6 relative shadow-2xl scale-95 transition-transform duration-300 max-h-[90vh] overflow-y-auto scrollbar-thin">
-      <button class="close-modal-btn absolute top-6 right-6 text-textSecondary hover:text-brandCyan transition-colors p-2 bg-darkBg/40 border border-white/5 rounded-full cursor-pointer active:scale-95">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M18 6L6 18M6 6l12 12" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </button>
-      <div class="flex flex-col gap-1">
+      
+      <!-- Botões de Controle do Modal -->
+      <div class="absolute top-6 right-6 flex items-center gap-2">
+        <button class="maximize-modal-btn text-textSecondary hover:text-brandCyan transition-colors p-2 bg-darkBg/40 border border-white/5 rounded-full cursor-pointer active:scale-95 flex items-center justify-center" aria-label="Maximizar simulador">
+          <svg class="icon-expand" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <svg class="icon-restore hidden" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 14h6v6M20 10h-6V4M14 10l7-7M10 14l-7 7" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <button class="close-modal-btn text-textSecondary hover:text-brandCyan transition-colors p-2 bg-darkBg/40 border border-white/5 rounded-full cursor-pointer active:scale-95 flex items-center justify-center" aria-label="Fechar simulador">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 6L6 18M6 6l12 12" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="flex flex-col gap-1 pr-24">
         <span class="text-xs font-space text-brandCyan font-bold tracking-widest">SIMULADOR INTERATIVO</span>
         <h3 class="text-xl md:text-2xl font-sora font-bold text-textPrimary">Ecossistema Menu & Suporte</h3>
       </div>
-      <div class="mt-2">
+      <div class="mt-2 h-full flex flex-col justify-stretch">
         <MoskatoSyncSandbox />
       </div>
     </div>
@@ -372,18 +412,54 @@ import MoskatoSyncSandbox from '../components/MoskatoSyncSandbox.astro';
 
 </Layout>
 
+<style is:global>
+  /* Premium Modal Maximize & Mobile overrides */
+  .modal-content {
+    transition: all 0.35s cubic-bezier(0.23, 1, 0.32, 1) !important;
+  }
+  .modal-content.maximized {
+    max-width: 100vw !important;
+    width: 100% !important;
+    height: 100vh !important;
+    max-height: 100vh !important;
+    border-radius: 0px !important;
+    border: none !important;
+    margin: 0 !important;
+    padding: 2.5rem !important;
+  }
+  
+  /* Mobile Responsiveness Optimization */
+  @media (max-width: 768px) {
+    .modal-content {
+      padding: 1.5rem !important;
+      max-height: 92vh !important;
+      border-radius: 1.5rem !important;
+      gap: 1.25rem !important;
+    }
+    .modal-content.maximized {
+      max-height: 100vh !important;
+      border-radius: 0px !important;
+      padding: 1.25rem !important;
+    }
+    .sandbox-modal {
+      padding: 0.5rem !important;
+    }
+  }
+</style>
+
 <script>
   document.addEventListener('astro:page-load', () => {
     const openBtns = document.querySelectorAll('.open-sandbox-btn');
     const closeBtns = document.querySelectorAll('.close-modal-btn');
+    const maxBtns = document.querySelectorAll('.maximize-modal-btn');
     
+    // Open modal logic
     openBtns.forEach(btn => {
       btn.addEventListener('click', () => {
         const id = btn.getAttribute('data-sandbox-id');
         const modal = document.getElementById(`modal-${id}`);
         if (modal) {
           modal.classList.remove('hidden');
-          // small timeout for CSS transitions
           setTimeout(() => {
             modal.classList.remove('opacity-0', 'pointer-events-none');
             modal.classList.add('opacity-100', 'pointer-events-auto');
@@ -396,19 +472,54 @@ import MoskatoSyncSandbox from '../components/MoskatoSyncSandbox.astro';
       });
     });
 
+    // Close modal logic
     closeBtns.forEach(btn => {
       btn.addEventListener('click', () => {
         const modal = btn.closest('.sandbox-modal');
         if (modal) {
           modal.classList.remove('opacity-100', 'pointer-events-auto');
           modal.classList.add('opacity-0', 'pointer-events-none');
+          
           const inner = modal.querySelector('.modal-content');
           inner?.classList.remove('scale-100');
           inner?.classList.add('scale-95');
+          
           setTimeout(() => {
             modal.classList.add('hidden');
+            
+            // Reset maximized classes on closing
+            if (inner?.classList.contains('maximized')) {
+              inner.classList.remove('maximized');
+              const maxBtn = inner.querySelector('.maximize-modal-btn');
+              const iconExpand = maxBtn?.querySelector('.icon-expand');
+              const iconRestore = maxBtn?.querySelector('.icon-restore');
+              iconExpand?.classList.remove('hidden');
+              iconRestore?.classList.add('hidden');
+            }
           }, 300);
           document.body.style.overflow = '';
+        }
+      });
+    });
+
+    // Maximize modal logic
+    maxBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const modalContent = btn.closest('.modal-content');
+        const iconExpand = btn.querySelector('.icon-expand');
+        const iconRestore = btn.querySelector('.icon-restore');
+        
+        if (modalContent) {
+          modalContent.classList.toggle('maximized');
+          const isMax = modalContent.classList.contains('maximized');
+          
+          if (isMax) {
+            iconExpand?.classList.add('hidden');
+            iconRestore?.classList.remove('hidden');
+          } else {
+            iconExpand?.classList.remove('hidden');
+            iconRestore?.classList.add('hidden');
+          }
         }
       });
     });
