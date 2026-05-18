@@ -55,26 +55,36 @@ import MoskatoSyncSandbox from '../components/MoskatoSyncSandbox.astro';
             <div class="lg:col-span-7 flex flex-col gap-6 justify-between">
               
               <!-- O Diagnóstico do Gargalo -->
-              <div class="flex flex-col gap-3 p-5 rounded-2xl bg-red-950/10 border border-red-500/10">
-                <div class="flex items-center gap-2 text-red-400 font-space text-[10px] uppercase tracking-wider font-bold">
-                  <span class="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse"></span>
-                  O Diagnóstico do Gargalo (O Problema)
+              <div class="reveal-card group cursor-pointer select-none transition-all duration-300 rounded-2xl bg-red-950/10 border border-red-500/10 hover:border-red-500/30 p-5 flex flex-col justify-between">
+                <div class="flex items-center justify-between gap-4 w-full">
+                  <div class="flex items-center gap-2 text-red-400 font-space text-[10px] uppercase tracking-wider font-bold">
+                    <span class="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse"></span>
+                    O Diagnóstico do Gargalo (O Problema)
+                  </div>
+                  <span class="reveal-indicator text-[9px] font-space text-red-400/50 uppercase tracking-widest transition-transform select-none">Ver +</span>
                 </div>
-                <p class="text-textSecondary text-xs md:text-sm leading-relaxed font-sora italic">
-                  "Processos manuais de prospecção comercial B2B drenavam até 8 horas semanais da equipe de vendas por lead. O preenchimento manual do funil de CRMs resultava em falhas críticas, follow-ups atrasados e dados de inteligência ausentes."
-                </p>
+                <div class="reveal-content max-h-0 opacity-0 overflow-hidden transition-all duration-300 pointer-events-none">
+                  <p class="text-textSecondary text-xs md:text-sm leading-relaxed font-sora italic mt-3 pt-3 border-t border-red-500/5">
+                    "Processos manuais de prospecção comercial B2B drenavam até 8 horas semanais da equipe de vendas por lead. O preenchimento manual do funil de CRMs resultava em falhas críticas, follow-ups atrasados e dados de inteligência ausentes."
+                  </p>
+                </div>
               </div>
 
               <!-- A Engenharia da Solução -->
-              <div class="flex flex-col gap-4 p-5 rounded-2xl bg-surface border border-white/5">
-                <div class="flex items-center gap-2 text-brandCyan font-space text-[10px] uppercase tracking-wider font-bold mb-1">
-                  <span class="w-1.5 h-1.5 rounded-full bg-brandCyan"></span>
-                  A Engenharia da Solução (A Lógica)
+              <div class="reveal-card group cursor-pointer select-none transition-all duration-300 rounded-2xl bg-surface border border-white/5 hover:border-brandCyan/30 p-5 flex flex-col justify-between">
+                <div class="flex items-center justify-between gap-4 w-full">
+                  <div class="flex items-center gap-2 text-brandCyan font-space text-[10px] uppercase tracking-wider font-bold">
+                    <span class="w-1.5 h-1.5 rounded-full bg-brandCyan"></span>
+                    A Engenharia da Solução (A Lógica)
+                  </div>
+                  <span class="reveal-indicator text-[9px] font-space text-brandCyan/50 uppercase tracking-widest transition-transform select-none">Ver +</span>
                 </div>
-                <div class="flex flex-col gap-3 text-textSecondary text-xs md:text-sm leading-relaxed font-sora">
-                  <p><strong class="text-brandCyan">Passo 1: Varredura Automática:</strong> Um robô visita o site dos potenciais clientes e mapeia os canais de contacto e as ferramentas que eles utilizam.</p>
-                  <p><strong class="text-brandCyan">Passo 2: Diagnóstico por Inteligência Artificial:</strong> O Gemini 2.0 Flash analisa essas informações, localiza falhas críticas ocultas na página e gera uma mensagem de abordagem 100% personalizada.</p>
-                  <p><strong class="text-brandCyan">Passo 3: Registo Automático:</strong> Toda a análise e a mensagem gerada são salvas de forma independente e instantânea direto nas tabelas do Notion.</p>
+                <div class="reveal-content max-h-0 opacity-0 overflow-hidden transition-all duration-300 pointer-events-none">
+                  <div class="flex flex-col gap-3 text-textSecondary text-xs md:text-sm leading-relaxed font-sora mt-3 pt-3 border-t border-white/5">
+                    <p><strong class="text-brandCyan">Passo 1: Varredura Automática:</strong> Um robô visita o site dos potenciais clientes e mapeia os canais de contacto e as ferramentas que eles utilizam.</p>
+                    <p><strong class="text-brandCyan">Passo 2: Diagnóstico por Inteligência Artificial:</strong> O Gemini 2.0 Flash analisa essas informações, localiza falhas críticas ocultas na página e gera uma mensagem de abordagem 100% personalizada.</p>
+                    <p><strong class="text-brandCyan">Passo 3: Registo Automático:</strong> Toda a análise e a mensagem gerada são salvas de forma independente e instantânea direto nas tabelas do Notion.</p>
+                  </div>
                 </div>
               </div>
 
@@ -144,26 +154,36 @@ import MoskatoSyncSandbox from '../components/MoskatoSyncSandbox.astro';
             <div class="lg:col-span-7 flex flex-col gap-6 justify-between">
               
               <!-- O Diagnóstico do Gargalo -->
-              <div class="flex flex-col gap-3 p-5 rounded-2xl bg-red-950/10 border border-red-500/10">
-                <div class="flex items-center gap-2 text-red-400 font-space text-[10px] uppercase tracking-wider font-bold">
-                  <span class="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse"></span>
-                  O Diagnóstico do Gargalo (O Problema)
+              <div class="reveal-card group cursor-pointer select-none transition-all duration-300 rounded-2xl bg-red-950/10 border border-red-500/10 hover:border-red-500/30 p-5 flex flex-col justify-between">
+                <div class="flex items-center justify-between gap-4 w-full">
+                  <div class="flex items-center gap-2 text-red-400 font-space text-[10px] uppercase tracking-wider font-bold">
+                    <span class="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse"></span>
+                    O Diagnóstico do Gargalo (O Problema)
+                  </div>
+                  <span class="reveal-indicator text-[9px] font-space text-red-400/50 uppercase tracking-widest transition-transform select-none">Ver +</span>
                 </div>
-                <p class="text-textSecondary text-xs md:text-sm leading-relaxed font-sora italic">
-                  "Bases de dados duplicadas, contatos inconsistentes e campos nulos corrompem a segmentação de CRM e reduzem drasticamente a conversão em campanhas comerciais. Equipes de tecnologia gastavam dias higienizando dados manualmente."
-                </p>
+                <div class="reveal-content max-h-0 opacity-0 overflow-hidden transition-all duration-300 pointer-events-none">
+                  <p class="text-textSecondary text-xs md:text-sm leading-relaxed font-sora italic mt-3 pt-3 border-t border-red-500/5">
+                    "Bases de dados duplicadas, contatos inconsistentes e campos nulos corrompem a segmentação de CRM e reduzem drasticamente a conversão em campanhas comerciais. Equipes de tecnologia gastavam dias higienizando dados manualmente."
+                  </p>
+                </div>
               </div>
 
               <!-- A Engenharia da Solução -->
-              <div class="flex flex-col gap-4 p-5 rounded-2xl bg-surface border border-white/5">
-                <div class="flex items-center gap-2 text-brandCyan font-space text-[10px] uppercase tracking-wider font-bold mb-1">
-                  <span class="w-1.5 h-1.5 rounded-full bg-brandCyan"></span>
-                  A Engenharia da Solução (A Lógica)
+              <div class="reveal-card group cursor-pointer select-none transition-all duration-300 rounded-2xl bg-surface border border-white/5 hover:border-brandCyan/30 p-5 flex flex-col justify-between">
+                <div class="flex items-center justify-between gap-4 w-full">
+                  <div class="flex items-center gap-2 text-brandCyan font-space text-[10px] uppercase tracking-wider font-bold">
+                    <span class="w-1.5 h-1.5 rounded-full bg-brandCyan"></span>
+                    A Engenharia da Solução (A Lógica)
+                  </div>
+                  <span class="reveal-indicator text-[9px] font-space text-brandCyan/50 uppercase tracking-widest transition-transform select-none">Ver +</span>
                 </div>
-                <div class="flex flex-col gap-3 text-textSecondary text-xs md:text-sm leading-relaxed font-sora">
-                  <p><strong class="text-brandCyan">Passo 1: Importação Descomplicada:</strong> O utilizador arrasta uma planilha de contactos (formatos Excel ou CSV) completamente bagunçada para dentro do sistema.</p>
-                  <p><strong class="text-brandCyan">Passo 2: Cruzamento de Dados Estatístico:</strong> O algoritmo Pandas varre as colunas e calcula a proximidade das palavras para detetar erros de digitação, mascarar números de telefone e agrupar cadastros duplicados ocultos que humanos não veriam.</p>
-                  <p><strong class="text-brandCyan">Passo 3: Exportação Limpa:</strong> O sistema elimina o lixo operacional e gera um ficheiro novo, normalizado, padronizado e pronto para uso imediato da equipa.</p>
+                <div class="reveal-content max-h-0 opacity-0 overflow-hidden transition-all duration-300 pointer-events-none">
+                  <div class="flex flex-col gap-3 text-textSecondary text-xs md:text-sm leading-relaxed font-sora mt-3 pt-3 border-t border-white/5">
+                    <p><strong class="text-brandCyan">Passo 1: Importação Descomplicada:</strong> O utilizador arrasta uma planilha de contactos (formatos Excel ou CSV) completamente bagunçada para dentro do sistema.</p>
+                    <p><strong class="text-brandCyan">Passo 2: Cruzamento de Dados Estatístico:</strong> O algoritmo Pandas varre as colunas e calcula a proximidade das palavras para detetar erros de digitação, mascarar números de telefone e agrupar cadastros duplicados ocultos que humanos não veriam.</p>
+                    <p><strong class="text-brandCyan">Passo 3: Exportação Limpa:</strong> O sistema elimina o lixo operacional e gera um ficheiro novo, normalizado, padronizado e pronto para uso imediato da equipa.</p>
+                  </div>
                 </div>
               </div>
 
@@ -233,26 +253,36 @@ import MoskatoSyncSandbox from '../components/MoskatoSyncSandbox.astro';
             <div class="lg:col-span-7 flex flex-col gap-6 justify-between">
               
               <!-- O Diagnóstico do Gargalo -->
-              <div class="flex flex-col gap-3 p-5 rounded-2xl bg-red-950/10 border border-red-500/10">
-                <div class="flex items-center gap-2 text-red-400 font-space text-[10px] uppercase tracking-wider font-bold">
-                  <span class="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse"></span>
-                  O Diagnóstico do Gargalo (O Problema)
+              <div class="reveal-card group cursor-pointer select-none transition-all duration-300 rounded-2xl bg-red-950/10 border border-red-500/10 hover:border-red-500/30 p-5 flex flex-col justify-between">
+                <div class="flex items-center justify-between gap-4 w-full">
+                  <div class="flex items-center gap-2 text-red-400 font-space text-[10px] uppercase tracking-wider font-bold">
+                    <span class="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse"></span>
+                    O Diagnóstico do Gargalo (O Problema)
+                  </div>
+                  <span class="reveal-indicator text-[9px] font-space text-red-400/50 uppercase tracking-widest transition-transform select-none">Ver +</span>
                 </div>
-                <p class="text-textSecondary text-xs md:text-sm leading-relaxed font-sora italic">
-                  "Falta de atendimento instantâneo em horários de pico e fins de semana custa até 40% das conversões de reservas no comercial. Um suporte fragmentado gera perda de vendas diretas e alta fricção."
-                </p>
+                <div class="reveal-content max-h-0 opacity-0 overflow-hidden transition-all duration-300 pointer-events-none">
+                  <p class="text-textSecondary text-xs md:text-sm leading-relaxed font-sora italic mt-3 pt-3 border-t border-red-500/5">
+                    "Falta de atendimento instantâneo em horários de pico e fins de semana custa até 40% das conversões de reservas no comercial. Um suporte fragmentado gera perda de vendas diretas e alta fricção."
+                  </p>
+                </div>
               </div>
 
               <!-- A Engenharia da Solução -->
-              <div class="flex flex-col gap-4 p-5 rounded-2xl bg-surface border border-white/5">
-                <div class="flex items-center gap-2 text-brandCyan font-space text-[10px] uppercase tracking-wider font-bold mb-1">
-                  <span class="w-1.5 h-1.5 rounded-full bg-brandCyan"></span>
-                  A Engenharia da Solução (A Lógica)
+              <div class="reveal-card group cursor-pointer select-none transition-all duration-300 rounded-2xl bg-surface border border-white/5 hover:border-brandCyan/30 p-5 flex flex-col justify-between">
+                <div class="flex items-center justify-between gap-4 w-full">
+                  <div class="flex items-center gap-2 text-brandCyan font-space text-[10px] uppercase tracking-wider font-bold">
+                    <span class="w-1.5 h-1.5 rounded-full bg-brandCyan"></span>
+                    A Engenharia da Solução (A Lógica)
+                  </div>
+                  <span class="reveal-indicator text-[9px] font-space text-brandCyan/50 uppercase tracking-widest transition-transform select-none">Ver +</span>
                 </div>
-                <div class="flex flex-col gap-3 text-textSecondary text-xs md:text-sm leading-relaxed font-sora">
-                  <p><strong class="text-brandCyan">Passo 1: Captura de Gatilhos:</strong> O sistema deteta instantaneamente o momento exato em que um cliente inicia um pedido ou uma interação no estabelecimento.</p>
-                  <p><strong class="text-brandCyan">Passo 2: Processamento Local Inteligente:</strong> Um microsserviço em Node.js analisa o inventário e a ocupação de mesas direto na rede local do restaurante, garantindo estabilidade absoluta.</p>
-                  <p><strong class="text-brandCyan">Passo 3: Despacho Imediato:</strong> O pedido chega à tela da cozinha em menos de 100ms e o cardápio digital é exibido de forma automatizada no idioma nativo do cliente, anulando falhas manuais.</p>
+                <div class="reveal-content max-h-0 opacity-0 overflow-hidden transition-all duration-300 pointer-events-none">
+                  <div class="flex flex-col gap-3 text-textSecondary text-xs md:text-sm leading-relaxed font-sora mt-3 pt-3 border-t border-white/5">
+                    <p><strong class="text-brandCyan">Passo 1: Captura de Gatilhos:</strong> O sistema deteta instantaneamente o momento exato em que um cliente inicia um pedido ou uma interação no estabelecimento.</p>
+                    <p><strong class="text-brandCyan">Passo 2: Processamento Local Inteligente:</strong> Um microsserviço em Node.js analisa o inventário e a ocupação de mesas direto na rede local do restaurante, garantindo estabilidade absoluta.</p>
+                    <p><strong class="text-brandCyan">Passo 3: Despacho Imediato:</strong> O pedido chega à tela da cozinha em menos de 100ms e o cardápio digital é exibido de forma automatizada no idioma nativo do cliente, anulando falhas manuais.</p>
+                  </div>
                 </div>
               </div>
 
@@ -451,6 +481,64 @@ import MoskatoSyncSandbox from '../components/MoskatoSyncSandbox.astro';
       padding: 0.5rem !important;
     }
   }
+
+  /* Reveal Cards styling */
+  .reveal-card {
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  }
+  .reveal-card .reveal-content {
+    transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+                opacity 0.3s ease-out,
+                margin-top 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  }
+  
+  /* Desktop hover interaction */
+  @media (hover: hover) {
+    .reveal-card:hover {
+      background-color: rgba(28, 105, 183, 0.04) !important;
+    }
+    .reveal-card.border-red-500\/10:hover {
+      background-color: rgba(239, 68, 68, 0.03) !important;
+    }
+    .reveal-card:hover .reveal-content {
+      max-height: 400px !important;
+      opacity: 1 !important;
+      margin-top: 1rem !important;
+      pointer-events: auto !important;
+    }
+    .reveal-card:hover .reveal-indicator {
+      transform: rotate(45deg) !important;
+      color: #00f2fe !important;
+    }
+    .reveal-card.border-red-500\/10:hover .reveal-indicator {
+      color: #ef4444 !important;
+    }
+  }
+
+  /* Click/Touch toggled revealed state */
+  .reveal-card.revealed {
+    background-color: rgba(28, 105, 183, 0.04) !important;
+  }
+  .reveal-card.revealed.border-red-500\/10 {
+    background-color: rgba(239, 68, 68, 0.03) !important;
+    border-color: rgba(239, 68, 68, 0.3) !important;
+  }
+  .reveal-card.revealed.border-white\/5 {
+    border-color: rgba(0, 242, 254, 0.3) !important;
+  }
+  .reveal-card.revealed .reveal-content {
+    max-height: 400px !important;
+    opacity: 1 !important;
+    margin-top: 1rem !important;
+    pointer-events: auto !important;
+  }
+  .reveal-card.revealed .reveal-indicator {
+    transform: rotate(45deg) !important;
+    color: #00f2fe !important;
+  }
+  .reveal-card.revealed.border-red-500\/10 .reveal-indicator {
+    color: #ef4444 !important;
+  }
 </style>
 
 <script>
@@ -458,6 +546,15 @@ import MoskatoSyncSandbox from '../components/MoskatoSyncSandbox.astro';
     const openBtns = document.querySelectorAll('.open-sandbox-btn');
     const closeBtns = document.querySelectorAll('.close-modal-btn');
     const maxBtns = document.querySelectorAll('.maximize-modal-btn');
+    const revealCards = document.querySelectorAll('.reveal-card');
+    
+    // Reveal Cards click toggle
+    revealCards.forEach(card => {
+      card.addEventListener('click', (e) => {
+        if (window.getSelection()?.toString()) return;
+        card.classList.toggle('revealed');
+      });
+    });
     
     // Open modal logic
     openBtns.forEach(btn => {
