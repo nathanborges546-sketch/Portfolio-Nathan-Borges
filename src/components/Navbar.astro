@@ -2,6 +2,9 @@
 // Navbar Estratégica: Foco em Conversão e Navegação Centralizada
 import { Image } from 'astro:assets';
 import logoImg from '../assets/logo nathan.png';
+import NxtOsSandbox from './NxtOsSandbox.astro';
+import NxtPurifierSandbox from './NxtPurifierSandbox.astro';
+import MoskatoSyncSandbox from './MoskatoSyncSandbox.astro';
 ---
 <nav class="fixed top-0 left-0 w-full z-50 px-8 py-4 flex justify-between items-center bg-darkBg/80 backdrop-blur-xl border-b border-surface/50">
   
@@ -70,30 +73,323 @@ import logoImg from '../assets/logo nathan.png';
   </ul>
 </div>
 
-<!-- Gaveta de Projetos (Overlay) -->
-<div id="project-drawer" class="fixed inset-0 z-[60] bg-darkBg translate-y-[-100%] transition-transform duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] pointer-events-none overflow-hidden">
-  <div class="h-full flex flex-col justify-center px-8 md:px-20 lg:px-40">
-    <div class="flex justify-between items-start mb-12">
-      <h2 class="text-textSecondary font-space text-xs tracking-[0.3em] uppercase mt-4">Eixos de Especialização</h2>
-      <button id="close-drawer" aria-label="Fechar gaveta de projetos" class="text-textPrimary hover:text-brandCyan transition-colors p-4">
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+<!-- Gaveta de Projetos (Overlay - Rola Verticalmente e Tem Visual Premium) -->
+<div id="project-drawer" class="fixed inset-0 z-[60] bg-darkBg translate-y-[-100%] transition-transform duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] pointer-events-none overflow-y-auto scrollbar-thin">
+  <div class="min-h-screen py-16 px-6 md:px-16 lg:px-32 max-w-6xl mx-auto flex flex-col justify-start">
+    
+    <!-- Cabeçalho Gaveta -->
+    <div class="flex justify-between items-start mb-10 pb-6 border-b border-white/5">
+      <div>
+        <h2 class="text-textSecondary font-space text-xs tracking-[0.3em] uppercase mb-2">Eixos de Especialização</h2>
+        <h3 class="text-2xl md:text-4xl font-sora font-bold text-textPrimary tracking-tight">Arquitetura de Dados & Agentes Autônomos</h3>
+      </div>
+      <button id="close-drawer" aria-label="Fechar gaveta de projetos" class="text-textPrimary hover:text-brandCyan transition-colors p-3 bg-surface rounded-full border border-white/5 cursor-pointer active:scale-95">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
           <path d="M18 6L6 18M6 6l12 12" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       </button>
     </div>
 
-    <div class="grid md:grid-cols-2 gap-8 md:gap-12">
-      <a href="/ux" class="group flex flex-col items-start p-8 rounded-[32px] bg-surface border border-brandCyan/5 hover:border-brandCyan/20 transition-all">
-        <span class="text-blue-400 font-space text-[10px] uppercase tracking-widest mb-4">Eixo UX Design</span>
-        <h3 class="text-textPrimary text-3xl md:text-4xl font-sora font-bold mb-4 group-hover:text-brandCyan transition-colors">Interfaces & Sistemas</h3>
-        <p class="text-textSecondary text-sm md:text-base leading-relaxed font-sora">Aplicações desenhadas para mitigar a carga cognitiva e anular a fricção do usuário.</p>
-      </a>
+    <!-- Acordeão Técnico de Projetos -->
+    <div class="flex flex-col gap-5 w-full">
+      
+      <!-- PROJETO 01: CRM Inteligente -->
+      <div class="accordion-item border border-white/5 rounded-3xl bg-surface/30 hover:bg-surface/50 transition-all overflow-hidden">
+        
+        <!-- Cabeçalho Acordeão -->
+        <button class="accordion-header w-full flex justify-between items-center px-6 py-5 md:px-8 md:py-6 cursor-pointer text-left focus:outline-none bg-surface/40 hover:bg-surface/80 transition-colors">
+          <div class="flex flex-col md:flex-row md:items-center gap-3 md:gap-6">
+            <div class="flex items-center gap-3">
+              <span class="text-xs font-space text-brandCyan tracking-widest font-bold">01</span>
+              <h4 class="text-lg md:text-xl font-sora font-bold text-textPrimary">CRM Inteligente</h4>
+            </div>
+            <div class="flex flex-wrap gap-1.5">
+              <span class="px-2.5 py-0.5 bg-darkBg border border-brandCyan/10 rounded-full text-[9px] font-space text-blue-400">Python</span>
+              <span class="px-2.5 py-0.5 bg-darkBg border border-brandCyan/10 rounded-full text-[9px] font-space text-blue-400">Astro</span>
+              <span class="px-2.5 py-0.5 bg-darkBg border border-brandCyan/10 rounded-full text-[9px] font-space text-blue-400">Gemini API</span>
+            </div>
+          </div>
+          <span class="accordion-icon text-textSecondary font-space text-lg transition-transform duration-300">+</span>
+        </button>
 
-      <a href="/automations" class="group flex flex-col items-start p-8 rounded-[32px] bg-surface border border-brandCyan/5 hover:border-brandCyan/20 transition-all">
-        <span class="text-blue-400 font-space text-[10px] uppercase tracking-widest mb-4">Eixo Automação & IA</span>
-        <h3 class="text-textPrimary text-3xl md:text-4xl font-sora font-bold mb-4 group-hover:text-brandCyan transition-colors">Arquitetura & Engenharia de IA</h3>
-        <p class="text-textSecondary text-sm md:text-base leading-relaxed font-sora">Pipelines de dados autônomos e microsserviços resilientes em Python e Node.js.</p>
-      </a>
+        <!-- Corpo Acordeão (Oculto por Padrão) -->
+        <div class="accordion-content max-h-0 overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)]">
+          <div class="p-6 md:p-8 border-t border-white/5 flex flex-col gap-8">
+            
+            <!-- 1. O Diagnóstico do Gargalo -->
+            <div class="flex flex-col gap-2 p-5 rounded-2xl bg-red-950/15 border border-red-500/10">
+              <div class="flex items-center gap-2 text-red-400 font-space text-[10px] uppercase tracking-widest font-bold">
+                <span class="w-1.5 h-1.5 rounded-full bg-red-500"></span>
+                O Diagnóstico do Gargalo (O Problema Comercial)
+              </div>
+              <p class="text-textSecondary text-sm md:text-base leading-relaxed font-sora italic">
+                "Processos manuais de prospecção B2B drenam até 8 horas diárias de equipes comerciais. O preenchimento manual de CRMs gera falhas críticas em agendamentos, datas de follow-up erradas e leads qualificados esquecidos em planilhas."
+              </p>
+            </div>
+
+            <!-- 2. A Engenharia da Solução -->
+            <div class="flex flex-col gap-4">
+              <div class="flex items-center gap-2 text-brandCyan font-space text-[10px] uppercase tracking-widest font-bold">
+                <span class="w-1.5 h-1.5 rounded-full bg-brandCyan"></span>
+                A Engenharia da Solução (Como a Magia Acontece)
+              </div>
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="p-4 rounded-xl bg-darkBg/50 border border-white/5 flex flex-col gap-2">
+                  <span class="text-[10px] font-space text-textSecondary font-bold uppercase tracking-wider">Passo 01</span>
+                  <p class="text-xs text-textSecondary font-sora">O agente entra no site do lead e extrai a estrutura técnica e comercial.</p>
+                </div>
+                <div class="p-4 rounded-xl bg-darkBg/50 border border-white/5 flex flex-col gap-2">
+                  <span class="text-[10px] font-space text-textSecondary font-bold uppercase tracking-wider">Passo 02</span>
+                  <p class="text-xs text-textSecondary font-sora">O Gemini 2.0 Flash processa o RID (Diagnóstico de IA) e gera uma abordagem 100% personalizada.</p>
+                </div>
+                <div class="p-4 rounded-xl bg-darkBg/50 border border-white/5 flex flex-col gap-2">
+                  <span class="text-[10px] font-space text-textSecondary font-bold uppercase tracking-wider">Passo 03</span>
+                  <p class="text-xs text-textSecondary font-sora">O motor valida os canais ativos (WhatsApp) com Smart Fallback e envia via API alimentando o Notion de forma assíncrona.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- 3. A Sandbox Interativa -->
+            <div class="flex flex-col gap-4">
+              <div class="flex items-center gap-2 text-brandCyan font-space text-[10px] uppercase tracking-widest font-bold">
+                <span class="w-1.5 h-1.5 rounded-full bg-brandCyan"></span>
+                A Sandbox Interativa (Prova de Conceito)
+              </div>
+              <button class="sandbox-trigger w-fit inline-flex items-center justify-center px-6 py-3 bg-surface border border-white/10 hover:border-brandCyan/30 text-textPrimary hover:text-brandCyan font-space font-bold rounded-xl transition-all duration-300 text-xs uppercase tracking-wider cursor-pointer group active:scale-95">
+                <span class="sandbox-trigger-text">⚡ Ativar Simulador de Prospecção em Lote</span>
+                <span class="ml-2 group-hover:translate-x-1 transition-transform font-bold">→</span>
+              </button>
+
+              <!-- Simulador Colapsável -->
+              <div class="sandbox-content max-h-0 overflow-hidden transition-all duration-500 ease-out">
+                <div class="py-6 border-t border-white/5">
+                  <NxtOsSandbox />
+                </div>
+              </div>
+            </div>
+
+            <!-- 4. O Vetor de Implementação -->
+            <div class="flex flex-col gap-4 p-5 rounded-2xl bg-brandCyan/5 border border-brandCyan/10">
+              <div class="flex items-center gap-2 text-brandCyan font-space text-[10px] uppercase tracking-widest font-bold">
+                <span class="w-1.5 h-1.5 rounded-full bg-brandCyan"></span>
+                O Vetor de Implementação (Pitch de Fechamento)
+              </div>
+              <p class="text-textSecondary text-sm leading-relaxed font-sora">
+                "Este mesmo ecossistema pode ser acoplado à sua operação atual. Se a sua empresa sofre com dados duplicados, perda de tempo na qualificação de leads ou falta de sincronização entre o seu CRM (HubSpot, Salesforce) e sistemas legados, eu consigo desenhar e implementar este motor de automação sob medida para a sua infraestrutura."
+              </p>
+              
+              <a 
+                href="https://wa.me/5564993335277?text=Olá%20Nathan,%20li%20sobre%20o%20CRM%20Inteligente%20no%20seu%20portfólio%20e%20gostaria%20de%20discutir%20a%20implementação%20de%20um%20sistema%20similar%20no%20meu%20negócio!"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="mt-2 inline-flex items-center justify-center px-6 py-3.5 bg-[#00f2fe] text-[#0b0e14] font-space font-bold rounded-xl hover:bg-white hover:text-[#0b0e14] transition-all duration-300 hover:scale-[1.02] active:scale-95 uppercase tracking-wider text-[10px] w-fit shadow-[0_0_20px_rgba(0,242,254,0.25)]"
+              >
+                💬 Discutir Implementação deste Sistema no meu Negócio
+              </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- PROJETO 02: Purifier Engine -->
+      <div class="accordion-item border border-white/5 rounded-3xl bg-surface/30 hover:bg-surface/50 transition-all overflow-hidden">
+        
+        <!-- Cabeçalho Acordeão -->
+        <button class="accordion-header w-full flex justify-between items-center px-6 py-5 md:px-8 md:py-6 cursor-pointer text-left focus:outline-none bg-surface/40 hover:bg-surface/80 transition-colors">
+          <div class="flex flex-col md:flex-row md:items-center gap-3 md:gap-6">
+            <div class="flex items-center gap-3">
+              <span class="text-xs font-space text-brandCyan tracking-widest font-bold">02</span>
+              <h4 class="text-lg md:text-xl font-sora font-bold text-textPrimary">Purifier Engine</h4>
+            </div>
+            <div class="flex flex-wrap gap-1.5">
+              <span class="px-2.5 py-0.5 bg-darkBg border border-brandCyan/10 rounded-full text-[9px] font-space text-blue-400">Python</span>
+              <span class="px-2.5 py-0.5 bg-darkBg border border-brandCyan/10 rounded-full text-[9px] font-space text-blue-400">Pandas</span>
+              <span class="px-2.5 py-0.5 bg-darkBg border border-brandCyan/10 rounded-full text-[9px] font-space text-blue-400">Data Science</span>
+            </div>
+          </div>
+          <span class="accordion-icon text-textSecondary font-space text-lg transition-transform duration-300">+</span>
+        </button>
+
+        <!-- Corpo Acordeão (Oculto por Padrão) -->
+        <div class="accordion-content max-h-0 overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)]">
+          <div class="p-6 md:p-8 border-t border-white/5 flex flex-col gap-8">
+            
+            <!-- 1. O Diagnóstico do Gargalo -->
+            <div class="flex flex-col gap-2 p-5 rounded-2xl bg-red-950/15 border border-red-500/10">
+              <div class="flex items-center gap-2 text-red-400 font-space text-[10px] uppercase tracking-widest font-bold">
+                <span class="w-1.5 h-1.5 rounded-full bg-red-500"></span>
+                O Diagnóstico do Gargalo (O Problema Comercial)
+              </div>
+              <p class="text-textSecondary text-sm md:text-base leading-relaxed font-sora italic">
+                "Bases de dados duplicadas, confusas e inconsistentes corrompem pipelines de CRM. Processos de limpeza manuais duravam dias, gerando perdas graves de produtividade comercial e dados de inteligência nulos."
+              </p>
+            </div>
+
+            <!-- 2. A Engenharia da Solução -->
+            <div class="flex flex-col gap-4">
+              <div class="flex items-center gap-2 text-brandCyan font-space text-[10px] uppercase tracking-widest font-bold">
+                <span class="w-1.5 h-1.5 rounded-full bg-brandCyan"></span>
+                A Engenharia da Solução (Como a Magia Acontece)
+              </div>
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="p-4 rounded-xl bg-darkBg/50 border border-white/5 flex flex-col gap-2">
+                  <span class="text-[10px] font-space text-textSecondary font-bold uppercase tracking-wider">Passo 01</span>
+                  <p class="text-xs text-textSecondary font-sora">Ingestão de bases Excel/CSV brutas pelo motor em Python.</p>
+                </div>
+                <div class="p-4 rounded-xl bg-darkBg/50 border border-white/5 flex flex-col gap-2">
+                  <span class="text-[10px] font-space text-textSecondary font-bold uppercase tracking-wider">Passo 02</span>
+                  <p class="text-xs text-textSecondary font-sora">O algoritmo de processamento com Pandas e Fuzzy Matching identifica duplicatas ocultas e nulos.</p>
+                </div>
+                <div class="p-4 rounded-xl bg-darkBg/50 border border-white/5 flex flex-col gap-2">
+                  <span class="text-[10px] font-space text-textSecondary font-bold uppercase tracking-wider">Passo 03</span>
+                  <p class="text-xs text-textSecondary font-sora">Limpeza completa e re-padronização com exportação direta ao banco ou CRM limpo em lote.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- 3. A Sandbox Interativa -->
+            <div class="flex flex-col gap-4">
+              <div class="flex items-center gap-2 text-brandCyan font-space text-[10px] uppercase tracking-widest font-bold">
+                <span class="w-1.5 h-1.5 rounded-full bg-brandCyan"></span>
+                A Sandbox Interativa (Prova de Conceito)
+              </div>
+              <button class="sandbox-trigger w-fit inline-flex items-center justify-center px-6 py-3 bg-surface border border-white/10 hover:border-brandCyan/30 text-textPrimary hover:text-brandCyan font-space font-bold rounded-xl transition-all duration-300 text-xs uppercase tracking-wider cursor-pointer group active:scale-95">
+                <span class="sandbox-trigger-text">⚡ Ativar Higienizador de Dados</span>
+                <span class="ml-2 group-hover:translate-x-1 transition-transform font-bold">→</span>
+              </button>
+
+              <!-- Simulador Colapsável -->
+              <div class="sandbox-content max-h-0 overflow-hidden transition-all duration-500 ease-out">
+                <div class="py-6 border-t border-white/5">
+                  <NxtPurifierSandbox />
+                </div>
+              </div>
+            </div>
+
+            <!-- 4. O Vetor de Implementação -->
+            <div class="flex flex-col gap-4 p-5 rounded-2xl bg-brandCyan/5 border border-brandCyan/10">
+              <div class="flex items-center gap-2 text-brandCyan font-space text-[10px] uppercase tracking-widest font-bold">
+                <span class="w-1.5 h-1.5 rounded-full bg-brandCyan"></span>
+                O Vetor de Implementação (Pitch de Fechamento)
+              </div>
+              <p class="text-textSecondary text-sm leading-relaxed font-sora">
+                "Se sua equipe de tecnologia perde tempo corrigindo planilhas legadas, ou se seu CRM está poluído com informações inúteis, eu posso arquitetar um pipeline autônomo de limpeza que garanta integridade total para a tomada de decisão corporativa."
+              </p>
+              
+              <a 
+                href="https://wa.me/5564993335277?text=Olá%20Nathan,%20li%20sobre%20o%20Purifier%20Engine%20no%20seu%20portfólio%20e%20gostaria%20de%20discutir%20a%20implementação%20de%20um%20sistema%20similar%20no%20meu%20negócio!"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="mt-2 inline-flex items-center justify-center px-6 py-3.5 bg-[#00f2fe] text-[#0b0e14] font-space font-bold rounded-xl hover:bg-white hover:text-[#0b0e14] transition-all duration-300 hover:scale-[1.02] active:scale-95 uppercase tracking-wider text-[10px] w-fit shadow-[0_0_20px_rgba(0,242,254,0.25)]"
+              >
+                💬 Discutir Implementação deste Sistema no meu Negócio
+              </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- PROJETO 03: Ecossistema Menu -->
+      <div class="accordion-item border border-white/5 rounded-3xl bg-surface/30 hover:bg-surface/50 transition-all overflow-hidden">
+        
+        <!-- Cabeçalho Acordeão -->
+        <button class="accordion-header w-full flex justify-between items-center px-6 py-5 md:px-8 md:py-6 cursor-pointer text-left focus:outline-none bg-surface/40 hover:bg-surface/80 transition-colors">
+          <div class="flex flex-col md:flex-row md:items-center gap-3 md:gap-6">
+            <div class="flex items-center gap-3">
+              <span class="text-xs font-space text-brandCyan tracking-widest font-bold">03</span>
+              <h4 class="text-lg md:text-xl font-sora font-bold text-textPrimary">Ecossistema Menu</h4>
+            </div>
+            <div class="flex flex-wrap gap-1.5">
+              <span class="px-2.5 py-0.5 bg-darkBg border border-brandCyan/10 rounded-full text-[9px] font-space text-blue-400">Node.js</span>
+              <span class="px-2.5 py-0.5 bg-darkBg border border-brandCyan/10 rounded-full text-[9px] font-space text-blue-400">REST APIs</span>
+              <span class="px-2.5 py-0.5 bg-darkBg border border-brandCyan/10 rounded-full text-[9px] font-space text-blue-400">Webhooks</span>
+            </div>
+          </div>
+          <span class="accordion-icon text-textSecondary font-space text-lg transition-transform duration-300">+</span>
+        </button>
+
+        <!-- Corpo Acordeão (Oculto por Padrão) -->
+        <div class="accordion-content max-h-0 overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)]">
+          <div class="p-6 md:p-8 border-t border-white/5 flex flex-col gap-8">
+            
+            <!-- 1. O Diagnóstico do Gargalo -->
+            <div class="flex flex-col gap-2 p-5 rounded-2xl bg-red-950/15 border border-red-500/10">
+              <div class="flex items-center gap-2 text-red-400 font-space text-[10px] uppercase tracking-widest font-bold">
+                <span class="w-1.5 h-1.5 rounded-full bg-red-500"></span>
+                O Diagnóstico do Gargalo (O Problema Comercial)
+              </div>
+              <p class="text-textSecondary text-sm md:text-base leading-relaxed font-sora italic">
+                "Atendimento ao cliente fragmentado e respostas lentas custam até 40% das conversões de reserva. A falta de um canal automatizado, robusto e offline-first gera leads perdidos em horários de pico."
+              </p>
+            </div>
+
+            <!-- 2. A Engenharia da Solução -->
+            <div class="flex flex-col gap-4">
+              <div class="flex items-center gap-2 text-brandCyan font-space text-[10px] uppercase tracking-widest font-bold">
+                <span class="w-1.5 h-1.5 rounded-full bg-brandCyan"></span>
+                A Engenharia da Solução (Como a Magia Acontece)
+              </div>
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="p-4 rounded-xl bg-darkBg/50 border border-white/5 flex flex-col gap-2">
+                  <span class="text-[10px] font-space text-textSecondary font-bold uppercase tracking-wider">Passo 01</span>
+                  <p class="text-xs text-textSecondary font-sora">A Evolution API intercepta mensagens de clientes na Albânia - Himarë via Webhook.</p>
+                </div>
+                <div class="p-4 rounded-xl bg-darkBg/50 border border-white/5 flex flex-col gap-2">
+                  <span class="text-[10px] font-space text-textSecondary font-bold uppercase tracking-wider">Passo 02</span>
+                  <p class="text-xs text-textSecondary font-sora">O backend em Node.js valida parâmetros de reservas e status em banco local de forma assíncrona.</p>
+                </div>
+                <div class="p-4 rounded-xl bg-darkBg/50 border border-white/5 flex flex-col gap-2">
+                  <span class="text-[10px] font-space text-textSecondary font-bold uppercase tracking-wider">Passo 03</span>
+                  <p class="text-xs text-textSecondary font-sora">Despacho instantâneo de cardápios interativos, agilizando 90% do suporte sem interferência humana.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- 3. A Sandbox Interativa -->
+            <div class="flex flex-col gap-4">
+              <div class="flex items-center gap-2 text-brandCyan font-space text-[10px] uppercase tracking-widest font-bold">
+                <span class="w-1.5 h-1.5 rounded-full bg-brandCyan"></span>
+                A Sandbox Interativa (Prova de Conceito)
+              </div>
+              <button class="sandbox-trigger w-fit inline-flex items-center justify-center px-6 py-3 bg-surface border border-white/10 hover:border-brandCyan/30 text-textPrimary hover:text-brandCyan font-space font-bold rounded-xl transition-all duration-300 text-xs uppercase tracking-wider cursor-pointer group active:scale-95">
+                <span class="sandbox-trigger-text">⚡ Ativar Simulador de Atendimento</span>
+                <span class="ml-2 group-hover:translate-x-1 transition-transform font-bold">→</span>
+              </button>
+
+              <!-- Simulador Colapsável -->
+              <div class="sandbox-content max-h-0 overflow-hidden transition-all duration-500 ease-out">
+                <div class="py-6 border-t border-white/5">
+                  <MoskatoSyncSandbox />
+                </div>
+              </div>
+            </div>
+
+            <!-- 4. O Vetor de Implementação -->
+            <div class="flex flex-col gap-4 p-5 rounded-2xl bg-brandCyan/5 border border-brandCyan/10">
+              <div class="flex items-center gap-2 text-brandCyan font-space text-[10px] uppercase tracking-widest font-bold">
+                <span class="w-1.5 h-1.5 rounded-full bg-brandCyan"></span>
+                O Vetor de Implementação (Pitch de Fechamento)
+              </div>
+              <p class="text-textSecondary text-sm leading-relaxed font-sora">
+                "Posso construir um ecossistema de mensageria escalável e offline-first adaptado às necessidades operacionais e logísticas do seu modelo de negócio, com integração via Webhooks e microsserviços seguros."
+              </p>
+              
+              <a 
+                href="https://wa.me/5564993335277?text=Olá%20Nathan,%20li%20sobre%20o%20Ecossistema%20Menu%20no%20seu%20portfólio%20e%20gostaria%20de%20discutir%20a%20implementação%20de%20um%20sistema%20similar%20no%20meu%20negócio!"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="mt-2 inline-flex items-center justify-center px-6 py-3.5 bg-[#00f2fe] text-[#0b0e14] font-space font-bold rounded-xl hover:bg-white hover:text-[#0b0e14] transition-all duration-300 hover:scale-[1.02] active:scale-95 uppercase tracking-wider text-[10px] w-fit shadow-[0_0_20px_rgba(0,242,254,0.25)]"
+              >
+                💬 Discutir Implementação deste Sistema no meu Negócio
+              </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </div>
@@ -143,6 +439,66 @@ import logoImg from '../assets/logo nathan.png';
     mobileProjectTrigger?.addEventListener('click', () => {
       toggleMobileMenu(false);
       setTimeout(() => toggleDrawer(true), 300);
+    });
+
+    // Accordion Logic
+    const accordionHeaders = document.querySelectorAll('.accordion-header');
+    accordionHeaders.forEach(header => {
+      header.addEventListener('click', () => {
+        const item = header.closest('.accordion-item');
+        const content = item.querySelector('.accordion-content');
+        const icon = item.querySelector('.accordion-icon');
+        const isOpen = content.style.maxHeight && content.style.maxHeight !== '0px';
+
+        // Close all other accordions first
+        document.querySelectorAll('.accordion-item').forEach(otherItem => {
+          if (otherItem !== item) {
+            const otherContent = otherItem.querySelector('.accordion-content');
+            const otherIcon = otherItem.querySelector('.accordion-icon');
+            if (otherContent) otherContent.style.maxHeight = '0px';
+            if (otherIcon) otherIcon.textContent = '+';
+          }
+        });
+
+        // Toggle active accordion
+        if (isOpen) {
+          content.style.maxHeight = '0px';
+          icon.textContent = '+';
+        } else {
+          // Scroll height calculation for smooth accordion expansion
+          content.style.maxHeight = content.scrollHeight + 'px';
+          icon.textContent = '-';
+        }
+      });
+    });
+
+    // Sandbox Toggle Logic
+    const sandboxTriggers = document.querySelectorAll('.sandbox-trigger');
+    sandboxTriggers.forEach(trigger => {
+      trigger.addEventListener('click', (e) => {
+        e.stopPropagation(); // Avoid triggering accordion close/toggle
+        const item = trigger.closest('.accordion-item');
+        const sandboxContent = item.querySelector('.sandbox-content');
+        const accordionContent = item.querySelector('.accordion-content');
+        const triggerText = trigger.querySelector('.sandbox-trigger-text');
+        const isSandboxOpen = sandboxContent.style.maxHeight && sandboxContent.style.maxHeight !== '0px';
+
+        if (isSandboxOpen) {
+          sandboxContent.style.maxHeight = '0px';
+          triggerText.textContent = triggerText.textContent.replace('Ocultar', 'Ativar');
+          // Re-calculate the accordion wrapper height to reflect collapsed child
+          setTimeout(() => {
+            accordionContent.style.maxHeight = accordionContent.scrollHeight + 'px';
+          }, 300);
+        } else {
+          sandboxContent.style.maxHeight = sandboxContent.scrollHeight + 1000 + 'px'; // Allow generous padding for sandbox
+          triggerText.textContent = triggerText.textContent.replace('Ativar', 'Ocultar');
+          // Re-calculate the accordion wrapper height to reflect expanded child
+          setTimeout(() => {
+            accordionContent.style.maxHeight = accordionContent.scrollHeight + 'px';
+          }, 300);
+        }
+      });
     });
   });
 </script>
