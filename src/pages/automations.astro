@@ -48,67 +48,67 @@ import MoskatoSyncSandbox from '../components/MoskatoSyncSandbox.astro';
             </div>
           </div>
 
-          <!-- 1. O Diagnóstico do Gargalo -->
-          <div class="flex flex-col gap-3 p-6 rounded-2xl bg-red-950/10 border border-red-500/10">
-            <div class="flex items-center gap-2 text-red-400 font-space text-xs uppercase tracking-wider font-bold">
-              <span class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
-              O Diagnóstico do Gargalo (O Problema Comercial)
+          <!-- Grid: Texto à esquerda, Botão de Simulação à direita -->
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+            
+            <!-- Coluna 1 (Texto - Problema + Lógica) -->
+            <div class="lg:col-span-7 flex flex-col gap-6 justify-between">
+              
+              <!-- O Diagnóstico do Gargalo -->
+              <div class="flex flex-col gap-3 p-5 rounded-2xl bg-red-950/10 border border-red-500/10">
+                <div class="flex items-center gap-2 text-red-400 font-space text-[10px] uppercase tracking-wider font-bold">
+                  <span class="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse"></span>
+                  O Diagnóstico do Gargalo (O Problema)
+                </div>
+                <p class="text-textSecondary text-xs md:text-sm leading-relaxed font-sora italic">
+                  "Processos manuais de prospecção comercial B2B drenavam até 8 horas semanais da equipe de vendas por lead. O preenchimento manual do funil de CRMs resultava em falhas críticas, follow-ups atrasados e dados de inteligência ausentes."
+                </p>
+              </div>
+
+              <!-- A Engenharia da Solução -->
+              <div class="flex flex-col gap-3 p-5 rounded-2xl bg-surface border border-white/5">
+                <div class="flex items-center gap-2 text-brandCyan font-space text-[10px] uppercase tracking-wider font-bold">
+                  <span class="w-1.5 h-1.5 rounded-full bg-brandCyan"></span>
+                  A Engenharia da Solução (A Lógica)
+                </div>
+                <p class="text-textSecondary text-xs md:text-sm leading-relaxed font-sora">
+                  O crawler acessa o site do prospect, minera arquiteturas de canais e tecnologia. O Gemini 2.0 processa o diagnóstico de inteligência (RID) e gera abordagens contextualizadas, gravando os dados de forma paralela e assíncrona nas bases do Notion via API.
+                </p>
+              </div>
+
             </div>
-            <p class="text-textSecondary text-sm md:text-base leading-relaxed font-sora italic">
-              "Processos manuais de prospecção comercial B2B drenavam até 8 horas semanais da equipe de vendas por lead. O preenchimento manual do funil de CRMs resultava em falhas críticas, follow-ups atrasados e dados de inteligência ausentes em planilhas."
-            </p>
+
+            <!-- Coluna 2 (Botão Minimizador do Simulador) -->
+            <div class="lg:col-span-5 flex flex-col justify-center">
+              <button 
+                class="open-sandbox-btn group flex flex-col items-center justify-center p-8 rounded-[24px] bg-surface border border-brandCyan/20 hover:border-brandCyan transition-all w-full text-center relative overflow-hidden cursor-pointer shadow-[0_0_20px_rgba(28,105,183,0.1)] active:scale-95 hover:scale-[1.02] h-full min-h-[180px]"
+                data-sandbox-id="crm"
+              >
+                <div class="w-12 h-12 rounded-full bg-brandCyan/10 flex items-center justify-center text-brandCyan mb-4 group-hover:scale-110 transition-transform">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+                <h4 class="text-[10px] font-space tracking-widest text-textSecondary uppercase mb-1">Simulador Interativo</h4>
+                <span class="text-sm font-sora font-bold text-textPrimary group-hover:text-brandCyan transition-colors">TESTAR PROSPECTADOR ⚡</span>
+                <span class="text-[9px] font-space text-green-400 mt-3 flex items-center gap-1.5">
+                  <span class="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse"></span> ONLINE E PRONTO
+                </span>
+              </button>
+            </div>
+
           </div>
 
-          <!-- 2. A Engenharia da Solução -->
-          <div class="flex flex-col gap-4">
-            <div class="flex items-center gap-2 text-brandCyan font-space text-xs uppercase tracking-wider font-bold">
-              <span class="w-2 h-2 rounded-full bg-brandCyan"></span>
-              A Engenharia da Solução (O Fluxo Técnico)
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div class="p-5 rounded-2xl bg-surface/50 border border-white/5 flex flex-col gap-2">
-                <span class="text-xs font-space text-textSecondary font-bold uppercase tracking-widest">Etapa 01</span>
-                <h4 class="text-sm font-sora font-bold text-textPrimary">Extração Assistida</h4>
-                <p class="text-xs text-textSecondary font-sora leading-relaxed">O crawler acessa o site do prospect e minera toda a arquitetura de canais de contato e tecnologia comercial.</p>
-              </div>
-              <div class="p-5 rounded-2xl bg-surface/50 border border-white/5 flex flex-col gap-2">
-                <span class="text-xs font-space text-textSecondary font-bold uppercase tracking-widest">Etapa 02</span>
-                <h4 class="text-sm font-sora font-bold text-textPrimary">IA Cognitiva</h4>
-                <p class="text-xs text-textSecondary font-sora leading-relaxed">O Gemini 2.0 processa o diagnóstico de inteligência (RID) e estrutura uma abordagem fria altamente contextualizada.</p>
-              </div>
-              <div class="p-5 rounded-2xl bg-surface/50 border border-white/5 flex flex-col gap-2">
-                <span class="text-xs font-space text-textSecondary font-bold uppercase tracking-widest">Etapa 03</span>
-                <h4 class="text-sm font-sora font-bold text-textPrimary">Despacho Assíncrono</h4>
-                <p class="text-xs text-textSecondary font-sora leading-relaxed">Validação automatizada de canais ativos (WhatsApp) com gravação paralela e assíncrona nas bases do Notion.</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- 3. Sandbox Interativa (Simulador Inline!) -->
-          <div class="flex flex-col gap-4">
-            <div class="flex items-center gap-2 text-brandCyan font-space text-xs uppercase tracking-wider font-bold">
-              <span class="w-2 h-2 rounded-full bg-brandCyan"></span>
-              Demonstração Prática (Sandbox Executável)
-            </div>
-            <div class="p-6 bg-surface border border-white/5 rounded-3xl">
-              <NxtOsSandbox />
-            </div>
-          </div>
-
-          <!-- 4. Vetor de Implementação & CTA WhatsApp -->
+          <!-- Vetor de Implementação & CTA WhatsApp -->
           <div class="flex flex-col gap-4 p-6 md:p-8 rounded-3xl bg-brandCyan/5 border border-brandCyan/10">
-            <div class="flex items-center gap-2 text-brandCyan font-space text-xs uppercase tracking-wider font-bold">
-              <span class="w-2 h-2 rounded-full bg-brandCyan"></span>
-              Vetor de Implementação Comercial
-            </div>
-            <p class="text-textSecondary text-sm md:text-base leading-relaxed font-sora">
-              "Este mesmo ecossistema pode ser acoplado à sua operação atual. Se a sua empresa perde leads qualificados, gasta tempo excessivo na triagem de novos parceiros ou sofre com falta de sincronização entre o seu CRM (HubSpot, Salesforce) e pipelines legados, eu consigo desenhar e implementar este motor sob medida."
+            <p class="text-textSecondary text-xs md:text-sm leading-relaxed font-sora">
+              "Se a sua empresa perde leads qualificados, gasta tempo excessivo na triagem de novos parceiros ou sofre com falta de sincronização no funil de vendas, eu consigo desenhar e implementar este motor sob medida."
             </p>
             <a 
               href="https://wa.me/5564993335277?text=Olá%20Nathan,%20li%20o%20caso%20técnico%20sobre%20o%20CRM%20Inteligente%20no%20seu%20portfólio%20e%20gostaria%20de%20conversar%20sobre%20a%20implementação%20de%20um%20motor%20de%20vendas%20similar!"
               target="_blank"
               rel="noopener noreferrer"
-              class="mt-2 inline-flex items-center justify-center px-8 py-4 bg-[#00f2fe] text-[#0b0e14] font-space font-bold rounded-xl hover:bg-white hover:text-[#0b0e14] transition-all duration-300 hover:scale-[1.02] active:scale-95 uppercase tracking-wider text-xs w-fit shadow-[0_0_25px_rgba(0,242,254,0.2)]"
+              class="inline-flex items-center justify-center px-8 py-3.5 bg-[#00f2fe] text-[#0b0e14] font-space font-bold rounded-xl hover:bg-white hover:text-[#0b0e14] transition-all duration-300 hover:scale-[1.02] active:scale-95 uppercase tracking-wider text-[10px] w-fit shadow-[0_0_25px_rgba(0,242,254,0.2)]"
             >
               💬 Discutir Implementação deste Motor de Vendas
             </a>
@@ -135,67 +135,67 @@ import MoskatoSyncSandbox from '../components/MoskatoSyncSandbox.astro';
             </div>
           </div>
 
-          <!-- 1. O Diagnóstico do Gargalo -->
-          <div class="flex flex-col gap-3 p-6 rounded-2xl bg-red-950/10 border border-red-500/10">
-            <div class="flex items-center gap-2 text-red-400 font-space text-xs uppercase tracking-wider font-bold">
-              <span class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
-              O Diagnóstico do Gargalo (O Problema Comercial)
+          <!-- Grid: Texto à esquerda, Botão de Simulação à direita -->
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+            
+            <!-- Coluna 1 (Texto - Problema + Lógica) -->
+            <div class="lg:col-span-7 flex flex-col gap-6 justify-between">
+              
+              <!-- O Diagnóstico do Gargalo -->
+              <div class="flex flex-col gap-3 p-5 rounded-2xl bg-red-950/10 border border-red-500/10">
+                <div class="flex items-center gap-2 text-red-400 font-space text-[10px] uppercase tracking-wider font-bold">
+                  <span class="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse"></span>
+                  O Diagnóstico do Gargalo (O Problema)
+                </div>
+                <p class="text-textSecondary text-xs md:text-sm leading-relaxed font-sora italic">
+                  "Bases de dados duplicadas, contatos inconsistentes e campos nulos corrompem a segmentação de CRM e reduzem drasticamente a conversão em campanhas comerciais. Equipes de tecnologia gastavam dias higienizando dados manualmente."
+                </p>
+              </div>
+
+              <!-- A Engenharia da Solução -->
+              <div class="flex flex-col gap-3 p-5 rounded-2xl bg-surface border border-white/5">
+                <div class="flex items-center gap-2 text-brandCyan font-space text-[10px] uppercase tracking-wider font-bold">
+                  <span class="w-1.5 h-1.5 rounded-full bg-brandCyan"></span>
+                  A Engenharia da Solução (A Lógica)
+                </div>
+                <p class="text-textSecondary text-xs md:text-sm leading-relaxed font-sora">
+                  Carregamento automático de arquivos xlsx/csv brutos. O algoritmo Pandas varre as colunas, calcula similaridade estatística (Fuzzy Matching) e agrupa duplicados ocultos, exportando registros normalizados e prontos de forma consistente.
+                </p>
+              </div>
+
             </div>
-            <p class="text-textSecondary text-sm md:text-base leading-relaxed font-sora italic">
-              "Bases de dados duplicadas, contatos inconsistentes e campos nulos corrompem a segmentação de CRM e reduzem a conversão em campanhas comerciais. Equipes de tecnologia gastavam dias higienizando dados manualmente."
-            </p>
+
+            <!-- Coluna 2 (Botão Minimizador do Simulador) -->
+            <div class="lg:col-span-5 flex flex-col justify-center">
+              <button 
+                class="open-sandbox-btn group flex flex-col items-center justify-center p-8 rounded-[24px] bg-surface border border-brandCyan/20 hover:border-brandCyan transition-all w-full text-center relative overflow-hidden cursor-pointer shadow-[0_0_20px_rgba(28,105,183,0.1)] active:scale-95 hover:scale-[1.02] h-full min-h-[180px]"
+                data-sandbox-id="purifier"
+              >
+                <div class="w-12 h-12 rounded-full bg-brandCyan/10 flex items-center justify-center text-brandCyan mb-4 group-hover:scale-110 transition-transform">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+                <h4 class="text-[10px] font-space tracking-widest text-textSecondary uppercase mb-1">Simulador Interativo</h4>
+                <span class="text-sm font-sora font-bold text-textPrimary group-hover:text-brandCyan transition-colors">TESTAR HIGIENIZADOR ⚡</span>
+                <span class="text-[9px] font-space text-green-400 mt-3 flex items-center gap-1.5">
+                  <span class="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse"></span> ONLINE E PRONTO
+                </span>
+              </button>
+            </div>
+
           </div>
 
-          <!-- 2. A Engenharia da Solução -->
-          <div class="flex flex-col gap-4">
-            <div class="flex items-center gap-2 text-brandCyan font-space text-xs uppercase tracking-wider font-bold">
-              <span class="w-2 h-2 rounded-full bg-brandCyan"></span>
-              A Engenharia da Solução (O Fluxo Técnico)
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div class="p-5 rounded-2xl bg-surface/50 border border-white/5 flex flex-col gap-2">
-                <span class="text-xs font-space text-textSecondary font-bold uppercase tracking-widest">Etapa 01</span>
-                <h4 class="text-sm font-sora font-bold text-textPrimary">Ingestão Segura</h4>
-                <p class="text-xs text-textSecondary font-sora leading-relaxed">Carregamento e decodificação automática de arquivos xlsx/csv brutos através do motor do pipeline.</p>
-              </div>
-              <div class="p-5 rounded-2xl bg-surface/50 border border-white/5 flex flex-col gap-2">
-                <span class="text-xs font-space text-textSecondary font-bold uppercase tracking-widest">Etapa 02</span>
-                <h4 class="text-sm font-sora font-bold text-textPrimary">Fuzzy Match</h4>
-                <p class="text-xs text-textSecondary font-sora leading-relaxed">O algoritmo Pandas varre as colunas, calcula similaridade estatística e agrupa contatos duplicados ocultos.</p>
-              </div>
-              <div class="p-5 rounded-2xl bg-surface/50 border border-white/5 flex flex-col gap-2">
-                <span class="text-xs font-space text-textSecondary font-bold uppercase tracking-widest">Etapa 03</span>
-                <h4 class="text-sm font-sora font-bold text-textPrimary">Carga Consistente</h4>
-                <p class="text-xs text-textSecondary font-sora leading-relaxed">Exportação direta dos registros normalizados de forma limpa, sanitizada e pronta para importação no banco.</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- 3. Sandbox Interativa (Simulador Inline!) -->
-          <div class="flex flex-col gap-4">
-            <div class="flex items-center gap-2 text-brandCyan font-space text-xs uppercase tracking-wider font-bold">
-              <span class="w-2 h-2 rounded-full bg-brandCyan"></span>
-              Demonstração Prática (Sandbox Executável)
-            </div>
-            <div class="p-6 bg-surface border border-white/5 rounded-3xl">
-              <NxtPurifierSandbox />
-            </div>
-          </div>
-
-          <!-- 4. Vetor de Implementação & CTA WhatsApp -->
+          <!-- Vetor de Implementação & CTA WhatsApp -->
           <div class="flex flex-col gap-4 p-6 md:p-8 rounded-3xl bg-brandCyan/5 border border-brandCyan/10">
-            <div class="flex items-center gap-2 text-brandCyan font-space text-xs uppercase tracking-wider font-bold">
-              <span class="w-2 h-2 rounded-full bg-brandCyan"></span>
-              Vetor de Implementação Comercial
-            </div>
-            <p class="text-textSecondary text-sm md:text-base leading-relaxed font-sora">
-              "Se a sua equipe comercial perde tempo filtrando planilhas despadronizadas ou se a qualidade das suas bases afeta o seu faturamento B2B, eu posso programar e implantar um pipeline automatizado de limpeza de bases customizado."
+            <p class="text-textSecondary text-xs md:text-sm leading-relaxed font-sora">
+              "Se a sua qualidade de base de dados afeta o seu faturamento B2B, eu posso programar e implantar um pipeline automatizado de higienização de dados customizado de alto desempenho sob medida para o seu time."
             </p>
             <a 
               href="https://wa.me/5564993335277?text=Olá%20Nathan,%20li%20o%20caso%20técnico%20sobre%20o%20Purifier%20Engine%20no%20seu%20portfólio%20e%20gostaria%20de%20conversar%20sobre%20a%20limpeza%20e%20higienização%20de%20nossas%20bases%20de%20dados!"
               target="_blank"
               rel="noopener noreferrer"
-              class="mt-2 inline-flex items-center justify-center px-8 py-4 bg-[#00f2fe] text-[#0b0e14] font-space font-bold rounded-xl hover:bg-white hover:text-[#0b0e14] transition-all duration-300 hover:scale-[1.02] active:scale-95 uppercase tracking-wider text-xs w-fit shadow-[0_0_25px_rgba(0,242,254,0.2)]"
+              class="inline-flex items-center justify-center px-8 py-3.5 bg-[#00f2fe] text-[#0b0e14] font-space font-bold rounded-xl hover:bg-white hover:text-[#0b0e14] transition-all duration-300 hover:scale-[1.02] active:scale-95 uppercase tracking-wider text-[10px] w-fit shadow-[0_0_25px_rgba(0,242,254,0.2)]"
             >
               💬 Discutir Higienização de Bases do meu Negócio
             </a>
@@ -222,67 +222,67 @@ import MoskatoSyncSandbox from '../components/MoskatoSyncSandbox.astro';
             </div>
           </div>
 
-          <!-- 1. O Diagnóstico do Gargalo -->
-          <div class="flex flex-col gap-3 p-6 rounded-2xl bg-red-950/10 border border-red-500/10">
-            <div class="flex items-center gap-2 text-red-400 font-space text-xs uppercase tracking-wider font-bold">
-              <span class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
-              O Diagnóstico do Gargalo (O Problema Comercial)
+          <!-- Grid: Texto à esquerda, Botão de Simulação à direita -->
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+            
+            <!-- Coluna 1 (Texto - Problema + Lógica) -->
+            <div class="lg:col-span-7 flex flex-col gap-6 justify-between">
+              
+              <!-- O Diagnóstico do Gargalo -->
+              <div class="flex flex-col gap-3 p-5 rounded-2xl bg-red-950/10 border border-red-500/10">
+                <div class="flex items-center gap-2 text-red-400 font-space text-[10px] uppercase tracking-wider font-bold">
+                  <span class="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse"></span>
+                  O Diagnóstico do Gargalo (O Problema)
+                </div>
+                <p class="text-textSecondary text-xs md:text-sm leading-relaxed font-sora italic">
+                  "Falta de atendimento instantâneo em horários de pico e fins de semana custa até 40% das conversões de reservas no comercial. Um suporte fragmentado gera perda de vendas diretas e alta fricção."
+                </p>
+              </div>
+
+              <!-- A Engenharia da Solução -->
+              <div class="flex flex-col gap-3 p-5 rounded-2xl bg-surface border border-white/5">
+                <div class="flex items-center gap-2 text-brandCyan font-space text-[10px] uppercase tracking-wider font-bold">
+                  <span class="w-1.5 h-1.5 rounded-full bg-brandCyan"></span>
+                  A Engenharia da Solução (A Lógica)
+                </div>
+                <p class="text-textSecondary text-xs md:text-sm leading-relaxed font-sora">
+                  Evolution API captura mensagens de clientes via Webhook de forma altamente resiliente. O microsserviço Node.js analisa parâmetros de reservas e disponibilidade de tabelas no banco de forma assíncrona e despacha o cardápio e catálogo digital.
+                </p>
+              </div>
+
             </div>
-            <p class="text-textSecondary text-sm md:text-base leading-relaxed font-sora italic">
-              "Falta de atendimento instantâneo em horários de pico e fins de semana custa até 40% das conversões de reservas. Um suporte fragmentado gera perda de vendas diretas e fricção no engajamento dos prospects."
-            </p>
+
+            <!-- Coluna 2 (Botão Minimizador do Simulador) -->
+            <div class="lg:col-span-5 flex flex-col justify-center">
+              <button 
+                class="open-sandbox-btn group flex flex-col items-center justify-center p-8 rounded-[24px] bg-surface border border-brandCyan/20 hover:border-brandCyan transition-all w-full text-center relative overflow-hidden cursor-pointer shadow-[0_0_20px_rgba(28,105,183,0.1)] active:scale-95 hover:scale-[1.02] h-full min-h-[180px]"
+                data-sandbox-id="menu"
+              >
+                <div class="w-12 h-12 rounded-full bg-brandCyan/10 flex items-center justify-center text-brandCyan mb-4 group-hover:scale-110 transition-transform">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+                <h4 class="text-[10px] font-space tracking-widest text-textSecondary uppercase mb-1">Simulador Interativo</h4>
+                <span class="text-sm font-sora font-bold text-textPrimary group-hover:text-brandCyan transition-colors">TESTAR SUPORTE ⚡</span>
+                <span class="text-[9px] font-space text-green-400 mt-3 flex items-center gap-1.5">
+                  <span class="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse"></span> ONLINE E PRONTO
+                </span>
+              </button>
+            </div>
+
           </div>
 
-          <!-- 2. A Engenharia da Solução -->
-          <div class="flex flex-col gap-4">
-            <div class="flex items-center gap-2 text-brandCyan font-space text-xs uppercase tracking-wider font-bold">
-              <span class="w-2 h-2 rounded-full bg-brandCyan"></span>
-              A Engenharia da Solução (O Fluxo Técnico)
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div class="p-5 rounded-2xl bg-surface/50 border border-white/5 flex flex-col gap-2">
-                <span class="text-xs font-space text-textSecondary font-bold uppercase tracking-widest">Etapa 01</span>
-                <h4 class="text-sm font-sora font-bold text-textPrimary">Interceptação API</h4>
-                <p class="text-xs text-textSecondary font-sora leading-relaxed">Evolution API captura mensagens de clientes via Webhook de forma altamente resiliente e offline-first.</p>
-              </div>
-              <div class="p-5 rounded-2xl bg-surface/50 border border-white/5 flex flex-col gap-2">
-                <span class="text-xs font-space text-textSecondary font-bold uppercase tracking-widest">Etapa 02</span>
-                <h4 class="text-sm font-sora font-bold text-textPrimary">Validação Assíncrona</h4>
-                <p class="text-xs text-textSecondary font-sora leading-relaxed">O microsserviço Node.js analisa parâmetros de reservas e disponibilidade de tabelas de forma assíncrona no banco.</p>
-              </div>
-              <div class="p-5 rounded-2xl bg-surface/50 border border-white/5 flex flex-col gap-2">
-                <span class="text-xs font-space text-textSecondary font-bold uppercase tracking-widest">Etapa 03</span>
-                <h4 class="text-sm font-sora font-bold text-textPrimary">Despacho Fluido</h4>
-                <p class="text-xs text-textSecondary font-sora leading-relaxed">Envio instantâneo do cardápio digital e catálogo dinâmico de suporte, liberando 90% do overhead humano.</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- 3. Sandbox Interativa (Simulador Inline!) -->
-          <div class="flex flex-col gap-4">
-            <div class="flex items-center gap-2 text-brandCyan font-space text-xs uppercase tracking-wider font-bold">
-              <span class="w-2 h-2 rounded-full bg-brandCyan"></span>
-              Demonstração Prática (Sandbox Executável)
-            </div>
-            <div class="p-6 bg-surface border border-white/5 rounded-3xl">
-              <MoskatoSyncSandbox />
-            </div>
-          </div>
-
-          <!-- 4. Vetor de Implementação & CTA WhatsApp -->
+          <!-- Vetor de Implementação & CTA WhatsApp -->
           <div class="flex flex-col gap-4 p-6 md:p-8 rounded-3xl bg-brandCyan/5 border border-brandCyan/10">
-            <div class="flex items-center gap-2 text-brandCyan font-space text-xs uppercase tracking-wider font-bold">
-              <span class="w-2 h-2 rounded-full bg-brandCyan"></span>
-              Vetor de Implementação Comercial
-            </div>
-            <p class="text-textSecondary text-sm md:text-base leading-relaxed font-sora">
-              "Posso arquitetar um ecossistema completo de mensageria com microsserviços integrados a APIs e Webhooks resilientes para automatizar o seu atendimento comercial, mantendo consistência e integridade."
+            <p class="text-textSecondary text-xs md:text-sm leading-relaxed font-sora">
+              "Posso arquitetar um ecossistema completo de mensageria com microsserviços integrados a APIs e Webhooks resilientes para automatizar o seu atendimento comercial, eliminando fricções operacionais."
             </p>
             <a 
               href="https://wa.me/5564993335277?text=Olá%20Nathan,%20li%20o%20caso%20técnico%20sobre%20o%20Ecossistema%20Menu%20no%20seu%20portfólio%20e%20gostaria%20de%20conversar%20sobre%20a%20integração%20de%20atendimento%20automatizado!"
               target="_blank"
               rel="noopener noreferrer"
-              class="mt-2 inline-flex items-center justify-center px-8 py-4 bg-[#00f2fe] text-[#0b0e14] font-space font-bold rounded-xl hover:bg-white hover:text-[#0b0e14] transition-all duration-300 hover:scale-[1.02] active:scale-95 uppercase tracking-wider text-xs w-fit shadow-[0_0_25px_rgba(0,242,254,0.2)]"
+              class="inline-flex items-center justify-center px-8 py-3.5 bg-[#00f2fe] text-[#0b0e14] font-space font-bold rounded-xl hover:bg-white hover:text-[#0b0e14] transition-all duration-300 hover:scale-[1.02] active:scale-95 uppercase tracking-wider text-[10px] w-fit shadow-[0_0_25px_rgba(0,242,254,0.2)]"
             >
               💬 Discutir Automatização do meu Atendimento B2B
             </a>
@@ -313,4 +313,104 @@ import MoskatoSyncSandbox from '../components/MoskatoSyncSandbox.astro';
 
     </div>
   </main>
+
+  <!-- MODALS PARA OS SIMULADORES (FULL EXPERIENCE POPUPS) -->
+  
+  <!-- Modal CRM -->
+  <div id="modal-crm" class="sandbox-modal fixed inset-0 z-[100] bg-darkBg/95 backdrop-blur-md flex items-center justify-center p-4 md:p-8 opacity-0 pointer-events-none transition-all duration-300 hidden">
+    <div class="modal-content max-w-4xl w-full bg-surface border border-white/5 rounded-3xl p-6 md:p-8 flex flex-col gap-6 relative shadow-2xl scale-95 transition-transform duration-300 max-h-[90vh] overflow-y-auto scrollbar-thin">
+      <button class="close-modal-btn absolute top-6 right-6 text-textSecondary hover:text-brandCyan transition-colors p-2 bg-darkBg/40 border border-white/5 rounded-full cursor-pointer active:scale-95">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M18 6L6 18M6 6l12 12" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <div class="flex flex-col gap-1">
+        <span class="text-xs font-space text-brandCyan font-bold tracking-widest">SIMULADOR INTERATIVO</span>
+        <h3 class="text-xl md:text-2xl font-sora font-bold text-textPrimary">CRM Inteligente & Prospecção</h3>
+      </div>
+      <div class="mt-2">
+        <NxtOsSandbox />
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Purifier -->
+  <div id="modal-purifier" class="sandbox-modal fixed inset-0 z-[100] bg-darkBg/95 backdrop-blur-md flex items-center justify-center p-4 md:p-8 opacity-0 pointer-events-none transition-all duration-300 hidden">
+    <div class="modal-content max-w-4xl w-full bg-surface border border-white/5 rounded-3xl p-6 md:p-8 flex flex-col gap-6 relative shadow-2xl scale-95 transition-transform duration-300 max-h-[90vh] overflow-y-auto scrollbar-thin">
+      <button class="close-modal-btn absolute top-6 right-6 text-textSecondary hover:text-brandCyan transition-colors p-2 bg-darkBg/40 border border-white/5 rounded-full cursor-pointer active:scale-95">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M18 6L6 18M6 6l12 12" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <div class="flex flex-col gap-1">
+        <span class="text-xs font-space text-brandCyan font-bold tracking-widest">SIMULADOR INTERATIVO</span>
+        <h3 class="text-xl md:text-2xl font-sora font-bold text-textPrimary">Purifier Engine & Higienização</h3>
+      </div>
+      <div class="mt-2">
+        <NxtPurifierSandbox />
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Menu -->
+  <div id="modal-menu" class="sandbox-modal fixed inset-0 z-[100] bg-darkBg/95 backdrop-blur-md flex items-center justify-center p-4 md:p-8 opacity-0 pointer-events-none transition-all duration-300 hidden">
+    <div class="modal-content max-w-4xl w-full bg-surface border border-white/5 rounded-3xl p-6 md:p-8 flex flex-col gap-6 relative shadow-2xl scale-95 transition-transform duration-300 max-h-[90vh] overflow-y-auto scrollbar-thin">
+      <button class="close-modal-btn absolute top-6 right-6 text-textSecondary hover:text-brandCyan transition-colors p-2 bg-darkBg/40 border border-white/5 rounded-full cursor-pointer active:scale-95">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M18 6L6 18M6 6l12 12" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <div class="flex flex-col gap-1">
+        <span class="text-xs font-space text-brandCyan font-bold tracking-widest">SIMULADOR INTERATIVO</span>
+        <h3 class="text-xl md:text-2xl font-sora font-bold text-textPrimary">Ecossistema Menu & Suporte</h3>
+      </div>
+      <div class="mt-2">
+        <MoskatoSyncSandbox />
+      </div>
+    </div>
+  </div>
+
 </Layout>
+
+<script>
+  document.addEventListener('astro:page-load', () => {
+    const openBtns = document.querySelectorAll('.open-sandbox-btn');
+    const closeBtns = document.querySelectorAll('.close-modal-btn');
+    
+    openBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const id = btn.getAttribute('data-sandbox-id');
+        const modal = document.getElementById(`modal-${id}`);
+        if (modal) {
+          modal.classList.remove('hidden');
+          // small timeout for CSS transitions
+          setTimeout(() => {
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+            modal.classList.add('opacity-100', 'pointer-events-auto');
+            const inner = modal.querySelector('.modal-content');
+            inner?.classList.remove('scale-95');
+            inner?.classList.add('scale-100');
+          }, 50);
+          document.body.style.overflow = 'hidden';
+        }
+      });
+    });
+
+    closeBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const modal = btn.closest('.sandbox-modal');
+        if (modal) {
+          modal.classList.remove('opacity-100', 'pointer-events-auto');
+          modal.classList.add('opacity-0', 'pointer-events-none');
+          const inner = modal.querySelector('.modal-content');
+          inner?.classList.remove('scale-100');
+          inner?.classList.add('scale-95');
+          setTimeout(() => {
+            modal.classList.add('hidden');
+          }, 300);
+          document.body.style.overflow = '';
+        }
+      });
+    });
+  });
+</script>
