@@ -1,0 +1,85 @@
+---
+// src/pages/nxt-os.astro
+import Layout from '../layouts/Layout.astro';
+import NxtOsSandbox from '../components/NxtOsSandbox.astro';
+---
+
+<Layout title="Sistema de Prospecção e CRM Inteligente | Nathan Borges">
+  <div class="min-h-screen bg-darkBg text-textPrimary py-32 px-8 flex flex-col font-sora relative overflow-hidden">
+    <!-- Glow Effects -->
+    <div class="absolute top-0 left-1/4 w-[600px] h-[600px] bg-brandCyan/5 rounded-full blur-[120px] pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto w-full flex-1 flex flex-col z-10">
+      <!-- Cabeçalho de Navegação -->
+      <a href="/#projetos" class="inline-flex items-center gap-2 text-textSecondary hover:text-[#00f2fe] transition-colors mb-12 font-space text-sm tracking-widest uppercase group w-fit">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="group-hover:-translate-x-1 transition-transform">
+          <path d="M19 12H5M12 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Voltar para Projetos
+      </a>
+      
+      <!-- Título da Página -->
+      <div class="mb-12">
+        <h1 class="text-4xl md:text-6xl font-bold mb-6 tracking-tight">Sistema de Prospecção e <span class="text-[#00f2fe]">CRM Inteligente</span></h1>
+      </div>
+
+      <!-- Grid de Cenário (Antes vs Depois) -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+        
+        <!-- Antes: O Caos Operacional -->
+        <div class="bg-red-500/[0.02] border border-red-500/10 p-6 rounded-3xl flex flex-col gap-5">
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-full bg-red-500/10 border border-red-500/20 flex items-center justify-center text-red-400">
+              <i class="fa-solid fa-circle-xmark text-sm"></i>
+            </div>
+            <h3 class="font-bold text-xl text-red-400 font-sora">Antes: O Caos Operacional</h3>
+          </div>
+          
+          <div class="space-y-4">
+            <div class="bg-[#0b0e14]/40 border border-white/5 p-4 rounded-2xl">
+              <span class="text-xs font-bold text-red-400 uppercase tracking-widest block mb-1">Tempo Desperdiçado (8h/dia)</span>
+              <p class="text-textSecondary text-sm leading-relaxed font-sora">A equipe comercial passava horas abrindo site por site de potenciais clientes para tentar encontrar brechas técnicas e bolar abordagens frias que ninguém lia.</p>
+            </div>
+            <div class="bg-[#0b0e14]/40 border border-white/5 p-4 rounded-2xl">
+              <span class="text-xs font-bold text-red-400 uppercase tracking-widest block mb-1">Follow-Up Esquecido</span>
+              <p class="text-textSecondary text-sm leading-relaxed font-sora">Leads entravam na base e esfriavam rapidamente por falta de cobrança sistemática, sem prazos definidos nem alertas visuais de urgência comercial.</p>
+            </div>
+            <div class="bg-[#0b0e14]/40 border border-white/5 p-4 rounded-2xl">
+              <span class="text-xs font-bold text-red-400 uppercase tracking-widest block mb-1">Processo Manual Lento</span>
+              <p class="text-textSecondary text-sm leading-relaxed font-sora">Registrar cada contato feito no CRM do Notion exigia digitação repetitiva e cópia manual de scripts genéricos, gerando falhas e ruído de imagem.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Depois: O Controle de Comando (NXT OS) -->
+        <div class="bg-emerald-500/[0.02] border border-emerald-500/10 p-6 rounded-3xl flex flex-col gap-5">
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-full bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400">
+              <i class="fa-solid fa-circle-check text-sm"></i>
+            </div>
+            <h3 class="font-bold text-xl text-emerald-400 font-sora">Depois: O Command Center (NXT OS)</h3>
+          </div>
+          
+          <div class="space-y-4">
+            <div class="bg-[#0b0e14]/40 border border-white/5 p-4 rounded-2xl">
+              <span class="text-xs font-bold text-emerald-400 uppercase tracking-widest block mb-1">RID (Diagnóstico IA Instantâneo)</span>
+              <p class="text-textSecondary text-sm leading-relaxed font-sora">O Gemini 2.0 Flash entra no site de cada lead em tempo real e entrega na tela 3 brechas técnicas prontas para usar na abordagem, gerando ganho imediato de autoridade.</p>
+            </div>
+            <div class="bg-[#0b0e14]/40 border border-white/5 p-4 rounded-2xl">
+              <span class="text-xs font-bold text-emerald-400 uppercase tracking-widest block mb-1">Disparos Táticos 1-Click</span>
+              <p class="text-textSecondary text-sm leading-relaxed font-sora">Scripts dinamicamente gerados e preenchidos em 1 clique (WhatsApp, Email, LinkedIn, Instagram) sem necessidade de digitação ou copy-paste demorado.</p>
+            </div>
+            <div class="bg-[#0b0e14]/40 border border-white/5 p-4 rounded-2xl">
+              <span class="text-xs font-bold text-emerald-400 uppercase tracking-widest block mb-1">Acompanhamento CRM Vivo</span>
+              <p class="text-textSecondary text-sm leading-relaxed font-sora">Uma esteira de follow-up que avisa automaticamente a urgência baseada no tempo (verde, amarelo e vermelho), mantendo o funil aquecido de forma visual e sincronizada.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Sandbox Interativo NXT OS -->
+      <NxtOsSandbox />
+    </div>
+  </div>
+</Layout>

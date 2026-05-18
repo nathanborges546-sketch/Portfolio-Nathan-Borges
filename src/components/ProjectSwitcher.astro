@@ -8,7 +8,8 @@ const automationsCases = [
     desc: "Redução de 90% no ciclo de captação B2B. Arquitetura em Python para alimentação assíncrona do Notion e interface Streamlit.",
     tags: ["Python", "Streamlit", "Meta API", "Notion API"],
     span: "md:col-span-2 md:row-span-2",
-    github: "https://github.com/nathanborges546"
+    github: "https://github.com/nathanborges546",
+    link: "/nxt-os"
   },
   {
     title: "Menu Digital Personalizado",
@@ -94,7 +95,7 @@ const uxCases = [
                 ))}
               </div>
               {c.github && (
-                <a href={c.github} target="_blank" class="text-blue-400 font-space text-xs hover:underline inline-flex items-center gap-2">
+                <a href={c.github} target="_blank" onclick="event.stopPropagation();" class="text-blue-400 font-space text-xs hover:underline inline-flex items-center gap-2 relative z-30">
                   VER ARQUITETURA NO GITHUB →
                 </a>
               )}
