@@ -1,29 +1,38 @@
 ---
 const reviews = [
   {
-    name: "Diretor de Engenharia",
-    role: "SaaS B2B",
-    text: "O Nathan possui uma habilidade rara: ele entende a fundo a engenharia de dados em Python, mas não ignora o impacto do UX Writing na retenção do usuário. Um ativo indispensável para qualquer squad sênior."
+    name: "Vasil J.",
+    company: "Moskato Camping",
+    photoHash: Buffer.from("/reviews/Vasil J.avif").toString('base64'),
+    textEn: "The system you built for me made our service incredibly fast and efficient. Customers place their orders instantly, the kitchen starts preparing them right away, and I can focus entirely on guest relationships and payments. It's an absolute game-changer.",
+    textPt: "Esse sistema que criou pra mim tornou nosso atendimento incrivelmente rápido e eficiente. O cliente faz o pedido instantaneamente, a cozinha já começa a preparar na hora, e eu posso focar totalmente no relacionamento com os clientes e nos pagamentos. É uma mão na roda.",
+    isTranslatable: true
   },
   {
-    name: "Tech Lead",
-    role: "Operações Corporativas",
-    text: "Os scripts e a automação de pipeline que ele desenhou reduziram nosso esforço manual de prospecção em mais de 80%. Código limpo, componentizado e documentado."
+    name: "Guterberg G.",
+    company: "Platly",
+    photoHash: Buffer.from("/reviews/Guterberg G.avif").toString('base64'),
+    text: "Agora meu time pode focar em prospectar os parceiros de forma certeira e automatizada, código limpo, componentizado e documentado, com uma interface intuitiva e didática."
   },
   {
-    name: "Product Manager",
-    role: "E-commerce",
-    text: "Ele domina o microcopy e as heurísticas de interface. O redesenho dos nossos fluxos críticos mobile eliminou os erros de input dos usuários, estabilizando nossa taxa de conversão."
+    name: "Henrique B.",
+    company: "Nexus",
+    photoHash: Buffer.from("/reviews/Henrique B..avif").toString('base64'),
+    text: "O redesenho dos nossos fluxos críticos mobile eliminou os erros de input dos usuários, estabilizando nossa taxa de conversão. Trabalho excelente."
   },
   {
-    name: "Engineering Manager",
-    role: "Fintech",
-    text: "Excepcional em traduzir requisitos de negócios complexos em arquiteturas escaláveis. Sua visão de UX dentro do código economiza meses de retrabalho."
+    name: "Allice L.",
+    company: "Lirius Perfumes",
+    photoHash: Buffer.from("/reviews/Allice L.avif").toString('base64'),
+    text: "Meu site agora está organizado, rápido e convertendo muito mais que antes."
+  },
+  {
+    name: "Frederick A.",
+    company: "Takuma Sun",
+    photoHash: Buffer.from("/reviews/Frederick A.avif").toString('base64'),
+    text: "O site está na pegada do surf agora, fluido e leve, e com uma animação genial imitando as ondas."
   }
 ];
-
-// Duplicamos o array para criar o efeito infinito contínuo no marquee
-const marqueeItems = [...reviews, ...reviews];
 ---
 
 <section class="py-32 bg-darkBg overflow-hidden border-t border-surface/30">
@@ -37,19 +46,32 @@ const marqueeItems = [...reviews, ...reviews];
     <!-- Track Animado 1 -->
     <div class="flex shrink-0 min-w-full gap-6 animate-marquee group-hover:[animation-play-state:paused]">
       {reviews.map((review, index) => (
-        <div class="w-[350px] shrink-0 bg-surface border border-brandCyan/5 rounded-[32px] p-8 transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] hover:scale-150 hover:z-50 hover:shadow-[0_20px_50px_rgba(0,0,0,0.8)] cursor-default">
-          <div class="flex items-center gap-4 mb-6">
-            <div class="w-12 h-12 rounded-full bg-darkBg border border-brandCyan/20 flex items-center justify-center">
-              <span class="text-brandCyan font-space text-sm font-bold">{review.name.charAt(0)}</span>
+        <div class="review-card-container w-[350px] shrink-0 bg-surface border border-brandCyan/5 rounded-[32px] p-8 transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] hover:scale-110 hover:z-50 hover:shadow-[0_20px_50px_rgba(0,0,0,0.8)] cursor-default flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-4 mb-6">
+              <canvas 
+                class="review-avatar-canvas w-12 h-12 rounded-full border border-brandCyan/20 bg-darkBg pointer-events-none select-none"
+                data-hash={review.photoHash}
+              ></canvas>
+              <div>
+                <p class="text-textPrimary font-sora font-bold text-sm whitespace-normal leading-none">{review.company}</p>
+                <p class="text-blue-400 font-space text-[10px] uppercase tracking-widest mt-1">{review.name}</p>
+              </div>
             </div>
-            <div>
-              <p class="text-textPrimary font-sora font-bold text-sm whitespace-normal leading-none">{review.name}</p>
-              <p class="text-blue-400 font-space text-[10px] uppercase tracking-widest mt-1">{review.role}</p>
-            </div>
+            <p class="review-text-content text-textSecondary font-sora text-sm leading-relaxed whitespace-normal break-words italic">
+              "{review.isTranslatable ? review.textEn : review.text}"
+            </p>
           </div>
-          <p class="text-textSecondary font-sora text-sm leading-relaxed whitespace-normal break-words italic">
-            "{review.text}"
-          </p>
+          {review.isTranslatable && (
+            <button 
+              class="translate-review-btn mt-4 text-[10px] font-space text-brandCyan/70 hover:text-brandCyan flex items-center gap-1 transition-all active:scale-95 cursor-pointer uppercase tracking-wider bg-transparent border-none p-0 w-fit"
+              data-en={review.textEn}
+              data-pt={review.textPt}
+              data-current="en"
+            >
+              🌐 Traduzir para o Português
+            </button>
+          )}
         </div>
       ))}
     </div>
@@ -57,19 +79,32 @@ const marqueeItems = [...reviews, ...reviews];
     <!-- Track Animado 2 (Duplicado para o Loop) -->
     <div class="flex shrink-0 min-w-full gap-6 animate-marquee group-hover:[animation-play-state:paused]" aria-hidden="true">
       {reviews.map((review, index) => (
-        <div class="w-[350px] shrink-0 bg-surface border border-brandCyan/5 rounded-[32px] p-8 transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] hover:scale-150 hover:z-50 hover:shadow-[0_20px_50px_rgba(0,0,0,0.8)] cursor-default">
-          <div class="flex items-center gap-4 mb-6">
-            <div class="w-12 h-12 rounded-full bg-darkBg border border-brandCyan/20 flex items-center justify-center">
-              <span class="text-brandCyan font-space text-sm font-bold">{review.name.charAt(0)}</span>
+        <div class="review-card-container w-[350px] shrink-0 bg-surface border border-brandCyan/5 rounded-[32px] p-8 transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] hover:scale-110 hover:z-50 hover:shadow-[0_20px_50px_rgba(0,0,0,0.8)] cursor-default flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-4 mb-6">
+              <canvas 
+                class="review-avatar-canvas w-12 h-12 rounded-full border border-brandCyan/20 bg-darkBg pointer-events-none select-none"
+                data-hash={review.photoHash}
+              ></canvas>
+              <div>
+                <p class="text-textPrimary font-sora font-bold text-sm whitespace-normal leading-none">{review.company}</p>
+                <p class="text-blue-400 font-space text-[10px] uppercase tracking-widest mt-1">{review.name}</p>
+              </div>
             </div>
-            <div>
-              <p class="text-textPrimary font-sora font-bold text-sm whitespace-normal leading-none">{review.name}</p>
-              <p class="text-blue-400 font-space text-[10px] uppercase tracking-widest mt-1">{review.role}</p>
-            </div>
+            <p class="review-text-content text-textSecondary font-sora text-sm leading-relaxed whitespace-normal break-words italic">
+              "{review.isTranslatable ? review.textEn : review.text}"
+            </p>
           </div>
-          <p class="text-textSecondary font-sora text-sm leading-relaxed whitespace-normal break-words italic">
-            "{review.text}"
-          </p>
+          {review.isTranslatable && (
+            <button 
+              class="translate-review-btn mt-4 text-[10px] font-space text-brandCyan/70 hover:text-brandCyan flex items-center gap-1 transition-all active:scale-95 cursor-pointer uppercase tracking-wider bg-transparent border-none p-0 w-fit"
+              data-en={review.textEn}
+              data-pt={review.textPt}
+              data-current="en"
+            >
+              🌐 Traduzir para o Português
+            </button>
+          )}
         </div>
       ))}
     </div>
@@ -80,3 +115,89 @@ const marqueeItems = [...reviews, ...reviews];
 
   </div>
 </section>
+
+<script>
+  document.addEventListener('astro:page-load', () => {
+    // 1. Decode Base64 and draw on Canvas dynamically (anti-copy/no-src-in-code)
+    const canvases = document.querySelectorAll('.review-avatar-canvas');
+    canvases.forEach(canvas => {
+      const hash = canvas.getAttribute('data-hash');
+      if (!hash) return;
+      
+      try {
+        const decodedPath = atob(hash);
+        const ctx = canvas.getContext('2d');
+        if (!ctx) return;
+        
+        const img = new Image();
+        img.src = decodedPath;
+        img.onload = () => {
+          // Retina high-resolution size scaling
+          const size = 96;
+          canvas.width = size;
+          canvas.height = size;
+          
+          // Draw circular crop
+          ctx.beginPath();
+          ctx.arc(size / 2, size / 2, size / 2, 0, Math.PI * 2);
+          ctx.closePath();
+          ctx.clip();
+          
+          // Draw image
+          ctx.drawImage(img, 0, 0, size, size);
+        };
+      } catch (err) {
+        console.error('Secure avatar decryption failed', err);
+      }
+    });
+
+    // 2. Prevent right-click / drag on secure canvases
+    document.addEventListener('contextmenu', (e) => {
+      if (e.target.classList.contains('review-avatar-canvas')) {
+        e.preventDefault();
+      }
+    });
+    document.addEventListener('dragstart', (e) => {
+      if (e.target.classList.contains('review-avatar-canvas')) {
+        e.preventDefault();
+      }
+    });
+
+    // 3. Translation synchronization
+    const translateBtns = document.querySelectorAll('.translate-review-btn');
+    translateBtns.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        
+        const cardContainer = btn.closest('.review-card-container');
+        if (!cardContainer) return;
+        
+        const companyName = cardContainer.querySelector('.text-textPrimary')?.textContent;
+        const currentLang = btn.getAttribute('data-current') || 'en';
+        const textEn = btn.getAttribute('data-en') || '';
+        const textPt = btn.getAttribute('data-pt') || '';
+        
+        const allCardContainers = document.querySelectorAll('.review-card-container');
+        allCardContainers.forEach(container => {
+          const name = container.querySelector('.text-textPrimary')?.textContent;
+          if (name === companyName) {
+            const textEl = container.querySelector('.review-text-content');
+            const tBtn = container.querySelector('.translate-review-btn');
+            
+            if (textEl && tBtn) {
+              if (currentLang === 'en') {
+                textEl.textContent = `"${textPt}"`;
+                tBtn.textContent = '🌐 View in English';
+                tBtn.setAttribute('data-current', 'pt');
+              } else {
+                textEl.textContent = `"${textEn}"`;
+                tBtn.textContent = '🌐 Traduzir para o Português';
+                tBtn.setAttribute('data-current', 'en');
+              }
+            }
+          }
+        });
+      });
+    });
+  });
+</script>
