@@ -92,26 +92,26 @@ const uxCases = [
               return (
                 <div 
                   data-slide-index={index}
-                  class={`w-[33.333333%] shrink-0 flex flex-col md:flex-row gap-8 md:gap-12 p-8 md:p-12 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] ${isActive ? 'opacity-100 scale-100' : 'opacity-20 scale-[0.98]'}`}
+                  class={`w-[33.333333%] shrink-0 flex flex-col md:flex-row gap-8 md:gap-12 p-6 md:p-12 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] ${isActive ? 'opacity-100 scale-100' : 'opacity-20 scale-[0.98]'}`}
                 >
                   <!-- Lado Esquerdo: Conteúdo Comercial -->
                   <div class="flex-1 flex flex-col justify-between gap-6">
                     <div class="flex flex-col gap-4">
-                      <span class="font-space text-4xl md:text-5xl text-brandCyan font-bold tracking-tight">{c.metric}</span>
-                      <h4 class="text-2xl md:text-3xl font-sora font-bold text-textPrimary tracking-tight">{c.title}</h4>
+                      <span class="font-space text-3xl md:text-5xl text-brandCyan font-bold tracking-tight">{c.metric}</span>
+                      <h4 class="text-xl md:text-3xl font-sora font-bold text-textPrimary tracking-tight">{c.title}</h4>
                       <p class="text-textSecondary text-sm md:text-base leading-relaxed font-sora max-w-xl">{c.desc}</p>
                     </div>
 
                     <div>
                       <div class="flex flex-wrap gap-2 mb-8">
                         {c.tags.map(tag => (
-                          <span class="px-3 py-1 bg-darkBg border border-brandCyan/10 rounded-full text-[10px] font-space text-blue-400">{tag}</span>
+                          <span class="px-3 py-1 bg-darkBg border border-brandCyan/10 rounded-full text-[9px] md:text-[10px] font-space text-blue-400">{tag}</span>
                         ))}
                       </div>
                       {c.link && (
                         <a 
                           href={c.link} 
-                          class="inline-flex items-center justify-center px-8 py-4 bg-[#00f2fe] text-[#0b0e14] font-space font-bold rounded-xl hover:bg-white hover:text-[#0b0e14] transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_0_30px_rgba(0,242,254,0.45)] active:scale-95 uppercase tracking-wider text-xs w-fit group"
+                          class="inline-flex items-center justify-center px-6 py-3.5 md:px-8 md:py-4 bg-[#00f2fe] text-[#0b0e14] font-space font-bold rounded-xl hover:bg-white hover:text-[#0b0e14] transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_0_30px_rgba(0,242,254,0.45)] active:scale-95 uppercase tracking-wider text-xs w-fit group"
                         >
                           Abrir Simulador Interativo 
                           <span class="ml-2 group-hover:translate-x-1 transition-transform font-bold text-sm">→</span>
@@ -193,6 +193,22 @@ const uxCases = [
 
           </div>
         </div>
+
+        <!-- Mobile Navigation Controls (Visível apenas no mobile, abaixo do card) -->
+        <div class="flex md:hidden justify-center items-center gap-6 mt-6">
+          <button id="btn-carousel-prev-mobile" class="w-10 h-10 rounded-full bg-[#161b22] border border-white/5 flex items-center justify-center text-textSecondary active:scale-95 cursor-pointer">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M19 12H5M12 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <span id="carousel-indicator-mobile" class="text-xs font-space text-textSecondary tracking-widest font-bold">1 / 3</span>
+          <button id="btn-carousel-next-mobile" class="w-10 h-10 rounded-full bg-[#161b22] border border-white/5 flex items-center justify-center text-textSecondary active:scale-95 cursor-pointer">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
+
       </div>
 
       <!-- Grid UX: Mantém o layout bento tradicional para UX -->
@@ -274,6 +290,9 @@ const uxCases = [
     const totalSlides = slidesAuto.length;
     const btnCarouselPrev = document.getElementById('btn-carousel-prev');
     const btnCarouselNext = document.getElementById('btn-carousel-next');
+    const btnCarouselPrevMobile = document.getElementById('btn-carousel-prev-mobile');
+    const btnCarouselNextMobile = document.getElementById('btn-carousel-next-mobile');
+    const carouselIndicatorMobile = document.getElementById('carousel-indicator-mobile');
     const carouselTrack = document.getElementById('carousel-track');
 
     const renderCarousel = () => {
@@ -292,16 +311,26 @@ const uxCases = [
           slide.classList.add('opacity-20', 'scale-[0.98]');
         }
       });
+
+      // Update mobile pagination text
+      if (carouselIndicatorMobile) {
+        carouselIndicatorMobile.textContent = `${activeCarouselIndex + 1} / ${totalSlides}`;
+      }
     };
 
-    btnCarouselPrev?.addEventListener('click', () => {
+    const handlePrev = () => {
       activeCarouselIndex = (activeCarouselIndex - 1 + totalSlides) % totalSlides;
       renderCarousel();
-    });
+    };
 
-    btnCarouselNext?.addEventListener('click', () => {
+    const handleNext = () => {
       activeCarouselIndex = (activeCarouselIndex + 1) % totalSlides;
       renderCarousel();
-    });
+    };
+
+    btnCarouselPrev?.addEventListener('click', handlePrev);
+    btnCarouselNext?.addEventListener('click', handleNext);
+    btnCarouselPrevMobile?.addEventListener('click', handlePrev);
+    btnCarouselNextMobile?.addEventListener('click', handleNext);
   });
 </script>
