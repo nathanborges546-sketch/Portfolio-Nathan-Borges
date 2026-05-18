@@ -496,7 +496,7 @@ Corrigir essa brecha costuma destravar os resultados de faturamento e melhorar a
     // Interactive Bulk Scheduler Run
     btnRunAutomation?.addEventListener('click', () => {
       if (activeQueueLeads.length === 0) {
-        showNotification("⚠️ A fila de leads ativos já está vazia!");
+        showNotification("A fila de leads ativos já está vazia!");
         return;
       }
 
@@ -625,7 +625,7 @@ Corrigir essa brecha costuma destravar os resultados de faturamento e melhorar a
       renderQueueUI();
       renderFollowUpUI();
       recalculateMetrics();
-      showNotification("🔄 Simulação Reiniciada!");
+      showNotification("Simulação Reiniciada!");
     });
 
     // Tab Logic for customizer
