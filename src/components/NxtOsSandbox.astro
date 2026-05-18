@@ -4,156 +4,155 @@
 
 <div class="w-full flex flex-col font-sora mt-4 opacity-0 animate-fade-in-up [animation-delay:200ms]">
   
-  <!-- Painel de Métricas e KPIs (Dashboard) - Harmonizado com o Bento Grid -->
-  <div class="grid grid-cols-2 lg:grid-cols-5 gap-4 mb-10">
-    <div class="bg-surface border border-brandCyan/5 p-5 rounded-2xl flex flex-col justify-between">
+  <!-- Painel de Métricas e KPIs (Resumo) - Sem Caixas Pesadas, Ultra Clean -->
+  <div class="grid grid-cols-2 lg:grid-cols-5 gap-8 mb-12 border-b border-white/[0.03] pb-8">
+    <div>
       <span class="text-[10px] text-textSecondary font-semibold uppercase tracking-wider font-space">Total de Leads</span>
-      <div class="text-3xl font-bold text-textPrimary mt-2" id="dash-total">6</div>
-      <div class="text-[9px] text-textSecondary mt-1 font-space">Sincronizados Notion</div>
+      <div class="text-3xl font-bold text-textPrimary mt-1" id="dash-total">6</div>
     </div>
-    <div class="bg-surface border border-brandCyan/5 p-5 rounded-2xl flex flex-col justify-between">
+    <div>
       <span class="text-[10px] text-textSecondary font-semibold uppercase tracking-wider font-space">Contatados</span>
-      <div class="text-3xl font-bold text-blue-400 mt-2" id="dash-contacted">3</div>
-      <div class="text-[9px] text-textSecondary mt-1 font-space">Pelo Script de Abordagem</div>
+      <div class="text-3xl font-bold text-textPrimary mt-1" id="dash-contacted">3</div>
     </div>
-    <div class="bg-surface border border-brandCyan/5 p-5 rounded-2xl flex flex-col justify-between">
+    <div>
       <span class="text-[10px] text-textSecondary font-semibold uppercase tracking-wider font-space">Taxa de Resposta</span>
-      <div class="text-3xl font-bold text-textPrimary mt-2" id="dash-response">50.0%</div>
-      <div class="text-[9px] text-textSecondary mt-1 font-space">Feedbacks Ativos</div>
+      <div class="text-3xl font-bold text-textPrimary mt-1" id="dash-response">50.0%</div>
     </div>
-    <div class="bg-surface border border-brandCyan/5 p-5 rounded-2xl flex flex-col justify-between">
+    <div>
       <span class="text-[10px] text-textSecondary font-semibold uppercase tracking-wider font-space">Reuniões</span>
-      <div class="text-3xl font-bold text-textPrimary mt-2" id="dash-meetings">1</div>
-      <div class="text-[9px] text-textSecondary mt-1 font-space">Agendadas via Link</div>
+      <div class="text-3xl font-bold text-textPrimary mt-1" id="dash-meetings">1</div>
     </div>
-    <div class="bg-surface border border-brandCyan/5 p-5 rounded-2xl flex flex-col justify-between col-span-2 lg:col-span-1">
-      <span class="text-[10px] text-textSecondary font-semibold uppercase tracking-wider font-space">Capital Convertido</span>
-      <div class="text-3xl font-bold text-blue-400 mt-2" id="dash-ltv">R$ 5.000,00</div>
-      <div class="text-[9px] text-textSecondary mt-1 font-space">Contratos B2B Fechados</div>
+    <div class="col-span-2 lg:col-span-1">
+      <span class="text-[10px] text-textSecondary font-semibold uppercase tracking-wider font-space">Vendas Convertidas</span>
+      <div class="text-3xl font-bold text-textPrimary mt-1" id="dash-ltv">R$ 5.000,00</div>
     </div>
   </div>
 
   <!-- Layout de Duas Colunas -->
-  <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
     
-    <!-- Coluna da Esquerda: Central de Prospecção Ativa (Disparos) -->
-    <div class="lg:col-span-7 flex flex-col gap-8 bg-surface border border-brandCyan/5 p-8 rounded-3xl">
-      <div class="flex items-center justify-between border-b border-brandCyan/5 pb-5">
+    <!-- Coluna da Esquerda: Fila de Prospecção B2B (O Problema & A Ação) -->
+    <div class="lg:col-span-7 flex flex-col gap-6 bg-surface border border-brandCyan/5 p-8 rounded-3xl">
+      <div class="flex items-center justify-between border-b border-brandCyan/5 pb-4">
         <div>
-          <h3 class="text-lg font-bold text-textPrimary">🎯 Central de Disparos Ativos</h3>
-          <p class="text-xs text-textSecondary mt-1">Configure regras de roteamento, fallbacks e acione em lote.</p>
+          <h3 class="text-base font-bold text-textPrimary">🎯 Fila de Prospecção B2B</h3>
+          <p class="text-xs text-textSecondary mt-0.5">Abordagens que geram oportunidades automáticas.</p>
         </div>
       </div>
 
-      <!-- PAINEL DE AUTOMAÇÃO AVANÇADA (Totalmente integrado, sem bordas ou cores ruidosas) -->
-      <div class="flex flex-col gap-6">
-        <div class="flex items-center gap-2 mb-1">
-          <i class="fa-solid fa-gears text-textSecondary text-xs"></i>
-          <span class="text-xs font-semibold text-textPrimary">Configurações de Disparo</span>
-        </div>
-
-        <!-- Linha 1: Scheduler & Data/Hora -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div class="flex flex-col gap-2">
-            <label class="text-xs text-textSecondary font-medium">Janela de Disparo (Agendamento)</label>
-            <div class="flex gap-2">
-              <input type="date" id="scheduler-date" class="bg-darkBg border border-brandCyan/10 rounded-xl px-3 py-2 text-xs text-textPrimary outline-none focus:border-brandCyan/40 font-sora cursor-pointer w-full" value="2026-05-18" />
-              <input type="time" id="scheduler-time" class="bg-darkBg border border-brandCyan/10 rounded-xl px-3 py-2 text-xs text-textPrimary outline-none focus:border-brandCyan/40 font-sora cursor-pointer w-full" value="15:00" />
-            </div>
-          </div>
-
-          <div class="flex flex-col gap-2">
-            <label class="text-xs text-textSecondary font-medium">Roteamento Multicanal (Prioridade)</label>
-            <select id="automation-strategy" class="bg-darkBg border border-brandCyan/10 rounded-xl px-3 py-2.5 text-xs text-textPrimary outline-none focus:border-brandCyan/40 font-sora cursor-pointer w-full">
-              <option value="priority-whatsapp" selected>Prioridade WhatsApp (Smart Fallback)</option>
-              <option value="priority-email">Prioridade E-mail (Smart Fallback)</option>
-              <option value="simultaneous">WhatsApp & E-mail Simultâneo</option>
-            </select>
-          </div>
-        </div>
-
-        <!-- Linha 2: Sliders de dias para CRM -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 border-t border-brandCyan/5 pt-5">
-          <div class="flex flex-col gap-2.5">
-            <div class="flex justify-between items-center text-xs text-textSecondary">
-              <span>Intervalo Follow Up</span>
-              <span id="label-val-followup" class="text-blue-400 font-bold">3 dias</span>
-            </div>
-            <input type="range" id="slider-followup" min="1" max="10" value="3" class="w-full h-1 bg-darkBg rounded-lg appearance-none cursor-pointer accent-[#1c69b7]" />
-          </div>
-
-          <div class="flex flex-col gap-2.5">
-            <div class="flex justify-between items-center text-xs text-textSecondary">
-              <span>Arquivar sem resposta após</span>
-              <span id="label-val-archive" class="text-red-400 font-bold">7 dias</span>
-            </div>
-            <input type="range" id="slider-archive" min="3" max="15" value="7" class="w-full h-1 bg-darkBg rounded-lg appearance-none cursor-pointer accent-red-500" />
-          </div>
-        </div>
-
-        <!-- Ação do Bulk Scheduler (Estilo Oficial Agendar Papo) -->
-        <div class="flex gap-3 items-stretch mt-2">
-          <button id="btn-run-automation" class="flex-1 border border-blue-400 text-blue-400 font-space font-bold text-xs tracking-widest uppercase py-4 px-6 rounded-xl hover:bg-brandCyan hover:text-white transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer">
-            <i class="fa-solid fa-play text-[10px]"></i> Iniciar Automação Programada em Lote
-          </button>
-          
-          <button id="btn-reset-leads" class="bg-darkBg border border-brandCyan/10 text-textSecondary hover:text-textPrimary px-5 rounded-xl hover:bg-darkBg/80 transition-all flex items-center justify-center cursor-pointer" title="Reiniciar Simulação">
-            <i class="fa-solid fa-arrows-rotate text-xs"></i>
-          </button>
-        </div>
+      <!-- Fila de Leads Ativa (Aguardando Envio) -->
+      <div class="flex flex-col gap-4" id="leads-queue-container">
+        <!-- Renders leads here dynamically -->
       </div>
 
-      <!-- Console de Logs da Automação NXT OS (Minimalista Integrado) -->
-      <div id="automation-console-box" class="bg-darkBg/60 border border-brandCyan/5 rounded-2xl p-4 font-mono text-[10px] text-emerald-400 leading-relaxed hidden">
-        <div class="flex items-center justify-between border-b border-brandCyan/5 pb-2 mb-2">
-          <span class="text-textSecondary font-space uppercase tracking-wider font-bold text-[9px]">🖥️ Console NXT OS</span>
-          <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+      <!-- Ação Principal (O Único Clique) -->
+      <div class="flex gap-3 items-stretch mt-2">
+        <button id="btn-run-automation" class="flex-1 bg-[#00f2fe] text-[#0b0e14] font-space font-extrabold text-xs tracking-widest uppercase py-4.5 px-6 rounded-xl hover:bg-white hover:text-[#0b0e14] transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer shadow-lg shadow-[#00f2fe]/10 active:scale-98">
+          <i class="fa-solid fa-play text-[9px]"></i> Disparar Abordagens Automáticas
+        </button>
+        
+        <button id="btn-reset-leads" class="bg-darkBg border border-brandCyan/10 text-textSecondary hover:text-textPrimary px-5 rounded-xl hover:bg-darkBg/80 transition-all flex items-center justify-center cursor-pointer" title="Reiniciar Simulação">
+          <i class="fa-solid fa-arrows-rotate text-xs"></i>
+        </button>
+      </div>
+
+      <!-- Monitor de Atividades (Antes Console NXT OS) - Oculto até o Clique -->
+      <div id="automation-console-box" class="bg-darkBg/60 border border-brandCyan/5 rounded-2xl p-4 font-mono text-[10px] text-textPrimary leading-relaxed hidden">
+        <div class="flex items-center justify-between border-b border-white/5 pb-2 mb-2">
+          <span class="text-textSecondary font-space uppercase tracking-wider font-bold text-[9px]">🖥️ Monitor de Atividades</span>
+          <span class="w-1.5 h-1.5 rounded-full bg-[#00f2fe] animate-pulse"></span>
         </div>
         <div id="automation-console-logs" class="flex flex-col gap-1 pr-1 max-h-[110px] overflow-y-auto scrollbar-thin">
           <!-- Logs will stream here dynamically -->
         </div>
       </div>
 
-      <!-- Customizador de Scripts (Estilo do Switcher) -->
-      <div class="flex flex-col gap-4 border-t border-brandCyan/5 pt-6">
-        <div class="flex items-center gap-2">
-          <i class="fa-regular fa-file-lines text-textSecondary text-xs"></i>
-          <span class="text-xs font-semibold text-textPrimary">Script Padrão de Abordagem</span>
-        </div>
+      <!-- Configurações Avançadas e Customização (Colapsado por Padrão) -->
+      <details class="group border-t border-white/[0.03] pt-4 mt-2">
+        <summary class="flex justify-between items-center text-xs text-textSecondary font-medium cursor-pointer hover:text-textPrimary transition-all list-none select-none">
+          <span class="flex items-center gap-2">
+            <i class="fa-solid fa-sliders text-[10px]"></i> Ajustar Estratégias & Templates
+          </span>
+          <i class="fa-solid fa-chevron-down text-[9px] group-open:rotate-180 transition-transform"></i>
+        </summary>
         
-        <div class="flex gap-2 border-b border-brandCyan/5 pb-3">
-          <button class="script-tab-btn active text-xs font-semibold px-3 py-1.5 rounded-lg transition-all" data-channel="whatsapp">
-            WhatsApp
-          </button>
-          <button class="script-tab-btn text-xs font-semibold px-3 py-1.5 rounded-lg transition-all" data-channel="email">
-            E-mail
-          </button>
-          <button class="script-tab-btn text-xs font-semibold px-3 py-1.5 rounded-lg transition-all" data-channel="linkedin">
-            LinkedIn
-          </button>
-        </div>
+        <div class="mt-6 flex flex-col gap-6 animate-fade-in-up duration-300">
+          
+          <!-- Estratégias de Disparo -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="flex flex-col gap-2">
+              <label class="text-xs text-textSecondary font-medium">Estratégia de Contato</label>
+              <select id="automation-strategy" class="bg-darkBg border border-white/5 rounded-xl px-3 py-2.5 text-xs text-textPrimary outline-none focus:border-brandCyan/40 font-sora cursor-pointer w-full">
+                <option value="priority-whatsapp" selected>Prioridade WhatsApp (Smart Fallback)</option>
+                <option value="priority-email">Prioridade E-mail (Smart Fallback)</option>
+                <option value="simultaneous">WhatsApp & E-mail Simultâneo</option>
+              </select>
+            </div>
 
-        <!-- Inputs de Script -->
-        <div class="space-y-3">
-          <textarea id="script-input-whatsapp" class="w-full bg-darkBg border border-brandCyan/10 rounded-xl p-3 text-xs text-textPrimary focus:border-brandCyan/40 outline-none leading-relaxed custom-textarea font-sora" rows="3">Olá! Sou o Nathan da NXT. Analisei o site da [Empresa] e notei algo crítico: [Diagnóstico]. Acredito que corrigindo isso podemos destravar mais vendas. Topa uma breve conversa?</textarea>
-          <textarea id="script-input-email" class="w-full bg-darkBg border border-brandCyan/10 rounded-xl p-3 text-xs text-textPrimary focus:border-brandCyan/40 outline-none leading-relaxed hidden custom-textarea font-sora" rows="3">Prezado(a) Diretor(a),\n\nRealizei um diagnóstico técnico no site da [Empresa] e identifiquei falhas que prejudicam a captação de leads:\n\n[Diagnóstico]\n\nDesenvolvi um pipeline que resolve essas brechas. Gostaria de receber a solução?\n\nAtenciosamente,\nNathan - NXT OS</textarea>
-          <textarea id="script-input-linkedin" class="w-full bg-darkBg border border-brandCyan/10 rounded-xl p-3 text-xs text-textPrimary focus:border-brandCyan/40 outline-none leading-relaxed hidden custom-textarea font-sora" rows="3">Olá! Vi o trabalho da [Empresa] no mercado e notei pontos fortes. Mas também reparei que vocês sofrem com [Diagnóstico]. Tem interesse em ver como otimizar isso?</textarea>
-        </div>
-        <p class="text-[10px] text-textSecondary leading-relaxed"><i class="fa-solid fa-info-circle text-[9px]"></i> As tags <strong class="text-textPrimary font-medium">[Empresa]</strong> e <strong class="text-textPrimary font-medium">[Diagnóstico]</strong> são preenchidas dinamicamente.</p>
-      </div>
+            <div class="flex flex-col gap-2">
+              <label class="text-xs text-textSecondary font-medium">Agendar Envios Para</label>
+              <div class="flex items-center gap-2">
+                <input type="time" id="scheduler-start" class="bg-darkBg border border-white/5 rounded-xl px-3 py-2 text-xs text-textPrimary outline-none focus:border-brandCyan/40 font-sora cursor-pointer w-full text-center" value="08:00" />
+                <span class="text-xs text-textSecondary font-bold">—</span>
+                <input type="time" id="scheduler-end" class="bg-darkBg border border-white/5 rounded-xl px-3 py-2 text-xs text-textPrimary outline-none focus:border-brandCyan/40 font-sora cursor-pointer w-full text-center" value="17:00" />
+              </div>
+            </div>
+          </div>
 
-      <!-- Fila de Leads Ativa (De-boxed) -->
-      <div class="flex flex-col gap-4 border-t border-brandCyan/5 pt-6" id="leads-queue-container">
-        <!-- Renders leads here dynamically -->
-      </div>
+          <!-- Sliders de dias para CRM -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 border-t border-white/[0.03] pt-5">
+            <div class="flex flex-col gap-2">
+              <div class="flex justify-between items-center text-xs text-textSecondary">
+                <span>Intervalo Follow Up</span>
+                <span id="label-val-followup" class="text-textPrimary font-bold">3 dias</span>
+              </div>
+              <input type="range" id="slider-followup" min="1" max="10" value="3" class="w-full h-1 bg-darkBg rounded-lg appearance-none cursor-pointer accent-[#1c69b7]" />
+            </div>
+
+            <div class="flex flex-col gap-2">
+              <div class="flex justify-between items-center text-xs text-textSecondary">
+                <span>Arquivar sem resposta após</span>
+                <span id="label-val-archive" class="text-textSecondary font-bold">7 dias</span>
+              </div>
+              <input type="range" id="slider-archive" min="3" max="15" value="7" class="w-full h-1 bg-darkBg rounded-lg appearance-none cursor-pointer accent-[#8b949e]" />
+            </div>
+          </div>
+
+          <!-- Customizador de Scripts -->
+          <div class="flex flex-col gap-3 border-t border-white/[0.03] pt-5">
+            <span class="text-xs font-semibold text-textPrimary">Customizar Script Padrão</span>
+            
+            <div class="flex gap-1.5">
+              <button class="script-tab-btn active text-[10px] font-semibold px-3 py-1.5 rounded-lg transition-all" data-channel="whatsapp">
+                WhatsApp
+              </button>
+              <button class="script-tab-btn text-[10px] font-semibold px-3 py-1.5 rounded-lg transition-all" data-channel="email">
+                E-mail
+              </button>
+              <button class="script-tab-btn text-[10px] font-semibold px-3 py-1.5 rounded-lg transition-all" data-channel="linkedin">
+                LinkedIn
+              </button>
+            </div>
+
+            <!-- Inputs de Script -->
+            <div class="space-y-3">
+              <textarea id="script-input-whatsapp" class="w-full bg-darkBg border border-white/5 rounded-xl p-3 text-xs text-textPrimary focus:border-brandCyan/40 outline-none leading-relaxed custom-textarea font-sora" rows="3">Olá! Sou o Nathan da NXT. Analisei o site da [Empresa] e notei algo crítico: [Diagnóstico]. Acredito que corrigindo isso podemos destravar mais vendas. Topa uma breve conversa?</textarea>
+              <textarea id="script-input-email" class="w-full bg-darkBg border border-white/5 rounded-xl p-3 text-xs text-textPrimary focus:border-brandCyan/40 outline-none leading-relaxed hidden custom-textarea font-sora" rows="3">Prezado(a) Diretor(a),\n\nRealizei um diagnóstico técnico no site da [Empresa] e identifiquei falhas que prejudicam a captação de leads:\n\n[Diagnóstico]\n\nDesenvolvi um pipeline que resolve essas brechas. Gostaria de receber a solução?\n\nAtenciosamente,\nNathan - NXT OS</textarea>
+              <textarea id="script-input-linkedin" class="w-full bg-darkBg border border-white/5 rounded-xl p-3 text-xs text-textPrimary focus:border-brandCyan/40 outline-none leading-relaxed hidden custom-textarea font-sora" rows="3">Olá! Vi o trabalho da [Empresa] no mercado e notei pontos fortes. Mas também reparei que vocês sofrem com [Diagnóstico]. Tem interesse em ver como otimizar isso?</textarea>
+            </div>
+          </div>
+          
+        </div>
+      </details>
+
     </div>
 
-    <!-- Coluna da Direita: Central CRM & Esteira de Follow Up -->
-    <div class="lg:col-span-5 flex flex-col gap-8 bg-surface border border-brandCyan/5 p-8 rounded-3xl">
-      <div class="flex items-center justify-between border-b border-brandCyan/5 pb-5">
+    <!-- Coluna da Direita: Central CRM (A Solução) -->
+    <div class="lg:col-span-5 flex flex-col gap-6 bg-surface border border-brandCyan/5 p-8 rounded-3xl">
+      <div class="flex items-center justify-between border-b border-brandCyan/5 pb-4">
         <div>
-          <h3 class="text-lg font-bold text-textPrimary">🔁 Esteira de Follow Up</h3>
-          <p class="text-xs text-textSecondary mt-1">Sincronização ativa via Notion API.</p>
+          <h3 class="text-base font-bold text-textPrimary">🔁 Esteira de Follow Up</h3>
+          <p class="text-xs text-textSecondary mt-0.5">Sincronização ativa via Notion API.</p>
         </div>
       </div>
 
@@ -162,29 +161,29 @@
         <!-- Renders follow up cards here dynamically -->
       </div>
       
-      <div class="text-[9px] text-gray-600 pt-3 border-t border-brandCyan/5 flex justify-between font-space font-semibold">
-        <span>Sistemas integrados: notion_crm • gemini_agent.py</span>
-        <span>Ação Inteligente (RID)</span>
+      <div class="text-[9px] text-textSecondary pt-3 border-t border-white/[0.03] flex justify-between font-space font-semibold uppercase tracking-wider">
+        <span>notion_crm_sync</span>
+        <span>gemini_flash_2.0</span>
       </div>
     </div>
 
   </div>
 
   <!-- Popup Modal de Visualização de Script -->
-  <div id="script-preview-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-darkBg/80 backdrop-blur-md opacity-0 pointer-events-none transition-all duration-500">
-    <div class="bg-surface border border-brandCyan/10 rounded-3xl p-6 max-w-lg w-full shadow-2xl transform scale-95 transition-all duration-500 flex flex-col gap-5" id="script-preview-modal-content">
+  <div id="script-preview-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-darkBg/90 backdrop-blur-md opacity-0 pointer-events-none transition-all duration-500">
+    <div class="bg-surface border border-white/5 rounded-3xl p-6 max-w-lg w-full shadow-2xl transform scale-95 transition-all duration-500 flex flex-col gap-5" id="script-preview-modal-content">
       <div class="flex items-start justify-between">
         <div>
-          <span class="font-space text-[10px] text-blue-400 uppercase tracking-widest font-semibold" id="modal-top-label">ABORDAGEM PRONTAMENTE GERADA</span>
-          <h4 class="text-xl font-bold text-textPrimary mt-1 tracking-tight" id="modal-lead-title">Script para Somos6digital</h4>
+          <span class="font-space text-[10px] text-textSecondary uppercase tracking-widest font-semibold" id="modal-top-label">ABORDAGEM PRONTAMENTE GERADA</span>
+          <h4 class="text-lg font-bold text-textPrimary mt-1 tracking-tight" id="modal-lead-title">Script para Somos6digital</h4>
         </div>
-        <div class="w-8 h-8 rounded-full bg-brandCyan/10 border border-brandCyan/20 flex items-center justify-center text-blue-400 text-sm">
-          <i class="fa-solid fa-wand-magic-sparkles"></i>
+        <div class="w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-textPrimary text-sm">
+          <i class="fa-solid fa-wand-magic-sparkles text-[10px]"></i>
         </div>
       </div>
 
       <!-- Bloco de Código / Mensagem Final -->
-      <div class="bg-darkBg border border-brandCyan/10 p-4 rounded-2xl relative">
+      <div class="bg-darkBg border border-white/5 p-4 rounded-2xl relative">
         <pre class="text-xs text-gray-300 leading-relaxed font-sans whitespace-pre-wrap select-all pr-12 font-sora" id="modal-script-text"></pre>
         <button id="btn-copy-modal" class="absolute top-4 right-4 w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-white transition-all active:scale-95 cursor-pointer">
           <i class="fa-solid fa-copy text-xs"></i>
@@ -192,19 +191,19 @@
       </div>
 
       <!-- Popover de Registro de Canal -->
-      <div class="bg-darkBg border border-brandCyan/5 p-4 rounded-2xl flex flex-col gap-3">
+      <div class="bg-darkBg border border-white/5 p-4 rounded-2xl flex flex-col gap-3">
         <div>
           <span class="text-xs font-bold text-textPrimary font-space">Confirmar Envio e Registrar Canal</span>
-          <p class="text-[10px] text-textSecondary mt-1">Ao registrar, o lead é automaticamente atualizado no Notion CRM e movido para a esteira de acompanhamento.</p>
+          <p class="text-[10px] text-textSecondary mt-1">O lead é automaticamente atualizado no Notion CRM e movido para a esteira de acompanhamento.</p>
         </div>
         
         <div class="flex gap-2">
-          <select id="modal-select-channel" class="flex-1 bg-darkBg border border-brandCyan/10 rounded-xl px-3 py-2.5 text-xs text-textPrimary outline-none focus:border-brandCyan/40 font-sora cursor-pointer">
+          <select id="modal-select-channel" class="flex-1 bg-darkBg border border-white/5 rounded-xl px-3 py-2.5 text-xs text-textPrimary outline-none focus:border-brandCyan/40 font-sora cursor-pointer">
             <option value="WhatsApp">WhatsApp</option>
             <option value="E-mail">E-mail</option>
             <option value="LinkedIn">LinkedIn</option>
           </select>
-          <button id="btn-save-modal" class="border border-blue-400 text-blue-400 font-space font-bold text-xs tracking-widest uppercase py-3 px-6 rounded-xl hover:bg-brandCyan hover:text-white transition-all duration-300 cursor-pointer">
+          <button id="btn-save-modal" class="bg-[#00f2fe] text-[#0b0e14] font-space font-extrabold text-xs tracking-widest uppercase py-3 px-6 rounded-xl hover:bg-white hover:text-[#0b0e14] transition-all duration-300 cursor-pointer">
             Registrar e Mover CRM
           </button>
         </div>
@@ -332,8 +331,8 @@
     const consoleLogs = document.getElementById('automation-console-logs');
 
     // Scheduler inputs
-    const schedulerDate = document.getElementById('scheduler-date') as HTMLInputElement;
-    const schedulerTime = document.getElementById('scheduler-time') as HTMLInputElement;
+    const schedulerStart = document.getElementById('scheduler-start') as HTMLInputElement;
+    const schedulerEnd = document.getElementById('scheduler-end') as HTMLInputElement;
 
     // Script Customization Tabs
     const scriptTabBtns = document.querySelectorAll('.script-tab-btn');
@@ -391,10 +390,10 @@
       consoleBox.classList.remove('hidden');
       
       const time = new Date().toLocaleTimeString('pt-BR');
-      let colorClass = 'text-emerald-400';
-      if (type === 'error') colorClass = 'text-red-400';
-      else if (type === 'warn') colorClass = 'text-amber-400';
-      else if (type === 'success') colorClass = 'text-blue-400 font-bold';
+      let colorClass = 'text-textPrimary';
+      if (type === 'error') colorClass = 'text-white/40';
+      else if (type === 'warn') colorClass = 'text-textSecondary';
+      else if (type === 'success') colorClass = 'text-[#00f2fe] font-bold';
 
       const logElement = document.createElement('div');
       logElement.className = `leading-relaxed animate-fade-in-up font-mono ${colorClass}`;
@@ -411,19 +410,19 @@
         return;
       }
 
-      const dateVal = schedulerDate.value;
-      const timeVal = schedulerTime.value;
+      const startVal = schedulerStart.value;
+      const endVal = schedulerEnd.value;
       const strategyVal = selectStrategy.value;
 
       btnRunAutomation.setAttribute('disabled', 'true');
       btnRunAutomation.classList.add('opacity-50', 'pointer-events-none');
 
       if (consoleLogs) consoleLogs.innerHTML = '';
-      addConsoleLog(`🕒 Agendador programado para a data: ${dateVal} às ${timeVal}...`, 'warn');
-      addConsoleLog("⏱️ Aguardando janela de disparo automático (simulando 2000ms)...", 'warn');
+      addConsoleLog(`🕒 Configurando robô de disparos restrito à janela: das ${startVal} às ${endVal}...`, 'warn');
+      addConsoleLog(`⏱️ Validando fuso horário e conformidade comercial (Evitando SPAM)...`, 'warn');
 
       setTimeout(() => {
-        addConsoleLog("🚀 Janela de disparo aberta! Iniciando automacao_nxt.py em lote...", 'success');
+        addConsoleLog(`✅ Hora comercial validada dentro da janela programada (${startVal} - ${endVal}). Iniciando disparos...`, 'success');
         
         let delay = 600;
         const leadsToProcess = [...activeQueueLeads];
@@ -442,11 +441,11 @@
               if (lead.hasWhatsApp) {
                 addConsoleLog(`✅ WhatsApp ativo! Canal eleito: WhatsApp.`, 'info');
               } else {
-                addConsoleLog(`⚠️ WhatsApp indisponível. Aplicando Smart Fallback de 1º nível...`, 'warn');
+                addConsoleLog(`⚠️ WhatsApp indisponível. Aplicando Fallback de 1º nível...`, 'warn');
                 if (lead.hasEmail) {
                   addConsoleLog(`📧 E-mail ativo! Canal eleito: E-mail.`, 'info');
                 } else {
-                  addConsoleLog(`⚠️ E-mail também indisponível. Aplicando Smart Fallback de 2º nível...`, 'warn');
+                  addConsoleLog(`⚠️ E-mail também indisponível. Aplicando Fallback de 2º nível...`, 'warn');
                   addConsoleLog(`📸 Perfil de Instagram detectado! Canal eleito: Direct Instagram.`, 'info');
                 }
               }
@@ -455,11 +454,11 @@
               if (lead.hasEmail) {
                 addConsoleLog(`✅ E-mail verificado! Canal eleito: E-mail.`, 'info');
               } else {
-                addConsoleLog(`⚠️ E-mail indisponível. Aplicando Smart Fallback de 1º nível...`, 'warn');
+                addConsoleLog(`⚠️ E-mail indisponível. Aplicando Fallback de 1º nível...`, 'warn');
                 if (lead.hasWhatsApp) {
                   addConsoleLog(`📲 WhatsApp ativo! Canal eleito: WhatsApp.`, 'info');
                 } else {
-                  addConsoleLog(`⚠️ WhatsApp também indisponível. Aplicando Smart Fallback de 2º nível...`, 'warn');
+                  addConsoleLog(`⚠️ WhatsApp também indisponível. Aplicando Fallback de 2º nível...`, 'warn');
                   addConsoleLog(`📸 Perfil de Instagram detectado! Canal eleito: Direct Instagram.`, 'info');
                 }
               }
@@ -470,7 +469,7 @@
           delay += 700;
 
           setTimeout(() => {
-            addConsoleLog(`🧠 IA: Aplicando prompt RID no Gemini 2.0 Flash... [Sucesso]`);
+            addConsoleLog(`🧠 IA: Aplicando prompt no Gemini 2.0 Flash... [Sucesso]`);
             addConsoleLog(`📤 Enviando abordagem personalizada para "${lead.empresa}" via ${routing.channelName}.`, 'success');
           }, delay);
           delay += 800;
@@ -500,7 +499,6 @@
           delay += 200;
         });
 
-        // Wrap up execution
         setTimeout(() => {
           addConsoleLog("💾 Notion API: Sincronizando dados de prospecção e atualizando tags de funil...", 'warn');
         }, delay);
@@ -508,7 +506,7 @@
 
         setTimeout(() => {
           addConsoleLog("🏆 Execução em Lote Finalizada com 100% de Confiabilidade!", 'success');
-          showNotification("🚀 Disparo de Automação Concluído!");
+          showNotification("🚀 Disparo de Abordagens Concluído!");
           
           btnRunAutomation.removeAttribute('disabled');
           btnRunAutomation.classList.remove('opacity-50', 'pointer-events-none');
@@ -549,21 +547,21 @@
       });
     });
 
-    // Calculate smart channel routing on the fly based on strategy - Brand unified colors (no bright pink/emerald)
+    // Calculate contact strategies
     function calculateChannelRouting(lead, strategy) {
       if (strategy === 'priority-whatsapp') {
-        if (lead.hasWhatsApp) return { channelName: 'WhatsApp', badge: 'WhatsApp', color: 'text-blue-400 bg-blue-500/5 border border-brandCyan/10' };
-        if (lead.hasEmail) return { channelName: 'E-mail', badge: 'E-mail (Fallback)', color: 'text-blue-400 bg-blue-500/5 border border-brandCyan/10' };
-        return { channelName: 'Instagram', badge: 'Instagram (Fallback)', color: 'text-textSecondary bg-darkBg border border-brandCyan/10' };
+        if (lead.hasWhatsApp) return { channelName: 'WhatsApp', badge: 'WhatsApp', color: 'text-textPrimary bg-white/5 border border-white/10' };
+        if (lead.hasEmail) return { channelName: 'E-mail', badge: 'E-mail (Fallback)', color: 'text-textPrimary bg-white/5 border border-white/10' };
+        return { channelName: 'Instagram', badge: 'Instagram (Fallback)', color: 'text-textSecondary bg-transparent border border-white/5' };
       } else if (strategy === 'priority-email') {
-        if (lead.hasEmail) return { channelName: 'E-mail', badge: 'E-mail', color: 'text-blue-400 bg-blue-500/5 border border-brandCyan/10' };
-        if (lead.hasWhatsApp) return { channelName: 'WhatsApp', badge: 'WhatsApp (Fallback)', color: 'text-blue-400 bg-blue-500/5 border border-brandCyan/10' };
-        return { channelName: 'Instagram', badge: 'Instagram (Fallback)', color: 'text-textSecondary bg-darkBg border border-brandCyan/10' };
+        if (lead.hasEmail) return { channelName: 'E-mail', badge: 'E-mail', color: 'text-textPrimary bg-white/5 border border-white/10' };
+        if (lead.hasWhatsApp) return { channelName: 'WhatsApp', badge: 'WhatsApp (Fallback)', color: 'text-textPrimary bg-white/5 border border-white/10' };
+        return { channelName: 'Instagram', badge: 'Instagram (Fallback)', color: 'text-textSecondary bg-transparent border border-white/5' };
       } else {
-        if (lead.hasWhatsApp && lead.hasEmail) return { channelName: 'WA & E-mail', badge: 'WA + E-mail', color: 'text-textPrimary bg-brandCyan/10 border border-brandCyan/20' };
-        if (lead.hasWhatsApp) return { channelName: 'WhatsApp', badge: 'WhatsApp', color: 'text-blue-400 bg-blue-500/5 border border-brandCyan/10' };
-        if (lead.hasEmail) return { channelName: 'E-mail', badge: 'E-mail', color: 'text-blue-400 bg-blue-500/5 border border-brandCyan/10' };
-        return { channelName: 'Instagram', badge: 'Instagram', color: 'text-textSecondary bg-darkBg border border-brandCyan/10' };
+        if (lead.hasWhatsApp && lead.hasEmail) return { channelName: 'WA & E-mail', badge: 'WA + E-mail', color: 'text-textPrimary bg-white/10 border border-white/20' };
+        if (lead.hasWhatsApp) return { channelName: 'WhatsApp', badge: 'WhatsApp', color: 'text-textPrimary bg-white/5 border border-white/10' };
+        if (lead.hasEmail) return { channelName: 'E-mail', badge: 'E-mail', color: 'text-textPrimary bg-white/5 border border-white/10' };
+        return { channelName: 'Instagram', badge: 'Instagram', color: 'text-textSecondary bg-transparent border border-white/5' };
       }
     }
 
@@ -585,7 +583,7 @@
         navigator.clipboard.writeText(modalScriptText.innerText);
         const icon = btnCopyModal.querySelector('i');
         if (icon) {
-          icon.className = "fa-solid fa-check text-blue-400";
+          icon.className = "fa-solid fa-check text-[#00f2fe]";
           setTimeout(() => {
             icon.className = "fa-solid fa-copy text-xs";
           }, 1500);
@@ -672,15 +670,15 @@
       }
     };
 
-    // Render Prospecting Queue UI - Styled to look clean and match the switcher tags
+    // Render Prospecting Queue UI
     function renderQueueUI() {
       if (!queueContainer) return;
       
       if (activeQueueLeads.length === 0) {
         queueContainer.innerHTML = `
-          <div class="flex flex-col items-center justify-center text-center py-12 bg-darkBg/20 rounded-2xl border border-brandCyan/5">
-            <div class="w-10 h-10 rounded-full bg-brandCyan/10 flex items-center justify-center mb-3 text-blue-400 text-xs">
-              <i class="fa-solid fa-check animate-bounce"></i>
+          <div class="flex flex-col items-center justify-center text-center py-12 bg-darkBg/20 rounded-2xl border border-white/5">
+            <div class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center mb-3 text-textPrimary text-xs">
+              <i class="fa-solid fa-check animate-bounce text-[10px]"></i>
             </div>
             <span class="text-xs font-bold text-textPrimary">Todos os Leads Foram Contactados!</span>
             <p class="text-[10px] text-textSecondary mt-1 font-space">Acompanhe a esteira de follow up ao lado para converter em vendas.</p>
@@ -694,18 +692,18 @@
       queueContainer.innerHTML = `
         <div class="flex items-center gap-2 mb-2">
           <i class="fa-solid fa-list text-textSecondary text-xs"></i>
-          <span class="text-xs font-semibold text-textPrimary">Fila de Prospecção (${activeQueueLeads.length})</span>
+          <span class="text-xs font-semibold text-textSecondary">Leads Sincronizados (Aguardando Envio)</span>
         </div>
         <div class="flex flex-col gap-4">
           ${activeQueueLeads.map(lead => {
             const routing = calculateChannelRouting(lead, currentStrategy);
 
             return `
-              <div id="queue-card-${lead.id}" class="bg-darkBg/30 border border-brandCyan/5 rounded-2xl p-5 flex flex-col gap-4 hover:border-brandCyan/20 transition-all duration-300 transform">
+              <div id="queue-card-${lead.id}" class="bg-darkBg/30 border border-white/5 rounded-2xl p-5 flex flex-col gap-4 hover:border-white/10 transition-all duration-300 transform">
                 <div class="flex justify-between items-start">
                   <div>
                     <h4 class="text-sm font-bold text-textPrimary">${lead.empresa}</h4>
-                    <a href="${lead.site}" target="_blank" class="text-[10px] text-blue-400 hover:underline font-space mt-1 inline-flex items-center gap-1">
+                    <a href="${lead.site}" target="_blank" class="text-[10px] text-textSecondary hover:underline font-space mt-1 inline-flex items-center gap-1">
                       🌐 ${lead.site.replace('https://', '')}
                     </a>
                   </div>
@@ -714,19 +712,19 @@
                   </span>
                 </div>
 
-                <div class="bg-darkBg/50 p-3 rounded-xl border border-brandCyan/5">
-                  <span class="text-[9px] font-space text-blue-400 font-semibold uppercase tracking-wider block mb-1">Diagnóstico RID (Gemini)</span>
+                <div class="bg-darkBg/50 p-3.5 rounded-xl border border-white/5">
+                  <span class="text-[9px] font-space text-textSecondary font-semibold uppercase tracking-wider block mb-1">Oportunidade Encontrada pela IA</span>
                   <p class="text-xs text-textSecondary leading-relaxed font-sora italic">"${lead.diagnostico}"</p>
                 </div>
 
                 <div class="grid grid-cols-3 gap-2">
-                  <button onclick="window.openProspectModal('${lead.id}', 'whatsapp')" class="bg-darkBg border border-brandCyan/10 text-textSecondary font-space font-semibold text-[10px] tracking-wider uppercase py-2.5 rounded-lg hover:border-blue-400/30 hover:text-textPrimary active:scale-95 transition-all flex items-center justify-center gap-1.5 cursor-pointer">
+                  <button onclick="window.openProspectModal('${lead.id}', 'whatsapp')" class="bg-darkBg border border-white/5 text-textSecondary font-space font-semibold text-[10px] tracking-wider uppercase py-2.5 rounded-lg hover:border-white/20 hover:text-textPrimary active:scale-95 transition-all flex items-center justify-center gap-1.5 cursor-pointer">
                     WhatsApp
                   </button>
-                  <button onclick="window.openProspectModal('${lead.id}', 'email')" class="bg-darkBg border border-brandCyan/10 text-textSecondary font-space font-semibold text-[10px] tracking-wider uppercase py-2.5 rounded-lg hover:border-blue-400/30 hover:text-textPrimary active:scale-95 transition-all flex items-center justify-center gap-1.5 cursor-pointer">
+                  <button onclick="window.openProspectModal('${lead.id}', 'email')" class="bg-darkBg border border-white/5 text-textSecondary font-space font-semibold text-[10px] tracking-wider uppercase py-2.5 rounded-lg hover:border-white/20 hover:text-textPrimary active:scale-95 transition-all flex items-center justify-center gap-1.5 cursor-pointer">
                     E-mail
                   </button>
-                  <button onclick="window.openProspectModal('${lead.id}', 'linkedin')" class="bg-darkBg border border-brandCyan/10 text-textSecondary font-space font-semibold text-[10px] tracking-wider uppercase py-2.5 rounded-lg hover:border-blue-400/30 hover:text-textPrimary active:scale-95 transition-all flex items-center justify-center gap-1.5 cursor-pointer">
+                  <button onclick="window.openProspectModal('${lead.id}', 'linkedin')" class="bg-darkBg border border-white/5 text-textSecondary font-space font-semibold text-[10px] tracking-wider uppercase py-2.5 rounded-lg hover:border-white/20 hover:text-textPrimary active:scale-95 transition-all flex items-center justify-center gap-1.5 cursor-pointer">
                     LinkedIn
                   </button>
                 </div>
@@ -737,7 +735,7 @@
       `;
     }
 
-    // Render CRM Follow-Up Board - Standard site colors
+    // Render CRM Follow-Up Board
     function renderFollowUpUI() {
       if (!followUpContainer) return;
 
@@ -746,8 +744,8 @@
 
       if (activeFollowUpLeads.length === 0) {
         followUpContainer.innerHTML = `
-          <div class="flex flex-col items-center justify-center text-center py-12 bg-darkBg/20 border border-brandCyan/5 rounded-2xl">
-            <div class="w-10 h-10 rounded-full bg-darkBg border border-brandCyan/10 flex items-center justify-center mb-3 text-textSecondary">
+          <div class="flex flex-col items-center justify-center text-center py-12 bg-darkBg/20 border border-white/5 rounded-2xl">
+            <div class="w-10 h-10 rounded-full bg-darkBg border border-white/5 flex items-center justify-center mb-3 text-textSecondary">
               <i class="fa-regular fa-folder-open text-xs"></i>
             </div>
             <span class="text-xs font-bold text-textPrimary">Nenhum Lead em Follow Up</span>
@@ -758,24 +756,24 @@
       }
 
       followUpContainer.innerHTML = activeFollowUpLeads.map(lead => {
-        let borderLeftColor = '#1c69b7'; // brandCyan
-        if (lead.status === 'Follow up') borderLeftColor = '#4b5563'; // Neutral gray
-        else if (lead.status === 'Convertido') borderLeftColor = '#3b82f6'; // Clean Blue
-        else if (lead.status === 'Reunião agendada') borderLeftColor = '#1e40af'; // Dark Blue
+        let borderLeftColor = 'rgba(255, 255, 255, 0.05)';
+        if (lead.status === 'Follow up') borderLeftColor = 'rgba(255, 255, 255, 0.1)';
+        else if (lead.status === 'Convertido') borderLeftColor = '#00f2fe';
+        else if (lead.status === 'Reunião agendada') borderLeftColor = 'rgba(255, 255, 255, 0.3)';
 
         let urgencyLabel = '🟢 Recente';
-        let urgencyColor = 'text-blue-400 bg-blue-500/5 border border-brandCyan/10';
+        let urgencyColor = 'text-textPrimary bg-white/5 border border-white/10';
         if (lead.diasPassados >= 10) {
-          urgencyLabel = '🔴 Crítico';
-          urgencyColor = 'text-red-400 bg-red-400/5 border border-red-500/10';
+          urgencyLabel = '⚫ Crítico';
+          urgencyColor = 'text-textSecondary bg-white/5 border border-white/5';
         } else if (lead.diasPassados >= 5) {
-          urgencyLabel = '🟡 Pendente';
-          urgencyColor = 'text-amber-500 bg-amber-500/5 border border-amber-500/10';
+          urgencyLabel = '⚫ Pendente';
+          urgencyColor = 'text-textSecondary bg-white/5 border border-white/5';
         }
 
         if (lead.status === 'Convertido') {
           urgencyLabel = '🏆 Sucesso';
-          urgencyColor = 'text-blue-400 bg-blue-500/5 border border-brandCyan/10';
+          urgencyColor = 'text-textPrimary bg-white/10 border border-white/20';
         }
 
         const options = ['Tentativa de contato', 'Follow up', 'Reunião agendada', 'Convertido'];
@@ -786,17 +784,17 @@
         let followUpMsg = '';
         if (lead.status !== 'Convertido') {
           if (lead.diasPassados >= sliderFollowUpVal) {
-            followUpMsg = `<span class="text-red-400 font-medium flex items-center gap-1.5"><i class="fa-solid fa-bell animate-pulse text-[10px]"></i> Follow-Up pendente!</span>`;
+            followUpMsg = `<span class="text-textPrimary font-semibold flex items-center gap-1.5"><i class="fa-solid fa-bell animate-pulse text-[9px] text-[#00f2fe]"></i> Acompanhamento Atrasado</span>`;
           } else {
             const rem = sliderFollowUpVal - lead.diasPassados;
-            followUpMsg = `<span class="text-textSecondary">Follow-up em <strong class="text-blue-400 font-bold">${rem} ${rem === 1 ? 'dia' : 'dias'}</strong></span>`;
+            followUpMsg = `<span class="text-textSecondary">Acompanhar em <strong class="text-textPrimary font-bold">${rem} ${rem === 1 ? 'dia' : 'dias'}</strong></span>`;
           }
         } else {
-          followUpMsg = `<span class="text-blue-400 font-medium">Funil concluído</span>`;
+          followUpMsg = `<span class="text-[#00f2fe] font-semibold">Funil concluído</span>`;
         }
 
         return `
-          <div class="bg-darkBg/30 rounded-2xl p-4 flex flex-col gap-3 transition-all duration-300 border-l-4 border-t border-r border-b border-brandCyan/5" style="border-left-color: ${borderLeftColor};">
+          <div class="bg-darkBg/30 rounded-2xl p-4 flex flex-col gap-3 transition-all duration-300 border-l-4 border-t border-r border-b border-white/5" style="border-left-color: ${borderLeftColor};">
             <div class="flex justify-between items-start">
               <div>
                 <h5 class="text-xs font-bold text-textPrimary">${lead.empresa}</h5>
@@ -809,14 +807,14 @@
               </span>
             </div>
 
-            <div class="bg-darkBg/50 px-3 py-2 rounded-xl text-[10px] flex justify-between items-center border border-brandCyan/5">
+            <div class="bg-darkBg/50 px-3 py-2 rounded-xl text-[10px] flex justify-between items-center border border-white/5">
               ${followUpMsg}
               <span class="text-textSecondary text-[9px] font-space font-semibold">Limite: ${sliderArchiveVal}d</span>
             </div>
 
             <div class="flex gap-2 items-center">
               <span class="text-[10px] text-textSecondary font-medium">Status:</span>
-              <select onchange="window.updateFollowUpStatus('${lead.id}', this.value)" class="flex-1 bg-darkBg border border-brandCyan/10 rounded-lg px-2 py-1 text-[10px] text-textPrimary outline-none focus:border-brandCyan/40 font-sora cursor-pointer">
+              <select onchange="window.updateFollowUpStatus('${lead.id}', this.value)" class="flex-1 bg-darkBg border border-white/5 rounded-lg px-2 py-1 text-[10px] text-textPrimary outline-none focus:border-white/20 font-sora cursor-pointer">
                 ${selectOptionsHtml}
               </select>
             </div>
@@ -855,7 +853,7 @@
       }
     }
 
-    // Brand-aligned premium corporate confetti (blue and white)
+    // Brand confetti
     const canvas = document.getElementById('confetti-canvas') as HTMLCanvasElement;
     const ctx = canvas ? canvas.getContext('2d') : null;
     let confettiArray = [];
@@ -866,7 +864,7 @@
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
       
-      const colors = ['#1c69b7', '#60a5fa', '#f0f6fc', '#3b82f6'];
+      const colors = ['#00f2fe', '#f0f6fc', '#1c69b7', '#3b82f6'];
       confettiArray = [];
       for (let i = 0; i < 80; i++) {
         confettiArray.push({
@@ -917,11 +915,11 @@
       }
     }
 
-    // Success Notification Toast - Styled corporate
+    // Success Notification Toast
     function showNotification(text) {
       const toast = document.createElement('div');
-      toast.className = "fixed bottom-8 right-8 z-50 bg-surface border border-brandCyan/30 text-blue-400 px-6 py-4 rounded-2xl shadow-2xl flex items-center gap-3 animate-fade-in-up font-bold text-sm leading-relaxed";
-      toast.innerHTML = `<i class="fa-solid fa-circle-check text-lg text-blue-400"></i> ${text}`;
+      toast.className = "fixed bottom-8 right-8 z-50 bg-[#161b22] border border-[#00f2fe]/30 text-[#00f2fe] px-6 py-4 rounded-2xl shadow-2xl flex items-center gap-3 animate-fade-in-up font-bold text-sm leading-relaxed";
+      toast.innerHTML = `<i class="fa-solid fa-circle-check text-lg text-[#00f2fe]"></i> ${text}`;
       document.body.appendChild(toast);
       
       try {
@@ -962,9 +960,9 @@
     color: white;
   }
   .script-tab-btn.active {
-    background: rgba(28, 105, 183, 0.08);
-    color: #60a5fa;
-    border-color: rgba(28, 105, 183, 0.15);
+    background: rgba(255, 255, 255, 0.05);
+    color: white;
+    border-color: rgba(255, 255, 255, 0.15);
   }
   .custom-textarea {
     resize: none;
