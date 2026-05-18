@@ -351,9 +351,9 @@
         btnPlaceOrder.classList.replace('cursor-not-allowed', 'cursor-pointer');
         btnPlaceOrder.classList.remove('border-[#00AEEF]/30');
         
-        if (activeLang === 'pt') btnPlaceOrder.innerHTML = `⚡ Fazer pedido`;
-        else if (activeLang === 'en') btnPlaceOrder.innerHTML = `⚡ Place Order`;
-        else btnPlaceOrder.innerHTML = `⚡ Bëj Porosinë`;
+        if (activeLang === 'pt') btnPlaceOrder.innerHTML = `<svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="inline mr-1" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> Fazer pedido`;
+        else if (activeLang === 'en') btnPlaceOrder.innerHTML = `<svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="inline mr-1" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> Place Order`;
+        else btnPlaceOrder.innerHTML = `<svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="inline mr-1" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> Bëj Porosinë`;
       } else {
         btnPlaceOrder.classList.replace('bg-[#00AEEF]', 'bg-[#00AEEF]/20');
         btnPlaceOrder.classList.replace('text-white', 'text-[#00AEEF]');

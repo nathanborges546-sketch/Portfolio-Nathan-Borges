@@ -35,7 +35,7 @@
     <div class="lg:col-span-7 flex flex-col gap-6 bg-surface border border-brandCyan/5 p-8 rounded-3xl">
       <div class="flex items-center justify-between border-b border-brandCyan/5 pb-4">
         <div>
-          <h3 class="text-base font-bold text-textPrimary">🎯 Fila de Prospecção B2B</h3>
+          <h3 class="text-base font-bold text-textPrimary"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="inline mr-1" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg> Fila de Prospecção B2B</h3>
           <p class="text-xs text-textSecondary mt-0.5">Abordagens que geram oportunidades automáticas.</p>
         </div>
       </div>
@@ -59,7 +59,7 @@
       <!-- Monitor de Atividades (Antes Console NXT OS) - Oculto até o Clique -->
       <div id="automation-console-box" class="bg-darkBg/60 border border-brandCyan/5 rounded-2xl p-4 font-mono text-[10px] text-textPrimary leading-relaxed hidden">
         <div class="flex items-center justify-between border-b border-white/5 pb-2 mb-2">
-          <span class="text-textSecondary font-space uppercase tracking-wider font-bold text-[9px]">🖥️ Monitor de Atividades</span>
+          <span class="text-textSecondary font-space uppercase tracking-wider font-bold text-[9px]"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="inline mr-1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg> Monitor de Atividades</span>
           <span class="w-1.5 h-1.5 rounded-full bg-[#00f2fe] animate-pulse"></span>
         </div>
         <div id="automation-console-logs" class="flex flex-col gap-1 pr-1 max-h-[110px] overflow-y-auto scrollbar-thin">
@@ -136,14 +136,14 @@
 
             <!-- Inputs de Script -->
             <div class="space-y-3">
-              <textarea id="script-input-whatsapp" class="w-full bg-darkBg border border-white/5 rounded-xl p-3 text-xs text-textPrimary focus:border-brandCyan/40 outline-none leading-relaxed custom-textarea font-sora" rows="5">Olá! Estava a analisar o posicionamento digital da [Empresa] e detetei uma falha oculta que prejudica diretamente a conversão de novos clientes: [Diagnóstico].
+              <textarea id="script-input-whatsapp" class="w-full bg-darkBg border border-white/5 rounded-xl p-3 text-xs text-textPrimary focus:border-brandCyan/40 outline-none leading-relaxed custom-textarea font-sora" rows="5">Olá! Estava analisando o posicionamento digital da [Empresa] e detectei uma falha oculta que prejudica diretamente a conversão de novos clientes: [Diagnóstico].
 
 Como arquiteto de sistemas, montei um ajuste rápido que elimina essa fricção e blinda o faturamento de vocês. Teria 3 minutos para ver como resolver isso de forma simples nesta semana?</textarea>
               <textarea id="script-input-email" class="w-full bg-darkBg border border-white/5 rounded-xl p-3 text-xs text-textPrimary focus:border-brandCyan/40 outline-none leading-relaxed hidden custom-textarea font-sora" rows="8">Assunto: Otimização pendente no ecossistema digital da [Empresa]
 
 Olá, tudo bem?
 
-Ao estudar a infraestrutura digital da [Empresa], identifiquei uma oportunidade de melhoria que impacta diretamente a retenção dos vossos utilizadores e a entrada de novas vendas: [Diagnóstico].
+Ao estudar a infraestrutura digital da [Empresa], identifiquei uma oportunidade de melhoria que impacta diretamente a retenção dos seus usuários e a entrada de novas vendas: [Diagnóstico].
 
 Desenvolvi uma solução em lote focada exatamente em eliminar esse tipo de gargalo operacional, garantindo estabilidade e eficiência para o negócio.
 
@@ -151,11 +151,11 @@ Se fizer sentido para o momento atual da [Empresa], posso enviar um breve resumo
 
 Atenciosamente,
 Nathan Borges</textarea>
-              <textarea id="script-input-linkedin" class="w-full bg-darkBg border border-white/5 rounded-xl p-3 text-xs text-textPrimary focus:border-brandCyan/40 outline-none leading-relaxed hidden custom-textarea font-sora" rows="5">Olá! Acompanho o crescimento da [Empresa] no mercado e decidi fazer uma análise da usabilidade técnica do vosso produto. 
+              <textarea id="script-input-linkedin" class="w-full bg-darkBg border border-white/5 rounded-xl p-3 text-xs text-textPrimary focus:border-brandCyan/40 outline-none leading-relaxed hidden custom-textarea font-sora" rows="5">Olá! Acompanho o crescimento da [Empresa] no mercado e decidi fazer uma análise da usabilidade técnica do seu produto. 
 
-Notei um ponto de atrito na jornada que gera uma sobrecarga cognitiva desnecessária no utilizador: [Diagnóstico]. 
+Notei um ponto de atrito na jornada que gera uma sobrecarga cognitiva desnecessária no usuário: [Diagnóstico]. 
 
-Corrigir essa brecha costuma destravar os resultados de faturamento e melhorar a experiência de forma imediata. Se tiver interesse em ver como redesenhamos esse fluxo sem impactar a vossa operação atual, fico à disposição para enviar os detalhes. Um abraço!</textarea>
+Corrigir essa brecha costuma destravar os resultados de faturamento e melhorar a experiência de forma imediata. Se tiver interesse em ver como redesenhamos esse fluxo sem impactar a sua operação atual, fico à disposição para enviar os detalhes. Um abraço!</textarea>
             </div>
           </div>
           
@@ -464,7 +464,7 @@ Corrigir essa brecha costuma destravar os resultados de faturamento e melhorar a
       
       if (toArchive.length > 0) {
         toArchive.forEach(lead => {
-          showNotification(`🗄️ Lead ${lead.empresa} arquivado automaticamente`);
+          showNotification(`Lead ${lead.empresa} arquivado automaticamente`);
           addConsoleLog(`[CRM] Lead "${lead.empresa}" sem resposta há ${lead.diasPassados} dias. Movido automaticamente para status: ARQUIVADO.`, 'error');
         });
 
@@ -508,11 +508,11 @@ Corrigir essa brecha costuma destravar os resultados de faturamento e melhorar a
       btnRunAutomation.classList.add('opacity-50', 'pointer-events-none');
 
       if (consoleLogs) consoleLogs.innerHTML = '';
-      addConsoleLog(`🕒 Configurando robô de disparos restrito à janela: das ${startVal} às ${endVal}...`, 'warn');
-      addConsoleLog(`⏱️ Validando fuso horário e conformidade comercial (Evitando SPAM)...`, 'warn');
+      addConsoleLog(`[AGENDAMENTO] Configurando robô de disparos restrito à janela: das ${startVal} às ${endVal}...`, 'warn');
+      addConsoleLog(`[VALIDAÇÃO] Validando fuso horário e conformidade comercial (Evitando SPAM)...`, 'warn');
 
       setTimeout(() => {
-        addConsoleLog(`✅ Hora comercial validada dentro da janela programada (${startVal} - ${endVal}). Iniciando disparos...`, 'success');
+        addConsoleLog(`[SUCESSO] Hora comercial validada dentro da janela programada (${startVal} - ${endVal}). Iniciando disparos...`, 'success');
         
         let delay = 600;
         const leadsToProcess = [...activeQueueLeads];
@@ -521,46 +521,46 @@ Corrigir essa brecha costuma destravar os resultados de faturamento e melhorar a
           const routing = calculateChannelRouting(lead, strategyVal);
           
           setTimeout(() => {
-            addConsoleLog(`🔍 Analisando lead "${lead.empresa}" (${lead.site})...`);
+            addConsoleLog(`[ANÁLISE] Analisando lead "${lead.empresa}" (${lead.site})...`);
           }, delay);
           delay += 600;
 
           setTimeout(() => {
             if (strategyVal === 'priority-whatsapp') {
-              addConsoleLog(`📡 Evolution API: Verificando presença de WhatsApp no número...`);
+              addConsoleLog(`[CONEXÃO] Evolution API: Verificando presença de WhatsApp no número...`);
               if (lead.hasWhatsApp) {
-                addConsoleLog(`✅ WhatsApp ativo! Canal eleito: WhatsApp.`, 'info');
+                addConsoleLog(`[SUCESSO] WhatsApp ativo! Canal eleito: WhatsApp.`, 'info');
               } else {
-                addConsoleLog(`⚠️ WhatsApp indisponível. Aplicando Fallback de 1º nível...`, 'warn');
+                addConsoleLog(`[AVISO] WhatsApp indisponível. Aplicando Fallback de 1º nível...`, 'warn');
                 if (lead.hasEmail) {
-                  addConsoleLog(`📧 E-mail ativo! Canal eleito: E-mail.`, 'info');
+                  addConsoleLog(`[SUCESSO] E-mail ativo! Canal eleito: E-mail.`, 'info');
                 } else {
-                  addConsoleLog(`⚠️ E-mail também indisponível. Aplicando Fallback de 2º nível...`, 'warn');
-                  addConsoleLog(`📸 Perfil de Instagram detectado! Canal eleito: Direct Instagram.`, 'info');
+                  addConsoleLog(`[AVISO] E-mail também indisponível. Aplicando Fallback de 2º nível...`, 'warn');
+                  addConsoleLog(`[DETECÇÃO] Perfil de Instagram detectado! Canal eleito: Direct Instagram.`, 'info');
                 }
               }
             } else if (strategyVal === 'priority-email') {
-              addConsoleLog(`📡 SMTP Check: Verificando integridade da conta de E-mail...`);
+              addConsoleLog(`[SMTP] SMTP Check: Verificando integridade da conta de E-mail...`);
               if (lead.hasEmail) {
-                addConsoleLog(`✅ E-mail verificado! Canal eleito: E-mail.`, 'info');
+                addConsoleLog(`[SUCESSO] E-mail verificado! Canal eleito: E-mail.`, 'info');
               } else {
-                addConsoleLog(`⚠️ E-mail indisponível. Aplicando Fallback de 1º nível...`, 'warn');
+                addConsoleLog(`[AVISO] E-mail indisponível. Aplicando Fallback de 1º nível...`, 'warn');
                 if (lead.hasWhatsApp) {
-                  addConsoleLog(`📲 WhatsApp ativo! Canal eleito: WhatsApp.`, 'info');
+                  addConsoleLog(`[SUCESSO] WhatsApp ativo! Canal eleito: WhatsApp.`, 'info');
                 } else {
-                  addConsoleLog(`⚠️ WhatsApp também indisponível. Aplicando Fallback de 2º nível...`, 'warn');
-                  addConsoleLog(`📸 Perfil de Instagram detectado! Canal eleito: Direct Instagram.`, 'info');
+                  addConsoleLog(`[AVISO] WhatsApp também indisponível. Aplicando Fallback de 2º nível...`, 'warn');
+                  addConsoleLog(`[DETECÇÃO] Perfil de Instagram detectado! Canal eleito: Direct Instagram.`, 'info');
                 }
               }
             } else {
-              addConsoleLog(`⚡ Modo Simultâneo: Disparando cópias idênticas para todos os canais cadastrados...`);
+              addConsoleLog(`[SIMULTÂNEO] Modo Simultâneo: Disparando cópias idênticas para todos os canais cadastrados...`);
             }
           }, delay);
           delay += 700;
 
           setTimeout(() => {
-            addConsoleLog(`🧠 IA: Aplicando prompt no Gemini 2.0 Flash... [Sucesso]`);
-            addConsoleLog(`📤 Enviando abordagem personalizada para "${lead.empresa}" via ${routing.channelName}.`, 'success');
+            addConsoleLog(`[PROCESSO IA] IA: Aplicando prompt no Gemini 2.0 Flash... [Sucesso]`);
+            addConsoleLog(`[DESPACHO] Enviando abordagem personalizada para "${lead.empresa}" via ${routing.channelName}.`, 'success');
           }, delay);
           delay += 800;
 
@@ -590,13 +590,13 @@ Corrigir essa brecha costuma destravar os resultados de faturamento e melhorar a
         });
 
         setTimeout(() => {
-          addConsoleLog("💾 Notion API: Sincronizando dados de prospecção e atualizando tags de funil...", 'warn');
+          addConsoleLog("[NOTION API] Sincronizando dados de prospecção e atualizando tags de funil...", 'warn');
         }, delay);
         delay += 600;
 
         setTimeout(() => {
-          addConsoleLog("🏆 Execução em Lote Finalizada com 100% de Confiabilidade!", 'success');
-          showNotification("🚀 Disparo de Abordagens Concluído!");
+          addConsoleLog("[CONCLUÍDO] Execução em Lote Finalizada com 100% de Confiabilidade!", 'success');
+          showNotification("Disparo de Abordagens Concluído!");
           
           btnRunAutomation.removeAttribute('disabled');
           btnRunAutomation.classList.remove('opacity-50', 'pointer-events-none');
@@ -761,8 +761,8 @@ Corrigir essa brecha costuma destravar os resultados de faturamento e melhorar a
         
         if (newStatus === 'Convertido') {
           triggerConfettiCelebration();
-          showNotification(`🚀 Contrato Fechado com ${lead.empresa}!`);
-          addConsoleLog(`🏆 CONTRATO FECHADO: Lead "${lead.empresa}" converteu! LTV conciliado no Notion CRM.`, 'success');
+          showNotification(`Contrato Fechado com ${lead.empresa}!`);
+          addConsoleLog(`[CONTRATO FECHADO] Lead "${lead.empresa}" converteu! LTV conciliado no Notion CRM.`, 'success');
         }
 
         recalculateMetrics();
@@ -804,7 +804,7 @@ Corrigir essa brecha costuma destravar os resultados de faturamento e melhorar a
                   <div>
                     <h4 class="text-sm font-bold text-textPrimary">${lead.empresa}</h4>
                     <a href="${lead.site}" target="_blank" class="text-[10px] text-textSecondary hover:underline font-space mt-1 inline-flex items-center gap-1">
-                      🌐 ${lead.site.replace('https://', '')}
+                      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="inline" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg> ${lead.site.replace('https://', '')}
                     </a>
                   </div>
                   <span class="text-[8px] font-space px-2 py-0.5 rounded font-bold uppercase tracking-wider ${routing.color}">
@@ -861,18 +861,18 @@ Corrigir essa brecha costuma destravar os resultados de faturamento e melhorar a
         else if (lead.status === 'Convertido') borderLeftColor = '#00f2fe';
         else if (lead.status === 'Reunião agendada') borderLeftColor = 'rgba(255, 255, 255, 0.3)';
 
-        let urgencyLabel = '🟢 Recente';
+        let urgencyLabel = 'Recente';
         let urgencyColor = 'text-textPrimary bg-white/5 border border-white/10';
         if (lead.diasPassados >= 10) {
-          urgencyLabel = '⚫ Crítico';
+          urgencyLabel = 'Crítico';
           urgencyColor = 'text-textSecondary bg-white/5 border border-white/5';
         } else if (lead.diasPassados >= 5) {
-          urgencyLabel = '⚫ Pendente';
+          urgencyLabel = 'Pendente';
           urgencyColor = 'text-textSecondary bg-white/5 border border-white/5';
         }
 
         if (lead.status === 'Convertido') {
-          urgencyLabel = '🏆 Sucesso';
+          urgencyLabel = 'Sucesso';
           urgencyColor = 'text-textPrimary bg-white/10 border border-white/20';
         }
 
