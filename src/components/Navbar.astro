@@ -71,127 +71,29 @@ import logoImg from '../assets/logo nathan.png';
 </div>
 
 <!-- Gaveta de Projetos (Overlay) -->
-<div id="project-drawer" class="fixed inset-0 z-[60] bg-darkBg translate-y-[-100%] transition-transform duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] pointer-events-none overflow-y-auto scrollbar-thin py-12 md:py-20 flex items-center justify-center">
-  <div class="max-w-7xl w-full mx-auto px-6 md:px-12 lg:px-24">
-    
-    <!-- Cabeçalho Gaveta -->
-    <div class="flex justify-between items-center mb-12">
-      <h2 class="text-textSecondary font-space text-xs tracking-[0.3em] uppercase mt-2">Eixos de Especialização</h2>
-      <button id="close-drawer" aria-label="Fechar gaveta de projetos" class="text-textPrimary hover:text-brandCyan transition-colors p-4 bg-surface rounded-full border border-white/5 cursor-pointer active:scale-95">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+<div id="project-drawer" class="fixed inset-0 z-[60] bg-darkBg translate-y-[-100%] transition-transform duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] pointer-events-none overflow-hidden">
+  <div class="h-full flex flex-col justify-center px-8 md:px-20 lg:px-40">
+    <div class="flex justify-between items-start mb-12">
+      <h2 class="text-textSecondary font-space text-xs tracking-[0.3em] uppercase mt-4">Eixos de Especialização</h2>
+      <button id="close-drawer" aria-label="Fechar gaveta de projetos" class="text-textPrimary hover:text-brandCyan transition-colors p-4">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
           <path d="M18 6L6 18M6 6l12 12" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       </button>
     </div>
 
-    <!-- Layout de Duas Colunas Principal -->
-    <div class="grid lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
-      
-      <!-- Coluna da Esquerda: Eixo UX Design (col-span-4) -->
-      <div class="lg:col-span-4 flex flex-col justify-center">
-        <a href="/ux" class="group flex flex-col items-start p-8 rounded-[32px] bg-surface border border-brandCyan/5 hover:border-brandCyan/20 transition-all h-full justify-between">
-          <div class="flex flex-col gap-4">
-            <span class="text-blue-400 font-space text-[10px] uppercase tracking-widest">Eixo UX Design</span>
-            <h3 class="text-textPrimary text-3xl font-sora font-bold group-hover:text-brandCyan transition-colors">Interfaces & Sistemas</h3>
-            <p class="text-textSecondary text-sm leading-relaxed font-sora">Aplicações desenhadas para mitigar a carga cognitiva e anular a fricção do usuário.</p>
-          </div>
-          <span class="inline-flex items-center text-xs font-space font-bold text-brandCyan group-hover:translate-x-2 transition-transform mt-8">
-            EXPLORAR EIXO UX DESIGN <span class="ml-2">→</span>
-          </span>
-        </a>
-      </div>
+    <div class="grid md:grid-cols-2 gap-8 md:gap-12">
+      <a href="/ux" class="group flex flex-col items-start p-8 rounded-[32px] bg-surface border border-brandCyan/5 hover:border-brandCyan/20 transition-all">
+        <span class="text-blue-400 font-space text-[10px] uppercase tracking-widest mb-4">Eixo UX Design</span>
+        <h3 class="text-textPrimary text-3xl md:text-4xl font-sora font-bold mb-4 group-hover:text-brandCyan transition-colors">Interfaces & Sistemas</h3>
+        <p class="text-textSecondary text-sm md:text-base leading-relaxed font-sora">Aplicações desenhadas para mitigar a carga cognitiva e anular a fricção do usuário.</p>
+      </a>
 
-      <!-- Coluna da Direita: Eixo Automação e Código (col-span-8) -->
-      <div class="lg:col-span-8 flex flex-col items-start p-8 rounded-[32px] bg-surface border border-brandCyan/5">
-        <div class="mb-6">
-          <span class="text-blue-400 font-space text-[10px] uppercase tracking-widest mb-2 block">Eixo Automação e Código</span>
-          <h3 class="text-textPrimary text-2xl font-sora font-bold">Arquitetura & Engenharia de IA</h3>
-        </div>
-
-        <!-- Sub-layout do Switcher: Botões à esquerda, Detalhes à direita -->
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-6 w-full items-start">
-          
-          <!-- Lado Esquerdo: Stack de Botões de Projetos (col-span-5) -->
-          <div class="md:col-span-5 flex flex-col gap-3 w-full">
-            <button id="btn-project-crm" class="project-drawer-btn active w-full p-4 rounded-xl text-left font-sora font-bold text-xs transition-all border border-brandCyan bg-brandCyan text-textPrimary cursor-pointer">
-              CRM Inteligente
-            </button>
-            <button id="btn-project-software" class="project-drawer-btn w-full p-4 rounded-xl text-left font-sora font-bold text-xs transition-all border border-white/5 bg-darkBg/40 text-textSecondary hover:text-textPrimary cursor-pointer">
-              Criação de Software
-            </button>
-            <button id="btn-project-data" class="project-drawer-btn w-full p-4 rounded-xl text-left font-sora font-bold text-xs transition-all border border-white/5 bg-darkBg/40 text-textSecondary hover:text-textPrimary cursor-pointer">
-              Eficiência de Dados
-            </button>
-          </div>
-
-          <!-- Lado Direito: Painel de Detalhes do Projeto (col-span-7) -->
-          <div class="md:col-span-7 w-full p-5 bg-darkBg/40 border border-white/5 rounded-2xl min-h-[220px] flex items-center">
-            
-            <!-- Detalhes CRM Inteligente -->
-            <div id="detail-project-crm" class="project-drawer-detail transition-all duration-300 opacity-100 scale-100 flex flex-col gap-3 w-full">
-              <div class="flex justify-between items-start gap-2">
-                <h4 class="text-sm font-sora font-bold text-brandCyan">Sistema de Prospecção Automatizada</h4>
-                <div class="flex gap-1">
-                  <span class="px-2 py-0.5 bg-surface border border-brandCyan/10 rounded-full text-[8px] font-space text-blue-400">Python</span>
-                  <span class="px-2 py-0.5 bg-surface border border-brandCyan/10 rounded-full text-[8px] font-space text-blue-400">Gemini</span>
-                </div>
-              </div>
-              <p class="text-xs text-textSecondary font-sora leading-relaxed">
-                <strong class="text-red-400 font-medium">Problema:</strong> Processo de prospecção manual drena tempo comercial e gera falhas de digitação no funil.
-              </p>
-              <p class="text-xs text-textSecondary font-sora leading-relaxed">
-                <strong class="text-brandCyan font-medium">Lógica:</strong> Captura automática de leads ➔ Personalização com IA ➔ Envio direto integrado ao Notion.
-              </p>
-              <a href="/automations#crm-inteligente" class="inline-flex items-center text-[10px] font-space font-bold text-brandCyan hover:text-white transition-colors mt-2 w-fit group">
-                ⚡ VER CASO COMPLETO E SIMULAR <span class="ml-1 group-hover:translate-x-1 transition-transform">→</span>
-              </a>
-            </div>
-
-            <!-- Detalhes Criação de Software -->
-            <div id="detail-project-software" class="project-drawer-detail hidden transition-all duration-300 opacity-0 scale-[0.98] flex flex-col gap-3 w-full">
-              <div class="flex justify-between items-start gap-2">
-                <h4 class="text-sm font-sora font-bold text-brandCyan">Menu Digital Personalizado</h4>
-                <div class="flex gap-1">
-                  <span class="px-2 py-0.5 bg-surface border border-brandCyan/10 rounded-full text-[8px] font-space text-blue-400">Node.js</span>
-                  <span class="px-2 py-0.5 bg-surface border border-brandCyan/10 rounded-full text-[8px] font-space text-blue-400">APIs</span>
-                </div>
-              </div>
-              <p class="text-xs text-textSecondary font-sora leading-relaxed">
-                <strong class="text-red-400 font-medium">Problema:</strong> Atendimento manual em picos de demanda custa até 40% das conversões de reservas no comercial.
-              </p>
-              <p class="text-xs text-textSecondary font-sora leading-relaxed">
-                <strong class="text-brandCyan font-medium">Lógica:</strong> Evolution API via Webhook ➔ Sincronização em banco assíncrono Node.js ➔ Despacho instantâneo do menu.
-              </p>
-              <a href="/automations#ecossistema-menu" class="inline-flex items-center text-[10px] font-space font-bold text-brandCyan hover:text-white transition-colors mt-2 w-fit group">
-                ⚡ VER CASO COMPLETO E SIMULAR <span class="ml-1 group-hover:translate-x-1 transition-transform">→</span>
-              </a>
-            </div>
-
-            <!-- Detalhes Eficiência de Dados -->
-            <div id="detail-project-data" class="project-drawer-detail hidden transition-all duration-300 opacity-0 scale-[0.98] flex flex-col gap-3 w-full">
-              <div class="flex justify-between items-start gap-2">
-                <h4 class="text-sm font-sora font-bold text-brandCyan">Pipeline de Higienização B2B</h4>
-                <div class="flex gap-1">
-                  <span class="px-2 py-0.5 bg-surface border border-brandCyan/10 rounded-full text-[8px] font-space text-blue-400">Python</span>
-                  <span class="px-2 py-0.5 bg-surface border border-brandCyan/10 rounded-full text-[8px] font-space text-blue-400">Pandas</span>
-                </div>
-              </div>
-              <p class="text-xs text-textSecondary font-sora leading-relaxed">
-                <strong class="text-red-400 font-medium">Problema:</strong> Bases brutas duplicadas, com nulos e formatação bagunçada quebram pipelines comerciais e de marketing.
-              </p>
-              <p class="text-xs text-textSecondary font-sora leading-relaxed">
-                <strong class="text-brandCyan font-medium">Lógica:</strong> Ingestão de bases xlsx/csv ➔ Fuzzy Matching e Pandas de higienização de nulos ➔ Carga limpa no banco.
-              </p>
-              <a href="/automations#purifier-engine" class="inline-flex items-center text-[10px] font-space font-bold text-brandCyan hover:text-white transition-colors mt-2 w-fit group">
-                ⚡ VER CASO COMPLETO E SIMULAR <span class="ml-1 group-hover:translate-x-1 transition-transform">→</span>
-              </a>
-            </div>
-
-          </div>
-
-        </div>
-      </div>
-
+      <a href="/automations" class="group flex flex-col items-start p-8 rounded-[32px] bg-surface border border-brandCyan/5 hover:border-brandCyan/20 transition-all">
+        <span class="text-blue-400 font-space text-[10px] uppercase tracking-widest mb-4">Eixo Automação e Código</span>
+        <h3 class="text-textPrimary text-3xl md:text-4xl font-sora font-bold mb-4 group-hover:text-brandCyan transition-colors">Arquitetura & Engenharia de IA</h3>
+        <p class="text-textSecondary text-sm md:text-base leading-relaxed font-sora">Pipelines de dados autônomos e microsserviços resilientes em Python e Node.js.</p>
+      </a>
     </div>
   </div>
 </div>
@@ -242,49 +144,5 @@ import logoImg from '../assets/logo nathan.png';
       toggleMobileMenu(false);
       setTimeout(() => toggleDrawer(true), 300);
     });
-
-    // Drawer Project Switcher Logic
-    const btnCrm = document.getElementById('btn-project-crm');
-    const btnSoftware = document.getElementById('btn-project-software');
-    const btnData = document.getElementById('btn-project-data');
-
-    const detailCrm = document.getElementById('detail-project-crm');
-    const detailSoftware = document.getElementById('detail-project-software');
-    const detailData = document.getElementById('detail-project-data');
-
-    const allButtons = [btnCrm, btnSoftware, btnData];
-    const allDetails = [detailCrm, detailSoftware, detailData];
-
-    const selectProject = (activeBtn, activeDetail) => {
-      // Toggle button styles
-      allButtons.forEach(btn => {
-        if (btn === activeBtn) {
-          btn?.classList.add('border-brandCyan', 'bg-brandCyan', 'text-textPrimary');
-          btn?.classList.remove('border-white/5', 'bg-darkBg/40', 'text-textSecondary', 'hover:text-textPrimary');
-        } else {
-          btn?.classList.remove('border-brandCyan', 'bg-brandCyan', 'text-textPrimary');
-          btn?.classList.add('border-white/5', 'bg-darkBg/40', 'text-textSecondary', 'hover:text-textPrimary');
-        }
-      });
-
-      // Toggle details panels
-      allDetails.forEach(detail => {
-        if (detail === activeDetail) {
-          detail?.classList.remove('hidden');
-          setTimeout(() => {
-            detail?.classList.remove('opacity-0', 'scale-[0.98]');
-            detail?.classList.add('opacity-100', 'scale-100');
-          }, 50);
-        } else {
-          detail?.classList.add('hidden');
-          detail?.classList.remove('opacity-100', 'scale-100');
-          detail?.classList.add('opacity-0', 'scale-[0.98]');
-        }
-      });
-    };
-
-    btnCrm?.addEventListener('click', () => selectProject(btnCrm, detailCrm));
-    btnSoftware?.addEventListener('click', () => selectProject(btnSoftware, detailSoftware));
-    btnData?.addEventListener('click', () => selectProject(btnData, detailData));
   });
 </script>
