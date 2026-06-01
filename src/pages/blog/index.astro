@@ -1,0 +1,60 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const allPosts = await getCollection('blog', ({ data }) => {
+  return data.draft !== true;
+});
+
+const sortedPosts = allPosts.sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+---
+
+<Layout title="Blog | Nathan Borges">
+  <main class="pt-32 pb-20 px-8 max-w-5xl mx-auto">
+    <header class="mb-16">
+      <h1 class="text-4xl md:text-5xl font-sora font-bold text-textPrimary mb-4">Blog</h1>
+      <p class="text-textSecondary font-space text-lg">Artigos sobre Engenharia de Software, UX e Automação.</p>
+    </header>
+
+    <div class="grid gap-8">
+      {sortedPosts.map((post) => (
+        <article class="bg-surface border border-white/5 rounded-2xl p-8 hover:border-brandCyan/30 transition-colors group">
+          <a href={`/blog/${post.slug}`} class="block">
+            <h2 class="text-2xl font-sora font-bold text-textPrimary group-hover:text-brandCyan transition-colors mb-3">
+              {post.data.title}
+            </h2>
+            <div class="flex items-center gap-4 mb-4">
+              <time class="text-[#36d6d6] font-space text-[11px] uppercase tracking-widest font-bold" datetime={post.data.pubDate.toISOString()}>
+                {post.data.pubDate.toLocaleDateString('pt-BR', {
+                  year: 'numeric',
+                  month: 'long',
+                  day: 'numeric',
+                })}
+              </time>
+              {post.data.tags && post.data.tags.length > 0 && (
+                <div class="flex gap-2">
+                  {post.data.tags.map((tag: string) => (
+                    <span class="bg-white/5 border border-white/10 px-2 py-1 rounded text-[9px] font-space text-textSecondary uppercase tracking-wider">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              )}
+            </div>
+            <p class="text-textSecondary font-sora text-sm leading-relaxed">
+              {post.data.description}
+            </p>
+          </a>
+        </article>
+      ))}
+      
+      {sortedPosts.length === 0 && (
+        <div class="text-center py-20 border border-dashed border-white/10 rounded-2xl">
+          <p class="text-textSecondary font-space">Nenhum artigo publicado ainda.</p>
+        </div>
+      )}
+    </div>
+  </main>
+</Layout>
