@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="noindex" />
     <title>Gerenciador de Conteúdo - Blog</title>
+    <!-- Explicitamente aponta para o config.yml na raiz do site para evitar erro 404 em rotas da Vercel sem barra no final -->
+    <link href="/admin/config.yml" type="text/yaml" rel="cms-config-url">
   </head>
   <body>
     <!-- Include the script that builds the page and powers Decap CMS -->
