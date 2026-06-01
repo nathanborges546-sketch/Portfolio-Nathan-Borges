@@ -75,39 +75,68 @@ Organizations must ask: Is our technology an engine for growth, or an anchor? If
 
 # Sources
 
-    - **2022 Southwest Airlines scheduling crisis - Wikipedia:** `https://en.wikipedia.org/wiki/2022_Southwest_Airlines_scheduling_crisis`
-- **40% Maintaining, 20% Innovating - The Technical Debt Math Nobody Talks About**: `https://thomasnys.com/posts/40-maintaining-20-innovating-the-technical-debt-math-nobody-talks-about/`
-- **Breaking technical debt's vicious cycle to modernize your business - McKinsey**: `https://www.mckinsey.com/capabilities/tech-and-ai/our-insights/breaking-technical-debts-vicious-cycle-to-modernize-your-business`
-- **Breaking technical debt's vicious cycle to modernize your business – McKinsey (Blog/Repost)**: `https://healthcarereimagined.net/2023/05/01/breaking-technical-debts-vicious-cycle-to-modernize-your-business-mckinsey/`
-- **Case Study 4: The $440 Million Software Error at Knight Capital ...**: `https://www.henricodolfing.ch/en/case-study-4-the-440-million-software-error-at-knight-capital/`
-- **Cost of Poor Software Quality in the U.S.: A 2022 Report - CISQ**: `https://www.it-cisq.org/the-cost-of-poor-quality-software-in-the-us-a-2022-report/`
-- **Cost-of-Delay: A Framework for Air Force Software Factories - Air University**: `https://www.airuniversity.af.edu/Portals/10/ASPJ/journals/Volume-35_Issue-4/RM-Goljan.pdf`
-- **DOT Penalizes Southwest Airlines $140 Million for 2022 Holiday Meltdown**: `https://www.transportation.gov/briefing-room/dot-penalizes-southwest-airlines-140-million-2022-holiday-meltdown`
-- **Demystifying digital dark matter: A new standard to tame technical debt - McKinsey**: `https://www.mckinsey.com/capabilities/tech-and-ai/our-insights/demystifying-digital-dark-matter-a-new-standard-to-tame-technical-debt`
-- **Four Ways Software Architects Can Manage Technical Debt - vFunction**: `https://vfunction.com/blog/four-ways-software-architects-can-manage-technical-debt/`
-- **How ISO 25010 Frameworks Reduce Technical Debt in Long-Term Projects | Monterail blog**: `https://www.monterail.com/blog/software-qa-standards-iso-25010`
-- **How to Measure Technical Debt: 7 Key Metrics for CTOs - Dreamix**: `https://dreamix.eu/insights/how-to-measure-technical-debt-for-ctos/`
-- **ISEDJ-V22-N5 The Southwest Airlines Winter Meltdown**: `https://isedj.org/2024-22/n5/ISEDJv22n5p59.html`
-- **Knight Capital Americas LLC - SEC.gov**: `https://www.sec.gov/files/litigation/admin/2013/34-70694.pdf`
-- **Knight Capital Group, Inc. | Saxena White P.A.**: `https://www.saxenawhite.com/cases/knight-capital-group-inc/`
-- **Lessons from the Runway: How Southwest's System Crash Illuminates Healthcare's Technical Debt Problem | UCSF Synapse**: `https://synapse.ucsf.edu/articles/2025/02/18/lessons-runway-how-southwests-system-crash-illuminates-healthcares-technical`
-- **New Research: The Cost of Poor Software Quality in the US (2022 Report) - Undo.io**: `https://undo.io/resources/new-research-cost-poor-software-quality-us-2022-report/`
-- **Opportunity cost of technical debt | TinyMCE White Paper**: `https://www.tiny.cloud/technical-debt-whitepaper/`
-- **SEC Charges Knight Capital With Violations of Market Access Rule**: `https://www.sec.gov/newsroom/press-releases/2013-222`
-- **Software engineering efficiency and its $3 trillion impact on global GDP - Stripe**: `https://stripe.com/files/reports/the-developer-coefficient.pdf`
-- **Tech Debt Blocks 56% of Firms From AI Investment: KPMG 2026 ...**: `https://byteiota.com/tech-debt-blocks-56-of-firms-from-ai-investment-kpmg-2026/`
-- **Tech Debt Measurement Frameworks | techdebt.best**: `https://techdebt.best/measurement-frameworks/`
-- **Tech debt: Reclaiming tech equity - McKinsey**: `https://www.mckinsey.com/~/media/McKinsey/Business%20Functions/McKinsey%20Digital/Our%20Insights/Tech%20debt%20Reclaiming%20tech%20equity/Tech-debt-Reclaiming-tech-equity.pdf`
-- **Technical Debt Management: Purpose, Scope and Rationale | Ardoq Help**: `https://help.ardoq.com/en/articles/171964-technical-debt-management-purpose-scope-and-rationale`
-- **Technical Debt ROI: How McKinsey's 20% Data Wins | byteiota**: `https://byteiota.com/technical-debt-roi-how-mckinseys-20-data-wins/`
-- **Technical Debt in Agile: Strategies for Management - Agility at Scale**: `https://agility-at-scale.com/safe/team-technical-agility/technical-debt/`
-- **Technical Debt vs. Architecture Debt: Don't Confuse Them - The New Stack**: `https://thenewstack.io/technical-debt-vs-architecture-debt-dont-confuse-them/`
-- **Technical debt - Wikipedia**: `https://en.wikipedia.org/wiki/Technical_debt`
-- **The Developer Productivity Manifesto Part 3 — Leaving Software on the Table**: `https://lsvp.com/stories/the-developer-productivity-manifesto-part-3-leaving-software-on-the-table/`
-- **The Hidden $2.4 Trillion Crisis: Why Software Quality Can't Wait - DEV Community**: `https://dev.to/esha_suchana_3514f571649c/the-hidden-24-trillion-crisis-why-software-quality-cant-wait-57ei`
-- **The Knight Capital Algorithmic Trading Failure - PRMIA**: `https://prmia.org/common/Uploaded%20files/eAI/PRMIA%20Case%20study%20-%20Knight%20Trading.pdf`
-- **The Real Cost of Technical Debt in Product Development - Treetown Tech**: `https://www.treetowntech.com/the-real-cost-of-technical-debt-in-product-development/`
-- **What is technical debt and how to manage it effectively - Zendesk**: `https://www.zendesk.com/blog/zendesk-insights/expertise/technical-debt/`
-- **Why Technical Debt Isn't a Technical Problem | Southwest Case**: `https://jonathangardner.io/why-technical-debt-isnt-a-technical-problem/`
-- **Why technical debt is a risk for your business (and how to fix it) - ProductDock**: `https://productdock.com/why-technical-debt-is-a-risk-for-your-business-and-how-to-fix-it/`
-- **[Analyst Report] 2022 The Cost of Poor Quality Software | Black Duck**: `https://www.blackduck.com/resources/analyst-reports/cost-poor-quality-software.html`
+- [**40% Maintaining, 20% Innovating - The Technical Debt Math Nobody Talks About**](https://thomasnys.com/posts/40-maintaining-20-innovating-the-technical-debt-math-nobody-talks-about/)
+
+- [**Breaking technical debt's vicious cycle to modernize your business - McKinsey**](https://www.mckinsey.com/capabilities/tech-and-ai/our-insights/breaking-technical-debts-vicious-cycle-to-modernize-your-business)
+
+- [**Case Study 4: The $440 Million Software Error at Knight Capital**](https://www.henricodolfing.ch/en/case-study-4-the-440-million-software-error-at-knight-capital/)
+
+- [**Cost of Poor Software Quality in the U.S.: A 2022 Report - CISQ**](https://www.it-cisq.org/the-cost-of-poor-quality-software-in-the-us-a-2022-report/)
+
+- [**Cost-of-Delay: A Framework for Air Force Software Factories - Air University**](https://www.airuniversity.af.edu/Portals/10/ASPJ/journals/Volume-35_Issue-4/RM-Goljan.pdf)
+
+- [**DOT Penalizes Southwest Airlines $140 Million for 2022 Holiday Meltdown**](https://www.transportation.gov/briefing-room/dot-penalizes-southwest-airlines-140-million-2022-holiday-meltdown)
+
+- [**Demystifying digital dark matter: A new standard to tame technical debt - McKinsey** ](https://www.mckinsey.com/capabilities/tech-and-ai/our-insights/demystifying-digital-dark-matter-a-new-standard-to-tame-technical-debt)
+
+- [**Four Ways Software Architects Can Manage Technical Debt - vFunction**](https://vfunction.com/blog/four-ways-software-architects-can-manage-technical-debt/)
+
+- [**How ISO 25010 Frameworks Reduce Technical Debt in Long-Term Projects | Monterail blog**](https://www.monterail.com/blog/software-qa-standards-iso-25010)
+
+- [**How to Measure Technical Debt: 7 Key Metrics for CTOs - Dreamix**](https://dreamix.eu/insights/how-to-measure-technical-debt-for-ctos/)
+
+- [**ISEDJ-V22-N5 The Southwest Airlines Winter Meltdown**](https://isedj.org/2024-22/n5/ISEDJv22n5p59.html)
+
+- [**Knight Capital Americas LLC - SEC.gov**](https://www.sec.gov/files/litigation/admin/2013/34-70694.pdf)
+
+- [**Knight Capital Group, Inc. | Saxena White P.A.**](https://www.saxenawhite.com/cases/knight-capital-group-inc/)
+
+- [**Lessons from the Runway: How Southwest's System Crash Illuminates Healthcare's Technical Debt Problem | UCSF Synapse**](https://synapse.ucsf.edu/articles/2025/02/18/lessons-runway-how-southwests-system-crash-illuminates-healthcares-technical)
+
+- [**New Research: The Cost of Poor Software Quality in the US (2022 Report) - Undo.io**](https://undo.io/resources/new-research-cost-poor-software-quality-us-2022-report/)
+
+- [**Opportunity cost of technical debt | TinyMCE White Paper**](https://www.tiny.cloud/technical-debt-whitepaper/)
+
+- [**SEC Charges Knight Capital With Violations of Market Access Rule**](https://www.sec.gov/newsroom/press-releases/2013-222)
+
+- [**Software engineering efficiency and its $3 trillion impact on global GDP - Stripe**](https://stripe.com/files/reports/the-developer-coefficient.pdf)
+
+- [**Tech Debt Blocks 56% of Firms From AI Investment: KPMG 2026**](https://byteiota.com/tech-debt-blocks-56-of-firms-from-ai-investment-kpmg-2026/)
+
+- [**Tech Debt Measurement Frameworks | techdebt.best**](https://techdebt.best/measurement-frameworks/)
+
+- [**Tech debt: Reclaiming tech equity - McKinsey**](https://www.mckinsey.com/~/media/McKinsey/Business%20Functions/McKinsey%20Digital/Our%20Insights/Tech%20debt%20Reclaiming%20tech%20equity/Tech-debt-Reclaiming-tech-equity.pdf)
+
+- [**Technical Debt Management: Purpose, Scope and Rationale | Ardoq Help**](https://help.ardoq.com/en/articles/171964-technical-debt-management-purpose-scope-and-rationale)
+
+- [**Technical Debt ROI: How McKinsey's 20% Data Wins | byteiota**](https://byteiota.com/technical-debt-roi-how-mckinseys-20-data-wins/)
+
+- [**Technical Debt in Agile: Strategies for Management - Agility at Scale**](https://agility-at-scale.com/safe/team-technical-agility/technical-debt/)
+
+- [**Technical Debt vs. Architecture Debt: Don't Confuse Them - The New Stack**](https://thenewstack.io/technical-debt-vs-architecture-debt-dont-confuse-them/)
+
+- [**The Developer Productivity Manifesto Part 3 — Leaving Software on the Table**](https://lsvp.com/stories/the-developer-productivity-manifesto-part-3-leaving-software-on-the-table/)
+
+- [**The Hidden $2.4 Trillion Crisis: Why Software Quality Can't Wait - DEV Community**](https://dev.to/esha_suchana_3514f571649c/the-hidden-24-trillion-crisis-why-software-quality-cant-wait-57ei)
+
+- [**The Knight Capital Algorithmic Trading Failure - PRMIA**](https://prmia.org/common/Uploaded%20files/eAI/PRMIA%20Case%20study%20-%20Knight%20Trading.pdf)
+
+- [**The Real Cost of Technical Debt in Product Development - Treetown Tech**](https://www.treetowntech.com/the-real-cost-of-technical-debt-in-product-development/)
+
+- [**What is technical debt and how to manage it effectively - Zendesk**](https://www.zendesk.com/blog/zendesk-insights/expertise/technical-debt/)
+
+- [**Why Technical Debt Isn't a Technical Problem | Southwest Case**](https://jonathangardner.io/why-technical-debt-isnt-a-technical-problem/)
+
+- [**Why technical debt is a risk for your business (and how to fix it) - ProductDock**](https://productdock.com/why-technical-debt-is-a-risk-for-your-business-and-how-to-fix-it/)
+
+- [**[Analyst Report] 2022 The Cost of Poor Quality Software | Black Duck**](https://www.blackduck.com/resources/analyst-reports/cost-poor-quality-software.html)
