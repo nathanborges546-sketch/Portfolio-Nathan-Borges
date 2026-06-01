@@ -11,5 +11,9 @@
   <body>
     <!-- Substituído Decap pelo Sveltia CMS: 100% compatível, mas possui autenticação GitHub OAuth nativa (Não precisa de backend na Vercel) -->
     <script src="https://unpkg.com/@sveltia/cms/dist/sveltia-cms.js"></script>
+    <script>
+      // Força o CMS a puxar nosso CSS escuro para que você veja a prévia exatamente como ela sairá no site!
+      CMS.registerPreviewStyle("/admin/preview.css");
+    </script>
   </body>
 </html>
