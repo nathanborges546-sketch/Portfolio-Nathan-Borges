@@ -236,50 +236,47 @@ const uxCases = [
                 data-slide-index-ux={index}
                 class={`w-full flex flex-col md:flex-row gap-8 md:gap-12 p-6 md:p-12 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] bg-surface rounded-[36px] border border-brandCyan/5 hover:border-brandCyan/25 ${isActive ? 'relative opacity-100 scale-100 pointer-events-auto z-10 translate-x-0' : 'absolute inset-0 opacity-0 scale-[0.98] pointer-events-none z-0 translate-x-8'}`}
               >
-                <!-- Lado Esquerdo: Conteúdo Comercial -->
-                <div class="flex-1 flex flex-col justify-between gap-6">
-                  <div class="flex flex-col gap-4">
-                    <span class="font-space text-3xl md:text-5xl text-brandCyan font-bold tracking-tight">{c.metric}</span>
-                    <h4 class="text-xl md:text-3xl font-sora font-bold text-textPrimary tracking-tight">{c.title}</h4>
-                    <p class="text-textSecondary text-sm md:text-base leading-relaxed font-sora max-w-xl">{c.desc}</p>
+                <!-- Lado Esquerdo: Conteúdo Comercial (Texto reduzido para dar mais foco visual ao projeto) -->
+                <div class="w-full md:w-5/12 lg:w-1/3 flex flex-col justify-between gap-6 z-10">
+                  <div class="flex flex-col gap-3">
+                    <span class="font-space text-2xl md:text-3xl text-brandCyan font-bold tracking-tight">{c.metric}</span>
+                    <h4 class="text-lg md:text-xl font-sora font-bold text-textPrimary tracking-tight leading-snug">{c.title}</h4>
+                    <p class="text-textSecondary text-xs md:text-sm leading-relaxed font-sora max-w-sm">{c.desc}</p>
                   </div>
 
                   <div>
-                    <div class="flex flex-wrap gap-2 mb-8">
+                    <div class="flex flex-wrap gap-2 mb-6">
                       {c.tags.map(tag => (
-                        <span class="px-3 py-1 bg-darkBg border border-brandCyan/10 rounded-full text-[9px] md:text-[10px] font-space text-blue-400">{tag}</span>
+                        <span class="px-2.5 py-1 bg-darkBg border border-brandCyan/10 rounded-full text-[9px] font-space text-blue-400">{tag}</span>
                       ))}
                     </div>
                     {c.link && (
                       <a 
                         href={c.link} 
                         target="_blank"
-                        class="inline-flex items-center justify-center px-6 py-3.5 md:px-8 md:py-4 bg-[#f3f4f6] text-[#0b0e14] font-space font-bold rounded-xl hover:bg-white hover:text-[#0b0e14] transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_0_30px_rgba(243,244,246,0.3)] active:scale-95 uppercase tracking-wider text-xs w-fit group"
+                        class="inline-flex items-center justify-center px-5 py-3 bg-[#f3f4f6] text-[#0b0e14] font-space font-bold rounded-lg hover:bg-white hover:text-[#0b0e14] transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_0_20px_rgba(243,244,246,0.3)] active:scale-95 uppercase tracking-wider text-[10px] w-fit group"
                       >
                         Acessar Plataforma
-                        <span class="ml-2 group-hover:translate-x-1 transition-transform font-bold text-sm">→</span>
+                        <span class="ml-2 group-hover:translate-x-1 transition-transform font-bold text-xs">→</span>
                       </a>
                     )}
                   </div>
                 </div>
 
-                <!-- Lado Direito: Preview Decorativo/Iframe -->
-                <div class="hidden md:flex flex-1 items-center justify-center relative overflow-hidden bg-darkBg/30 border border-white/5 rounded-2xl p-8">
-                  <!-- Grid background -->
+                <!-- Lado Direito: Preview Decorativo/Iframe (Ocupando quase todo o quadro) -->
+                <div class="hidden md:flex w-full md:w-7/12 lg:w-2/3 items-center justify-center relative overflow-hidden bg-darkBg border border-white/5 rounded-2xl p-2 md:p-4 shadow-inner">
+                  <!-- Grid background sutil -->
                   <div class="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:16px_16px]"></div>
                   
                   {index === 0 && (
-                    <div class="relative w-full max-w-[220px] aspect-[9/16] z-10 rounded-[2rem] overflow-hidden border-[6px] border-[#1a1f26] shadow-2xl bg-[#0b0e14] flex items-center justify-center">
-                      <!-- Detalhe do Notch Mobile (Simulação de tela de smartphone) -->
-                      <div class="absolute top-0 inset-x-0 h-4 bg-[#1a1f26] rounded-b-xl w-1/3 mx-auto z-20"></div>
-                      
+                    <div class="relative w-full aspect-video z-10 rounded-xl overflow-hidden shadow-2xl border border-white/10">
                       <iframe 
                         src="https://www.vertci.com/" 
                         title="Projeto Vertci" 
                         border="0" 
                         loading="lazy" 
                         sandbox="allow-scripts allow-same-origin allow-forms allow-popups"
-                        class="w-full h-full border-none bg-white"
+                        class="w-full h-full border-none bg-[#0b0e14]"
                       ></iframe>
                     </div>
                   )}
