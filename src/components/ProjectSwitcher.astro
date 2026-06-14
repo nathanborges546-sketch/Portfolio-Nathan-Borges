@@ -26,18 +26,23 @@ const automationsCases = [
 
 const uxCases = [
   {
+    title: "Sistema de Interfaces & Landing Pages B2B",
+    metric: "Vertci",
+    desc: "Plataforma de alta conversão, unindo design estratégico, psicologia de cores e interações dinâmicas para captação de clientes.",
+    tags: ["UI/UX", "Astro", "Tailwind CSS"],
+    link: "https://www.vertci.com/"
+  },
+  {
     title: "Dashboard Analítico para Gestão de Dados de IA",
     metric: "Carga Cognitiva Mínima",
     desc: "Design de interface complexa focado em tomadores de decisão. Simplificação de 500+ data points diários.",
-    tags: ["Figma", "Design System", "User Flows"],
-    span: "md:col-span-2 md:row-span-2",
+    tags: ["Figma", "Design System", "User Flows"]
   },
   {
     title: "Redesign de Checkout e Fluxo de Entrada B2B",
     metric: "Nexus",
     desc: "Arquitetura de informação mobile-first e microcopy colaborativo para mitigação de erros humanos.",
-    tags: ["UX Writing", "Heurísticas", "Prototipagem"],
-    span: "md:col-span-1 md:row-span-1",
+    tags: ["UX Writing", "Heurísticas", "Prototipagem"]
   }
 ];
 ---
@@ -207,25 +212,131 @@ const uxCases = [
 
       </div>
 
-      <!-- Grid UX: Mantém o layout bento tradicional para UX -->
-      <div id="grid-ux" class="[grid-area:1/1] grid grid-cols-1 md:grid-cols-3 gap-6 transition-all duration-500 opacity-0 pointer-events-none translate-y-4">
-        {uxCases.map(c => (
-          <div class={`group relative bg-surface rounded-[32px] p-8 border border-brandCyan/5 hover:border-brandCyan/30 transition-all duration-300 overflow-hidden flex flex-col justify-between ${c.span}`}>
-            <div class="z-10">
-              <p class="font-space text-2xl md:text-3xl text-brandCyan font-bold mb-6 uppercase tracking-tight">{c.metric}</p>
-              <h4 class="text-xl md:text-2xl font-sora font-bold text-textPrimary mb-4">{c.title}</h4>
-              <p class="text-textSecondary text-sm leading-relaxed mb-8 font-sora">{c.desc}</p>
-            </div>
+      <!-- Grid UX: Carrossel Horizontal Dinâmico de Card Único -->
+      <div id="grid-ux" class="[grid-area:1/1] w-full max-w-full relative transition-all duration-500 opacity-0 pointer-events-none translate-y-4 group/carousel-ux">
+        
+        <!-- Carousel Nav Controls UX (Setas minimalistas nas laterais - Desktop) -->
+        <button id="btn-carousel-prev-ux" class="absolute -left-6 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full bg-[#161b22]/90 backdrop-blur-sm border border-white/10 md:flex hidden items-center justify-center text-textSecondary hover:text-white hover:border-white/30 hover:bg-[#0b0e14] transition-all cursor-pointer active:scale-95 shadow-xl">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M19 12H5M12 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <button id="btn-carousel-next-ux" class="absolute -right-6 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full bg-[#161b22]/90 backdrop-blur-sm border border-white/10 md:flex hidden items-center justify-center text-textSecondary hover:text-white hover:border-white/30 hover:bg-[#0b0e14] transition-all cursor-pointer active:scale-95 shadow-xl">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
 
-            <div class="z-10">
-              <div class="flex flex-wrap gap-2">
-                {c.tags.map(tag => (
-                  <span class="px-3 py-1 bg-darkBg border border-brandCyan/10 rounded-full text-[10px] font-space text-blue-400">{tag}</span>
-                ))}
+        <!-- Carousel Absolute Stack Container UX -->
+        <div class="relative w-full max-w-full min-h-[520px] md:min-h-[420px]">
+          {uxCases.map((c, index) => {
+            const isActive = index === 0;
+            return (
+              <div 
+                data-slide-index-ux={index}
+                class={`w-full flex flex-col md:flex-row gap-8 md:gap-12 p-6 md:p-12 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] bg-surface rounded-[36px] border border-brandCyan/5 hover:border-brandCyan/25 ${isActive ? 'relative opacity-100 scale-100 pointer-events-auto z-10 translate-x-0' : 'absolute inset-0 opacity-0 scale-[0.98] pointer-events-none z-0 translate-x-8'}`}
+              >
+                <!-- Lado Esquerdo: Conteúdo Comercial -->
+                <div class="flex-1 flex flex-col justify-between gap-6">
+                  <div class="flex flex-col gap-4">
+                    <span class="font-space text-3xl md:text-5xl text-brandCyan font-bold tracking-tight">{c.metric}</span>
+                    <h4 class="text-xl md:text-3xl font-sora font-bold text-textPrimary tracking-tight">{c.title}</h4>
+                    <p class="text-textSecondary text-sm md:text-base leading-relaxed font-sora max-w-xl">{c.desc}</p>
+                  </div>
+
+                  <div>
+                    <div class="flex flex-wrap gap-2 mb-8">
+                      {c.tags.map(tag => (
+                        <span class="px-3 py-1 bg-darkBg border border-brandCyan/10 rounded-full text-[9px] md:text-[10px] font-space text-blue-400">{tag}</span>
+                      ))}
+                    </div>
+                    {c.link && (
+                      <a 
+                        href={c.link} 
+                        target="_blank"
+                        class="inline-flex items-center justify-center px-6 py-3.5 md:px-8 md:py-4 bg-[#f3f4f6] text-[#0b0e14] font-space font-bold rounded-xl hover:bg-white hover:text-[#0b0e14] transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_0_30px_rgba(243,244,246,0.3)] active:scale-95 uppercase tracking-wider text-xs w-fit group"
+                      >
+                        Acessar Plataforma
+                        <span class="ml-2 group-hover:translate-x-1 transition-transform font-bold text-sm">→</span>
+                      </a>
+                    )}
+                  </div>
+                </div>
+
+                <!-- Lado Direito: Preview Decorativo/Iframe -->
+                <div class="hidden md:flex flex-1 items-center justify-center relative overflow-hidden bg-darkBg/30 border border-white/5 rounded-2xl p-8">
+                  <!-- Grid background -->
+                  <div class="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:16px_16px]"></div>
+                  
+                  {index === 0 && (
+                    <div class="relative w-full h-full max-h-[300px] z-10 rounded-xl overflow-hidden border border-white/10 shadow-2xl">
+                      <iframe 
+                        src="https://www.vertci.com/" 
+                        title="Projeto Vertci" 
+                        border="0" 
+                        loading="lazy" 
+                        sandbox="allow-scripts allow-same-origin allow-forms allow-popups"
+                        class="w-full h-full border-none object-cover"
+                      ></iframe>
+                    </div>
+                  )}
+
+                  {index === 1 && (
+                    <div class="relative w-full max-w-[280px] aspect-[4/3] bg-surface/50 border border-white/5 rounded-2xl p-5 shadow-2xl flex flex-col justify-between">
+                      <div class="flex justify-between items-center pb-3 border-b border-white/5">
+                        <span class="text-[9px] font-space text-textSecondary uppercase tracking-widest font-bold">Data Vis</span>
+                        <span class="w-2 h-2 rounded-full bg-[#36d6d6]"></span>
+                      </div>
+                      <div class="flex flex-col gap-2 my-3">
+                        <div class="h-1.5 w-full bg-white/5 rounded"></div>
+                        <div class="h-1.5 w-3/4 bg-white/5 rounded"></div>
+                        <div class="h-1.5 w-1/2 bg-white/5 rounded"></div>
+                      </div>
+                      <div class="flex justify-between items-center text-[10px]">
+                        <span class="text-textSecondary">Cognitive Load</span>
+                        <span class="text-[#36d6d6] font-bold">Low</span>
+                      </div>
+                    </div>
+                  )}
+
+                  {index === 2 && (
+                    <div class="relative w-full max-w-[280px] aspect-[4/3] bg-surface/50 border border-white/5 rounded-2xl p-5 shadow-2xl flex flex-col justify-between">
+                      <div class="flex justify-between items-center pb-3 border-b border-white/5">
+                        <span class="text-[9px] font-space text-textSecondary uppercase tracking-widest font-bold">Checkout Flow</span>
+                        <span class="text-[#36d6d6] text-[9px] font-bold">Optimized</span>
+                      </div>
+                      <div class="flex flex-col gap-2 my-3">
+                        <div class="h-1.5 w-full bg-brandCyan/20 rounded"></div>
+                        <div class="h-1.5 w-full bg-white/5 rounded"></div>
+                        <div class="h-1.5 w-full bg-white/5 rounded"></div>
+                      </div>
+                      <div class="flex justify-between items-center text-[10px]">
+                        <span class="text-textSecondary">Error Rate</span>
+                        <span class="text-[#36d6d6] font-bold">0.1%</span>
+                      </div>
+                    </div>
+                  )}
+                </div>
               </div>
-            </div>
-          </div>
-        ))}
+            );
+          })}
+        </div>
+
+        <!-- Mobile Navigation Controls UX -->
+        <div class="flex md:hidden justify-center items-center gap-6 mt-6">
+          <button id="btn-carousel-prev-mobile-ux" class="w-10 h-10 rounded-full bg-[#161b22] border border-white/5 flex items-center justify-center text-textSecondary active:scale-95 cursor-pointer">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M19 12H5M12 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <span id="carousel-indicator-mobile-ux" class="text-xs font-space text-textSecondary tracking-widest font-bold">1 / 3</span>
+          <button id="btn-carousel-next-mobile-ux" class="w-10 h-10 rounded-full bg-[#161b22] border border-white/5 flex items-center justify-center text-textSecondary active:scale-95 cursor-pointer">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
+
       </div>
 
     </div>
@@ -322,5 +433,46 @@ const uxCases = [
     btnCarouselNext?.addEventListener('click', handleNext);
     btnCarouselPrevMobile?.addEventListener('click', handlePrev);
     btnCarouselNextMobile?.addEventListener('click', handleNext);
+
+    // Carousel UX cases state
+    let activeCarouselIndexUx = 0;
+    const slidesUx = document.querySelectorAll('[data-slide-index-ux]');
+    const totalSlidesUx = slidesUx.length;
+    const btnCarouselPrevUx = document.getElementById('btn-carousel-prev-ux');
+    const btnCarouselNextUx = document.getElementById('btn-carousel-next-ux');
+    const btnCarouselPrevMobileUx = document.getElementById('btn-carousel-prev-mobile-ux');
+    const btnCarouselNextMobileUx = document.getElementById('btn-carousel-next-mobile-ux');
+    const carouselIndicatorMobileUx = document.getElementById('carousel-indicator-mobile-ux');
+
+    const renderCarouselUx = () => {
+      slidesUx.forEach((slide, idx) => {
+        if (idx === activeCarouselIndexUx) {
+          slide.classList.remove('absolute', 'inset-0', 'opacity-0', 'scale-[0.98]', 'pointer-events-none', 'z-0', 'translate-x-8');
+          slide.classList.add('relative', 'opacity-100', 'scale-100', 'pointer-events-auto', 'z-10', 'translate-x-0');
+        } else {
+          slide.classList.remove('relative', 'opacity-100', 'scale-100', 'pointer-events-auto', 'z-10', 'translate-x-0');
+          slide.classList.add('absolute', 'inset-0', 'opacity-0', 'scale-[0.98]', 'pointer-events-none', 'z-0', 'translate-x-8');
+        }
+      });
+
+      if (carouselIndicatorMobileUx) {
+        carouselIndicatorMobileUx.textContent = `${activeCarouselIndexUx + 1} / ${totalSlidesUx}`;
+      }
+    };
+
+    const handlePrevUx = () => {
+      activeCarouselIndexUx = (activeCarouselIndexUx - 1 + totalSlidesUx) % totalSlidesUx;
+      renderCarouselUx();
+    };
+
+    const handleNextUx = () => {
+      activeCarouselIndexUx = (activeCarouselIndexUx + 1) % totalSlidesUx;
+      renderCarouselUx();
+    };
+
+    btnCarouselPrevUx?.addEventListener('click', handlePrevUx);
+    btnCarouselNextUx?.addEventListener('click', handleNextUx);
+    btnCarouselPrevMobileUx?.addEventListener('click', handlePrevUx);
+    btnCarouselNextMobileUx?.addEventListener('click', handleNextUx);
   });
 </script>
